@@ -1,0 +1,26 @@
+{
+  "site": "KR-Jungnang",
+  "lwup_bias": -10.394323243261146,
+  "n_night": 15008,
+  "qh_bias": -30.13246868067126,
+  "n_qh": 8634,
+  "dTsa_model": -1.5469277408253683,
+  "n_dtsa": 15008,
+  "align_delta": 1,
+  "align_rmse": 0.0,
+  "align_start": 17521,
+  "model_steps": 57121,
+  "lwup_bias_noDJF": -9.6843922823282,
+  "k_equiv_bias": -2.018315192866242,
+  "provenance": {
+    "LWup_minus_(FIRA+FLDS)_night_mean": -1.3806911110048935e-05,
+    "LWup_night_mean": 358.32029442390655,
+    "FIRA+FLDS_night_mean": 358.3203082308176,
+    "LWup_minus_FIRE_night_mean": 0.0,
+    "FIRE_night_mean": 358.32029442390655,
+    "Ts_minus_Tair_night_mean_K": -1.5469277408253683,
+    "TSKIN_minus_Tair_night_mean_K": -1.125259744078874,
+    "TG_minus_Tair_night_mean_K": -1.125259744078874,
+    "Tair_echo_vs_forcing_RMSE": 0.0
+  }
+}

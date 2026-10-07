@@ -1,0 +1,26 @@
+{
+  "site": "FI-Torni",
+  "lwup_bias": -3.901660428088387,
+  "n_night": 22565,
+  "qh_bias": -32.80137272747136,
+  "n_qh": 11716,
+  "dTsa_model": -0.4043711007135214,
+  "n_dtsa": 22749,
+  "align_delta": 1,
+  "align_rmse": 0.0,
+  "align_start": 17521,
+  "model_steps": 70129,
+  "lwup_bias_noDJF": -3.791553380757099,
+  "k_equiv_bias": -0.7576039666191042,
+  "provenance": {
+    "LWup_minus_(FIRA+FLDS)_night_mean": -2.0834445549239255e-05,
+    "LWup_night_mean": 335.3772893730659,
+    "FIRA+FLDS_night_mean": 335.3773102075114,
+    "LWup_minus_FIRE_night_mean": 0.0,
+    "FIRE_night_mean": 335.3772893730659,
+    "Ts_minus_Tair_night_mean_K": -0.4043711007135214,
+    "TSKIN_minus_Tair_night_mean_K": -0.2382376253843318,
+    "TG_minus_Tair_night_mean_K": -0.2382376253843318,
+    "Tair_echo_vs_forcing_RMSE": 0.0
+  }
+}

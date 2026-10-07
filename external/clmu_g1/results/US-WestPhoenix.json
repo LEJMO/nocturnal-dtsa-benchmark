@@ -1,0 +1,26 @@
+{
+  "site": "US-WestPhoenix",
+  "lwup_bias": 4.806051124843783,
+  "n_night": 4701,
+  "qh_bias": 4.401376625868095,
+  "n_qh": 3813,
+  "dTsa_model": -0.4825313637519634,
+  "n_dtsa": 4701,
+  "align_delta": 1,
+  "align_rmse": 0.0,
+  "align_start": 17521,
+  "model_steps": 35857,
+  "lwup_bias_noDJF": 4.868020074365655,
+  "k_equiv_bias": 0.9332138106492782,
+  "provenance": {
+    "LWup_minus_(FIRA+FLDS)_night_mean": -2.0204871493536114e-05,
+    "LWup_night_mean": 441.7636345281319,
+    "FIRA+FLDS_night_mean": 441.76365473300336,
+    "LWup_minus_FIRE_night_mean": 0.0,
+    "FIRE_night_mean": 441.7636345281319,
+    "Ts_minus_Tair_night_mean_K": -0.4825313637519634,
+    "TSKIN_minus_Tair_night_mean_K": -0.19185990441279116,
+    "TG_minus_Tair_night_mean_K": -0.19185990441279116,
+    "Tair_echo_vs_forcing_RMSE": 0.0
+  }
+}

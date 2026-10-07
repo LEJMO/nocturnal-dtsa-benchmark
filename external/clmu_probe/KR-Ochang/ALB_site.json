@@ -1,0 +1,25 @@
+{
+  "site": "KR-Ochang",
+  "config": "ALB_site",
+  "lwup_bias": 10.189043521330696,
+  "n_night": 12995,
+  "qh_bias": 6.35604191767363,
+  "n_qh": 8929,
+  "dTsa_model": -0.07045738040628458,
+  "lwup_bias_noDJF": 11.55993456987757,
+  "align_delta": 1,
+  "align_rmse": 0.0,
+  "LWup_eq_FIRE": 0.0,
+  "minutes": 8.25,
+  "modified_fields": {
+    "site_albedo": 0.166,
+    "ALB_ROOF_DIR[0]": 0.166,
+    "ALB_WALL_DIR[0]": 0.166
+  },
+  "surf_verify_readback": {
+    "TK_ROOF": 1.2000000476837158,
+    "CV_ROOF": 1700000.0,
+    "EM_ROOF": 0.8999999761581421,
+    "ALB_ROOF_DIR": 0.166
+  }
+}

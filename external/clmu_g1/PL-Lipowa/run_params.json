@@ -1,0 +1,41 @@
+{
+  "site": "PL-Lipowa",
+  "RUN_STARTDATE": "2007-01-01",
+  "START_TOD": "0",
+  "STOP_OPTION": "ndays",
+  "STOP_N": "2192",
+  "zbot": 37.0,
+  "morphology": {
+    "CANYON_HWR": 0.75,
+    "HT_ROOF": 10.2,
+    "WTLUNIT_ROOF": 0.35,
+    "WTROAD_PERV": 0.3692307692307692,
+    "WIND_HGT_CANYON": 5.1
+  },
+  "n_corpus": 87695,
+  "n_spin": 17520,
+  "n_forcing": 105311,
+  "forcing_span": [
+    "2007-01-01 00:00:00",
+    "2013-01-02 23:00:00"
+  ],
+  "eval_night_notpresp": 37321,
+  "surf_changed": [
+    "LATIXY",
+    "LONGXY",
+    "CANYON_HWR",
+    "HT_ROOF",
+    "WTLUNIT_ROOF",
+    "WTROAD_PERV",
+    "WIND_HGT_CANYON"
+  ],
+  "surf_alldiff": [
+    "LONGXY",
+    "LATIXY",
+    "HT_ROOF",
+    "WIND_HGT_CANYON",
+    "WTLUNIT_ROOF",
+    "WTROAD_PERV"
+  ],
+  "surf_unexpected": []
+}

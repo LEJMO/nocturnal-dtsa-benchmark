@@ -1,0 +1,1004 @@
+{
+ "_merge_target": "review5_additions.permutation_v11",
+ "_supersedes": [
+  "cluster_permutation.all",
+  "cluster_permutation.excl_mpls",
+  "review4_additions.albedo_given_skyemissivity_freedman_lane"
+ ],
+ "_also_stale_but_not_listed_for_supersede": [
+  "review2_additions.core_variant_permutation (scheme SM; source of the core16 p=1.0e-3 in main.tex L481)",
+  "review3b_additions.albedo_given_skyemissivity_clusteraware (scheme SM-partial, nperm=10000)"
+ ],
+ "meta": {
+  "script": "투고가능성평가/재검증_2026-08/scripts/review5_permutation_rebuild.py",
+  "date": "2026-09-16",
+  "seed": 20260916,
+  "nperm": 20000000,
+  "n_bootstrap_draws": 200000,
+  "constants": {
+   "sigma": 5.67e-08,
+   "epsilon": 0.95,
+   "note": "sigma is the project convention 5.67e-8, not 5.670374419e-8, to stay commensurate with Table 1"
+  },
+  "inputs": [
+   "data/urban-plumber/corpus/<SITE>.nc (night_mask, pre_spinup_flag, obs_LWup, forcing_Tair, forcing_LWdown)",
+   "data/urban-plumber/FullCollection/<SITE>/<SITE>_sitedata_v1.csv (average_albedo_at_midday)"
+  ],
+  "clmu_independence": "no CLMU or TEB quantity is read or computed anywhere in this script; it is unaffected by the CLMU output-alignment fix",
+  "ledger_crosscheck": {
+   "max_abs_diff_dtsa_std": 0.0,
+   "max_abs_diff_albedo": 0.0,
+   "max_abs_diff_eps_sky": 0.0,
+   "cluster_mismatches": []
+  }
+ },
+ "floor_audit": {
+  "formula": "p = (b+1)/(N+1)",
+  "nperm_used_by_all_stored_values": 10000,
+  "true_resolution_floor_at_nperm_10000": 9.999000099990002e-05,
+  "manuscript_claim": "main.tex L387-390 calls the headline 2e-4 the 'resolution floor, i.e. p<1e-3'; it is TWICE the floor and equals b=1 exceedance.",
+  "stored_values": [
+   {
+    "key": "cluster_permutation.all.p_perm",
+    "p_stored": 0.00019998000199980003,
+    "nperm": 10000,
+    "exceedances_b": 1,
+    "inversion_residual": 0.0,
+    "scheme": "CM",
+    "is_floor": false
+   },
+   {
+    "key": "cluster_permutation.excl_mpls.p_perm",
+    "p_stored": 0.0006999300069993001,
+    "nperm": 10000,
+    "exceedances_b": 6,
+    "inversion_residual": 0.0,
+    "scheme": "CM",
+    "is_floor": false
+   },
+   {
+    "key": "review2_additions.core_variant_permutation.p_perm",
+    "p_stored": 0.000999900009999,
+    "nperm": 10000,
+    "exceedances_b": 9,
+    "inversion_residual": 0.0,
+    "scheme": "SM",
+    "is_floor": false
+   },
+   {
+    "key": "review3b_additions.albedo_given_skyemissivity_clusteraware.all19.cluster_perm_p",
+    "p_stored": 0.05219478052194781,
+    "nperm": 10000,
+    "exceedances_b": 521,
+    "inversion_residual": 0.0,
+    "scheme": "SM-partial",
+    "is_floor": false
+   },
+   {
+    "key": "review3b_additions.albedo_given_skyemissivity_clusteraware.excl_mpls17.cluster_perm_p",
+    "p_stored": 0.132986701329867,
+    "nperm": 10000,
+    "exceedances_b": 1329,
+    "inversion_residual": 0.0,
+    "scheme": "SM-partial",
+    "is_floor": false
+   },
+   {
+    "key": "review4_additions.albedo_given_skyemissivity_freedman_lane.all19.freedman_lane_cluster_p",
+    "p_stored": 0.049795020497950204,
+    "nperm": 10000,
+    "exceedances_b": 497,
+    "inversion_residual": 0.0,
+    "scheme": "FL-hybrid",
+    "is_floor": false
+   },
+   {
+    "key": "review4_additions.albedo_given_skyemissivity_freedman_lane.excl_mpls17.freedman_lane_cluster_p",
+    "p_stored": 0.11588841115888411,
+    "nperm": 10000,
+    "exceedances_b": 1158,
+    "inversion_residual": 0.0,
+    "scheme": "FL-hybrid",
+    "is_floor": false
+   }
+  ],
+  "all_invert_to_integers": true,
+  "new_resolution_floor_at_nperm_2e7": 4.999999750000013e-08
+ },
+ "scheme_documentation": {
+  "CB": {
+   "name": "restricted equal-size city-block permutation (record level)",
+   "role": "PRIMARY -- the headline p should come from this",
+   "unit_permuted": "whole city blocks of albedo values; a block is reassigned only to a block of the SAME size, so n and the block-size pattern are preserved exactly",
+   "within_block_order": "canonical (site-name sorted), not randomized",
+   "within_city_albedo_contrast": "PRESERVED -- Helsinki (0.142/0.110) and Lodz (0.085/0.087) keep their internal contrast",
+   "size1_blocks": "permuted freely among the other size-1 blocks",
+   "size2_blocks": "permuted only among the other size-2 blocks",
+   "test_statistic": "|Pearson r| at record level; the identity arrangement reproduces the headline r exactly",
+   "exchangeability": "valid conditional on the observed block-size pattern: under H0 of no city-level albedo-offset association, equal-size city blocks are exchangeable. Does NOT assume records within a city are exchangeable with records of other cities.",
+   "known_limitation": "when a size class has only one member that block cannot move. In core16 the Lodz cluster drops to one record, leaving Helsinki as the sole size-2 block, so its two albedos are frozen and only 14 of 16 records get relabelled."
+  },
+  "CB_ws": {
+   "name": "CB plus within-block shuffling",
+   "role": "sensitivity -- the only randomization available to a frozen block",
+   "unit_permuted": "as CB, and additionally the order of records inside each block",
+   "extra_assumption": "records within one city are exchangeable with each other",
+   "note": "US-Minneapolis1/2 are numerically identical records (albedo 0.213, dTsa -3.0439, eps_sky 0.82074, 19723 nights each), so their within-block shuffle is a no-op and the distinct arrangement count is 4x, not 8x, the CB count in all19."
+  },
+  "CM": {
+   "name": "city-mean permutation (paper_stats.py:290 cluster_permutation)",
+   "role": "COMPANION -- belongs next to the city-mean r, not the record r",
+   "unit_permuted": "the m city-mean albedos, permuted freely (m! arrangements)",
+   "test_statistic": "|Pearson r| over the m city-mean points",
+   "cluster_size_handling": "size-2 cities are collapsed to an UNWEIGHTED mean, so a 2-record city counts the same as a 1-record city",
+   "within_city_albedo_contrast": "DESTROYED -- Helsinki becomes a single point at albedo 0.126, Lodz a single point at 0.086",
+   "exchangeability": "fully exchangeable under H0 if cities are iid draws; the cleanest null, at the cost of discarding within-city information and of not testing the statistic the manuscript headlines",
+   "mismatch_in_current_manuscript": "main.tex quotes this p immediately after the record-level r=-0.79, but the statistic tested is the city-mean r=-0.83, which the manuscript reports in a different sentence"
+  },
+  "SM": {
+   "name": "city-mean-smeared record-level permutation (review2_additions.py:60 cluster_perm_p)",
+   "role": "LEGACY -- provenance only, should not be quoted",
+   "unit_permuted": "the m city-mean albedos, then re-expanded to record level so a size-2 city contributes its mean twice",
+   "test_statistic": "record-level |Pearson r| between city-mean-smeared albedo and record-level dTsa -- a third quantity, equal to neither the record-level r nor the city-mean r",
+   "cluster_size_handling": "size-2 cities carry double weight in both the observed statistic and the null",
+   "within_city_albedo_contrast": "DESTROYED on the albedo side, RETAINED on the dTsa side -- an asymmetric treatment with no null interpretation",
+   "exchangeability": "the observed statistic is not the headline statistic, and the mixed record/city weighting means the permutation distribution is not the null distribution of any reported effect size; this is why the core16 p in main.tex L481 is not comparable with the all19/excl17 values beside it",
+   "field_mislabel": "stored as 'r_cluster' in review2_additions.core_variant_permutation, which reads as a city-mean r but is not one"
+  },
+  "FL": {
+   "name": "Freedman-Lane (1983) permutation for a partial slope",
+   "textbook_recipe": "(1) fit the reduced model dTsa ~ 1 + eps_sky, keep fitted values f and residuals e; (2) permute e (city-block restricted, or city-mean); (3) form y* = f + e*; (4) refit the full model y* ~ 1 + eps_sky + albedo and take |t(beta_albedo)|; (5) p = (b+1)/(N+1). The identity permutation returns t_obs exactly.",
+   "defect_in_review4_additions": "review4_additions.py:fl_perm permutes the CITY-MEAN albedo RESIDUALS expanded back to record level and compares the resulting record-level |r| against an observed record-level partial r. The permuted predictor has smaller variance than the observed one, so the null statistic is not on the same scale as the observed statistic; the reported p is therefore not calibrated. It also permutes the predictor rather than the response residuals, which is the Kennedy/'permute-X' variant, not Freedman-Lane.",
+   "coverage_defect": "review4 ran only all19 and excl_mpls17, violating the manuscript's own three-variant convention (main.tex L393-397); core16 was missing."
+  }
+ },
+ "p_quoting_guidance": {
+  "rule": "at N = 2e7 every albedo-offset permutation p has a Monte Carlo standard error below 1e-5 and every Freedman-Lane p below 7e-5, so two significant figures are safe to print provided the MC standard error is stated once in Methods; the conservative single-digit reading is also given per test as `resolved_significant_digits`",
+  "never_say": [
+   "resolution floor (unless b = 0)",
+   "exact permutation test",
+   "p < 1e-4 without naming the scheme and N"
+  ],
+  "floor_at_this_N": 4.999999750000013e-08,
+  "why_not_exact": "the number of distinct attainable arrangements is 1.2e10 to 2.1e13 depending on scheme and variant, so 2e7 draws sample well under 0.2 % of the reference set in the most restricted case and under 1e-4 % in the least; these are Monte Carlo permutation tests, sampled with replacement from the arrangement set, not exhaustive ones"
+ },
+ "albedo_offset": {
+  "all19": {
+   "n_records": 19,
+   "n_cities": 16,
+   "block_sizes": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    2,
+    2,
+    2
+   ],
+   "r_record_level": -0.7934144353212927,
+   "r_city_mean": -0.826059135382416,
+   "CB_city_block_restricted": {
+    "exceedances_b": 15761,
+    "nperm": 20000000,
+    "p": 0.000788099960595002,
+    "mc_standard_error": 6.2746672310071545e-06,
+    "p_plus_minus_2se": [
+     0.0007755506261329876,
+     0.0008006492950570163
+    ],
+    "exceedance_rate_cp95": [
+     0.0007757991909480914,
+     0.0008004456856504446
+    ],
+    "resolved_significant_digits": 1,
+    "r_observed": -0.7934144353212926,
+    "n": 19,
+    "n_blocks": 16,
+    "distinct_arrangements": 37362124800,
+    "frozen_block_sizes": [],
+    "wall_seconds": 16.5
+   },
+   "CB_ws_city_block_within_shuffle": {
+    "exceedances_b": 14651,
+    "nperm": 20000000,
+    "p": 0.0007325999633700018,
+    "mc_standard_error": 6.049848636525958e-06,
+    "p_plus_minus_2se": [
+     0.0007205002660969499,
+     0.0007446996606430538
+    ],
+    "exceedance_rate_cp95": [
+     0.0007207398378276963,
+     0.000744505069332707
+    ],
+    "resolved_significant_digits": 1,
+    "r_observed": -0.7934144353212926,
+    "n": 19,
+    "n_blocks": 16,
+    "distinct_arrangements": 298896998400,
+    "frozen_block_sizes": [],
+    "wall_seconds": 19.7
+   },
+   "CM_city_mean": {
+    "exceedances_b": 784,
+    "nperm": 20000000,
+    "p": 3.92499980375001e-05,
+    "mc_standard_error": 1.3999725597310826e-06,
+    "p_plus_minus_2se": [
+     3.645005291803794e-05,
+     4.204994315696226e-05
+    ],
+    "exceedance_rate_cp95": [
+     3.6503759020056475e-05,
+     4.204268573631923e-05
+    ],
+    "resolved_significant_digits": 1,
+    "r_observed": -0.8260591353824162,
+    "n": 16,
+    "n_blocks": 16,
+    "distinct_arrangements": 20922789888000,
+    "frozen_block_sizes": [],
+    "wall_seconds": 14.1
+   },
+   "SM_legacy_review2_smeared": {
+    "exceedances_b": 697,
+    "nperm": 20000000,
+    "p": 3.4899998255000084e-05,
+    "mc_standard_error": 1.3200148763839747e-06,
+    "p_plus_minus_2se": [
+     3.225996850223214e-05,
+     3.754002800776803e-05
+    ],
+    "exceedance_rate_cp95": [
+     3.231049186167873e-05,
+     3.753605901130899e-05
+    ],
+    "resolved_significant_digits": 1,
+    "r_observed_smeared": -0.7885708395654764,
+    "n": 19,
+    "n_cities": 16,
+    "distinct_arrangements": 20922789888000,
+    "note": "statistic is a RECORD-level r computed with city-mean-smeared albedo; it is neither the headline record-level r nor the city-mean r"
+   }
+  },
+  "excl_mpls17": {
+   "n_records": 17,
+   "n_cities": 15,
+   "block_sizes": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    2,
+    2
+   ],
+   "r_record_level": -0.7093393144022627,
+   "r_city_mean": -0.7696899086391035,
+   "CB_city_block_restricted": {
+    "exceedances_b": 37517,
+    "nperm": 20000000,
+    "p": 0.0018758999062050046,
+    "mc_standard_error": 9.675565065611155e-06,
+    "p_plus_minus_2se": [
+     0.0018565487760737822,
+     0.001895251036336227
+    ],
+    "exceedance_rate_cp95": [
+     0.0018569333727518817,
+     0.0018949110516817812
+    ],
+    "resolved_significant_digits": 2,
+    "r_observed": -0.7093393144022627,
+    "n": 17,
+    "n_blocks": 15,
+    "distinct_arrangements": 12454041600,
+    "frozen_block_sizes": [],
+    "wall_seconds": 13.7
+   },
+   "CB_ws_city_block_within_shuffle": {
+    "exceedances_b": 21173,
+    "nperm": 20000000,
+    "p": 0.0010586999470650026,
+    "mc_standard_error": 7.271620383991109e-06,
+    "p_plus_minus_2se": [
+     0.0010441567062970203,
+     0.0010732431878329848
+    ],
+    "exceedance_rate_cp95": [
+     0.0010444451503087817,
+     0.0010729995944520657
+    ],
+    "resolved_significant_digits": 2,
+    "r_observed": -0.7093393144022627,
+    "n": 17,
+    "n_blocks": 15,
+    "distinct_arrangements": 49816166400,
+    "frozen_block_sizes": [],
+    "wall_seconds": 16.6
+   },
+   "CM_city_mean": {
+    "exceedances_b": 15806,
+    "nperm": 20000000,
+    "p": 0.000790349960482502,
+    "mc_standard_error": 6.283611325941477e-06,
+    "p_plus_minus_2se": [
+     0.0007777827378306191,
+     0.0008029171831343849
+    ],
+    "exceedance_rate_cp95": [
+     0.0007780316604228273,
+     0.0008027132149690944
+    ],
+    "resolved_significant_digits": 1,
+    "r_observed": -0.7696899086391036,
+    "n": 15,
+    "n_blocks": 15,
+    "distinct_arrangements": 1307674368000,
+    "frozen_block_sizes": [],
+    "wall_seconds": 12.7
+   },
+   "SM_legacy_review2_smeared": {
+    "exceedances_b": 23496,
+    "nperm": 20000000,
+    "p": 0.0011748499412575029,
+    "mc_standard_error": 7.659699226993186e-06,
+    "p_plus_minus_2se": [
+     0.0011595305428035165,
+     0.0011901693397114892
+    ],
+    "exceedance_rate_cp95": [
+     0.001159834510016912,
+     0.0011899101840505259
+    ],
+    "resolved_significant_digits": 2,
+    "r_observed_smeared": -0.7020883021060713,
+    "n": 17,
+    "n_cities": 15,
+    "distinct_arrangements": 1307674368000,
+    "note": "statistic is a RECORD-level r computed with city-mean-smeared albedo; it is neither the headline record-level r nor the city-mean r"
+   }
+  },
+  "core16": {
+   "n_records": 16,
+   "n_cities": 15,
+   "block_sizes": [
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    1,
+    2
+   ],
+   "r_record_level": -0.7749052794901222,
+   "r_city_mean": -0.7694087375922295,
+   "CB_city_block_restricted": {
+    "exceedances_b": 23296,
+    "nperm": 20000000,
+    "p": 0.0011648499417575028,
+    "mc_standard_error": 7.627067722788359e-06,
+    "p_plus_minus_2se": [
+     0.001149595806311926,
+     0.0011801040772030796
+    ],
+    "exceedance_rate_cp95": [
+     0.0011498984682716139,
+     0.0011798462300592742
+    ],
+    "resolved_significant_digits": 2,
+    "r_observed": -0.7749052794901223,
+    "n": 16,
+    "n_blocks": 15,
+    "distinct_arrangements": 87178291200,
+    "frozen_block_sizes": [
+     2
+    ],
+    "wall_seconds": 13.4
+   },
+   "CB_ws_city_block_within_shuffle": {
+    "exceedances_b": 16513,
+    "nperm": 20000000,
+    "p": 0.0008256999587150021,
+    "mc_standard_error": 6.422492904151393e-06,
+    "p_plus_minus_2se": [
+     0.0008128549729066993,
+     0.0008385449445233048
+    ],
+    "exceedance_rate_cp95": [
+     0.0008131094509640269,
+     0.0008383354057703645
+    ],
+    "resolved_significant_digits": 1,
+    "r_observed": -0.7749052794901223,
+    "n": 16,
+    "n_blocks": 15,
+    "distinct_arrangements": 174356582400,
+    "frozen_block_sizes": [
+     2
+    ],
+    "wall_seconds": 14.6
+   },
+   "CM_city_mean": {
+    "exceedances_b": 17137,
+    "nperm": 20000000,
+    "p": 0.0008568999571550021,
+    "mc_standard_error": 6.5426134230806425e-06,
+    "p_plus_minus_2se": [
+     0.0008438147303088409,
+     0.0008699851840011634
+    ],
+    "exceedance_rate_cp95": [
+     0.0008440740133525989,
+     0.0008697708273513971
+    ],
+    "resolved_significant_digits": 1,
+    "r_observed": -0.7694087375922294,
+    "n": 15,
+    "n_blocks": 15,
+    "distinct_arrangements": 1307674368000,
+    "frozen_block_sizes": [],
+    "wall_seconds": 13.3
+   },
+   "SM_legacy_review2_smeared": {
+    "exceedances_b": 13967,
+    "nperm": 20000000,
+    "p": 0.0006983999650800017,
+    "mc_standard_error": 5.907039475395014e-06,
+    "p_plus_minus_2se": [
+     0.0006865858861292118,
+     0.0007102140440307917
+    ],
+    "exceedance_rate_cp95": [
+     0.0006868197452769365,
+     0.000710025181563306
+    ],
+    "resolved_significant_digits": 1,
+    "r_observed_smeared": -0.7636976319805282,
+    "n": 16,
+    "n_cities": 15,
+    "distinct_arrangements": 1307674368000,
+    "note": "statistic is a RECORD-level r computed with city-mean-smeared albedo; it is neither the headline record-level r nor the city-mean r"
+   }
+  }
+ },
+ "freedman_lane_albedo_given_skyemissivity": {
+  "all19": {
+   "CB": {
+    "exceedances_b": 566544,
+    "nperm": 20000000,
+    "p": 0.02832724858363757,
+    "mc_standard_error": 3.7097688432138194e-05,
+    "p_plus_minus_2se": [
+     0.028253053206773297,
+     0.028401443960501847
+    ],
+    "exceedance_rate_cp95": [
+     0.028254533141501777,
+     0.028400003437309942
+    ],
+    "resolved_significant_digits": 2,
+    "n": 19,
+    "df": 16,
+    "partial_r": -0.4996037671398794,
+    "t_observed": -2.3069618813664405,
+    "parametric_two_sided_p": 0.03476617160485137,
+    "beta_albedo_K_per_unit": -20.722267445588095,
+    "distinct_arrangements": 37362124800,
+    "frozen_block_sizes": [],
+    "wall_seconds": 15.2
+   },
+   "CB_ws": {
+    "exceedances_b": 969339,
+    "nperm": 20000000,
+    "p": 0.04846699757665012,
+    "mc_standard_error": 4.8019738003084475e-05,
+    "p_plus_minus_2se": [
+     0.04837095810064395,
+     0.04856303705265629
+    ],
+    "exceedance_rate_cp95": [
+     0.04837287340193063,
+     0.048561157331603745
+    ],
+    "resolved_significant_digits": 2,
+    "n": 19,
+    "df": 16,
+    "partial_r": -0.4996037671398794,
+    "t_observed": -2.3069618813664405,
+    "parametric_two_sided_p": 0.03476617160485137,
+    "beta_albedo_K_per_unit": -20.722267445588095,
+    "distinct_arrangements": 298896998400,
+    "frozen_block_sizes": [],
+    "wall_seconds": 19.7
+   },
+   "CM": {
+    "exceedances_b": 177365,
+    "nperm": 20000000,
+    "p": 0.008868299556585022,
+    "mc_standard_error": 2.0963783224811188e-05,
+    "p_plus_minus_2se": [
+     0.0088263719901354,
+     0.008910227123034645
+    ],
+    "exceedance_rate_cp95": [
+     0.00882720783744539,
+     0.008909434425850779
+    ],
+    "resolved_significant_digits": 2,
+    "n": 16,
+    "df": 13,
+    "partial_r": -0.651640255629743,
+    "t_observed": -3.0974754306376933,
+    "parametric_two_sided_p": 0.008487915487317881,
+    "beta_albedo_K_per_unit": -25.277630831427615,
+    "distinct_arrangements": 20922789888000,
+    "frozen_block_sizes": [],
+    "wall_seconds": 14.0
+   },
+   "FREE": {
+    "exceedances_b": 702271,
+    "nperm": 20000000,
+    "p": 0.03511359824432009,
+    "mc_standard_error": 4.115858877949868e-05,
+    "p_plus_minus_2se": [
+     0.03503128106676109,
+     0.03519591542187909
+    ],
+    "exceedance_rate_cp95": [
+     0.035032922940365974,
+     0.03519431166732021
+    ],
+    "resolved_significant_digits": 2,
+    "n": 19,
+    "df": 16,
+    "partial_r": -0.4996037671398794,
+    "t_observed": -2.3069618813664405,
+    "parametric_two_sided_p": 0.03476617160485137,
+    "beta_albedo_K_per_unit": -20.722267445588095,
+    "distinct_arrangements": 121645100408832000,
+    "frozen_block_sizes": [],
+    "wall_seconds": 17.7
+   },
+   "LEGACY_HYBRID_review4_recomputed": {
+    "exceedances_b": 887068,
+    "nperm": 20000000,
+    "p": 0.04435344778232761,
+    "mc_standard_error": 4.6035951118902714e-05,
+    "p_plus_minus_2se": [
+     0.044261375880089805,
+     0.044445519684565414
+    ],
+    "exceedance_rate_cp95": [
+     0.044263212148204244,
+     0.04444371977833527
+    ],
+    "resolved_significant_digits": 2,
+    "n": 19,
+    "observed_statistic_partial_r": -0.4996037671398794,
+    "distinct_arrangements": 20922789888000,
+    "calibration": "NOT CALIBRATED -- null statistic has a different variance from the observed statistic"
+   }
+  },
+  "excl_mpls17": {
+   "CB": {
+    "exceedances_b": 1601680,
+    "nperm": 20000000,
+    "p": 0.0800840459957977,
+    "mc_standard_error": 6.0692072358752095e-05,
+    "p_plus_minus_2se": [
+     0.0799626618510802,
+     0.0802054301405152
+    ],
+    "exceedance_rate_cp95": [
+     0.07996508150721045,
+     0.08020304006322539
+    ],
+    "resolved_significant_digits": 2,
+    "n": 17,
+    "df": 14,
+    "partial_r": -0.4137219029793142,
+    "t_observed": -1.7003514785391238,
+    "parametric_two_sided_p": 0.11116215689388959,
+    "beta_albedo_K_per_unit": -19.423542205355833,
+    "distinct_arrangements": 12454041600,
+    "frozen_block_sizes": [],
+    "wall_seconds": 13.7
+   },
+   "CB_ws": {
+    "exceedances_b": 1932857,
+    "nperm": 20000000,
+    "p": 0.09664289516785524,
+    "mc_standard_error": 6.606928542972048e-05,
+    "p_plus_minus_2se": [
+     0.09651075659699579,
+     0.09677503373871468
+    ],
+    "exceedance_rate_cp95": [
+     0.09651338996698876,
+     0.09677242680682427
+    ],
+    "resolved_significant_digits": 2,
+    "n": 17,
+    "df": 14,
+    "partial_r": -0.4137219029793142,
+    "t_observed": -1.7003514785391238,
+    "parametric_two_sided_p": 0.11116215689388959,
+    "beta_albedo_K_per_unit": -19.423542205355833,
+    "distinct_arrangements": 49816166400,
+    "frozen_block_sizes": [],
+    "wall_seconds": 16.6
+   },
+   "CM": {
+    "exceedances_b": 550911,
+    "nperm": 20000000,
+    "p": 0.027545598622720067,
+    "mc_standard_error": 3.659698940841821e-05,
+    "p_plus_minus_2se": [
+     0.02747240464390323,
+     0.027618792601536903
+    ],
+    "exceedance_rate_cp95": [
+     0.02747386460676594,
+     0.02761737219923951
+    ],
+    "resolved_significant_digits": 2,
+    "n": 15,
+    "df": 12,
+    "partial_r": -0.5865840628019805,
+    "t_observed": -2.5089715178298397,
+    "parametric_two_sided_p": 0.027459601951688527,
+    "beta_albedo_K_per_unit": -23.77173296704784,
+    "distinct_arrangements": 1307674368000,
+    "frozen_block_sizes": [],
+    "wall_seconds": 12.8
+   },
+   "FREE": {
+    "exceedances_b": 2224000,
+    "nperm": 20000000,
+    "p": 0.11120004443999777,
+    "mc_standard_error": 7.029742527290739e-05,
+    "p_plus_minus_2se": [
+     0.11105944958945196,
+     0.11134063929054358
+    ],
+    "exceedance_rate_cp95": [
+     0.11106225085861338,
+     0.11133786169908189
+    ],
+    "resolved_significant_digits": 3,
+    "n": 17,
+    "df": 14,
+    "partial_r": -0.4137219029793142,
+    "t_observed": -1.7003514785391238,
+    "parametric_two_sided_p": 0.11116215689388959,
+    "beta_albedo_K_per_unit": -19.423542205355833,
+    "distinct_arrangements": 355687428096000,
+    "frozen_block_sizes": [],
+    "wall_seconds": 15.2
+   },
+   "LEGACY_HYBRID_review4_recomputed": {
+    "exceedances_b": 2341132,
+    "nperm": 20000000,
+    "p": 0.1170566441471678,
+    "mc_standard_error": 7.188683898894151e-05,
+    "p_plus_minus_2se": [
+     0.11691287046918991,
+     0.11720041782514568
+    ],
+    "exceedance_rate_cp95": [
+     0.11691573481747448,
+     0.11719757604415047
+    ],
+    "resolved_significant_digits": 3,
+    "n": 17,
+    "observed_statistic_partial_r": -0.4137219029793142,
+    "distinct_arrangements": 1307674368000,
+    "calibration": "NOT CALIBRATED -- null statistic has a different variance from the observed statistic"
+   }
+  },
+  "core16": {
+   "CB": {
+    "exceedances_b": 332242,
+    "nperm": 20000000,
+    "p": 0.01661214916939254,
+    "mc_standard_error": 2.8579833916233663e-05,
+    "p_plus_minus_2se": [
+     0.016554989501560074,
+     0.01666930883722501
+    ],
+    "exceedance_rate_cp95": [
+     0.016556129527276652,
+     0.016668210462812433
+    ],
+    "resolved_significant_digits": 2,
+    "n": 16,
+    "df": 13,
+    "partial_r": -0.6361745692439347,
+    "t_observed": -2.9729433612033143,
+    "parametric_two_sided_p": 0.010785628316838542,
+    "beta_albedo_K_per_unit": -20.14263187305052,
+    "distinct_arrangements": 87178291200,
+    "frozen_block_sizes": [
+     2
+    ],
+    "wall_seconds": 13.2
+   },
+   "CB_ws": {
+    "exceedances_b": 321892,
+    "nperm": 20000000,
+    "p": 0.01609464919526754,
+    "mc_standard_error": 2.813855349057588e-05,
+    "p_plus_minus_2se": [
+     0.01603837208828639,
+     0.01615092630224869
+    ],
+    "exceedance_rate_cp95": [
+     0.01603949449608607,
+     0.01614984564517247
+    ],
+    "resolved_significant_digits": 2,
+    "n": 16,
+    "df": 13,
+    "partial_r": -0.6361745692439347,
+    "t_observed": -2.9729433612033143,
+    "parametric_two_sided_p": 0.010785628316838542,
+    "beta_albedo_K_per_unit": -20.14263187305052,
+    "distinct_arrangements": 174356582400,
+    "frozen_block_sizes": [
+     2
+    ],
+    "wall_seconds": 14.4
+   },
+   "CM": {
+    "exceedances_b": 305900,
+    "nperm": 20000000,
+    "p": 0.015295049235247538,
+    "mc_standard_error": 2.7441813874997406e-05,
+    "p_plus_minus_2se": [
+     0.015240165607497544,
+     0.015349932862997533
+    ],
+    "exceedance_rate_cp95": [
+     0.015241260196649065,
+     0.015348880178318598
+    ],
+    "resolved_significant_digits": 2,
+    "n": 15,
+    "df": 12,
+    "partial_r": -0.632695162443184,
+    "t_observed": -2.8302139014668546,
+    "parametric_two_sided_p": 0.01516971479782955,
+    "beta_albedo_K_per_unit": -20.140128359822945,
+    "distinct_arrangements": 1307674368000,
+    "frozen_block_sizes": [],
+    "wall_seconds": 12.7
+   },
+   "FREE": {
+    "exceedances_b": 217392,
+    "nperm": 20000000,
+    "p": 0.010869649456517527,
+    "mc_standard_error": 2.318561169760246e-05,
+    "p_plus_minus_2se": [
+     0.010823278233122322,
+     0.010916020679912732
+    ],
+    "exceedance_rate_cp95": [
+     0.010824202842364057,
+     0.010915138830263994
+    ],
+    "resolved_significant_digits": 3,
+    "n": 16,
+    "df": 13,
+    "partial_r": -0.6361745692439347,
+    "t_observed": -2.9729433612033143,
+    "parametric_two_sided_p": 0.010785628316838542,
+    "beta_albedo_K_per_unit": -20.14263187305052,
+    "distinct_arrangements": 20922789888000,
+    "frozen_block_sizes": [],
+    "wall_seconds": 14.0
+   },
+   "LEGACY_HYBRID_review4_recomputed": {
+    "exceedances_b": 188091,
+    "nperm": 20000000,
+    "p": 0.009404599529770024,
+    "mc_standard_error": 2.1582521214280667e-05,
+    "p_plus_minus_2se": [
+     0.009361434487341462,
+     0.009447764572198586
+    ],
+    "exceedance_rate_cp95": [
+     0.009362295055154396,
+     0.009446947049509925
+    ],
+    "resolved_significant_digits": 2,
+    "n": 16,
+    "observed_statistic_partial_r": -0.6361745692439347,
+    "distinct_arrangements": 1307674368000,
+    "calibration": "NOT CALIBRATED -- null statistic has a different variance from the observed statistic"
+   }
+  },
+  "_scheme_roles": {
+   "CB": "PRIMARY for the manuscript (restricted equal-size city-block permutation of the reduced-model residuals)",
+   "CB_ws": "sensitivity (adds within-city exchangeability)",
+   "CM": "city-mean companion; note the partial r is a DIFFERENT statistic (city-mean level) and n = number of cities",
+   "FREE": "reference only -- ignores clustering, so it agrees with the parametric partial p and understates the p a cluster-aware test gives; must NOT be quoted",
+   "LEGACY_HYBRID_review4_recomputed": "provenance only -- reproduces what review4_additions.py computes; superseded"
+  },
+  "_prior_audit_reconciliation": {
+   "audit_reported_core16_range": [
+    0.0093,
+    0.0164
+   ],
+   "audit_reported_core16_partial_r": -0.6362,
+   "this_run_core16_partial_r": -0.6361745692439347,
+   "resolution": "the audit's range is NOT a disagreement: its lower end 0.0093 is the legacy review4 hybrid scheme recomputed on core16 (this run: 0.00940) and its upper end 0.0164 is the restricted city-block scheme (this run: 0.01661). Only the city-block value should be quoted."
+  }
+ },
+ "headline_slope_bootstrap": {
+  "_interpretation": "Zero resamples were dropped in every variant and under both schemes, and the analytic drop probability is below 1e-16, so the CIs are plain percentile intervals over the full set of resamples and need no conditional-on-non-degeneracy caveat. The manuscript's published CIs come from 5000 one-stage draws; at 200 000 draws the endpoints move by up to 0.11 K (excl_mpls17), so the published interval should be re-read off the 200 000-draw run. The nested two-stage interval is the honest one if the two records of a two-record city are treated as exchangeable replicates rather than as fixed; it is wider on the lower side (all19 -6.36 vs -5.71, excl_mpls17 -7.28 vs -6.41) and essentially identical in core16, where only one two-record city survives.",
+  "all19": {
+   "one_stage_cluster": {
+    "draws_requested": 200000,
+    "draws_used": 200000,
+    "draws_dropped_degenerate": 0,
+    "drop_fraction": 0.0,
+    "analytic_drop_probability_upper_bound": 7.047314121155779e-19,
+    "analytic_drop_probability_note": "the design is degenerate only when the albedo column has a single distinct value, which for this sample requires all m stage-1 draws to hit the SAME one-record city (all city albedos are distinct, and a repeated two-record city still supplies two distinct albedos); probability = n_singleton_cities * m^-m = 13 * 16^-16",
+    "min_distinct_cities_drawn": 5,
+    "frac_draws_with_le2_distinct_cities": 0.0,
+    "frac_draws_with_le3_distinct_cities": 0.0,
+    "slope_point_estimate_K_per_0p1": -4.001553830574305,
+    "ci95": [
+     -5.71153032409198,
+     -2.2115693475331706
+    ],
+    "ci90": [
+     -5.316002043463808,
+     -2.486295032435063
+    ],
+    "median": -3.947033938336375,
+    "excludes_zero": true
+   },
+   "nested_two_stage": {
+    "draws_requested": 200000,
+    "draws_used": 200000,
+    "draws_dropped_degenerate": 0,
+    "drop_fraction": 0.0,
+    "analytic_drop_probability_upper_bound": 7.047314121155779e-19,
+    "analytic_drop_probability_note": "the design is degenerate only when the albedo column has a single distinct value, which for this sample requires all m stage-1 draws to hit the SAME one-record city (all city albedos are distinct, and a repeated two-record city still supplies two distinct albedos); probability = n_singleton_cities * m^-m = 13 * 16^-16",
+    "min_distinct_cities_drawn": 5,
+    "frac_draws_with_le2_distinct_cities": 0.0,
+    "frac_draws_with_le3_distinct_cities": 0.0,
+    "slope_point_estimate_K_per_0p1": -4.001553830574305,
+    "ci95": [
+     -6.358042321018807,
+     -2.150610909166002
+    ],
+    "ci90": [
+     -5.852338572195923,
+     -2.401711708215606
+    ],
+    "median": -3.7221602782585475,
+    "excludes_zero": true
+   }
+  },
+  "excl_mpls17": {
+   "one_stage_cluster": {
+    "draws_requested": 200000,
+    "draws_used": 200000,
+    "draws_dropped_degenerate": 0,
+    "drop_fraction": 0.0,
+    "analytic_drop_probability_upper_bound": 2.9687557386775174e-17,
+    "analytic_drop_probability_note": "the design is degenerate only when the albedo column has a single distinct value, which for this sample requires all m stage-1 draws to hit the SAME one-record city (all city albedos are distinct, and a repeated two-record city still supplies two distinct albedos); probability = n_singleton_cities * m^-m = 13 * 15^-15",
+    "min_distinct_cities_drawn": 5,
+    "frac_draws_with_le2_distinct_cities": 0.0,
+    "frac_draws_with_le3_distinct_cities": 0.0,
+    "slope_point_estimate_K_per_0p1": -4.031254947055774,
+    "ci95": [
+     -6.42260171169211,
+     -1.8446387241537443
+    ],
+    "ci90": [
+     -5.983192885425525,
+     -2.0668677671157925
+    ],
+    "median": -3.941433358592175,
+    "excludes_zero": true
+   },
+   "nested_two_stage": {
+    "draws_requested": 200000,
+    "draws_used": 200000,
+    "draws_dropped_degenerate": 0,
+    "drop_fraction": 0.0,
+    "analytic_drop_probability_upper_bound": 2.9687557386775174e-17,
+    "analytic_drop_probability_note": "the design is degenerate only when the albedo column has a single distinct value, which for this sample requires all m stage-1 draws to hit the SAME one-record city (all city albedos are distinct, and a repeated two-record city still supplies two distinct albedos); probability = n_singleton_cities * m^-m = 13 * 15^-15",
+    "min_distinct_cities_drawn": 5,
+    "frac_draws_with_le2_distinct_cities": 0.0,
+    "frac_draws_with_le3_distinct_cities": 0.0,
+    "slope_point_estimate_K_per_0p1": -4.031254947055774,
+    "ci95": [
+     -7.275298725876958,
+     -1.7868304163777848
+    ],
+    "ci90": [
+     -6.664660473249982,
+     -2.0081229980104105
+    ],
+    "median": -3.6816282586984803,
+    "excludes_zero": true
+   }
+  },
+  "core16": {
+   "one_stage_cluster": {
+    "draws_requested": 200000,
+    "draws_used": 200000,
+    "draws_dropped_degenerate": 0,
+    "drop_fraction": 0.0,
+    "analytic_drop_probability_upper_bound": 3.197121564729634e-17,
+    "analytic_drop_probability_note": "the design is degenerate only when the albedo column has a single distinct value, which for this sample requires all m stage-1 draws to hit the SAME one-record city (all city albedos are distinct, and a repeated two-record city still supplies two distinct albedos); probability = n_singleton_cities * m^-m = 14 * 15^-15",
+    "min_distinct_cities_drawn": 4,
+    "frac_draws_with_le2_distinct_cities": 0.0,
+    "frac_draws_with_le3_distinct_cities": 0.0,
+    "slope_point_estimate_K_per_0p1": -2.6566047307704554,
+    "ci95": [
+     -4.103155898980771,
+     -1.594088541105519
+    ],
+    "ci90": [
+     -3.80038733690228,
+     -1.8146521888027565
+    ],
+    "median": -2.6603497558288343,
+    "excludes_zero": true
+   },
+   "nested_two_stage": {
+    "draws_requested": 200000,
+    "draws_used": 200000,
+    "draws_dropped_degenerate": 0,
+    "drop_fraction": 0.0,
+    "analytic_drop_probability_upper_bound": 3.197121564729634e-17,
+    "analytic_drop_probability_note": "the design is degenerate only when the albedo column has a single distinct value, which for this sample requires all m stage-1 draws to hit the SAME one-record city (all city albedos are distinct, and a repeated two-record city still supplies two distinct albedos); probability = n_singleton_cities * m^-m = 14 * 15^-15",
+    "min_distinct_cities_drawn": 5,
+    "frac_draws_with_le2_distinct_cities": 0.0,
+    "frac_draws_with_le3_distinct_cities": 0.0,
+    "slope_point_estimate_K_per_0p1": -2.6566047307704554,
+    "ci95": [
+     -4.1034625438474395,
+     -1.6058063088729801
+    ],
+    "ci90": [
+     -3.8105456274400242,
+     -1.8143415207203621
+    ],
+    "median": -2.6586826103497567,
+    "excludes_zero": true
+   }
+  }
+ }
+}

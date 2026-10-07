@@ -1,0 +1,26 @@
+{
+  "site": "PL-Narutowicza",
+  "lwup_bias": -5.622635260675868,
+  "n_night": 36533,
+  "qh_bias": 9.184970373245159,
+  "n_qh": 25408,
+  "dTsa_model": 0.05331567560648203,
+  "n_dtsa": 36791,
+  "align_delta": 1,
+  "align_rmse": 0.0,
+  "align_start": 17521,
+  "model_steps": 105217,
+  "lwup_bias_noDJF": -5.5759508770340895,
+  "k_equiv_bias": -1.0917738370244403,
+  "provenance": {
+    "LWup_minus_(FIRA+FLDS)_night_mean": -8.12383844765222e-06,
+    "LWup_night_mean": 347.5393407540201,
+    "FIRA+FLDS_night_mean": 347.5393488778585,
+    "LWup_minus_FIRE_night_mean": 0.0,
+    "FIRE_night_mean": 347.5393407540201,
+    "Ts_minus_Tair_night_mean_K": 0.05331567560648203,
+    "TSKIN_minus_Tair_night_mean_K": 0.2576026216626041,
+    "TG_minus_Tair_night_mean_K": 0.2576026216626041,
+    "Tair_echo_vs_forcing_RMSE": 0.0
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "site": "US-WestPhoenix",
+  "netradiationmethod": 3,
+  "storageheatmethod": 1,
+  "n_night": 4701,
+  "lwup_bias_facet_recon": -45.39628577667279,
+  "n_facet": 4701,
+  "lwup_bias_bulk_recon": 7.296550813773766,
+  "n_bulk": 4701,
+  "lwup_bias_packaged": 6.253731433105659,
+  "n_pkg": 4701,
+  "qh_bias": -9.747516269605784,
+  "n_qh": 3813,
+  "noct_Tsurf_bulk_minus_Tair": 2.6390927238384066e-05,
+  "noct_Ts_facet_minus_Tair": -9.957190318030271,
+  "land_cover": {
+    "paved": 0.21999999999999997,
+    "bldgs": 0.26,
+    "evetr": 0.0,
+    "dectr": 0.05,
+    "grass": 0.1,
+    "bsoil": 0.37,
+    "water": 0.0
+  },
+  "building_height": 4.5,
+  "tree_height": 4.0,
+  "lat": 33.4839,
+  "lon": -112.1426,
+  "alt": 340.0,
+  "z_meas": 22.1,
+  "timezone": 0.0,
+  "local_utc_offset": -7.0,
+  "n_obs_steps": 18313,
+  "n_spinup_steps": 17520,
+  "obs_span": [
+    "2011-12-16 18:30:00",
+    "2013-01-01 06:30:00"
+  ],
+  "supy_version": "2026.6.5",
+  "finite_Tsurf": 18313,
+  "finite_QH": 18313,
+  "lwup_bias_facet_emission_sum": [
+    -45.85274349841073,
+    4701
+  ]
+}

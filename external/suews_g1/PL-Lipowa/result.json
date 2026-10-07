@@ -1,0 +1,46 @@
+{
+  "site": "PL-Lipowa",
+  "netradiationmethod": 3,
+  "storageheatmethod": 1,
+  "n_night": 34463,
+  "lwup_bias_facet_recon": -10.087480522158497,
+  "n_facet": 34463,
+  "lwup_bias_bulk_recon": -30.242168417624157,
+  "n_bulk": 34463,
+  "lwup_bias_packaged": -31.375756793741886,
+  "n_pkg": 34463,
+  "qh_bias": 13.993893928325846,
+  "n_qh": 23649,
+  "noct_Tsurf_bulk_minus_Tair": 0.0002557636717360212,
+  "noct_Ts_facet_minus_Tair": 4.059240803343034,
+  "land_cover": {
+    "paved": 0.41000000000000003,
+    "bldgs": 0.35,
+    "evetr": 0.0,
+    "dectr": 0.16,
+    "grass": 0.08,
+    "bsoil": 0.0,
+    "water": 0.0
+  },
+  "building_height": 10.2,
+  "tree_height": 12.5,
+  "lat": 51.7625,
+  "lon": 19.4453,
+  "alt": 204.0,
+  "z_meas": 37.0,
+  "timezone": 0.0,
+  "local_utc_offset": 1.0,
+  "n_obs_steps": 87695,
+  "n_spinup_steps": 17520,
+  "obs_span": [
+    "2008-01-01 00:00:00",
+    "2012-12-31 23:00:00"
+  ],
+  "supy_version": "2026.6.5",
+  "finite_Tsurf": 87695,
+  "finite_QH": 87695,
+  "lwup_bias_facet_emission_sum": [
+    -10.52565683646783,
+    34463
+  ]
+}

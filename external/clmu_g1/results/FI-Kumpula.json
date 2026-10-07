@@ -1,0 +1,26 @@
+{
+  "site": "FI-Kumpula",
+  "lwup_bias": -0.5108240915327521,
+  "n_night": 16934,
+  "qh_bias": -2.3101414759371375,
+  "n_qh": 8892,
+  "dTsa_model": -0.429853895002343,
+  "n_dtsa": 21386,
+  "align_delta": 1,
+  "align_rmse": 0.0,
+  "align_start": 17521,
+  "model_steps": 70129,
+  "lwup_bias_noDJF": -1.04044912475485,
+  "k_equiv_bias": -0.09918914398694215,
+  "provenance": {
+    "LWup_minus_(FIRA+FLDS)_night_mean": -3.8299849664049136e-06,
+    "LWup_night_mean": 334.0594672789289,
+    "FIRA+FLDS_night_mean": 334.05947110891384,
+    "LWup_minus_FIRE_night_mean": 0.0,
+    "FIRE_night_mean": 334.0594672789289,
+    "Ts_minus_Tair_night_mean_K": -0.429853895002343,
+    "TSKIN_minus_Tair_night_mean_K": -0.3214038901318784,
+    "TG_minus_Tair_night_mean_K": -0.3214038901318784,
+    "Tair_echo_vs_forcing_RMSE": 0.0
+  }
+}

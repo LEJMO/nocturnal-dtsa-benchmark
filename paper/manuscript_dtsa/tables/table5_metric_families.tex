@@ -1,0 +1,39 @@
+\begin{table}[!tbp]
+\centering\footnotesize
+\caption{Three metric families on the same nocturnal LW$_{\uparrow}$ output of the two runs, in the conservative core and on all records.}
+\label{tab:families}
+\setlength{\tabcolsep}{4pt}
+\begin{tabular}{@{}lcccc@{}}
+\toprule
+ & \multicolumn{2}{c}{Conservative core (16)} & \multicolumn{2}{c}{All 19 records} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+ & TEB & CLM-Urban & TEB & CLM-Urban \\
+\midrule
+\multicolumn{5}{@{}l}{\emph{Per-record temporal skill (median over records)}} \\
+Pearson $r$ & 0.989 & 0.993 & 0.988 & 0.992 \\
+Index of agreement $d$ & 0.97 & 0.99 & 0.97 & 0.99 \\
+Centred RMSE (W\,m$^{-2}$) & 5.8 & 4.9 & 6.1 & 5.6 \\
+\addlinespace
+\multicolumn{5}{@{}l}{\emph{Level}} \\
+Record-mean bias (W\,m$^{-2}$) & +9.5 & -3.6 & +9.2 & -2.9 \\
+Sample-weighted bias (W\,m$^{-2}$) & +7.8 & -3.6 & +6.8 & -3.9 \\
+Median MAE (W\,m$^{-2}$) & 10.0 & 6.6 & 12.1 & 8.1 \\
+Median share of MSE from mean bias & 67\% & 57\% & 67\% & 61\% \\
+\addlinespace
+\multicolumn{5}{@{}l}{\emph{Out-of-sample benchmark wins (records)}} \\
+Beats REG2 & 3 & 10 & 4 & 13 \\
+Beats KM3 & 7 & 11 & 10 & 14 \\
+Beats both & 2 & 10 & 3 & 13 \\
+\addlinespace
+\multicolumn{5}{@{}l}{\emph{Same, with own record-mean bias removed (diagnostic)}} \\
+Beats REG2 & 10 & 15 & 13 & 18 \\
+Beats KM3 & 16 & 16 & 19 & 19 \\
+\addlinespace
+\multicolumn{5}{@{}l}{\emph{Cross-site gradient (Table~\ref{tab:modelvar})}} \\
+Spread ratio $s_m/s_o$ & 0.64 & 0.76 & 0.37 & 0.43 \\
+Ordering $r_{m,o}$ & +0.36 & +0.24 & +0.63 & +0.24 \\
+Slope $\hat\beta_{m|o}$ [95\% CI] & 0.23 [$-$0.04, 0.60] & 0.18 [$-$0.28, 0.68] & 0.23 [0.07, 0.41] & 0.11 [$-$0.31, 0.37] \\
+$P(\hat\beta_{m|o}\ge1)$ & 0.001 & $<0.001$ & $<0.001$ & $<0.001$ \\
+\bottomrule
+\end{tabular}
+\end{table}

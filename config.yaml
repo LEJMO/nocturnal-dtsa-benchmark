@@ -1,0 +1,21 @@
+# Minimal project configuration kept for the release.
+# Only the block below is read by the released code
+# (analysis/revalidation_2026-08/scripts/dslucm_surgery.py: global constants of
+# the differentiable single-layer probe, Supplementary Sect. S1). The values are
+# identical to the project configuration the published runs used.
+experiment:
+  slucm_params_defaults:
+    canyon_aspect_ratio_h_w: 1.0
+    svf_road: 0.5
+    svf_wall: 0.4
+    albedo_roof: 0.2
+    albedo_wall: 0.2
+    albedo_road: 0.08
+    emissivity_roof: 0.9
+    emissivity_wall: 0.9
+    emissivity_road: 0.95
+    roughness_length_m: 0.1
+    heat_transfer_coefficient: 0.005
+    thermal_mass_roof: 1.0e5
+    thermal_mass_wall: 1.5e5
+    thermal_mass_road: 2.0e5

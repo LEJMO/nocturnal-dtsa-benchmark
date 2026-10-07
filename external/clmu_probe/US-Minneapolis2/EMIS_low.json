@@ -1,0 +1,24 @@
+{
+  "site": "US-Minneapolis2",
+  "config": "EMIS_low",
+  "lwup_bias": 13.679709570817542,
+  "n_night": 19723,
+  "qh_bias": 18.96823004255788,
+  "n_qh": 2887,
+  "dTsa_model": -0.020730154973618284,
+  "lwup_bias_noDJF": 15.523919861044075,
+  "align_delta": 1,
+  "align_rmse": 0.0,
+  "LWup_eq_FIRE": 0.0,
+  "minutes": 10.44,
+  "modified_fields": {
+    "EM_ROOF": 0.8699999761581421,
+    "EM_WALL": 0.8785999727249145
+  },
+  "surf_verify_readback": {
+    "TK_ROOF": 1.2000000476837158,
+    "CV_ROOF": 1700000.0,
+    "EM_ROOF": 0.8699999761581421,
+    "ALB_ROOF_DIR": 0.23000000417232513
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "site": "KR-Ochang",
+  "RUN_STARTDATE": "2014-06-07",
+  "START_TOD": "54000",
+  "STOP_OPTION": "ndays",
+  "STOP_N": "1145",
+  "zbot": 19.0,
+  "morphology": {
+    "CANYON_HWR": 0.32,
+    "HT_ROOF": 7.384,
+    "WTLUNIT_ROOF": 0.133,
+    "WTROAD_PERV": 0.6113033448673587,
+    "WIND_HGT_CANYON": 3.692
+  },
+  "n_corpus": 37411,
+  "n_spin": 17520,
+  "n_forcing": 55027,
+  "forcing_span": [
+    "2014-06-07 15:00:00",
+    "2017-07-28 00:00:00"
+  ],
+  "eval_night_notpresp": 13380,
+  "surf_changed": [
+    "LATIXY",
+    "LONGXY",
+    "CANYON_HWR",
+    "HT_ROOF",
+    "WTLUNIT_ROOF",
+    "WTROAD_PERV",
+    "WIND_HGT_CANYON"
+  ],
+  "surf_alldiff": [
+    "LONGXY",
+    "LATIXY",
+    "CANYON_HWR",
+    "HT_ROOF",
+    "WIND_HGT_CANYON",
+    "WTLUNIT_ROOF",
+    "WTROAD_PERV"
+  ],
+  "surf_unexpected": []
+}

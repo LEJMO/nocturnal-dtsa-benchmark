@@ -1,0 +1,46 @@
+{
+  "site": "KR-Ochang",
+  "netradiationmethod": 3,
+  "storageheatmethod": 1,
+  "n_night": 12995,
+  "lwup_bias_facet_recon": 6.7019274821547254,
+  "n_facet": 12995,
+  "lwup_bias_bulk_recon": 10.319971431039969,
+  "n_bulk": 12995,
+  "lwup_bias_packaged": 10.748994420478821,
+  "n_pkg": 12995,
+  "qh_bias": 4.473545201548773,
+  "n_qh": 8929,
+  "noct_Tsurf_bulk_minus_Tair": 0.0001982248869319308,
+  "noct_Ts_facet_minus_Tair": -0.9730326800427161,
+  "land_cover": {
+    "paved": 0.337,
+    "bldgs": 0.13300000000000003,
+    "evetr": 0.0,
+    "dectr": 0.18400000000000002,
+    "grass": 0.3330000000000001,
+    "bsoil": 0.013000000000000001,
+    "water": 0.0
+  },
+  "building_height": 7.384,
+  "tree_height": 7.5,
+  "lat": 36.7197,
+  "lon": 127.4344,
+  "alt": 60.0,
+  "z_meas": 19.0,
+  "timezone": 0.0,
+  "local_utc_offset": 9.0,
+  "n_obs_steps": 37411,
+  "n_spinup_steps": 17520,
+  "obs_span": [
+    "2015-06-07 15:00:00",
+    "2017-07-26 00:00:00"
+  ],
+  "supy_version": "2026.6.5",
+  "finite_Tsurf": 37411,
+  "finite_QH": 37411,
+  "lwup_bias_facet_emission_sum": [
+    6.332736724970559,
+    12995
+  ]
+}

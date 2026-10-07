@@ -1,0 +1,344 @@
+{
+ "meta": {
+  "script": "투고가능성평가/재검증_2026-08/scripts/review6_text_number_audit.py",
+  "purpose": "authoritative value + key path for every v12 body number an external reviewer flagged, plus a full sweep",
+  "reads_only": [
+   "results/paper_stats_v1.json",
+   "results/clmu_v11_rebuild.json",
+   "external/dslucm_surgery/results.json"
+  ],
+  "writes": [
+   "results/review6_text_number_audit.json"
+  ],
+  "constants": {
+   "SIG": 5.67e-08,
+   "EPS": 0.95,
+   "K_per_Wm2": 0.2004927923369955
+  },
+  "note": "paper_stats_v1.json is NOT modified; this is a companion."
+ },
+ "reviewer_items_i_to_vii": {
+  "clmu_record_equal_mean_bias_Wm2": {
+   "main_tex_line": 811,
+   "claim_in_v12": -2.8,
+   "authoritative": -2.9165728647252065,
+   "printed_form": "-2.9",
+   "key_path": "review3_additions.bias_aggregates_Wm2.record_equal_mean.CLMU5",
+   "verdict": "TEXT_STALE",
+   "note": "equals mean(per_site.*.clmu_lwup_bias) exactly"
+  },
+  "clmu_sample_weighted_mean_bias_Wm2": {
+   "main_tex_line": 811,
+   "claim_in_v12": -3.8,
+   "authoritative": -3.8676903172646613,
+   "printed_form": "-3.9",
+   "key_path": "review3_additions.bias_aggregates_Wm2.sample_weighted_mean.CLMU5",
+   "verdict": "TEXT_STALE",
+   "note": ""
+  },
+  "clmu_mean_abs_bias_Wm2": {
+   "main_tex_line": 814,
+   "claim_in_v12": 7.6,
+   "authoritative": 7.686262929993649,
+   "printed_form": "7.7",
+   "key_path": "level_vs_gradient.CLMU5.mean_abs_LWup_bias_Wm2",
+   "verdict": "TEXT_STALE",
+   "note": ""
+  },
+  "teb_mean_abs_bias_Wm2": {
+   "main_tex_line": 814,
+   "claim_in_v12": 10.8,
+   "authoritative": 10.76800064182611,
+   "printed_form": "10.8",
+   "key_path": "level_vs_gradient.TEB.mean_abs_LWup_bias_Wm2",
+   "verdict": "TEXT_OK",
+   "note": ""
+  },
+  "teb_record_equal_mean_bias_Wm2": {
+   "main_tex_line": 810,
+   "claim_in_v12": 9.2,
+   "authoritative": 9.240387368562539,
+   "printed_form": "+9.2",
+   "key_path": "review3_additions.bias_aggregates_Wm2.record_equal_mean.TEB",
+   "verdict": "TEXT_OK",
+   "note": ""
+  },
+  "teb_sample_weighted_mean_bias_Wm2": {
+   "main_tex_line": 810,
+   "claim_in_v12": 6.8,
+   "authoritative": 6.778976064815682,
+   "printed_form": "+6.8",
+   "key_path": "review3_additions.bias_aggregates_Wm2.sample_weighted_mean.TEB",
+   "verdict": "TEXT_OK",
+   "note": ""
+  },
+  "loco_clmu_mae_improvement_ci95_all19": {
+   "main_tex_line": 997,
+   "claim_in_v12": [
+    -0.17,
+    0.73
+   ],
+   "authoritative": [
+    -0.16458777800484334,
+    0.7252192071431661
+   ],
+   "printed_form": "[-0.16,0.73]",
+   "key_path": "review4_additions.unified_correction_LOCO_dtsa.variants.all19.CLMU5.mae_improvement_ci95_cluster",
+   "verdict": "TEXT_STALE_FIGURE_RIGHT",
+   "note": "figures/make_figures.py:fig6 formats this same leaf with :.2f"
+  },
+  "loco_clmu_mae_improvement_ci95_excl_mpls17": {
+   "main_tex_line": 999,
+   "claim_in_v12": [
+    -0.28,
+    0.61
+   ],
+   "authoritative": [
+    -0.2800439262702295,
+    0.6203375137497511
+   ],
+   "printed_form": "[-0.28,0.62]",
+   "key_path": "review4_additions.unified_correction_LOCO_dtsa.variants.excl_mpls17.CLMU5.mae_improvement_ci95_cluster",
+   "verdict": "TEXT_STALE_FIGURE_RIGHT",
+   "note": "figures/make_figures.py:fig6 formats this same leaf with :.2f"
+  },
+  "loco_clmu_raw_mae_K_all19": {
+   "main_tex_line": 995,
+   "claim_in_v12": 1.55,
+   "authoritative": 1.5719850679295666,
+   "printed_form": "1.57",
+   "key_path": "review4_additions.unified_correction_LOCO_dtsa.variants.all19.CLMU5.raw_mae_K",
+   "verdict": "TEXT_STALE",
+   "note": "v12 value traces to the superseded review3b_additions.correction_baselines block"
+  },
+  "loco_clmu_albedo_locomae_K_all19": {
+   "main_tex_line": 995,
+   "claim_in_v12": 1.23,
+   "authoritative": 1.2505758794876662,
+   "printed_form": "1.25",
+   "key_path": "review4_additions.unified_correction_LOCO_dtsa.variants.all19.CLMU5.albedo_locomae_K",
+   "verdict": "TEXT_STALE",
+   "note": "v12 value traces to the superseded review3b_additions.correction_baselines block"
+  },
+  "loco_clmu_albedo_locomae_K_excl_mpls17": {
+   "main_tex_line": 1010,
+   "claim_in_v12": 1.19,
+   "authoritative": 1.2062599844116269,
+   "printed_form": "1.21",
+   "key_path": "review4_additions.unified_correction_LOCO_dtsa.variants.excl_mpls17.CLMU5.albedo_locomae_K",
+   "verdict": "TEXT_STALE",
+   "note": "v12 value traces to the superseded review3b_additions.correction_baselines block"
+  },
+  "loco_clmu_intercept_only_locomae_K_excl_mpls17": {
+   "main_tex_line": 1010,
+   "claim_in_v12": 1.14,
+   "authoritative": 1.149665615108981,
+   "printed_form": "1.15",
+   "key_path": "review4_additions.unified_correction_LOCO_dtsa.variants.excl_mpls17.CLMU5.intercept_only_locomae_K",
+   "verdict": "TEXT_STALE",
+   "note": "v12 value traces to the superseded review3b_additions.correction_baselines block"
+  },
+  "P_beta_ge_1_all_cells": {
+   "main_tex_line": [
+    51,
+    806,
+    1238
+   ],
+   "claim_in_v12": "<=0.002 (abstract 'everywhere', Conclusions 'throughout'); Table 2 caption says <=0.001 'in all six cells'",
+   "cells": {
+    "scheme_ordering_paired.all19.TEB": 0.00018,
+    "scheme_ordering_paired.all19.CLMU5": 0.0,
+    "scheme_ordering_paired.excl_mpls17.TEB": 0.00083,
+    "scheme_ordering_paired.excl_mpls17.CLMU5": 1e-05,
+    "scheme_ordering_paired.core16.TEB": 0.00131,
+    "scheme_ordering_paired.core16.CLMU5": 0.00025,
+    "core15_sensitivity.model_side.all19.TEB": 0.00018,
+    "core15_sensitivity.model_side.all19.CLMU5": 0.0,
+    "core15_sensitivity.model_side.excl_mpls17.TEB": 0.00083,
+    "core15_sensitivity.model_side.excl_mpls17.CLMU5": 1e-05,
+    "core15_sensitivity.model_side.core16.TEB": 0.00131,
+    "core15_sensitivity.model_side.core16.CLMU5": 0.00025,
+    "core15_sensitivity.model_side.core15.TEB": 0.00382,
+    "core15_sensitivity.model_side.core15.CLMU5": 0.00012
+   },
+   "max_over_all_cells": {
+    "key": "core15_sensitivity.model_side.core15.TEB",
+    "value": 0.00382
+   },
+   "max_over_six_headline_cells": {
+    "key": "scheme_ordering_paired.core16.TEB",
+    "value": 0.00131
+   },
+   "printed_form": "<=0.004 everywhere; <=0.0014 over the six headline cells",
+   "key_path": "review5_additions.core15_sensitivity.model_side.core15.one_sided.TEB_P_beta_ge_1",
+   "verdict": "BOUND_TOO_TIGHT: 0.00382 > 0.002 in core15; 0.00131 > 0.001 in core16, so Table 2's <=0.001 also fails"
+  },
+  "clear_calm_invariant_quantity": {
+   "main_tex_line": [
+    595,
+    757
+   ],
+   "claim_in_v12": "'-2.60 K ... against -0.90 K ... at every bias amplitude'",
+   "n_negative_offset_records": 9,
+   "mean_clear_calm_K": -2.600724483351316,
+   "mean_cloudy_windy_K": -0.9021180949572307,
+   "invariant_contrast_K": -1.6986063883940852,
+   "key_path": "review5_additions.obs_uncertainty_v11.static_bias_cancellation.clear_calm_contrast.summary.negative_offset_group.mean_contrast_K",
+   "verdict": "WORDING: only the difference (-1.6986 K) is bias-invariant; the two composite means are not"
+  },
+  "clear_calm_residual_fraction_pct": {
+   "main_tex_line": 600,
+   "claim_in_v12": "median 2.0% ... at most 4.9% among those nine",
+   "median_over_nine_pct": 1.7991406607104168,
+   "max_over_nine_pct": 4.906493869657071,
+   "median_over_all19_pct": 2.035181710450379,
+   "key_path": "review5_additions.obs_uncertainty_v11.static_bias_cancellation.clear_calm_contrast.per_record.<SITE>.residual_K_if_bias_is_5Wm2",
+   "verdict": "SCOPE: the 2.0% median is the all-19 median; over the nine it is 1.8%"
+  },
+  "lipowa_minus_narutowicza_by_regime_K": {
+   "main_tex_line": [
+    1196,
+    1199
+   ],
+   "claim_in_v12": "'+1.19 vs +6.12 K, confirming that the warm extreme is a site/footprint feature'",
+   "published_full_record": 4.925676650242934,
+   "narutowicza_early_regime": 7.541617714734773,
+   "narutowicza_late_regime": 1.4349776688163,
+   "narutowicza_dtsa_early_K": -1.4212417294001163,
+   "narutowicza_dtsa_late_K": 4.675527132058544,
+   "lipowa_step_across_same_date_K": -0.009871184459812277,
+   "n_early_steps": 20884,
+   "n_late_steps": 15649,
+   "key_path": "review5_additions.temporal_sampling.narutowicza_regime_step.magnitude",
+   "verdict": "OVERCLAIM: the sign survives in both regimes but the gap is 7.54 K on the early regime and only 1.43 K on the late (post-break) regime, which the package's own attribution argument calls the instrumentally credible one"
+  }
+ },
+ "sweep": {
+  "clmu_baseline_reproduction_spread": {
+   "main_tex_line": 364,
+   "claim_in_v12": "within 0.05 K at 18 records and 0.26 K at one",
+   "n_within_0p05": 17,
+   "records_outside_0p05": {
+    "GR-HECKOR": -0.24667024238183277,
+    "UK-KingsCollege": -0.14251457594548578
+   },
+   "max_abs_K": 0.24667024238183277,
+   "key_path": "clmu_constrained_experiments.baseline_reproduction.changed_records (= results/clmu_v11_rebuild.json control.*.d_dtsa)",
+   "verdict": "WRONG: 17 within 0.05 K, TWO outside (UK-KingsCollege 0.1425 K, GR-HECKOR 0.2467 K); the single-record framing and the 0.26 figure are both incorrect"
+  },
+  "clmu_archived_vs_v11_slope": {
+   "main_tex_line": 365,
+   "claim_in_v12": "fresh baseline slope of 0.11 indistinguishable from the archived 0.10",
+   "slope_archived": 0.10007123012930694,
+   "slope_v11": 0.10520553002716357,
+   "key_path": "results/clmu_v11_rebuild.json slopes.all19",
+   "verdict": "TEXT_OK (but the source leaf is NOT merged into paper_stats_v1.json)"
+  },
+  "clmu_model_dtsa_span_K": {
+   "main_tex_line": 789,
+   "claim_in_v12": "span -2.5 to +0.7 K",
+   "span": [
+    -2.7515097500159102,
+    0.7123211947302801
+   ],
+   "argmin": "GR-HECKOR",
+   "printed_form": "-2.8 to +0.7",
+   "key_path": "model_evaluation.variants.all.CLMU5.model_span_min/max (= per_site.*.clmu_dtsa)",
+   "verdict": "STALE PRE-ALIGNMENT VALUE: -2.5048 is GR-HECKOR's ARCHIVED dTsa; the alignment-corrected value is -2.7515"
+  },
+  "cross_scheme_bias_corr_13_non_gate": {
+   "main_tex_line": 829,
+   "claim_in_v12": "r=-0.11, 95% cluster-bootstrap CI [-0.71,+0.51]",
+   "r": -0.13581714478249957,
+   "ci95": [
+    -0.7297491605493304,
+    0.480230343039778
+   ],
+   "printed_form": "r=-0.14, CI [-0.73,+0.48]",
+   "key_path": "review2_additions.cross_scheme_decorrelation.unseen13",
+   "verdict": "TEXT_STALE"
+  },
+  "clmu_bias_albedo_corr": {
+   "main_tex_line": 827,
+   "claim_in_v12": "+0.72",
+   "value": 0.7082633436568698,
+   "printed_form": "+0.71",
+   "key_path": "model_evaluation.variants.all.CLMU5.r_bias_albedo",
+   "verdict": "TEXT_STALE"
+  },
+  "tair_covariate_spearman": {
+   "main_tex_line": 703,
+   "claim_in_v12": "+0.02",
+   "value": 0.014925373134328356,
+   "printed_form": "+0.01",
+   "key_path": "review3_additions.forcing_covariates.covariates.tair.spearman_rho",
+   "verdict": "TEXT_STALE"
+  },
+  "dtsa_qh_spearman_p": {
+   "main_tex_line": 762,
+   "claim_in_v12": 0.028,
+   "value": 0.026948479558013348,
+   "printed_form": "0.027",
+   "key_path": "independent_instrument.all.spearman_p",
+   "verdict": "TEXT_STALE"
+  },
+  "dtsa_qh_spearman_under_aligned_1K": {
+   "main_tex_line": 612,
+   "claim_in_v12": "from +0.51 to +0.33; box range [-0.06,+0.80]",
+   "baseline": 0.50636248841296,
+   "aligned_1K": 0.329091738569948,
+   "box_range_1K": [
+    -0.060552879896870436,
+    0.8029838421106731
+   ],
+   "key_path": "recomputed here from per_site.*.dtsa_std/obs_qh_qc0/albedo (no stored leaf)",
+   "verdict": "TEXT_OK"
+  },
+  "dslucm_best_lipowa_K": {
+   "main_tex_line": 910,
+   "claim_in_v12": -0.56,
+   "per_configuration": {
+    "A0": -0.8578642217271522,
+    "S-A1": -0.14724054230682151,
+    "S-A2": -0.28316086976073185,
+    "S-B": -0.7493431272345928,
+    "S-AB": -0.5583942454341416,
+    "S-D": -0.7880184554860137,
+    "S-ABD": -0.4410871070103098
+   },
+   "best_over_configurations": {
+    "config": "S-A1",
+    "value": -0.14724054230682151
+   },
+   "value_of_best_overall_config": -0.5583942454341416,
+   "key_path": "external/dslucm_surgery/results.json summary.<CONFIG>.lipowa",
+   "verdict": "AMBIGUOUS: -0.56 is S-AB's value, but the closest ANY configuration comes to +6.12 K is S-A1 at -0.15 K"
+  },
+  "leave_one_city_out_r": {
+   "main_tex_line": 533,
+   "claim_in_v12": "r <= -0.71",
+   "per_city": {
+    "AU-Preston": -0.8002586615393407,
+    "CA-Sunset": -0.7893234104617387,
+    "FR-Capitole": -0.7921226590072762,
+    "GR-HECKOR": -0.7955078670996766,
+    "Helsinki": -0.7956286893003991,
+    "JP-Yoyogi": -0.7930877550201939,
+    "KR-Jungnang": -0.7911394197769602,
+    "KR-Ochang": -0.788341332387624,
+    "Lodz": -0.859909780565007,
+    "Minneapolis": -0.7093393144022628,
+    "NL-Amsterdam": -0.8054603215120286,
+    "SG-TelokKurau06": -0.814723379752692,
+    "UK-KingsCollege": -0.808184526199305,
+    "UK-Swindon": -0.7951162676488479,
+    "US-Baltimore": -0.7926680295593777,
+    "US-WestPhoenix": -0.788474618122023
+   },
+   "least_negative": -0.7093393144022628,
+   "least_negative_city": "Minneapolis",
+   "key_path": "recomputed from per_site.*.albedo/dtsa_std",
+   "verdict": "INEQUALITY_FAILS_BY_0.0007: least negative is -0.70934, which is NOT <= -0.71 although it rounds to it"
+  }
+ }
+}

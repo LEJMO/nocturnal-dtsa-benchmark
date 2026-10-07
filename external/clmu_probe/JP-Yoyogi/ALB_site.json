@@ -1,0 +1,25 @@
+{
+  "site": "JP-Yoyogi",
+  "config": "ALB_site",
+  "lwup_bias": -4.260263565167739,
+  "n_night": 29709,
+  "qh_bias": -4.978841028858527,
+  "n_qh": 15495,
+  "dTsa_model": -0.4542383452298558,
+  "lwup_bias_noDJF": -3.0278629197198677,
+  "align_delta": 1,
+  "align_rmse": 0.0,
+  "LWup_eq_FIRE": 0.0,
+  "minutes": 12.92,
+  "modified_fields": {
+    "site_albedo": 0.133,
+    "ALB_ROOF_DIR[0]": 0.133,
+    "ALB_WALL_DIR[0]": 0.133
+  },
+  "surf_verify_readback": {
+    "TK_ROOF": 1.2000000476837158,
+    "CV_ROOF": 1700000.0,
+    "EM_ROOF": 0.8999999761581421,
+    "ALB_ROOF_DIR": 0.133
+  }
+}

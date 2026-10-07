@@ -1,0 +1,24 @@
+{
+  "site": "JP-Yoyogi",
+  "config": "EMIS_low",
+  "lwup_bias": -5.005873277349536,
+  "n_night": 29709,
+  "qh_bias": -5.363784725008453,
+  "n_qh": 15495,
+  "dTsa_model": -0.6044907832640826,
+  "lwup_bias_noDJF": -3.6994610861231334,
+  "align_delta": 1,
+  "align_rmse": 0.0,
+  "LWup_eq_FIRE": 0.0,
+  "minutes": 12.86,
+  "modified_fields": {
+    "EM_ROOF": 0.8699999761581421,
+    "EM_WALL": 0.8785999727249145
+  },
+  "surf_verify_readback": {
+    "TK_ROOF": 1.2000000476837158,
+    "CV_ROOF": 1700000.0,
+    "EM_ROOF": 0.8699999761581421,
+    "ALB_ROOF_DIR": 0.23000000417232513
+  }
+}

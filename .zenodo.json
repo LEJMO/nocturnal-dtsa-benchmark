@@ -1,0 +1,50 @@
+{
+  "title": "Analysis code and statistics package for: An albedo-organized gradient in nocturnal surface-air temperature offsets across cities: a flux-tower benchmark for urban canopy schemes",
+  "description": "<p>Analysis code, model-run configurations and the complete statistics package underlying every number, table and figure of the manuscript submitted to <em>Urban Climate</em>. The nocturnal apparent radiometric surface temperature is derived from tower upward and downward longwave radiation at 19 records of the harmonized Urban-PLUMBER collection through one inversion applied identically to observations and model output, and its offset from tower air temperature is compared across sites against offline runs of two urban canopy schemes, TEB v4.1.2 and CLM-Urban (CLM5.0/CLMU).</p><p>Contents: the generator chain from processed model output to the published tables (single-source-of-truth statistics file plus its companion packages: city-block permutation inference, paired scheme-difference bootstrap, observation-error propagation, temporal and seasonal sampling, constrained-configuration experiments, metric-family comparison, albedo and sky-emissivity check, material perturbations); the run tooling for both schemes; the differentiable single-layer probe; and the figure and table generators.</p><p>This deposit contains our own analysis code only. The TEB source (CeCILL v2.1) is referenced by its own software archive and the Urban-PLUMBER observations (CC-BY-4.0) by their versioned data record; neither is redistributed here. See THIRD_PARTY_NOTICES.md.</p>",
+  "creators": [
+    {
+      "name": "Lee, Junmo",
+      "affiliation": "Department of Civil and Environmental Engineering, Seoul National University"
+    },
+    {
+      "name": "Kang, Junsuk",
+      "affiliation": "Department of Civil and Environmental Engineering; Research Institute of Agriculture and Life Sciences; Department of Landscape Architecture and Rural Systems Engineering; Transdisciplinary Program in Smart City Global Convergence, Seoul National University"
+    }
+  ],
+  "keywords": [
+    "nocturnal urban climate",
+    "surface-air temperature offset",
+    "radiometric surface temperature",
+    "upward longwave radiation",
+    "urban canopy schemes",
+    "model evaluation",
+    "Urban-PLUMBER",
+    "TEB",
+    "CLM-Urban"
+  ],
+  "license": "MIT",
+  "upload_type": "software",
+  "access_right": "open",
+  "language": "eng",
+  "version": "1.0.0",
+  "related_identifiers": [
+    {
+      "relation": "isDerivedFrom",
+      "identifier": "10.5281/zenodo.7104984",
+      "resource_type": "dataset",
+      "scheme": "doi"
+    },
+    {
+      "relation": "references",
+      "identifier": "10.5281/zenodo.5775962",
+      "resource_type": "software",
+      "scheme": "doi"
+    }
+  ],
+  "references": [
+    "Lipson, M., Grimmond, S., Best, M., et al. (2022). Harmonized gap-filled datasets from 20 urban flux tower sites. Earth System Science Data, 14, 5157-5178. https://doi.org/10.5194/essd-14-5157-2022",
+    "Masson, V. (2000). A physically-based scheme for the urban energy budget in atmospheric models. Boundary-Layer Meteorology, 94, 357-397.",
+    "Oleson, K. W., Bonan, G. B. and Feddema, J. (2010). Effects of white roofs on urban temperature in a global climate model. Geophysical Research Letters, 37, L03701. https://doi.org/10.1029/2009GL042194"
+  ],
+  "notes": "Funding: National Research Foundation of Korea (NRF) grant funded by the Korea government (MSIT), RS-2023-00259403; Knowledge-based Environmental Specialized Graduate Program through the Korea Environment Industry & Technology Institute (KEITI), funded by the Ministry of Climate, Energy, and Environment (MCEE). Reproduction order and environment: see README.md. The isSupplementTo relation to the article DOI is added on Zenodo after acceptance."
+}

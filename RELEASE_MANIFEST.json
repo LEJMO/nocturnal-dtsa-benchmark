@@ -1,0 +1,2644 @@
+{
+ "generated_utc": "2026-10-07T05:55:34Z",
+ "source_commit": "0f42d5199f6155bc0d988409e15d263bbab3f5bc",
+ "files": [
+  {
+   "path": "src/__init__.py",
+   "role": "code",
+   "bytes": 0,
+   "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "source": "src/__init__.py"
+  },
+  {
+   "path": "src/training/__init__.py",
+   "role": "code",
+   "bytes": 390,
+   "sha256": "d155d06c5cdd51046376b8ebacb7e9b7f1b9d5790b122d4683ff35964992b7c3",
+   "source": "src/training/__init__.py"
+  },
+  {
+   "path": "src/training/corpus_loader.py",
+   "role": "code",
+   "bytes": 7305,
+   "sha256": "abe6b7c52bdc22251c6d24eadfee7966b4b45d057731da306d1f5e70659bb4ab",
+   "source": "src/training/corpus_loader.py"
+  },
+  {
+   "path": "src/models/__init__.py",
+   "role": "code",
+   "bytes": 124,
+   "sha256": "2d22f7fd85b0eab0b4439ce4f9a20bd47e01856fbe7e4d6d3bbe4828d90cfed7",
+   "source": "src/models/__init__.py"
+  },
+  {
+   "path": "src/models/dslucm_forward.py",
+   "role": "code",
+   "bytes": 16487,
+   "sha256": "087b6c89a16c2e25a3b1af5bcf9d900720538c50479520500af05ac74ee713c0",
+   "source": "src/models/dslucm_forward.py"
+  },
+  {
+   "path": "scripts/week2_build_multisite_corpus.py",
+   "role": "code",
+   "bytes": 11830,
+   "sha256": "43ea3da084ba89b367bba0f5ea0d6c1d67ad780e369446586993e2f7d337c06d",
+   "source": "scripts/week2_build_multisite_corpus.py"
+  },
+  {
+   "path": "scripts/teb_make_inputs.py",
+   "role": "code",
+   "bytes": 10597,
+   "sha256": "59f0e2304c4d30799b02371dff29096bca1eaf416f83f1718d3504055aff2abc",
+   "source": "scripts/teb_make_inputs.py"
+  },
+  {
+   "path": "scripts/pubstyle.py",
+   "role": "code",
+   "bytes": 3444,
+   "sha256": "2e5b721959133925c9af77c82f5ffda1af6c58ff2d42fbd0811bff52fe7d6032",
+   "source": "scripts/pubstyle.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/paper_stats.py",
+   "role": "chain",
+   "bytes": 34823,
+   "sha256": "5f880cb4ceb5862716d0b443888e01fd2daa38e190a5f07a00f11bedb5418a70",
+   "source": "투고가능성평가/재검증_2026-08/scripts/paper_stats.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/attribution_covariates.py",
+   "role": "chain",
+   "bytes": 4012,
+   "sha256": "dbf976390d4f3a94d0d60dcf537559105775d9a2dcf811288acf115598cb0772",
+   "source": "투고가능성평가/재검증_2026-08/scripts/attribution_covariates.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review2_additions.py",
+   "role": "chain",
+   "bytes": 8259,
+   "sha256": "a8f57d88cae295bfcfa71fd1f77dcbb1fce1ab4d5e0cf22fea65c08775e91774",
+   "source": "투고가능성평가/재검증_2026-08/scripts/review2_additions.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review3_additions.py",
+   "role": "chain",
+   "bytes": 6854,
+   "sha256": "980d4565cf7dab6def021baee703234708a237b351e74c5e80233973ee3a2224",
+   "source": "투고가능성평가/재검증_2026-08/scripts/review3_additions.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review3b_additions.py",
+   "role": "chain",
+   "bytes": 7102,
+   "sha256": "e31ffb13ff450affea7fe2935987ac9345df412a4399f84b966bbed015c49155",
+   "source": "투고가능성평가/재검증_2026-08/scripts/review3b_additions.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review4_additions.py",
+   "role": "chain",
+   "bytes": 8877,
+   "sha256": "2e7806e1d28e001c8dea6458803b06b6ab4d55b0f8fb370756c14389d6b94824",
+   "source": "투고가능성평가/재검증_2026-08/scripts/review4_additions.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/v10_tables.py",
+   "role": "chain",
+   "bytes": 5627,
+   "sha256": "32a9d61c1de4b690a0ab1ec4a91609fdbdc13ac88e30587bc1ff574a178e27af",
+   "source": "투고가능성평가/재검증_2026-08/scripts/v10_tables.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review5_adderley_propagation.py",
+   "role": "chain",
+   "bytes": 77309,
+   "sha256": "fda155beccae7916823dd08a4f493e7af83bf56679aed01d1836c2f5365bff7e",
+   "source": "투고가능성평가/재검증_2026-08/scripts/review5_adderley_propagation.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review5_benchmark_skill.py",
+   "role": "chain",
+   "bytes": 28208,
+   "sha256": "c09dc5854e2f636568cc8d589c220a8e6d7774a509b1b0680a12a422e06bdf42",
+   "source": "투고가능성평가/재검증_2026-08/scripts/review5_benchmark_skill.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review5_benchmark_cityholdout.py",
+   "role": "chain",
+   "bytes": 39976,
+   "sha256": "f6444c51a4d7d3496e428345008540d40ebab1693d243bd364b48954e859d4b3",
+   "source": "투고가능성평가/재검증_2026-08/scripts/review5_benchmark_cityholdout.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review5_benchmark_decomposition.py",
+   "role": "chain",
+   "bytes": 6407,
+   "sha256": "e056d8d7ad51961a473256c60b4ed969f76202dcfc9d4b8c114299786322e11e",
+   "source": "투고가능성평가/재검증_2026-08/scripts/review5_benchmark_decomposition.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review5_constrained_experiments.py",
+   "role": "chain",
+   "bytes": 30144,
+   "sha256": "f5a99dbdf8c30d7ac0e42220d726e115d408c903874f17097223ab096ee0b4eb",
+   "source": "투고가능성평가/재검증_2026-08/scripts/review5_constrained_experiments.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review5_core15.py",
+   "role": "chain",
+   "bytes": 23561,
+   "sha256": "dede173b908c314cc3b35a9fe2462d3fbc350f78b0aed5203625753b7a9befae",
+   "source": "투고가능성평가/재검증_2026-08/scripts/review5_core15.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review5_model_spread_propagation.py",
+   "role": "chain",
+   "bytes": 10229,
+   "sha256": "4bd03627253d149ba5b01c0c40a4860a2b6c1257bf90e2a27b7e954cf8a640e5",
+   "source": "투고가능성평가/재검증_2026-08/scripts/review5_model_spread_propagation.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review5_obs_error_into_model.py",
+   "role": "chain",
+   "bytes": 60349,
+   "sha256": "aac4237cf6b41b542a32678db573df5fb6910e56e234268349030d90fdfcd3fc",
+   "source": "투고가능성평가/재검증_2026-08/scripts/review5_obs_error_into_model.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review5_obs_error_into_model_ordering.py",
+   "role": "chain",
+   "bytes": 11873,
+   "sha256": "f1c7dd49949db89580d0a6e36b14a893846484010ef14f624091def2ab4d5e32",
+   "source": "투고가능성평가/재검증_2026-08/scripts/review5_obs_error_into_model_ordering.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review5_permutation_rebuild.py",
+   "role": "chain",
+   "bytes": 38780,
+   "sha256": "5852ebc13df170572bd6c81922d183c0870c373f8bd66e8294e129eed400da79",
+   "source": "투고가능성평가/재검증_2026-08/scripts/review5_permutation_rebuild.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review5_run_provenance.py",
+   "role": "chain",
+   "bytes": 36490,
+   "sha256": "0f2f246ac927e70c638758b0648497e928d348166b2086a3df3df2e510794ca5",
+   "source": "투고가능성평가/재검증_2026-08/scripts/review5_run_provenance.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review5_scheme_ordering_paired.py",
+   "role": "chain",
+   "bytes": 6187,
+   "sha256": "bdfdb4235440c4bde78012c7e2d7ef5afccb0b4c7e43cd032dbef564ecac83af",
+   "source": "투고가능성평가/재검증_2026-08/scripts/review5_scheme_ordering_paired.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review5_temporal_seasonal.py",
+   "role": "chain",
+   "bytes": 60942,
+   "sha256": "d3423e6c47f6340cf428f0d5d81d7c152f27f652d75b1f1a2908e3459dec6977",
+   "source": "투고가능성평가/재검증_2026-08/scripts/review5_temporal_seasonal.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review6_adversarial_mc_bounds.py",
+   "role": "chain",
+   "bytes": 8996,
+   "sha256": "54ed37a931ac420779eed4b095a224b54afafe9421c2a4be74cde2e9cc07546c",
+   "source": "투고가능성평가/재검증_2026-08/scripts/review6_adversarial_mc_bounds.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review6_benchmark_dedup_pool.py",
+   "role": "chain",
+   "bytes": 2163,
+   "sha256": "3e77996012a4610b99b44afe17019b9a9b1a20c1c01da219770111aa1fe2d50b",
+   "source": "투고가능성평가/재검증_2026-08/scripts/review6_benchmark_dedup_pool.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review6_benchmark_dedup_control.py",
+   "role": "chain",
+   "bytes": 2753,
+   "sha256": "2f9fc638f5a2681726289394b617ace9f70b15b5c6b4b061853831367c8f3b0d",
+   "source": "투고가능성평가/재검증_2026-08/scripts/review6_benchmark_dedup_control.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review6_benchmark_holdout_verify.py",
+   "role": "chain",
+   "bytes": 13692,
+   "sha256": "a1ccf3bef827e8a329b55470ba32d6751eb6f9c02c06055b7483139c1a6c0a35",
+   "source": "투고가능성평가/재검증_2026-08/scripts/review6_benchmark_holdout_verify.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review6_benchmark_seed_fragility.py",
+   "role": "chain",
+   "bytes": 1828,
+   "sha256": "547a33df5e448c863d3107dc72d1d2a6d27dc1038bddae4b260f9c31ad2bdd7c",
+   "source": "투고가능성평가/재검증_2026-08/scripts/review6_benchmark_seed_fragility.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review6_benchmark_verification_merge.py",
+   "role": "chain",
+   "bytes": 4608,
+   "sha256": "bc56bfcbd9f97d8058bdb1d8678456649f6aa57db9a441302b8f2806682e2cbc",
+   "source": "투고가능성평가/재검증_2026-08/scripts/review6_benchmark_verification_merge.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review6_minneapolis_duplication_audit.py",
+   "role": "chain",
+   "bytes": 5491,
+   "sha256": "8a9106981554f3eac158f00a88928088119f3d0bba036722005f2a782b80d5e2",
+   "source": "투고가능성평가/재검증_2026-08/scripts/review6_minneapolis_duplication_audit.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review6_text_number_audit.py",
+   "role": "chain",
+   "bytes": 16698,
+   "sha256": "7d591e2201a357bcb1cb9abf22f979a9cef13405ff4dfe78a9e71a548874f900",
+   "source": "투고가능성평가/재검증_2026-08/scripts/review6_text_number_audit.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review7_debiased_mae.py",
+   "role": "chain",
+   "bytes": 5526,
+   "sha256": "9d85f2db37b3a3f7d9385d277ed2631afbd683b10d7590fc102a8323354eee32",
+   "source": "투고가능성평가/재검증_2026-08/scripts/review7_debiased_mae.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review8_core16_and_b1.py",
+   "role": "chain",
+   "bytes": 11499,
+   "sha256": "16879a4a61731c8db2bb11e3d18da3d89897568be572038e8487d58b00cee848",
+   "source": "투고가능성평가/재검증_2026-08/scripts/review8_core16_and_b1.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review5_merge.py",
+   "role": "chain",
+   "bytes": 7600,
+   "sha256": "5027012348d57f13a99f49a4f3389aa8f9a4331d4503fe2e59467c6fe529110b",
+   "source": "투고가능성평가/재검증_2026-08/scripts/review5_merge.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review5_table1_rebuild.py",
+   "role": "tables",
+   "bytes": 4082,
+   "sha256": "4e29593f985422d76e53b6e2b7d83470e87ecf1aa8d9d3e7552a9cdf15239135",
+   "source": "투고가능성평가/재검증_2026-08/scripts/review5_table1_rebuild.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/v10_metatable.py",
+   "role": "tables",
+   "bytes": 3315,
+   "sha256": "f3ccf8a2778d1d7747928670b7e7ce8516073d6204f98471e8ef21b208abee39",
+   "source": "투고가능성평가/재검증_2026-08/scripts/v10_metatable.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review5_table_modelvar.py",
+   "role": "tables",
+   "bytes": 4204,
+   "sha256": "9f5b66b9b5e912e33d906121dd5fdd8579150566ec15226e29a28d0dbc5f0056",
+   "source": "투고가능성평가/재검증_2026-08/scripts/review5_table_modelvar.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review5_provenance_table.py",
+   "role": "tables",
+   "bytes": 6036,
+   "sha256": "9226ceaf241d4856a43f043ffdcfcab01fe159b050e110ef906ed0f40c47a84a",
+   "source": "투고가능성평가/재검증_2026-08/scripts/review5_provenance_table.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review7_table_metric_families.py",
+   "role": "tables",
+   "bytes": 5851,
+   "sha256": "56af69d6858e9739436384fc1db6da7c9f9fa36f54889002deba4a1c88c5534f",
+   "source": "투고가능성평가/재검증_2026-08/scripts/review7_table_metric_families.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review7_table_benchmark_protocols.py",
+   "role": "tables",
+   "bytes": 4029,
+   "sha256": "9b642746eeb75a1d765b9d867396a59bf395da21d9b5b3d59e64849c7e84e964",
+   "source": "투고가능성평가/재검증_2026-08/scripts/review7_table_benchmark_protocols.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review7_table_scenario_cells.py",
+   "role": "tables",
+   "bytes": 6182,
+   "sha256": "dffa6c6777b8e1e3922bab515d10cf4fa2fea00b44e6779d467f2255bb2b1612",
+   "source": "투고가능성평가/재검증_2026-08/scripts/review7_table_scenario_cells.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review8_table_b1.py",
+   "role": "tables",
+   "bytes": 2544,
+   "sha256": "99a96d37e1231d5e53283eaac4d339b6f6351514fb70bbfdad74206e01e2bca9",
+   "source": "투고가능성평가/재검증_2026-08/scripts/review8_table_b1.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review8_table_material_K.py",
+   "role": "tables",
+   "bytes": 3030,
+   "sha256": "73037d7ee025dab2d8096c0b0c7709cd1a0fb9b411d5ca7d52c232875cded81c",
+   "source": "투고가능성평가/재검증_2026-08/scripts/review8_table_material_K.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/flux_direction_check.py",
+   "role": "evidence-producer",
+   "bytes": 3541,
+   "sha256": "cdcaca928a8bcbe22715d42f4ce7f0b9bb2c1ab07754a4e94b11a184c149b57c",
+   "source": "투고가능성평가/재검증_2026-08/scripts/flux_direction_check.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/conditioning_analysis.py",
+   "role": "evidence-producer",
+   "bytes": 9490,
+   "sha256": "c7e447c593dca63ac6cf7c1ea226eb8410f8651d4ddfecbe1548f0beda94810a",
+   "source": "투고가능성평가/재검증_2026-08/scripts/conditioning_analysis.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/sign_audit.py",
+   "role": "evidence-producer",
+   "bytes": 13629,
+   "sha256": "a94b2ec99c541d7532c57134585aa02b3e476bb16a43170f952a883036dba1c6",
+   "source": "투고가능성평가/재검증_2026-08/scripts/sign_audit.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/check_teb_params.py",
+   "role": "evidence-producer",
+   "bytes": 2157,
+   "sha256": "74cb6e272fd7fc6c967a105e7870fee12e26b07e5687a680819a500772f4e4e9",
+   "source": "투고가능성평가/재검증_2026-08/scripts/check_teb_params.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/dslucm_surgery.py",
+   "role": "probe",
+   "bytes": 18181,
+   "sha256": "d7959d72d96bc74f69cdd3ba9d8cd8fa2fd8b1fab9d570e893c31d752e0b6765",
+   "source": "투고가능성평가/재검증_2026-08/scripts/dslucm_surgery.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/kg1_radiometric.py",
+   "role": "verification",
+   "bytes": 5437,
+   "sha256": "1ac985c489254bdec0ef6fd10a8a6f4158a9abb08dd9084ab927921af4c2ca80",
+   "source": "투고가능성평가/재검증_2026-08/scripts/kg1_radiometric.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/obs_doublecheck.py",
+   "role": "verification",
+   "bytes": 7966,
+   "sha256": "1a63a338d090e8eb0950e40751d843eae610464114e4dc8058c6689040925c9a",
+   "source": "투고가능성평가/재검증_2026-08/scripts/obs_doublecheck.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review5_adderley_propagation_VERIFY.py",
+   "role": "verification",
+   "bytes": 19669,
+   "sha256": "49664955ce6042a4c13c5dd20c981f796c08091ec16b06c88f1e002f9ab44c20",
+   "source": "투고가능성평가/재검증_2026-08/scripts/review5_adderley_propagation_VERIFY.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review5_obs_error_into_model_VERIFY.py",
+   "role": "verification",
+   "bytes": 4774,
+   "sha256": "86ae6003228b3eba66e53049432be9e5c5d28037ac2001db9d8565510f2e4eff",
+   "source": "투고가능성평가/재검증_2026-08/scripts/review5_obs_error_into_model_VERIFY.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review5_permutation_rebuild_verify.py",
+   "role": "verification",
+   "bytes": 11273,
+   "sha256": "3b3ff24d0cc93a1d9b2bb3b7708ece8c22023f94f05df7b314b718646aee4340",
+   "source": "투고가능성평가/재검증_2026-08/scripts/review5_permutation_rebuild_verify.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/teb_rebuild_and_campaignA.sh",
+   "role": "model-tooling",
+   "bytes": 3245,
+   "sha256": "0d882e5eda55c5ac8f1a58cac2b10810fda73e70eea83d63fbd68c49a0e581b7",
+   "source": "투고가능성평가/재검증_2026-08/scripts/teb_rebuild_and_campaignA.sh"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/teb_campaignB_build.py",
+   "role": "model-tooling",
+   "bytes": 4595,
+   "sha256": "82e360fb701c43f05ba7821b8c4fa92d808fc887f970b8b9e0bcc5ae48a146c7",
+   "source": "투고가능성평가/재검증_2026-08/scripts/teb_campaignB_build.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/teb_run_campaignB.sh",
+   "role": "model-tooling",
+   "bytes": 1043,
+   "sha256": "e81a2f91684fdf7d60bd9c4c11cddd57bc80878c3837043bd46d67d70990bd17",
+   "source": "투고가능성평가/재검증_2026-08/scripts/teb_run_campaignB.sh"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/teb_campaign_eval.py",
+   "role": "model-tooling",
+   "bytes": 8222,
+   "sha256": "7a08eae16f2d026bd94c26e6daef91ca005b364bbb654af4bff499db6c01a1e3",
+   "source": "투고가능성평가/재검증_2026-08/scripts/teb_campaign_eval.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/clmu_setup_and_validate.sh",
+   "role": "model-tooling",
+   "bytes": 1193,
+   "sha256": "89b7753881b867d4644c27f003d9977b5dde98faef57f973951dc47495ec71c5",
+   "source": "투고가능성평가/재검증_2026-08/scripts/clmu_setup_and_validate.sh"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/clmu_baseline_run.sh",
+   "role": "model-tooling",
+   "bytes": 1633,
+   "sha256": "edc6072c980be32603f5215c1ea400a05f6c40075193581f45f0e673a378a51c",
+   "source": "투고가능성평가/재검증_2026-08/scripts/clmu_baseline_run.sh"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/clmu_campaignA.sh",
+   "role": "model-tooling",
+   "bytes": 1837,
+   "sha256": "fbc94283a8bd49a94991e7c7fec6c641c737f80e765be78f110d41fcfa76dbd4",
+   "source": "투고가능성평가/재검증_2026-08/scripts/clmu_campaignA.sh"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/clmu_campaignB.sh",
+   "role": "model-tooling",
+   "bytes": 3338,
+   "sha256": "9663bb883e0206df06470841060d92130c04d62b8bc3191a3f9a67205b452c2d",
+   "source": "투고가능성평가/재검증_2026-08/scripts/clmu_campaignB.sh"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/clmu_campaignB_run.sh",
+   "role": "model-tooling",
+   "bytes": 1228,
+   "sha256": "eb3ae9779d4ceb3a32e249d520de5ee54d69f32c56c4aefc1dcd80b72d5a3ecc",
+   "source": "투고가능성평가/재검증_2026-08/scripts/clmu_campaignB_run.sh"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/clmu_run_spin.py",
+   "role": "model-tooling",
+   "bytes": 1089,
+   "sha256": "e24ba4bc504dc4298e114b864c087c2f44b3176cda8865c1ca21b2cf5ac14851",
+   "source": "투고가능성평가/재검증_2026-08/scripts/clmu_run_spin.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/clmu_post.py",
+   "role": "model-tooling",
+   "bytes": 2922,
+   "sha256": "50d39c94b69030600031933980e642b7b29b269c5d5fe391ef349fd6af168090",
+   "source": "투고가능성평가/재검증_2026-08/scripts/clmu_post.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/clmu_post_v11.py",
+   "role": "model-tooling",
+   "bytes": 5567,
+   "sha256": "763924b90a5f3ed7b473bff8e50815dec381378a6d8394c7c76f29ec280a11b5",
+   "source": "투고가능성평가/재검증_2026-08/scripts/clmu_post_v11.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/clmu_campaign_eval.py",
+   "role": "model-tooling",
+   "bytes": 3374,
+   "sha256": "d1fae8f080fc6bcbb785c0d54c2ebefdea6ec15dd1f9f63ae7e4c77851c84fb6",
+   "source": "투고가능성평가/재검증_2026-08/scripts/clmu_campaign_eval.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/evidence/probe_rows.csv",
+   "role": "evidence",
+   "bytes": 1775,
+   "sha256": "8c5a8c45419ea66734da613aae4eba73e6543dcc9ef2ec7a5f2b8227e1fbb673",
+   "source": "투고가능성평가/재검증_2026-08/방향재판단_증거/probe_rows.csv"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/evidence/sign_audit_table.csv",
+   "role": "evidence",
+   "bytes": 3253,
+   "sha256": "e1ebf6e0d7e349a35b3c63cecd91dede72afac19a2acd876c67741ff2678383f",
+   "source": "투고가능성평가/재검증_2026-08/방향재판단_증거/sign_audit_table.csv"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/evidence/conditioning_table.csv",
+   "role": "evidence",
+   "bytes": 7270,
+   "sha256": "ee0d89e06305e3983ece3eabd935d7463b32a473c96fc8f78daaa4e2ab992a64",
+   "source": "투고가능성평가/재검증_2026-08/방향재판단_증거/conditioning_table.csv"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/evidence/probe_invocation_notes.md",
+   "role": "evidence",
+   "bytes": 2842,
+   "sha256": "16ae9b2e90ad3c5ebc4ff3949eeec6ee57fcf6f32f85edb2b0b348a8e0f05d06",
+   "source": "투고가능성평가/재검증_2026-08/방향재판단_증거/probe_invocation_notes.md"
+  },
+  {
+   "path": "results/paper_stats_v1.json",
+   "role": "results",
+   "bytes": 1683516,
+   "sha256": "0cf358cae2824bae0a946fc9e9d2f629725b94fcd2f2e45bf4df4d0c32cb1c9c",
+   "source": "results/paper_stats_v1.json"
+  },
+  {
+   "path": "results/clmu_v11_rebuild.json",
+   "role": "results",
+   "bytes": 27523,
+   "sha256": "15a02b6ba473046a67525e32de0cfc9d5c2b6f574a7e177a82710ac6bc1e5464",
+   "source": "results/clmu_v11_rebuild.json"
+  },
+  {
+   "path": "results/geometry_v11.json",
+   "role": "results",
+   "bytes": 1219,
+   "sha256": "f10d1c58b75f695f90756e7d8886b6744c3aa96e599ff84e83423aa837288501",
+   "source": "results/geometry_v11.json"
+  },
+  {
+   "path": "results/teb_persite_warming.json",
+   "role": "results",
+   "bytes": 2575,
+   "sha256": "d87cc21019fb065c60857212eb4e3cd2586b6306d1a8d373cf4188cdff34676f",
+   "source": "results/teb_persite_warming.json"
+  },
+  {
+   "path": "results/review5_adderley-propagation.json",
+   "role": "results",
+   "bytes": 108015,
+   "sha256": "86a14a7e2260fac8858836c9065acf0972eff600d63f8263133f4d9838e703ca",
+   "source": "results/review5_adderley-propagation.json"
+  },
+  {
+   "path": "results/review5_adderley-propagation_verify.json",
+   "role": "results",
+   "bytes": 34726,
+   "sha256": "bd68a5182b18030f656991643aab3f0ad1494ae652de9c6579f30ef932f5a2d6",
+   "source": "results/review5_adderley-propagation_verify.json"
+  },
+  {
+   "path": "results/review5_benchmark_cityholdout.json",
+   "role": "results",
+   "bytes": 99865,
+   "sha256": "553e0678114d265d7c09963dab103d033ff456caed976970b342a627eafff170",
+   "source": "results/review5_benchmark_cityholdout.json"
+  },
+  {
+   "path": "results/review5_benchmark_decomposition.json",
+   "role": "results",
+   "bytes": 3759,
+   "sha256": "dd7bd058ae3868ed154968f4e5fa0242324637513bb10a937eb26da916ca61b4",
+   "source": "results/review5_benchmark_decomposition.json"
+  },
+  {
+   "path": "results/review5_benchmark_skill.json",
+   "role": "results",
+   "bytes": 61352,
+   "sha256": "87e1b6d0093b4467db06831ce5c0c64fb6087da9b57deeaf54ffa4658f8aa130",
+   "source": "results/review5_benchmark_skill.json"
+  },
+  {
+   "path": "results/review5_constrained.json",
+   "role": "results",
+   "bytes": 32453,
+   "sha256": "8033ea76d2db832189b07b3a46a661a678871c5acd378dfffe60c23229b86974",
+   "source": "results/review5_constrained.json"
+  },
+  {
+   "path": "results/review5_core15.json",
+   "role": "results",
+   "bytes": 21623,
+   "sha256": "297137e857f79c05604d446e2f9adb0e0f3ba6ad39c5dde0209e1214d3710f97",
+   "source": "results/review5_core15.json"
+  },
+  {
+   "path": "results/review5_obs_error_into_model.json",
+   "role": "results",
+   "bytes": 447231,
+   "sha256": "42affeab3fc5651cbf37213648541792880a80a8948ea0ee8c270aa73919fb4c",
+   "source": "results/review5_obs_error_into_model.json"
+  },
+  {
+   "path": "results/review5_obs_error_ordering.json",
+   "role": "results",
+   "bytes": 16949,
+   "sha256": "1942deda46cc715324a2ad934cb3cace3cb919f4d92f65c08cdf5f6d70f463b2",
+   "source": "results/review5_obs_error_ordering.json"
+  },
+  {
+   "path": "results/review5_permutation-rebuild.json",
+   "role": "results",
+   "bytes": 36186,
+   "sha256": "508eb6038bc6d9ad0f7d29478f4d14695f6b111b2ed4b427d4fc6c360a1ad3ea",
+   "source": "results/review5_permutation-rebuild.json"
+  },
+  {
+   "path": "results/review5_run_provenance.json",
+   "role": "results",
+   "bytes": 70170,
+   "sha256": "42a573cdb9e177943866938ae7b3771464152c6867ccce947e02fcfdfd11eae5",
+   "source": "results/review5_run_provenance.json"
+  },
+  {
+   "path": "results/review5_scheme_ordering_paired.json",
+   "role": "results",
+   "bytes": 5810,
+   "sha256": "6b1f9bf873cb4388ec46027b11a6ffa31a8a74d7ef5cdd0753be4139dbcc95ed",
+   "source": "results/review5_scheme_ordering_paired.json"
+  },
+  {
+   "path": "results/review5_temporal-seasonal.json",
+   "role": "results",
+   "bytes": 176640,
+   "sha256": "bd8ad94355cf438829e5e8481392826cd82796d1db8b8bf803cdd4a09c4857d9",
+   "source": "results/review5_temporal-seasonal.json"
+  },
+  {
+   "path": "results/review5_temporal-seasonal_teb.json",
+   "role": "results",
+   "bytes": 10926,
+   "sha256": "6fa7f75b39351766c19d26480179aea1ccdc14ae578b2623842c105cfd6ff3d9",
+   "source": "results/review5_temporal-seasonal_teb.json"
+  },
+  {
+   "path": "results/review6_adversarial_mc_bounds.json",
+   "role": "results",
+   "bytes": 10285,
+   "sha256": "db191c81bfac4d2871bcff154a9be0066151a9ef8b0974c1982f6e514d87a761",
+   "source": "results/review6_adversarial_mc_bounds.json"
+  },
+  {
+   "path": "results/review6_benchmark_holdout_verification.json",
+   "role": "results",
+   "bytes": 39549,
+   "sha256": "71d12b842c5dff3aabfe3be2f7701b07dfaf60ce2c1db67debca5009342308bc",
+   "source": "results/review6_benchmark_holdout_verification.json"
+  },
+  {
+   "path": "results/review6_text_number_audit.json",
+   "role": "results",
+   "bytes": 13358,
+   "sha256": "fc40c1562f451ff8ebbfd87d4d60140cd61cf12619f666215fa253f16b9a1a2c",
+   "source": "results/review6_text_number_audit.json"
+  },
+  {
+   "path": "results/review7_debiased_mae.json",
+   "role": "results",
+   "bytes": 22437,
+   "sha256": "37d9137e7b08a7234a8143ab5ec02da6dd54d0eb9bcb54606ca99a79a1a2eda7",
+   "source": "results/review7_debiased_mae.json"
+  },
+  {
+   "path": "results/review8_core16_and_b1.json",
+   "role": "results",
+   "bytes": 17012,
+   "sha256": "113791fc742305deef796753d84f25b3ae9f896528663784dd49e8dce69bb102",
+   "source": "results/review8_core16_and_b1.json"
+  },
+  {
+   "path": "external/teb_runs/AU-Preston/input.nml",
+   "role": "model-config",
+   "bytes": 17304,
+   "sha256": "73f854ca0923245086e0cc53703b92a0f29e061f7664ce7567762f3501269866",
+   "source": "external/teb_runs/AU-Preston/input.nml"
+  },
+  {
+   "path": "external/teb_runs/AU-Preston/output/LWU_base.txt",
+   "role": "model-output",
+   "bytes": 614817,
+   "sha256": "fb1cf3570839204f7e0c7125f1d0177da163ba15589cfa4674bdea03b0d9ab2c",
+   "source": "external/teb_runs/AU-Preston/output/LWU_base.txt"
+  },
+  {
+   "path": "external/teb_runs/CA-Sunset/input.nml",
+   "role": "model-config",
+   "bytes": 17303,
+   "sha256": "4a6efe63a9931d174d19ae27bdba05f3f09f0b653bb44603cc33da361181104d",
+   "source": "external/teb_runs/CA-Sunset/input.nml"
+  },
+  {
+   "path": "external/teb_runs/CA-Sunset/output/LWU_base.txt",
+   "role": "model-output",
+   "bytes": 2367765,
+   "sha256": "0ea8edaebf81921165b4f687e2b495e431067d8c9fbd630384d98f422f139154",
+   "source": "external/teb_runs/CA-Sunset/output/LWU_base.txt"
+  },
+  {
+   "path": "external/teb_runs/FI-Kumpula/input.nml",
+   "role": "model-config",
+   "bytes": 17303,
+   "sha256": "1ec28a06f2d1849f4db26785f9f53c6da3e8b039e8b17c90a6210fdd0514a9e2",
+   "source": "external/teb_runs/FI-Kumpula/input.nml"
+  },
+  {
+   "path": "external/teb_runs/FI-Kumpula/output/LWU_base.txt",
+   "role": "model-output",
+   "bytes": 1420389,
+   "sha256": "256889159e7080d6a4176d1fa8c7b6af7f147fcd049e9c12c64fdba5f1d3254c",
+   "source": "external/teb_runs/FI-Kumpula/output/LWU_base.txt"
+  },
+  {
+   "path": "external/teb_runs/FI-Torni/input.nml",
+   "role": "model-config",
+   "bytes": 17304,
+   "sha256": "0f7c8a7ffa9f347d3099411dee33dd7ae80babeb035a6de01d48ec5705438a06",
+   "source": "external/teb_runs/FI-Torni/input.nml"
+  },
+  {
+   "path": "external/teb_runs/FI-Torni/output/LWU_base.txt",
+   "role": "model-output",
+   "bytes": 1420389,
+   "sha256": "0cd3d0fa69747e7eff2ff2c77abd4d6a95d9c00d0a57d3b77baccd7c87e94167",
+   "source": "external/teb_runs/FI-Torni/output/LWU_base.txt"
+  },
+  {
+   "path": "external/teb_runs/FR-Capitole/input.nml",
+   "role": "model-config",
+   "bytes": 17302,
+   "sha256": "4a9b6449dfa358b09556eeacc134e1842efcabbf4b3def29ae1b8ebe85760025",
+   "source": "external/teb_runs/FR-Capitole/input.nml"
+  },
+  {
+   "path": "external/teb_runs/FR-Capitole/output/LWU_base.txt",
+   "role": "model-output",
+   "bytes": 485973,
+   "sha256": "c44c3032476374406aac49ce1f959a0757b972d60d8ac9fc33c9ce80f6e1d42d",
+   "source": "external/teb_runs/FR-Capitole/output/LWU_base.txt"
+  },
+  {
+   "path": "external/teb_runs/GR-HECKOR/input.nml",
+   "role": "model-config",
+   "bytes": 17303,
+   "sha256": "d07da78df3e3c007498890e07c009b1f69268322a459209ee190199836f48e08",
+   "source": "external/teb_runs/GR-HECKOR/input.nml"
+  },
+  {
+   "path": "external/teb_runs/GR-HECKOR/output/LWU_base.txt",
+   "role": "model-output",
+   "bytes": 474336,
+   "sha256": "067e6d7c8d2b426fa50ce852418eb109ff26488bbfd71e57c344318866ab9d6d",
+   "source": "external/teb_runs/GR-HECKOR/output/LWU_base.txt"
+  },
+  {
+   "path": "external/teb_runs/JP-Yoyogi/input.nml",
+   "role": "model-config",
+   "bytes": 17303,
+   "sha256": "709fbfb5b15fbfbb9a2570135a6901638f97ff399be44d0ab9b1096b290e3baa",
+   "source": "external/teb_runs/JP-Yoyogi/input.nml"
+  },
+  {
+   "path": "external/teb_runs/JP-Yoyogi/output/LWU_base.txt",
+   "role": "model-output",
+   "bytes": 1893402,
+   "sha256": "fc505fe89bdb7ee100cf7297f20a911110e6619e160b2b7f897e06f197c58d39",
+   "source": "external/teb_runs/JP-Yoyogi/output/LWU_base.txt"
+  },
+  {
+   "path": "external/teb_runs/KR-Jungnang/input.nml",
+   "role": "model-config",
+   "bytes": 17303,
+   "sha256": "b03cdd94610936d101a760ac9b59216371eb7ea47a27abde7860db9cabe14895",
+   "source": "external/teb_runs/KR-Jungnang/input.nml"
+  },
+  {
+   "path": "external/teb_runs/KR-Jungnang/output/LWU_base.txt",
+   "role": "model-output",
+   "bytes": 1068687,
+   "sha256": "521b5ad54923f3bf414831442d93b69f719eda12b0c84a3d5c6b7de40530c027",
+   "source": "external/teb_runs/KR-Jungnang/output/LWU_base.txt"
+  },
+  {
+   "path": "external/teb_runs/KR-Ochang/input.nml",
+   "role": "model-config",
+   "bytes": 17301,
+   "sha256": "83892473ec8a196b8218b45c999d9e75b56ceccb3625bb197f1282d2dfd3ee9a",
+   "source": "external/teb_runs/KR-Ochang/input.nml"
+  },
+  {
+   "path": "external/teb_runs/KR-Ochang/output/LWU_base.txt",
+   "role": "model-output",
+   "bytes": 1010070,
+   "sha256": "b3b062d6c1db23922b1b825373f8e85706473216f5a78d284c7fd8822b8eff03",
+   "source": "external/teb_runs/KR-Ochang/output/LWU_base.txt"
+  },
+  {
+   "path": "external/teb_runs/MX-Escandon/input.nml",
+   "role": "model-config",
+   "bytes": 17302,
+   "sha256": "c5e5359362063efde7df9ff2d64c8a0b78377738352d04b6b845778558c3b822",
+   "source": "external/teb_runs/MX-Escandon/input.nml"
+  },
+  {
+   "path": "external/teb_runs/MX-Escandon/output/LWU_base.txt",
+   "role": "model-output",
+   "bytes": 608958,
+   "sha256": "a65ca60bb175f5b3ad858ef0f40bb516e4d4a530165388ce0007f27ac72d7d9f",
+   "source": "external/teb_runs/MX-Escandon/output/LWU_base.txt"
+  },
+  {
+   "path": "external/teb_runs/NL-Amsterdam/input.nml",
+   "role": "model-config",
+   "bytes": 17303,
+   "sha256": "f1cec88321a52950461d335e898c2d85416438e43b9ec270b8daf5dc2daf513b",
+   "source": "external/teb_runs/NL-Amsterdam/input.nml"
+  },
+  {
+   "path": "external/teb_runs/NL-Amsterdam/output/LWU_base.txt",
+   "role": "model-output",
+   "bytes": 844236,
+   "sha256": "b66f20e4b3475fa0a639c3a517888cd8a15aea6f11cceb8ef256bd3013e8415b",
+   "source": "external/teb_runs/NL-Amsterdam/output/LWU_base.txt"
+  },
+  {
+   "path": "external/teb_runs/PL-Lipowa/input.nml",
+   "role": "model-config",
+   "bytes": 17303,
+   "sha256": "c0eac86f30e026f39fb2fb2358945310ad298f13eaa1a56d07ca160b7e73bc73",
+   "source": "external/teb_runs/PL-Lipowa/input.nml"
+  },
+  {
+   "path": "external/teb_runs/PL-Lipowa/output/LWU_base.txt",
+   "role": "model-output",
+   "bytes": 2367738,
+   "sha256": "11df87d2660fc28905e02d18edaccc40db9c9e409929baf70d627b1f98d4c06b",
+   "source": "external/teb_runs/PL-Lipowa/output/LWU_base.txt"
+  },
+  {
+   "path": "external/teb_runs/PL-Narutowicza/input.nml",
+   "role": "model-config",
+   "bytes": 17303,
+   "sha256": "06643e35547834d26883ea279d9702896f18bfde044fb3f3854c312718d9c743",
+   "source": "external/teb_runs/PL-Narutowicza/input.nml"
+  },
+  {
+   "path": "external/teb_runs/PL-Narutowicza/output/LWU_base.txt",
+   "role": "model-output",
+   "bytes": 2367738,
+   "sha256": "fd7f67ad3f8d96c8579bea76693c3a6ae63904b53dcd7ebf3d6d77da2761191f",
+   "source": "external/teb_runs/PL-Narutowicza/output/LWU_base.txt"
+  },
+  {
+   "path": "external/teb_runs/SG-TelokKurau06/input.nml",
+   "role": "model-config",
+   "bytes": 17302,
+   "sha256": "debd4c0719794d4dfcfb2123c016a445406a7d4bb782e815c86adcd4fe9f3d43",
+   "source": "external/teb_runs/SG-TelokKurau06/input.nml"
+  },
+  {
+   "path": "external/teb_runs/SG-TelokKurau06/output/LWU_base.txt",
+   "role": "model-output",
+   "bytes": 434133,
+   "sha256": "e5315281feeb93db76aebfb6a3b84a3851eb05c62d8e7dae448062a29c16cea6",
+   "source": "external/teb_runs/SG-TelokKurau06/output/LWU_base.txt"
+  },
+  {
+   "path": "external/teb_runs/UK-KingsCollege/input.nml",
+   "role": "model-config",
+   "bytes": 17298,
+   "sha256": "1404c75df6d91887d678afcfb48476df3eb20515b5a5e966892316f62d93950b",
+   "source": "external/teb_runs/UK-KingsCollege/input.nml"
+  },
+  {
+   "path": "external/teb_runs/UK-KingsCollege/output/LWU_base.txt",
+   "role": "model-output",
+   "bytes": 825552,
+   "sha256": "cc1806765e9c0bbf7e76917b740d770932459f9f724c7278946b7b774476d0b5",
+   "source": "external/teb_runs/UK-KingsCollege/output/LWU_base.txt"
+  },
+  {
+   "path": "external/teb_runs/UK-Swindon/input.nml",
+   "role": "model-config",
+   "bytes": 17300,
+   "sha256": "fb260b56eaeb1ef961593c836a7b2b53185786953cc0fe00459afb218b72d34b",
+   "source": "external/teb_runs/UK-Swindon/input.nml"
+  },
+  {
+   "path": "external/teb_runs/UK-Swindon/output/LWU_base.txt",
+   "role": "model-output",
+   "bytes": 926208,
+   "sha256": "1fc3ecd17bb76dd860192689855193b1d0315102d7aee96dedec6c3b25002e1d",
+   "source": "external/teb_runs/UK-Swindon/output/LWU_base.txt"
+  },
+  {
+   "path": "external/teb_runs/US-Baltimore/input.nml",
+   "role": "model-config",
+   "bytes": 17301,
+   "sha256": "2cbdb3624c93cadb271cc9399428cc7874fe939722ce69e0087e437bb8288f9f",
+   "source": "external/teb_runs/US-Baltimore/input.nml"
+  },
+  {
+   "path": "external/teb_runs/US-Baltimore/output/LWU_base.txt",
+   "role": "model-output",
+   "bytes": 2366442,
+   "sha256": "4d05e85c0542e9a88c6103d3a63d33617f19c9eb3416c42d744d41e172d21f93",
+   "source": "external/teb_runs/US-Baltimore/output/LWU_base.txt"
+  },
+  {
+   "path": "external/teb_runs/US-Minneapolis1/input.nml",
+   "role": "model-config",
+   "bytes": 17297,
+   "sha256": "f1f2c8c3571089b4f6e386b36a7c5c94affb62a2c4ae9f74d31b62a4ba1480e1",
+   "source": "external/teb_runs/US-Minneapolis1/input.nml"
+  },
+  {
+   "path": "external/teb_runs/US-Minneapolis1/output/LWU_base.txt",
+   "role": "model-output",
+   "bytes": 1416258,
+   "sha256": "c0dd3b27e4be3d7d61209fa7e59e442a823d34c1df1f2b48a8adb69298ba5e12",
+   "source": "external/teb_runs/US-Minneapolis1/output/LWU_base.txt"
+  },
+  {
+   "path": "external/teb_runs/US-Minneapolis2/input.nml",
+   "role": "model-config",
+   "bytes": 17297,
+   "sha256": "dc188da92bcd4a47fe204e0757e536b3761e23894eb571398a58e88c3fa56659",
+   "source": "external/teb_runs/US-Minneapolis2/input.nml"
+  },
+  {
+   "path": "external/teb_runs/US-Minneapolis2/output/LWU_base.txt",
+   "role": "model-output",
+   "bytes": 1416258,
+   "sha256": "e8af1680b1adb3524b5e8964d50feb2a0fe379e5b2eb40be1b529cec4b545245",
+   "source": "external/teb_runs/US-Minneapolis2/output/LWU_base.txt"
+  },
+  {
+   "path": "external/teb_runs/US-WestPhoenix/input.nml",
+   "role": "model-config",
+   "bytes": 17304,
+   "sha256": "b17dfcb367dc31edbbf27b89940aba2fa5ba3925f931d30bae6821653bc1800e",
+   "source": "external/teb_runs/US-WestPhoenix/input.nml"
+  },
+  {
+   "path": "external/teb_runs/US-WestPhoenix/output/LWU_base.txt",
+   "role": "model-output",
+   "bytes": 494424,
+   "sha256": "5e4cc7b3c12854f1e2f139c159faad0df2e9f8eabb851c9c56fc9a21fcb5630a",
+   "source": "external/teb_runs/US-WestPhoenix/output/LWU_base.txt"
+  },
+  {
+   "path": "external/teb_albedo19/AU-Preston/input.nml",
+   "role": "model-config",
+   "bytes": 17312,
+   "sha256": "fb5ceaad96ab337a1ba2361ef64a88c91730e8c29147543adf51aba6b76a1231",
+   "source": "external/teb_albedo19/AU-Preston/input.nml"
+  },
+  {
+   "path": "external/teb_albedo19/CA-Sunset/input.nml",
+   "role": "model-config",
+   "bytes": 17311,
+   "sha256": "a800736401f0af3ee1b19c46f926e4968f64b2b5e0da31a5b1d3438e624e336e",
+   "source": "external/teb_albedo19/CA-Sunset/input.nml"
+  },
+  {
+   "path": "external/teb_albedo19/FI-Kumpula/input.nml",
+   "role": "model-config",
+   "bytes": 17311,
+   "sha256": "32dd5f241788ecf6a192b616e9d958b4cfcc4124b670f1a3e2aa1879dfb7dbaf",
+   "source": "external/teb_albedo19/FI-Kumpula/input.nml"
+  },
+  {
+   "path": "external/teb_albedo19/FI-Torni/input.nml",
+   "role": "model-config",
+   "bytes": 17312,
+   "sha256": "019712f90f5d1778ed7ce0d8d8aa1d313de8e32eaef4898b1437595b0df7195d",
+   "source": "external/teb_albedo19/FI-Torni/input.nml"
+  },
+  {
+   "path": "external/teb_albedo19/FR-Capitole/input.nml",
+   "role": "model-config",
+   "bytes": 17310,
+   "sha256": "2a894f1ff764e5e3c991f9ce18c3f17de8cff53ad330e8fb99d4108650ff3e19",
+   "source": "external/teb_albedo19/FR-Capitole/input.nml"
+  },
+  {
+   "path": "external/teb_albedo19/GR-HECKOR/input.nml",
+   "role": "model-config",
+   "bytes": 17311,
+   "sha256": "22958c02146ba0d355e3d39fe86172971332f77676d2734fe4f2ea1641156932",
+   "source": "external/teb_albedo19/GR-HECKOR/input.nml"
+  },
+  {
+   "path": "external/teb_albedo19/JP-Yoyogi/input.nml",
+   "role": "model-config",
+   "bytes": 17311,
+   "sha256": "5bf0865a5adb24236865fd9678e34e185bbc796ff1274f86049f8f4b8cbf061e",
+   "source": "external/teb_albedo19/JP-Yoyogi/input.nml"
+  },
+  {
+   "path": "external/teb_albedo19/KR-Jungnang/input.nml",
+   "role": "model-config",
+   "bytes": 17311,
+   "sha256": "9c2e4dd7932077658ca186500e408c0c0c3fd0f35b6750af38e7618212c15cfd",
+   "source": "external/teb_albedo19/KR-Jungnang/input.nml"
+  },
+  {
+   "path": "external/teb_albedo19/KR-Ochang/input.nml",
+   "role": "model-config",
+   "bytes": 17309,
+   "sha256": "631fd26f78b6c33d423814f331740082948b2a3a028f8ba20a911e90d8cbbe30",
+   "source": "external/teb_albedo19/KR-Ochang/input.nml"
+  },
+  {
+   "path": "external/teb_albedo19/NL-Amsterdam/input.nml",
+   "role": "model-config",
+   "bytes": 17311,
+   "sha256": "6731cfc71e3cbdbb1cc645e768e720eec499487609c6ac36751346fed60dcb5b",
+   "source": "external/teb_albedo19/NL-Amsterdam/input.nml"
+  },
+  {
+   "path": "external/teb_albedo19/PL-Lipowa/input.nml",
+   "role": "model-config",
+   "bytes": 17311,
+   "sha256": "e7aaa23f1a1c4692fba3f9998363aa1c215b49cfb4c9ec5182f2856a8a0ef2f8",
+   "source": "external/teb_albedo19/PL-Lipowa/input.nml"
+  },
+  {
+   "path": "external/teb_albedo19/PL-Narutowicza/input.nml",
+   "role": "model-config",
+   "bytes": 17311,
+   "sha256": "d5200ab29b489d6c049ee486eef4bf625ed89347a12f0896c7332686b117e3eb",
+   "source": "external/teb_albedo19/PL-Narutowicza/input.nml"
+  },
+  {
+   "path": "external/teb_albedo19/SG-TelokKurau06/input.nml",
+   "role": "model-config",
+   "bytes": 17310,
+   "sha256": "b261b0f2dc30d641dfcda7b5f2192b60ed4098b8e2bb9369cd0f0de42d632048",
+   "source": "external/teb_albedo19/SG-TelokKurau06/input.nml"
+  },
+  {
+   "path": "external/teb_albedo19/UK-KingsCollege/input.nml",
+   "role": "model-config",
+   "bytes": 17306,
+   "sha256": "cb9f815ea6eff17df9cbcb090d41897b9d3442a1523297cd7228241497e93b6d",
+   "source": "external/teb_albedo19/UK-KingsCollege/input.nml"
+  },
+  {
+   "path": "external/teb_albedo19/UK-Swindon/input.nml",
+   "role": "model-config",
+   "bytes": 17308,
+   "sha256": "54bb40058c990ddf5bae40183dd8c3ddd298b00d69214e4e3d6bff49584b5cba",
+   "source": "external/teb_albedo19/UK-Swindon/input.nml"
+  },
+  {
+   "path": "external/teb_albedo19/US-Baltimore/input.nml",
+   "role": "model-config",
+   "bytes": 17309,
+   "sha256": "085b858857a5735289617122a284555ef76a1f34748e4eef1725282e88685e4e",
+   "source": "external/teb_albedo19/US-Baltimore/input.nml"
+  },
+  {
+   "path": "external/teb_albedo19/US-Minneapolis1/input.nml",
+   "role": "model-config",
+   "bytes": 17305,
+   "sha256": "74f4f936abee27b1bf20dd46875192e0cf47d7d1be9e8e355b5e3f7ae884e098",
+   "source": "external/teb_albedo19/US-Minneapolis1/input.nml"
+  },
+  {
+   "path": "external/teb_albedo19/US-Minneapolis2/input.nml",
+   "role": "model-config",
+   "bytes": 17305,
+   "sha256": "7cb94ea0de2363176642cd95967a1f0fbecf79451a9ef44b3326726b040b750f",
+   "source": "external/teb_albedo19/US-Minneapolis2/input.nml"
+  },
+  {
+   "path": "external/teb_albedo19/US-WestPhoenix/input.nml",
+   "role": "model-config",
+   "bytes": 17312,
+   "sha256": "cb0c3f1f84f6bfee44e55b706900f1486b6e97a24a29622e4f1d3bc1ab63a17a",
+   "source": "external/teb_albedo19/US-WestPhoenix/input.nml"
+  },
+  {
+   "path": "external/teb_spinup10/AU-Preston/input.nml",
+   "role": "model-config",
+   "bytes": 17306,
+   "sha256": "dc687dc45630c250d222f8d227332297813c9aac1bc70f5f7aafcd631cb9cb9f",
+   "source": "external/teb_spinup10/AU-Preston/input.nml"
+  },
+  {
+   "path": "external/teb_spinup10/CA-Sunset/input.nml",
+   "role": "model-config",
+   "bytes": 17304,
+   "sha256": "14219d178699ad01b87e2e26a1193fd1cc7e39db8985663084ab3cbf7a65d16e",
+   "source": "external/teb_spinup10/CA-Sunset/input.nml"
+  },
+  {
+   "path": "external/teb_spinup10/FI-Kumpula/input.nml",
+   "role": "model-config",
+   "bytes": 17304,
+   "sha256": "2d256d386b9e7eb9e102a0f064cd88de019513dbbc4d7fe36975d631c7ef0248",
+   "source": "external/teb_spinup10/FI-Kumpula/input.nml"
+  },
+  {
+   "path": "external/teb_spinup10/FI-Torni/input.nml",
+   "role": "model-config",
+   "bytes": 17305,
+   "sha256": "2746ab2d8acc81e3d712a432e8a2599b149ef5707995ba3d184f8485ca211d91",
+   "source": "external/teb_spinup10/FI-Torni/input.nml"
+  },
+  {
+   "path": "external/teb_spinup10/FR-Capitole/input.nml",
+   "role": "model-config",
+   "bytes": 17304,
+   "sha256": "6adce9b8f2a9c751a87e09a951f058aabf1cf60dbc574b84c83b20f625af0c48",
+   "source": "external/teb_spinup10/FR-Capitole/input.nml"
+  },
+  {
+   "path": "external/teb_spinup10/GR-HECKOR/input.nml",
+   "role": "model-config",
+   "bytes": 17305,
+   "sha256": "959bbfbbd97af6c0d80f49d2778bac62cf19cb6e2cffc6c0e2c547d181f0d512",
+   "source": "external/teb_spinup10/GR-HECKOR/input.nml"
+  },
+  {
+   "path": "external/teb_spinup10/JP-Yoyogi/input.nml",
+   "role": "model-config",
+   "bytes": 17305,
+   "sha256": "c23923b1bb8e36841029a74d6686b53b038a180645b18add48ef2959fe6ca28e",
+   "source": "external/teb_spinup10/JP-Yoyogi/input.nml"
+  },
+  {
+   "path": "external/teb_spinup10/KR-Jungnang/input.nml",
+   "role": "model-config",
+   "bytes": 17305,
+   "sha256": "1b55b681ec60e9864913e77673920c16d00b26cccc05ccc3e4a4f8cb2a1237ae",
+   "source": "external/teb_spinup10/KR-Jungnang/input.nml"
+  },
+  {
+   "path": "external/teb_spinup10/KR-Ochang/input.nml",
+   "role": "model-config",
+   "bytes": 17304,
+   "sha256": "1dd817d9a56272406f89973e6fbf7b31d77caa9799c657d665f444287ae26fa7",
+   "source": "external/teb_spinup10/KR-Ochang/input.nml"
+  },
+  {
+   "path": "external/teb_spinup10/NL-Amsterdam/input.nml",
+   "role": "model-config",
+   "bytes": 17304,
+   "sha256": "e5b389063ea3b1b13cb09d75f5e33f03c54c40b68151ce432f97fba22b07bc2b",
+   "source": "external/teb_spinup10/NL-Amsterdam/input.nml"
+  },
+  {
+   "path": "external/teb_spinup10/PL-Lipowa/input.nml",
+   "role": "model-config",
+   "bytes": 17304,
+   "sha256": "1621286328e45a2f30b041332ce1d2a6e76d35f79f05309c8ddd08c809be1e39",
+   "source": "external/teb_spinup10/PL-Lipowa/input.nml"
+  },
+  {
+   "path": "external/teb_spinup10/PL-Narutowicza/input.nml",
+   "role": "model-config",
+   "bytes": 17304,
+   "sha256": "68167c75c24080fc06d257145e8454a1457f830d1b18dfebb3a577c1f29b2d58",
+   "source": "external/teb_spinup10/PL-Narutowicza/input.nml"
+  },
+  {
+   "path": "external/teb_spinup10/SG-TelokKurau06/input.nml",
+   "role": "model-config",
+   "bytes": 17304,
+   "sha256": "ae5f62d6647c3e72410ec0d9fb5708be31722aa7768b1107b818d818f6e40f57",
+   "source": "external/teb_spinup10/SG-TelokKurau06/input.nml"
+  },
+  {
+   "path": "external/teb_spinup10/UK-KingsCollege/input.nml",
+   "role": "model-config",
+   "bytes": 17299,
+   "sha256": "1464136de416d9aea8f57a7d219e4037c75426918082d4748370a89ae6901782",
+   "source": "external/teb_spinup10/UK-KingsCollege/input.nml"
+  },
+  {
+   "path": "external/teb_spinup10/UK-Swindon/input.nml",
+   "role": "model-config",
+   "bytes": 17296,
+   "sha256": "6953430ab57686ee533a4cad8e60864f1f851ee104a30384b8c99ac7d66d6b6c",
+   "source": "external/teb_spinup10/UK-Swindon/input.nml"
+  },
+  {
+   "path": "external/teb_spinup10/US-Baltimore/input.nml",
+   "role": "model-config",
+   "bytes": 17302,
+   "sha256": "29561e7947e44057c8306988182e9c25d89ead447fd25a658da2f5f6da86e171",
+   "source": "external/teb_spinup10/US-Baltimore/input.nml"
+  },
+  {
+   "path": "external/teb_spinup10/US-Minneapolis1/input.nml",
+   "role": "model-config",
+   "bytes": 17302,
+   "sha256": "9a0636c87d8e96e1df6de5e0de5c4c820176b9c8c4da48382129c156250b006d",
+   "source": "external/teb_spinup10/US-Minneapolis1/input.nml"
+  },
+  {
+   "path": "external/teb_spinup10/US-Minneapolis2/input.nml",
+   "role": "model-config",
+   "bytes": 17302,
+   "sha256": "c21fea9ba64986ab65f4176df388fea80fba65de2fa13c8aaa4e972dbcc8c382",
+   "source": "external/teb_spinup10/US-Minneapolis2/input.nml"
+  },
+  {
+   "path": "external/teb_spinup10/US-WestPhoenix/input.nml",
+   "role": "model-config",
+   "bytes": 17304,
+   "sha256": "f4f1ec57bf947abeaea9550445d1e12200c4f05b4fc39ebfa691e44db819396f",
+   "source": "external/teb_spinup10/US-WestPhoenix/input.nml"
+  },
+  {
+   "path": "external/teb_probe/AU-Preston__ALB_site/input.nml",
+   "role": "model-config",
+   "bytes": 17659,
+   "sha256": "cadb184ef76c7fa52a9eded0a7f3bd2e53e7849b9ba164fb0891549407ba1eab",
+   "source": "external/teb_probe/AU-Preston__ALB_site/input.nml"
+  },
+  {
+   "path": "external/teb_probe/AU-Preston__EMIS_low/input.nml",
+   "role": "model-config",
+   "bytes": 17670,
+   "sha256": "4f677224a14b9269a7a05e0825bc1c36891fd5cbe9c124b642199ca9ef387bc6",
+   "source": "external/teb_probe/AU-Preston__EMIS_low/input.nml"
+  },
+  {
+   "path": "external/teb_probe/AU-Preston__ROOF_light/input.nml",
+   "role": "model-config",
+   "bytes": 17644,
+   "sha256": "a09c8d4eb768605e795207a9f08632c3204a167cf9cfd183c27512edc99dd205",
+   "source": "external/teb_probe/AU-Preston__ROOF_light/input.nml"
+  },
+  {
+   "path": "external/teb_probe/AU-Preston__TC_double/input.nml",
+   "role": "model-config",
+   "bytes": 17645,
+   "sha256": "097a60040adc32c145e171e9d4275f79c937a46617487c3710e4f6c21bdec2d4",
+   "source": "external/teb_probe/AU-Preston__TC_double/input.nml"
+  },
+  {
+   "path": "external/teb_probe/AU-Preston__TC_half/input.nml",
+   "role": "model-config",
+   "bytes": 17664,
+   "sha256": "f26e7286075ec863066be3d4c4fa9c6a604aaba4eb656342b53148919fd83e5e",
+   "source": "external/teb_probe/AU-Preston__TC_half/input.nml"
+  },
+  {
+   "path": "external/teb_probe/AU-Preston__TI_double/input.nml",
+   "role": "model-config",
+   "bytes": 17671,
+   "sha256": "3cc5cde47d4e5355649ad3bcadec6e2b3eddb96ad81c950e2c4322148726df33",
+   "source": "external/teb_probe/AU-Preston__TI_double/input.nml"
+  },
+  {
+   "path": "external/teb_probe/AU-Preston__TI_half/input.nml",
+   "role": "model-config",
+   "bytes": 17656,
+   "sha256": "7b2d99f9c7de10f0f6f2f9b26ec91f1f744a7e1d617dca27017742e51c6f7e64",
+   "source": "external/teb_probe/AU-Preston__TI_half/input.nml"
+  },
+  {
+   "path": "external/teb_probe/AU-Preston__base/input.nml",
+   "role": "model-config",
+   "bytes": 17656,
+   "sha256": "416538a8bf444783d646b91ee2efed6722578e734c1822d4cccce16e72c1bd28",
+   "source": "external/teb_probe/AU-Preston__base/input.nml"
+  },
+  {
+   "path": "external/teb_probe/FI-Torni__ALB_site/input.nml",
+   "role": "model-config",
+   "bytes": 17656,
+   "sha256": "5f4086e65fbf9652f2c51e326c7f9b38d6b8a21eeb99db0cb65c19f8046f2a76",
+   "source": "external/teb_probe/FI-Torni__ALB_site/input.nml"
+  },
+  {
+   "path": "external/teb_probe/FI-Torni__EMIS_low/input.nml",
+   "role": "model-config",
+   "bytes": 17670,
+   "sha256": "bf7803ca2ea63fdc23484aa488beacbd1cc0db70e1c0e8eb8966f3f53fa33dbe",
+   "source": "external/teb_probe/FI-Torni__EMIS_low/input.nml"
+  },
+  {
+   "path": "external/teb_probe/FI-Torni__ROOF_light/input.nml",
+   "role": "model-config",
+   "bytes": 17644,
+   "sha256": "6d7614b3fecb39cf90ff6daafbbb73a267343da671db7eaeb5a9207092dd0cc8",
+   "source": "external/teb_probe/FI-Torni__ROOF_light/input.nml"
+  },
+  {
+   "path": "external/teb_probe/FI-Torni__TC_double/input.nml",
+   "role": "model-config",
+   "bytes": 17645,
+   "sha256": "9037bcd708b2bda5bebfe56de761c91d481d9d0bd7b0651b3c305188ad0ba052",
+   "source": "external/teb_probe/FI-Torni__TC_double/input.nml"
+  },
+  {
+   "path": "external/teb_probe/FI-Torni__TC_half/input.nml",
+   "role": "model-config",
+   "bytes": 17664,
+   "sha256": "729f1124c05691b02c0a9bfc095c19e99de1b988edddf7f99f045d76362151c6",
+   "source": "external/teb_probe/FI-Torni__TC_half/input.nml"
+  },
+  {
+   "path": "external/teb_probe/FI-Torni__TI_double/input.nml",
+   "role": "model-config",
+   "bytes": 17671,
+   "sha256": "cf0feca3910ef8bb009c93b1a0ce3b06ca96298e20eee3c71d294d8f374b42b6",
+   "source": "external/teb_probe/FI-Torni__TI_double/input.nml"
+  },
+  {
+   "path": "external/teb_probe/FI-Torni__TI_half/input.nml",
+   "role": "model-config",
+   "bytes": 17656,
+   "sha256": "f2603c69c98fcb5fa64027fb8f61e39c61255f3abffa3bb066d87b87bf7868bf",
+   "source": "external/teb_probe/FI-Torni__TI_half/input.nml"
+  },
+  {
+   "path": "external/teb_probe/FI-Torni__base/input.nml",
+   "role": "model-config",
+   "bytes": 17656,
+   "sha256": "c1dd99e171a07585bf306ac4b8d4bfa4dd76da8de67184e058e21c790f2c185a",
+   "source": "external/teb_probe/FI-Torni__base/input.nml"
+  },
+  {
+   "path": "external/teb_probe/KR-Ochang__ALB_site/input.nml",
+   "role": "model-config",
+   "bytes": 17656,
+   "sha256": "3a7d81164f64190e21600d1cb937d7270434afcf9db1b3dbb1df2d7b92384335",
+   "source": "external/teb_probe/KR-Ochang__ALB_site/input.nml"
+  },
+  {
+   "path": "external/teb_probe/KR-Ochang__EMIS_low/input.nml",
+   "role": "model-config",
+   "bytes": 17667,
+   "sha256": "eb3a182c99e1cee79a478a4c2be240f25181c336b5484de1660788315fdaa326",
+   "source": "external/teb_probe/KR-Ochang__EMIS_low/input.nml"
+  },
+  {
+   "path": "external/teb_probe/KR-Ochang__ROOF_light/input.nml",
+   "role": "model-config",
+   "bytes": 17641,
+   "sha256": "525d0a3b3833b08beee590834a241f4ba3ba958a4e07ef1010126d71af83afc5",
+   "source": "external/teb_probe/KR-Ochang__ROOF_light/input.nml"
+  },
+  {
+   "path": "external/teb_probe/KR-Ochang__TC_double/input.nml",
+   "role": "model-config",
+   "bytes": 17642,
+   "sha256": "54855edf52e5e0be2a4c53ae302119df260013542f1312516789a4c974af9abb",
+   "source": "external/teb_probe/KR-Ochang__TC_double/input.nml"
+  },
+  {
+   "path": "external/teb_probe/KR-Ochang__TC_half/input.nml",
+   "role": "model-config",
+   "bytes": 17661,
+   "sha256": "2e0729bae03126af9e5d0552937886e16a4167f90a113f30f446f2d10f3b39cb",
+   "source": "external/teb_probe/KR-Ochang__TC_half/input.nml"
+  },
+  {
+   "path": "external/teb_probe/KR-Ochang__TI_double/input.nml",
+   "role": "model-config",
+   "bytes": 17668,
+   "sha256": "a2d00cdde793aff496ab2c5f6a12e65d2c36894bb2924245ab991b9bff59cd0e",
+   "source": "external/teb_probe/KR-Ochang__TI_double/input.nml"
+  },
+  {
+   "path": "external/teb_probe/KR-Ochang__TI_half/input.nml",
+   "role": "model-config",
+   "bytes": 17653,
+   "sha256": "5e07be18e22b82ec8c56a107cb1e5a761345af9c626265d155bcc4e2d084b398",
+   "source": "external/teb_probe/KR-Ochang__TI_half/input.nml"
+  },
+  {
+   "path": "external/teb_probe/KR-Ochang__base/input.nml",
+   "role": "model-config",
+   "bytes": 17653,
+   "sha256": "25a6fe8ec279ef018e500b6142547d6ca85b16097c1877d55da9e50fca1c2707",
+   "source": "external/teb_probe/KR-Ochang__base/input.nml"
+  },
+  {
+   "path": "external/teb_probe/Lipowa__gbase/input.nml",
+   "role": "model-config",
+   "bytes": 17303,
+   "sha256": "c0eac86f30e026f39fb2fb2358945310ad298f13eaa1a56d07ca160b7e73bc73",
+   "source": "external/teb_probe/Lipowa__gbase/input.nml"
+  },
+  {
+   "path": "external/teb_probe/Lipowa__gzero/input.nml",
+   "role": "model-config",
+   "bytes": 17294,
+   "sha256": "59d730f09221f31df3441c8ae4c1c5366903cbf020964c320824b6311f974538",
+   "source": "external/teb_probe/Lipowa__gzero/input.nml"
+  },
+  {
+   "path": "external/teb_probe/Mpls2__gbase/input.nml",
+   "role": "model-config",
+   "bytes": 17297,
+   "sha256": "dc188da92bcd4a47fe204e0757e536b3761e23894eb571398a58e88c3fa56659",
+   "source": "external/teb_probe/Mpls2__gbase/input.nml"
+  },
+  {
+   "path": "external/teb_probe/Mpls2__gemis090/input.nml",
+   "role": "model-config",
+   "bytes": 17324,
+   "sha256": "962fc67a0fe67e988b9a0f79ff6f6024c010637980bfb8da9083b471de154670",
+   "source": "external/teb_probe/Mpls2__gemis090/input.nml"
+  },
+  {
+   "path": "external/teb_probe/Mpls2__gzero/input.nml",
+   "role": "model-config",
+   "bytes": 17288,
+   "sha256": "db0f0d4022ffb19221802c9ee7ad6d413f4b68030545defccd1689d98f190fba",
+   "source": "external/teb_probe/Mpls2__gzero/input.nml"
+  },
+  {
+   "path": "external/teb_probe/PL-Lipowa__ALB_site/input.nml",
+   "role": "model-config",
+   "bytes": 17658,
+   "sha256": "86700a618b08437be293d92b3dcce1199df047abc9226eb527177dbc5c2fe121",
+   "source": "external/teb_probe/PL-Lipowa__ALB_site/input.nml"
+  },
+  {
+   "path": "external/teb_probe/PL-Lipowa__EMIS_low/input.nml",
+   "role": "model-config",
+   "bytes": 17669,
+   "sha256": "cac2b64f1116d5ace111963574be1bd312dc234b37d014a84c3eace95d74754d",
+   "source": "external/teb_probe/PL-Lipowa__EMIS_low/input.nml"
+  },
+  {
+   "path": "external/teb_probe/PL-Lipowa__ROOF_light/input.nml",
+   "role": "model-config",
+   "bytes": 17643,
+   "sha256": "ce62c957845ccba0c87ed4ad75c475e367cd0b4bcfbc1162313f7d7d91506331",
+   "source": "external/teb_probe/PL-Lipowa__ROOF_light/input.nml"
+  },
+  {
+   "path": "external/teb_probe/PL-Lipowa__TC_double/input.nml",
+   "role": "model-config",
+   "bytes": 17644,
+   "sha256": "4a8a61c8bd6f70ee7ba999e1524e888bb6965bbd0fea4ecfc9cf8eda30fb71de",
+   "source": "external/teb_probe/PL-Lipowa__TC_double/input.nml"
+  },
+  {
+   "path": "external/teb_probe/PL-Lipowa__TC_half/input.nml",
+   "role": "model-config",
+   "bytes": 17663,
+   "sha256": "f5b133e9fc488d5aa549fa942602caf767859b963dc2b5800315bc2636d02132",
+   "source": "external/teb_probe/PL-Lipowa__TC_half/input.nml"
+  },
+  {
+   "path": "external/teb_probe/PL-Lipowa__TI_double/input.nml",
+   "role": "model-config",
+   "bytes": 17670,
+   "sha256": "7d4b472a7015c4d3afa4e9691597d09cec0953584bc35d1857e17ad6c5606685",
+   "source": "external/teb_probe/PL-Lipowa__TI_double/input.nml"
+  },
+  {
+   "path": "external/teb_probe/PL-Lipowa__TI_half/input.nml",
+   "role": "model-config",
+   "bytes": 17655,
+   "sha256": "c1ec452e769db6ea01cb41b5944c441e6720c68e938813ecd366b742aac9b608",
+   "source": "external/teb_probe/PL-Lipowa__TI_half/input.nml"
+  },
+  {
+   "path": "external/teb_probe/PL-Lipowa__base/input.nml",
+   "role": "model-config",
+   "bytes": 17655,
+   "sha256": "88d5fd0794c3298f99a76b5e85670e53e26a28cbd9fc8f22f6038afa6e1ffaf7",
+   "source": "external/teb_probe/PL-Lipowa__base/input.nml"
+  },
+  {
+   "path": "external/teb_probe/US-WestPhoenix__ALB_site/input.nml",
+   "role": "model-config",
+   "bytes": 17659,
+   "sha256": "d32f6fefb907add0af0f0ae1d7571175620f0f69f51dc1dece0617acff523e26",
+   "source": "external/teb_probe/US-WestPhoenix__ALB_site/input.nml"
+  },
+  {
+   "path": "external/teb_probe/US-WestPhoenix__EMIS_low/input.nml",
+   "role": "model-config",
+   "bytes": 17670,
+   "sha256": "7199b7394308a3f38b13a961ab9c7e1f9c7a8af3d0d49e6745740835b937b692",
+   "source": "external/teb_probe/US-WestPhoenix__EMIS_low/input.nml"
+  },
+  {
+   "path": "external/teb_probe/US-WestPhoenix__ROOF_light/input.nml",
+   "role": "model-config",
+   "bytes": 17644,
+   "sha256": "4fcda01ea880e06df9129f19994db3a4c5495dbbd6af4bb6f2e1522f70508d2f",
+   "source": "external/teb_probe/US-WestPhoenix__ROOF_light/input.nml"
+  },
+  {
+   "path": "external/teb_probe/US-WestPhoenix__TC_double/input.nml",
+   "role": "model-config",
+   "bytes": 17645,
+   "sha256": "b3acf2513068e8acb35389be2b3dfd9235683d4435a58c942c38bcd0835e13c8",
+   "source": "external/teb_probe/US-WestPhoenix__TC_double/input.nml"
+  },
+  {
+   "path": "external/teb_probe/US-WestPhoenix__TC_half/input.nml",
+   "role": "model-config",
+   "bytes": 17664,
+   "sha256": "d4a3084cc8722f4f5452c3d3665c7b16d453cc9bbad6a1ca4c4308b608892a4f",
+   "source": "external/teb_probe/US-WestPhoenix__TC_half/input.nml"
+  },
+  {
+   "path": "external/teb_probe/US-WestPhoenix__TI_double/input.nml",
+   "role": "model-config",
+   "bytes": 17671,
+   "sha256": "09b16bcfbb32df8f61bc5ad1131c1a93e8a7a6d562aa8e4220b9d0546ac0c8e0",
+   "source": "external/teb_probe/US-WestPhoenix__TI_double/input.nml"
+  },
+  {
+   "path": "external/teb_probe/US-WestPhoenix__TI_half/input.nml",
+   "role": "model-config",
+   "bytes": 17656,
+   "sha256": "dfd5b34cee776b915132b6722ed6f427ba073cd5978dab849b1f50f6230218bd",
+   "source": "external/teb_probe/US-WestPhoenix__TI_half/input.nml"
+  },
+  {
+   "path": "external/teb_probe/US-WestPhoenix__base/input.nml",
+   "role": "model-config",
+   "bytes": 17656,
+   "sha256": "12dbc8822650bf40870cd55c162f69f0159a3e8985a877f0faa14573e4b5e900",
+   "source": "external/teb_probe/US-WestPhoenix__base/input.nml"
+  },
+  {
+   "path": "external/teb_campaign_results.json",
+   "role": "model-output",
+   "bytes": 10702,
+   "sha256": "5096103884a067c51b588aae99d1569d92eec9240bf9f1b9714c80394f4235da",
+   "source": "external/teb_campaign_results.json"
+  },
+  {
+   "path": "external/clmu_campaign_results.json",
+   "role": "model-output",
+   "bytes": 16612,
+   "sha256": "07e6e8eb9530c53261570e3d280c444267bca084cf0e2b31fbc74f51bec17733",
+   "source": "external/clmu_campaign_results.json"
+  },
+  {
+   "path": "external/clmu_g1/g2_results.json",
+   "role": "model-output",
+   "bytes": 19567,
+   "sha256": "c37e7c1c1b4780294f53a7930709c9387193b9ab367b772d5c53a136f37eb181",
+   "source": "external/clmu_g1/g2_results.json"
+  },
+  {
+   "path": "external/clmu_g1/g2_results.PRE_V11_ALIGNMENT.json",
+   "role": "model-output",
+   "bytes": 19655,
+   "sha256": "f0fee9662841a23969e2658e45c5b12d57648a7c802a5fd77ddfa71f2a92e228",
+   "source": "external/clmu_g1/g2_results.PRE_V11_ALIGNMENT.json"
+  },
+  {
+   "path": "external/clmu_g1/g1_summary.json",
+   "role": "model-output",
+   "bytes": 8870,
+   "sha256": "8b8687abb93aa05d96b7d22d2d6eefa3cc3b56ce69bb68a9a25e61c4ea174ae2",
+   "source": "external/clmu_g1/g1_summary.json"
+  },
+  {
+   "path": "external/clmu_g1/build_inputs.py",
+   "role": "model-tooling",
+   "bytes": 9616,
+   "sha256": "58db540de3f885b9dab1356fd286b5b17f34220296a5a94db2b53bc937562901",
+   "source": "external/clmu_g1/build_inputs.py"
+  },
+  {
+   "path": "external/clmu_g1/run_one.py",
+   "role": "model-tooling",
+   "bytes": 1220,
+   "sha256": "fa7cc8da7b715622b5f6bb9e5c6abc73f8e488b971b0e6dd413a267cbb16c10e",
+   "source": "external/clmu_g1/run_one.py"
+  },
+  {
+   "path": "external/clmu_g1/finalize.sh",
+   "role": "model-tooling",
+   "bytes": 1130,
+   "sha256": "a9eee67814533b838b3823a4d507d2f9e15cd1a7bf645926b2662ed0b2021c07",
+   "source": "external/clmu_g1/finalize.sh"
+  },
+  {
+   "path": "external/clmu_g1/run_and_post_rest.sh",
+   "role": "model-tooling",
+   "bytes": 510,
+   "sha256": "1c079ac5b525ed77d1f764b83c1b3f61c2d03413c062680b33b12d79b41e7065",
+   "source": "external/clmu_g1/run_and_post_rest.sh"
+  },
+  {
+   "path": "external/clmu_g1/results/AU-Preston.json",
+   "role": "model-output",
+   "bytes": 819,
+   "sha256": "cac791a2d38c4b0e1fafa8915474fefee4c9b0ed17b7e654b1738c8b6b483659",
+   "source": "external/clmu_g1/results/AU-Preston.json"
+  },
+  {
+   "path": "external/clmu_g1/results/CA-Sunset.json",
+   "role": "model-output",
+   "bytes": 824,
+   "sha256": "cad82714fe0e77221d670f441aae230accf21830d647c6203d9419466955a5d3",
+   "source": "external/clmu_g1/results/CA-Sunset.json"
+  },
+  {
+   "path": "external/clmu_g1/results/FI-Kumpula.json",
+   "role": "model-output",
+   "bytes": 820,
+   "sha256": "6ff9453fd3b304a507cdbe113e3e91a289dde2162d67be2bb6ffa9faa4d81123",
+   "source": "external/clmu_g1/results/FI-Kumpula.json"
+  },
+  {
+   "path": "external/clmu_g1/results/FI-Torni.json",
+   "role": "model-output",
+   "bytes": 818,
+   "sha256": "e10d4fabf92255cd2d6217e4ea5d98a4d4e39acbfdd3d9037d51f7445d6fb2fa",
+   "source": "external/clmu_g1/results/FI-Torni.json"
+  },
+  {
+   "path": "external/clmu_g1/results/FR-Capitole.json",
+   "role": "model-output",
+   "bytes": 819,
+   "sha256": "2653b452d64be9dc5be5ac3bcc3a9187fd309e6f1b350e10276c8800f759afd8",
+   "source": "external/clmu_g1/results/FR-Capitole.json"
+  },
+  {
+   "path": "external/clmu_g1/results/g1_summary.json",
+   "role": "model-output",
+   "bytes": 8870,
+   "sha256": "8b8687abb93aa05d96b7d22d2d6eefa3cc3b56ce69bb68a9a25e61c4ea174ae2",
+   "source": "external/clmu_g1/results/g1_summary.json"
+  },
+  {
+   "path": "external/clmu_g1/results/GR-HECKOR.json",
+   "role": "model-output",
+   "bytes": 846,
+   "sha256": "31a99cad7fe81c83e40d5847f79cfd633fa814866d9a6ea0f78f7c416fb0dc75",
+   "source": "external/clmu_g1/results/GR-HECKOR.json"
+  },
+  {
+   "path": "external/clmu_g1/results/JP-Yoyogi.json",
+   "role": "model-output",
+   "bytes": 825,
+   "sha256": "dcb1b08f04d9af2835f1044a0a17f523faac5a52805c8f3d06ca646459999b56",
+   "source": "external/clmu_g1/results/JP-Yoyogi.json"
+  },
+  {
+   "path": "external/clmu_g1/results/KR-Jungnang.json",
+   "role": "model-output",
+   "bytes": 818,
+   "sha256": "76c3c55aaedb4f7f1e91bf19f7f4bea2a2c3154c4ad5abc50c5553eba929a7b3",
+   "source": "external/clmu_g1/results/KR-Jungnang.json"
+  },
+  {
+   "path": "external/clmu_g1/results/KR-Ochang.json",
+   "role": "model-output",
+   "bytes": 819,
+   "sha256": "4fc205d899f1f1e68c74059ea3d5eb43eae0700468c7a3e21ab3ecf56cd0b279",
+   "source": "external/clmu_g1/results/KR-Ochang.json"
+  },
+  {
+   "path": "external/clmu_g1/results/NL-Amsterdam.json",
+   "role": "model-output",
+   "bytes": 815,
+   "sha256": "5b6b53577f2277756c17277faeaad886fa1bd16dac1cd8434300063fa65febb0",
+   "source": "external/clmu_g1/results/NL-Amsterdam.json"
+  },
+  {
+   "path": "external/clmu_g1/results/PL-Lipowa.json",
+   "role": "model-output",
+   "bytes": 817,
+   "sha256": "5db395cd8ce437f93955cf0fd55895e6cae69f0b6aa257f77c248a9c01ea622b",
+   "source": "external/clmu_g1/results/PL-Lipowa.json"
+  },
+  {
+   "path": "external/clmu_g1/results/PL-Narutowicza.json",
+   "role": "model-output",
+   "bytes": 821,
+   "sha256": "8755924eed07f68d4e54d9993f0e89c2ee770bb9f0edc32a3dfba65d0f7f8869",
+   "source": "external/clmu_g1/results/PL-Narutowicza.json"
+  },
+  {
+   "path": "external/clmu_g1/results/SG-TelokKurau06.json",
+   "role": "model-output",
+   "bytes": 822,
+   "sha256": "526ddd627562cc08c7ac346263f57a1197f2f65773cf779995f4244ecc8f4fcd",
+   "source": "external/clmu_g1/results/SG-TelokKurau06.json"
+  },
+  {
+   "path": "external/clmu_g1/results/UK-KingsCollege.json",
+   "role": "model-output",
+   "bytes": 855,
+   "sha256": "0f564f16ec68e3b07766cf72cc1b8b04b34c0d15eeedf8012d958c33c7a5b721",
+   "source": "external/clmu_g1/results/UK-KingsCollege.json"
+  },
+  {
+   "path": "external/clmu_g1/results/UK-Swindon.json",
+   "role": "model-output",
+   "bytes": 819,
+   "sha256": "9946a5898545c1c781c8921fba04edf42c173bbef81fd904eb8e547a09de1a9d",
+   "source": "external/clmu_g1/results/UK-Swindon.json"
+  },
+  {
+   "path": "external/clmu_g1/results/US-Baltimore.json",
+   "role": "model-output",
+   "bytes": 830,
+   "sha256": "8c939781b3d38f6edf8e2946d7a4a9d0750122d5c9bc1af2f0d35aadd67d963b",
+   "source": "external/clmu_g1/results/US-Baltimore.json"
+  },
+  {
+   "path": "external/clmu_g1/results/US-Minneapolis1.json",
+   "role": "model-output",
+   "bytes": 824,
+   "sha256": "7cea63f1c3824cd69b3f38d4c21713d4c5d81fd8f3f0b9bf05f9250e4a520b6e",
+   "source": "external/clmu_g1/results/US-Minneapolis1.json"
+  },
+  {
+   "path": "external/clmu_g1/results/US-Minneapolis2.json",
+   "role": "model-output",
+   "bytes": 819,
+   "sha256": "dcc7097f9382818c95625be17133c09f3e0e58334adab24dee66c752893b91ac",
+   "source": "external/clmu_g1/results/US-Minneapolis2.json"
+  },
+  {
+   "path": "external/clmu_g1/results/US-WestPhoenix.json",
+   "role": "model-output",
+   "bytes": 820,
+   "sha256": "8b1c867e2a877aa2006d60a9187180937cf17eab718bd4561431c9edbed567b1",
+   "source": "external/clmu_g1/results/US-WestPhoenix.json"
+  },
+  {
+   "path": "external/clmu_g1/FR-Capitole/metrics.json",
+   "role": "model-config",
+   "bytes": 819,
+   "sha256": "2653b452d64be9dc5be5ac3bcc3a9187fd309e6f1b350e10276c8800f759afd8",
+   "source": "external/clmu_g1/FR-Capitole/metrics.json"
+  },
+  {
+   "path": "external/clmu_g1/FR-Capitole/run_params.json",
+   "role": "model-config",
+   "bytes": 758,
+   "sha256": "f8daabcb5831a43985f58b8367b5626fbd802b08ac830eb06543e92d6787ea6e",
+   "source": "external/clmu_g1/FR-Capitole/run_params.json"
+  },
+  {
+   "path": "external/clmu_g1/FR-Capitole/surfdata.nc",
+   "role": "model-config",
+   "bytes": 113258,
+   "sha256": "cf735e75e2495d8ab28fe3ef01cc8f723149223453dbd09b259fec7429d771b0",
+   "source": "external/clmu_g1/FR-Capitole/surfdata.nc"
+  },
+  {
+   "path": "external/clmu_g1/KR-Ochang/metrics.json",
+   "role": "model-config",
+   "bytes": 819,
+   "sha256": "4fc205d899f1f1e68c74059ea3d5eb43eae0700468c7a3e21ab3ecf56cd0b279",
+   "source": "external/clmu_g1/KR-Ochang/metrics.json"
+  },
+  {
+   "path": "external/clmu_g1/KR-Ochang/run_params.json",
+   "role": "model-config",
+   "bytes": 799,
+   "sha256": "dad8df454b730f17166adb59c4c9521db6dd5fee87a954d6ee4b59bbd38d4592",
+   "source": "external/clmu_g1/KR-Ochang/run_params.json"
+  },
+  {
+   "path": "external/clmu_g1/KR-Ochang/surfdata.nc",
+   "role": "model-config",
+   "bytes": 113258,
+   "sha256": "7e780a6d56514d1924822922ee14a8bf473bfea34348ca4a72b80d7084429dfd",
+   "source": "external/clmu_g1/KR-Ochang/surfdata.nc"
+  },
+  {
+   "path": "external/clmu_g1/PL-Lipowa/metrics.json",
+   "role": "model-config",
+   "bytes": 817,
+   "sha256": "5db395cd8ce437f93955cf0fd55895e6cae69f0b6aa257f77c248a9c01ea622b",
+   "source": "external/clmu_g1/PL-Lipowa/metrics.json"
+  },
+  {
+   "path": "external/clmu_g1/PL-Lipowa/run_params.json",
+   "role": "model-config",
+   "bytes": 774,
+   "sha256": "31a5eab027a4e10a80b58d2402599a975788f1f361d2a82d18483b4ffb072f73",
+   "source": "external/clmu_g1/PL-Lipowa/run_params.json"
+  },
+  {
+   "path": "external/clmu_g1/PL-Lipowa/surfdata.nc",
+   "role": "model-config",
+   "bytes": 113258,
+   "sha256": "08cd079aae6abe6f942caa21ab49ac67e825920a50f573ad2a7376b374bf6a3c",
+   "source": "external/clmu_g1/PL-Lipowa/surfdata.nc"
+  },
+  {
+   "path": "external/clmu_g1/US-Minneapolis1/metrics.json",
+   "role": "model-config",
+   "bytes": 824,
+   "sha256": "7cea63f1c3824cd69b3f38d4c21713d4c5d81fd8f3f0b9bf05f9250e4a520b6e",
+   "source": "external/clmu_g1/US-Minneapolis1/metrics.json"
+  },
+  {
+   "path": "external/clmu_g1/US-Minneapolis1/run_params.json",
+   "role": "model-config",
+   "bytes": 803,
+   "sha256": "9db0c0844b6885a9e7407f72ee8c6e2c3df0c34b925fa615a7bf85f681d2f4b6",
+   "source": "external/clmu_g1/US-Minneapolis1/run_params.json"
+  },
+  {
+   "path": "external/clmu_g1/US-Minneapolis1/surfdata.nc",
+   "role": "model-config",
+   "bytes": 113258,
+   "sha256": "cf15116569b2da4a6840bda6e7f6a5fdb8d2d5cf0272eb6f1e9006c0f11cc927",
+   "source": "external/clmu_g1/US-Minneapolis1/surfdata.nc"
+  },
+  {
+   "path": "external/clmu_g1/US-Minneapolis2/metrics.json",
+   "role": "model-config",
+   "bytes": 819,
+   "sha256": "dcc7097f9382818c95625be17133c09f3e0e58334adab24dee66c752893b91ac",
+   "source": "external/clmu_g1/US-Minneapolis2/metrics.json"
+  },
+  {
+   "path": "external/clmu_g1/US-Minneapolis2/run_params.json",
+   "role": "model-config",
+   "bytes": 803,
+   "sha256": "5a20aedeeb1900d564da030ff70c5be20093775919fff90d109b6ec29160e8e7",
+   "source": "external/clmu_g1/US-Minneapolis2/run_params.json"
+  },
+  {
+   "path": "external/clmu_g1/US-Minneapolis2/surfdata.nc",
+   "role": "model-config",
+   "bytes": 113258,
+   "sha256": "934c63fa286e7e9c4ad47c7281f958c74d9101d03654c7d4a59631a21c3db920",
+   "source": "external/clmu_g1/US-Minneapolis2/surfdata.nc"
+  },
+  {
+   "path": "external/clmu_g1/US-WestPhoenix/metrics.json",
+   "role": "model-config",
+   "bytes": 820,
+   "sha256": "8b1c867e2a877aa2006d60a9187180937cf17eab718bd4561431c9edbed567b1",
+   "source": "external/clmu_g1/US-WestPhoenix/metrics.json"
+  },
+  {
+   "path": "external/clmu_g1/US-WestPhoenix/run_params.json",
+   "role": "model-config",
+   "bytes": 797,
+   "sha256": "98b7425fa15cf0210f47551699fa021852aa68ac5cec8df9ce46f670bd42a8d7",
+   "source": "external/clmu_g1/US-WestPhoenix/run_params.json"
+  },
+  {
+   "path": "external/clmu_g1/US-WestPhoenix/surfdata.nc",
+   "role": "model-config",
+   "bytes": 113258,
+   "sha256": "93c5afd26f8c4801bb93dac18cb17dfea76f0f54d3247a6bd85ad15f4ed808d0",
+   "source": "external/clmu_g1/US-WestPhoenix/surfdata.nc"
+  },
+  {
+   "path": "external/clmu_probe/summary.json",
+   "role": "model-output",
+   "bytes": 16690,
+   "sha256": "57dd09a64c14358bc12e85b63474b1a0e1467b3f9679c6ef7ec9c6825fbb5890",
+   "source": "external/clmu_probe/summary.json"
+  },
+  {
+   "path": "external/clmu_probe/JP-Yoyogi/ALB_site.json",
+   "role": "model-output",
+   "bytes": 585,
+   "sha256": "cd14d20dc660164b738e0919ee374d64fb5f617cd8ef3597ca042d940410b29d",
+   "source": "external/clmu_probe/JP-Yoyogi/ALB_site.json"
+  },
+  {
+   "path": "external/clmu_probe/JP-Yoyogi/base.json",
+   "role": "model-output",
+   "bytes": 531,
+   "sha256": "bc3d2b5f0d003fe17bea079d1741e1c3289cb3d1f87dbbd34ba2a3b776146358",
+   "source": "external/clmu_probe/JP-Yoyogi/base.json"
+  },
+  {
+   "path": "external/clmu_probe/JP-Yoyogi/CV_double.json",
+   "role": "model-output",
+   "bytes": 578,
+   "sha256": "27fcd30c2dc0ae493d3e8db657172f2a3939bf42777126462141b60a3fe330c0",
+   "source": "external/clmu_probe/JP-Yoyogi/CV_double.json"
+  },
+  {
+   "path": "external/clmu_probe/JP-Yoyogi/CV_half.json",
+   "role": "model-output",
+   "bytes": 576,
+   "sha256": "99177ed8bbceb967aecdf64a7c1ce6a91fee302203f373971d4bbee1193acc83",
+   "source": "external/clmu_probe/JP-Yoyogi/CV_half.json"
+  },
+  {
+   "path": "external/clmu_probe/JP-Yoyogi/EMIS_low.json",
+   "role": "model-output",
+   "bytes": 583,
+   "sha256": "8a70f80a21911f1b2e0da69b304b9cdf2eb32239e3a8572b268740f1412bb30a",
+   "source": "external/clmu_probe/JP-Yoyogi/EMIS_low.json"
+  },
+  {
+   "path": "external/clmu_probe/JP-Yoyogi/TK_double.json",
+   "role": "model-output",
+   "bytes": 601,
+   "sha256": "781b03f8618b7ccd9759d9c23063f410212daf300da96e551d280d9b1c4b1e4d",
+   "source": "external/clmu_probe/JP-Yoyogi/TK_double.json"
+  },
+  {
+   "path": "external/clmu_probe/JP-Yoyogi/TK_half.json",
+   "role": "model-output",
+   "bytes": 596,
+   "sha256": "e8ba0d0e143d7709f04887e2dd221531e3ec7bb9a4093724f24d86ebc86ff643",
+   "source": "external/clmu_probe/JP-Yoyogi/TK_half.json"
+  },
+  {
+   "path": "external/clmu_probe/KR-Ochang/ALB_site.json",
+   "role": "model-output",
+   "bytes": 580,
+   "sha256": "09a269cb6938fa591ea17d0c52b27066d39f49b1beb40f50bd72af8afb548233",
+   "source": "external/clmu_probe/KR-Ochang/ALB_site.json"
+  },
+  {
+   "path": "external/clmu_probe/KR-Ochang/base.json",
+   "role": "model-output",
+   "bytes": 527,
+   "sha256": "d9ac2b4eb8589d6048e01aa44dceaf5d643a7e156380830221e68f6a48726eab",
+   "source": "external/clmu_probe/KR-Ochang/base.json"
+  },
+  {
+   "path": "external/clmu_probe/KR-Ochang/CV_double.json",
+   "role": "model-output",
+   "bytes": 578,
+   "sha256": "482f77b39cb7d981b8e5062154ef5f968208e522f5df87f9bc740aaca59b4a0a",
+   "source": "external/clmu_probe/KR-Ochang/CV_double.json"
+  },
+  {
+   "path": "external/clmu_probe/KR-Ochang/CV_half.json",
+   "role": "model-output",
+   "bytes": 572,
+   "sha256": "eb9be6c34e0a5f55f68f0f7e70a36397ddc2f284916440d9079470a3e56ba71e",
+   "source": "external/clmu_probe/KR-Ochang/CV_half.json"
+  },
+  {
+   "path": "external/clmu_probe/KR-Ochang/EMIS_low.json",
+   "role": "model-output",
+   "bytes": 579,
+   "sha256": "305a5b14f4a6347940ea038be675a60fb1fb1428852ec2eefe5eb09d57713c4d",
+   "source": "external/clmu_probe/KR-Ochang/EMIS_low.json"
+  },
+  {
+   "path": "external/clmu_probe/KR-Ochang/TK_double.json",
+   "role": "model-output",
+   "bytes": 596,
+   "sha256": "ab88ba7a678a3f8f1cd887e6f325e2db24175e8f244937a0c4457286be580301",
+   "source": "external/clmu_probe/KR-Ochang/TK_double.json"
+  },
+  {
+   "path": "external/clmu_probe/KR-Ochang/TK_half.json",
+   "role": "model-output",
+   "bytes": 594,
+   "sha256": "54fc42cd3f3e7e5cdc55c0c12ba979d3097588d976b288935a21a4a9b16ab3b3",
+   "source": "external/clmu_probe/KR-Ochang/TK_half.json"
+  },
+  {
+   "path": "external/clmu_probe/PL-Lipowa/ALB_site.json",
+   "role": "model-output",
+   "bytes": 583,
+   "sha256": "5cb725894b257de06022f3665434491afaf08c3ffbf7ae9df6079bc66d8e6459",
+   "source": "external/clmu_probe/PL-Lipowa/ALB_site.json"
+  },
+  {
+   "path": "external/clmu_probe/PL-Lipowa/base.json",
+   "role": "model-output",
+   "bytes": 529,
+   "sha256": "467a03c70947ff7b7108bebfc660ebc2749f65e4a1a7f7252644e8887b75152f",
+   "source": "external/clmu_probe/PL-Lipowa/base.json"
+  },
+  {
+   "path": "external/clmu_probe/PL-Lipowa/CV_double.json",
+   "role": "model-output",
+   "bytes": 580,
+   "sha256": "8034697dde2262cd90ff6596edb95ca3b173c60a6fda85a6266165833c60dfd2",
+   "source": "external/clmu_probe/PL-Lipowa/CV_double.json"
+  },
+  {
+   "path": "external/clmu_probe/PL-Lipowa/CV_half.json",
+   "role": "model-output",
+   "bytes": 576,
+   "sha256": "4189d08616ee6377c1401caf6898337cc579eb25bc983e7fd8e56ee0c4c6142a",
+   "source": "external/clmu_probe/PL-Lipowa/CV_half.json"
+  },
+  {
+   "path": "external/clmu_probe/PL-Lipowa/EMIS_low.json",
+   "role": "model-output",
+   "bytes": 582,
+   "sha256": "ab0f2220de94cf925741cb9d0cc3bde49fdb0796b175335a737e96c5b1a85e7c",
+   "source": "external/clmu_probe/PL-Lipowa/EMIS_low.json"
+  },
+  {
+   "path": "external/clmu_probe/PL-Lipowa/TK_double.json",
+   "role": "model-output",
+   "bytes": 597,
+   "sha256": "803765e6be67d8aa46f7393dc3a23dd614ac86b48fd8e957430104f5899429ca",
+   "source": "external/clmu_probe/PL-Lipowa/TK_double.json"
+  },
+  {
+   "path": "external/clmu_probe/PL-Lipowa/TK_half.json",
+   "role": "model-output",
+   "bytes": 596,
+   "sha256": "9f2fd906ecb44a6c20a43eac37d4f1a50df79f6bc31dfca9ea0e56cb28a3cca0",
+   "source": "external/clmu_probe/PL-Lipowa/TK_half.json"
+  },
+  {
+   "path": "external/clmu_probe/PL-Narutowicza/ALB_site.json",
+   "role": "model-output",
+   "bytes": 589,
+   "sha256": "fac96194b34a7b90f2f234633596de6bf3684d1de6c9233d6434999cb56bf9b8",
+   "source": "external/clmu_probe/PL-Narutowicza/ALB_site.json"
+  },
+  {
+   "path": "external/clmu_probe/PL-Narutowicza/base.json",
+   "role": "model-output",
+   "bytes": 535,
+   "sha256": "c0122a0ab4615510cbbfbbe6e4bb8d042cc5d62116ad35fb997521cbff85e65d",
+   "source": "external/clmu_probe/PL-Narutowicza/base.json"
+  },
+  {
+   "path": "external/clmu_probe/PL-Narutowicza/CV_double.json",
+   "role": "model-output",
+   "bytes": 585,
+   "sha256": "76f8c01f4e316abee39782716eb7a34d05d44d246c786c511ff5ae1e38203f2b",
+   "source": "external/clmu_probe/PL-Narutowicza/CV_double.json"
+  },
+  {
+   "path": "external/clmu_probe/PL-Narutowicza/CV_half.json",
+   "role": "model-output",
+   "bytes": 581,
+   "sha256": "4ce4ec6a1d0f586a75e1935b724e79030e24fef03946f90db3638fc6aefd4201",
+   "source": "external/clmu_probe/PL-Narutowicza/CV_half.json"
+  },
+  {
+   "path": "external/clmu_probe/PL-Narutowicza/EMIS_low.json",
+   "role": "model-output",
+   "bytes": 586,
+   "sha256": "a5816fb01a5c708465c3e52fe5aa859043882d597346641cd4095b266564440f",
+   "source": "external/clmu_probe/PL-Narutowicza/EMIS_low.json"
+  },
+  {
+   "path": "external/clmu_probe/PL-Narutowicza/TK_double.json",
+   "role": "model-output",
+   "bytes": 603,
+   "sha256": "df5e5dae386efd06c71efb1e88ad3d4bc33a3fd272712d3e2a8c5a8d98d85542",
+   "source": "external/clmu_probe/PL-Narutowicza/TK_double.json"
+  },
+  {
+   "path": "external/clmu_probe/PL-Narutowicza/TK_half.json",
+   "role": "model-output",
+   "bytes": 600,
+   "sha256": "9227d9d1b63392bef2633414c13aa616e3cb13c7676aa16809c457237896af8a",
+   "source": "external/clmu_probe/PL-Narutowicza/TK_half.json"
+  },
+  {
+   "path": "external/clmu_probe/US-Minneapolis2/ALB_site.json",
+   "role": "model-output",
+   "bytes": 588,
+   "sha256": "3b108ab92f4d9901f9fe20d4e68e141d4a27d3e0333388e82079bce7840f297f",
+   "source": "external/clmu_probe/US-Minneapolis2/ALB_site.json"
+  },
+  {
+   "path": "external/clmu_probe/US-Minneapolis2/base.json",
+   "role": "model-output",
+   "bytes": 534,
+   "sha256": "2341bab1f490a42aff27ee1e5ad84a756b41aceff829802ea194487ae5d4904a",
+   "source": "external/clmu_probe/US-Minneapolis2/base.json"
+  },
+  {
+   "path": "external/clmu_probe/US-Minneapolis2/CV_double.json",
+   "role": "model-output",
+   "bytes": 585,
+   "sha256": "c4e5651843f8b4594a96deaffcb823b521753586291a1c6c9faaf8c92920d6cf",
+   "source": "external/clmu_probe/US-Minneapolis2/CV_double.json"
+  },
+  {
+   "path": "external/clmu_probe/US-Minneapolis2/CV_half.json",
+   "role": "model-output",
+   "bytes": 581,
+   "sha256": "fef11ff17d4cf934855137f8dd9fa0534090134d7965058ab89402922e1f736e",
+   "source": "external/clmu_probe/US-Minneapolis2/CV_half.json"
+  },
+  {
+   "path": "external/clmu_probe/US-Minneapolis2/EMIS_low.json",
+   "role": "model-output",
+   "bytes": 588,
+   "sha256": "8b98dc8c3d8c633403ac9d32dc17aa7069aec901990b5f5f0a083b3ae1e02d56",
+   "source": "external/clmu_probe/US-Minneapolis2/EMIS_low.json"
+  },
+  {
+   "path": "external/clmu_probe/US-Minneapolis2/TK_double.json",
+   "role": "model-output",
+   "bytes": 601,
+   "sha256": "d4b8bbf5853c237c29c8e4f7cebd11fafda41fafb15e404c8d9dc040830e3048",
+   "source": "external/clmu_probe/US-Minneapolis2/TK_double.json"
+  },
+  {
+   "path": "external/clmu_probe/US-Minneapolis2/TK_half.json",
+   "role": "model-output",
+   "bytes": 597,
+   "sha256": "594c631733cb0bc4004b9bba54d0a8ffdd9f26b2cfe7659d700e42ce5b82a42c",
+   "source": "external/clmu_probe/US-Minneapolis2/TK_half.json"
+  },
+  {
+   "path": "external/dslucm_surgery/results.json",
+   "role": "probe-output",
+   "bytes": 12581,
+   "sha256": "10ef4355ec45952e68f385251b2340f5a2a42726feeb56644332f61ef92b6c2c",
+   "source": "external/dslucm_surgery/results.json"
+  },
+  {
+   "path": "external/suews_g1/FR-Capitole/result.json",
+   "role": "auxiliary-input",
+   "bytes": 1084,
+   "sha256": "f5f9efc330a3d2fd5a0ded80b8d7f5db8a16bb4c5e5097176f251974678f5ae2",
+   "source": "external/suews_g1/FR-Capitole/result.json"
+  },
+  {
+   "path": "external/suews_g1/KR-Ochang/result.json",
+   "role": "auxiliary-input",
+   "bytes": 1147,
+   "sha256": "4bb5eedf18be581cda3254b5c3b5f1820acf18df878d8fd8c42d82ab67cea3db",
+   "source": "external/suews_g1/KR-Ochang/result.json"
+  },
+  {
+   "path": "external/suews_g1/PL-Lipowa/result.json",
+   "role": "auxiliary-input",
+   "bytes": 1104,
+   "sha256": "a6843ffb5b6f6b97e007dad124821af1878e25ffeac930bd703474e7317c3cd4",
+   "source": "external/suews_g1/PL-Lipowa/result.json"
+  },
+  {
+   "path": "external/suews_g1/US-Minneapolis1/result.json",
+   "role": "auxiliary-input",
+   "bytes": 1097,
+   "sha256": "f72981c4b7ec6689d2fe418556403c16aca8ab40acde5815a339e7c0b1609c3f",
+   "source": "external/suews_g1/US-Minneapolis1/result.json"
+  },
+  {
+   "path": "external/suews_g1/US-Minneapolis2/result.json",
+   "role": "auxiliary-input",
+   "bytes": 1097,
+   "sha256": "d0b6451829f04acae68600d932b898bea59d47efce435b836b92c35335b0214d",
+   "source": "external/suews_g1/US-Minneapolis2/result.json"
+  },
+  {
+   "path": "external/suews_g1/US-WestPhoenix/result.json",
+   "role": "auxiliary-input",
+   "bytes": 1101,
+   "sha256": "1617dbc4577c0b967c45711511f56fc82b4dcca67c3c0183f5918ecc269fc64e",
+   "source": "external/suews_g1/US-WestPhoenix/result.json"
+  },
+  {
+   "path": "paper/manuscript_dtsa/figures/make_figures.py",
+   "role": "code",
+   "bytes": 22276,
+   "sha256": "a74ddb198c4f4ec02316810fad9f81477a43dcd98eccf39788f268d315de041b",
+   "source": "paper/manuscript_dtsa/figures/make_figures.py"
+  },
+  {
+   "path": "paper/manuscript_dtsa/figures/make_schematics.py",
+   "role": "code",
+   "bytes": 15764,
+   "sha256": "66c3dbeadd0eb8abd11135f46d0a9521a5f6cf2bf2b2659e286beae60932fa47",
+   "source": "paper/manuscript_dtsa/figures/make_schematics.py"
+  },
+  {
+   "path": "paper/manuscript_dtsa/figures/figures_README.md",
+   "role": "code",
+   "bytes": 6887,
+   "sha256": "edbad0456e816089ffdf71587f05c47045fb0d5921ab507839043e48ae7bf9b7",
+   "source": "paper/manuscript_dtsa/figures/figures_README.md"
+  },
+  {
+   "path": "paper/manuscript_dtsa/figures/fig0_design.pdf",
+   "role": "figure",
+   "bytes": 85503,
+   "sha256": "460f834c0f74f7000c00cffccddac8cb1149b21eea41a44552e7ebb809f36f83",
+   "source": "paper/manuscript_dtsa/figures/fig0_design.pdf"
+  },
+  {
+   "path": "paper/manuscript_dtsa/figures/fig1_dtsa_ranked.pdf",
+   "role": "figure",
+   "bytes": 48124,
+   "sha256": "59ff5ef4c4522128e81ede32ae920963f24a78062e745c76c3c19c95669b220f",
+   "source": "paper/manuscript_dtsa/figures/fig1_dtsa_ranked.pdf"
+  },
+  {
+   "path": "paper/manuscript_dtsa/figures/fig2_core_albedo.pdf",
+   "role": "figure",
+   "bytes": 47213,
+   "sha256": "230a5efd52475aa1642944328f0d899d02fc1a573c81fb875dbb888d7dfec52a",
+   "source": "paper/manuscript_dtsa/figures/fig2_core_albedo.pdf"
+  },
+  {
+   "path": "paper/manuscript_dtsa/figures/fig3_model_vs_obs.pdf",
+   "role": "figure",
+   "bytes": 47856,
+   "sha256": "37936e43f3ff235583de7bf3e7d849abe55f722d32698d458c74392612b31de3",
+   "source": "paper/manuscript_dtsa/figures/fig3_model_vs_obs.pdf"
+  },
+  {
+   "path": "paper/manuscript_dtsa/figures/fig4_lwup_bias_paired.pdf",
+   "role": "figure",
+   "bytes": 40950,
+   "sha256": "74591be724aa8454111231990544b4da70857093dfcd03ab2b656105d2859b9d",
+   "source": "paper/manuscript_dtsa/figures/fig4_lwup_bias_paired.pdf"
+  },
+  {
+   "path": "paper/manuscript_dtsa/figures/fig5_elimination.pdf",
+   "role": "figure",
+   "bytes": 43142,
+   "sha256": "dcb75449da650a4f9370461caa837be214c777147bfd8f7ee41d8699f8277e77",
+   "source": "paper/manuscript_dtsa/figures/fig5_elimination.pdf"
+  },
+  {
+   "path": "paper/manuscript_dtsa/figures/fig6_prescription.pdf",
+   "role": "figure",
+   "bytes": 38205,
+   "sha256": "a9fb379e67ab97adad06bf3231a55563da3ecb6bd96f889ba94a26ebe1a5ff2a",
+   "source": "paper/manuscript_dtsa/figures/fig6_prescription.pdf"
+  },
+  {
+   "path": "paper/manuscript_dtsa/figures/fig7_scenarios.pdf",
+   "role": "figure",
+   "bytes": 41189,
+   "sha256": "a7805b8aaa23b03386f1b35117724955e43e268f48a1727b5500183d6380268d",
+   "source": "paper/manuscript_dtsa/figures/fig7_scenarios.pdf"
+  },
+  {
+   "path": "paper/manuscript_dtsa/figures/graphical_abstract.pdf",
+   "role": "figure",
+   "bytes": 60944,
+   "sha256": "91ef0f43996e58a23623a5cfad08073dc98e6061bae06723532300386ad8fbe1",
+   "source": "paper/manuscript_dtsa/figures/graphical_abstract.pdf"
+  },
+  {
+   "path": "paper/manuscript_dtsa/figures/fig0_design.png",
+   "role": "figure",
+   "bytes": 205258,
+   "sha256": "0dc44282d54a183a48b7ecb4f02881223c03eeadfba3d38e341cc7240f97ecb9",
+   "source": "paper/manuscript_dtsa/figures/fig0_design.png"
+  },
+  {
+   "path": "paper/manuscript_dtsa/figures/fig1_dtsa_ranked.png",
+   "role": "figure",
+   "bytes": 135789,
+   "sha256": "f47bdfdc6d842b0ded32cd8bc262587abb4f4cbf1d72743a855eb36fdb30c338",
+   "source": "paper/manuscript_dtsa/figures/fig1_dtsa_ranked.png"
+  },
+  {
+   "path": "paper/manuscript_dtsa/figures/fig2_core_albedo.png",
+   "role": "figure",
+   "bytes": 109471,
+   "sha256": "880e46fcf2f43dc6caacc905986f63e80e806a330e9292ea4aea3d5f5186027c",
+   "source": "paper/manuscript_dtsa/figures/fig2_core_albedo.png"
+  },
+  {
+   "path": "paper/manuscript_dtsa/figures/fig3_model_vs_obs.png",
+   "role": "figure",
+   "bytes": 93440,
+   "sha256": "42171c5faed4a73deb33f57f8e012bf6b8fab21521dfc59524a1f160453fbedc",
+   "source": "paper/manuscript_dtsa/figures/fig3_model_vs_obs.png"
+  },
+  {
+   "path": "paper/manuscript_dtsa/figures/fig4_lwup_bias_paired.png",
+   "role": "figure",
+   "bytes": 109561,
+   "sha256": "4733b144c2871e76b9a3905450022e00de5873d615662188441acc47f7579dd5",
+   "source": "paper/manuscript_dtsa/figures/fig4_lwup_bias_paired.png"
+  },
+  {
+   "path": "paper/manuscript_dtsa/figures/fig5_elimination.png",
+   "role": "figure",
+   "bytes": 78140,
+   "sha256": "9f06732e4cd591af0f210fed864312984358cb494bfe9e3c9e61de7c8fa7c107",
+   "source": "paper/manuscript_dtsa/figures/fig5_elimination.png"
+  },
+  {
+   "path": "paper/manuscript_dtsa/figures/fig6_prescription.png",
+   "role": "figure",
+   "bytes": 79431,
+   "sha256": "72a8f8ec7cbf7c78d41da7e5d2a6540b9ed126684af66eeec656c2620a991140",
+   "source": "paper/manuscript_dtsa/figures/fig6_prescription.png"
+  },
+  {
+   "path": "paper/manuscript_dtsa/figures/fig7_scenarios.png",
+   "role": "figure",
+   "bytes": 115752,
+   "sha256": "4289f29ccb05e850bd376009d23c698513f0fb0dfcee9a392556f6cb83c74a0e",
+   "source": "paper/manuscript_dtsa/figures/fig7_scenarios.png"
+  },
+  {
+   "path": "paper/manuscript_dtsa/figures/graphical_abstract.png",
+   "role": "figure",
+   "bytes": 178566,
+   "sha256": "86b7197a1cb84fe6b9de5ad8e5f9c7e75d4e379c6dda222a8b3c44b588d5d3bc",
+   "source": "paper/manuscript_dtsa/figures/graphical_abstract.png"
+  },
+  {
+   "path": "paper/manuscript_dtsa/tables/table1_sites.tex",
+   "role": "table",
+   "bytes": 2754,
+   "sha256": "b987ba3c1619202d89ba290b4524e9224970ea6ebf4c67d7f46abd28cd7a2e50",
+   "source": "paper/manuscript_dtsa/tables/table1_sites.tex"
+  },
+  {
+   "path": "paper/manuscript_dtsa/tables/table2_model_variants.tex",
+   "role": "table",
+   "bytes": 732,
+   "sha256": "9ed94bf6ffee00434671116a0dc7f151a3b0e40fc4dbf9243a1604491851e110",
+   "source": "paper/manuscript_dtsa/tables/table2_model_variants.tex"
+  },
+  {
+   "path": "paper/manuscript_dtsa/tables/table3_geometry.tex",
+   "role": "table",
+   "bytes": 1568,
+   "sha256": "cbacfb0edb8fc9ca867fe840b2948efa6d801d9cbc279ba14b8b0c15bed4f3c4",
+   "source": "paper/manuscript_dtsa/tables/table3_geometry.tex"
+  },
+  {
+   "path": "paper/manuscript_dtsa/tables/table4_provenance.tex",
+   "role": "table",
+   "bytes": 2369,
+   "sha256": "969607c014532eaaa453d2b3e5817aacba7a300a7201131c3ca1fa286273e002",
+   "source": "paper/manuscript_dtsa/tables/table4_provenance.tex"
+  },
+  {
+   "path": "paper/manuscript_dtsa/tables/table5_metric_families.tex",
+   "role": "table",
+   "bytes": 1763,
+   "sha256": "374ed75dd8ea951d650efccdcdff8f15590d4c4aa619a899a2168d4b38d0d014",
+   "source": "paper/manuscript_dtsa/tables/table5_metric_families.tex"
+  },
+  {
+   "path": "paper/manuscript_dtsa/tables/table6_scenarios.tex",
+   "role": "table",
+   "bytes": 1498,
+   "sha256": "48b54857d3e64120adee628516731ee7369044b81da82396ec8937f33c47e473",
+   "source": "paper/manuscript_dtsa/tables/table6_scenarios.tex"
+  },
+  {
+   "path": "paper/manuscript_dtsa/tables/tableA1_benchmark_protocols.tex",
+   "role": "table",
+   "bytes": 1215,
+   "sha256": "3b8d0fb862cd27b06d3b64067918475800e915610501a9318c74d71a14f89331",
+   "source": "paper/manuscript_dtsa/tables/tableA1_benchmark_protocols.tex"
+  },
+  {
+   "path": "paper/manuscript_dtsa/tables/tableS2_scenario_cells.tex",
+   "role": "table",
+   "bytes": 972,
+   "sha256": "6f706f9e3d940fdcc0abc558bb33931a37544db5e13de2e2e29dc2b41a009e70",
+   "source": "paper/manuscript_dtsa/tables/tableS2_scenario_cells.tex"
+  },
+  {
+   "path": "paper/manuscript_dtsa/tables/tableS3_b1.tex",
+   "role": "table",
+   "bytes": 1367,
+   "sha256": "689fb97e804207c4b62518782f817c40593dada39227f0431b5f32e925a20ce2",
+   "source": "paper/manuscript_dtsa/tables/tableS3_b1.tex"
+  },
+  {
+   "path": "paper/manuscript_dtsa/tables/tableS4_material_K.tex",
+   "role": "table",
+   "bytes": 2361,
+   "sha256": "b180c9ec667eaba3ec8c3338d9d2bf8d6e037606717639cbedc1acec12da550a",
+   "source": "paper/manuscript_dtsa/tables/tableS4_material_K.tex"
+  },
+  {
+   "path": "paper/manuscript_dtsa/tables/site_master_table.csv",
+   "role": "table",
+   "bytes": 4489,
+   "sha256": "9b4b739f7daed57a931ee88b7147cb7aaab3e9703981d637cc8685a0c0a5ce11",
+   "source": "paper/manuscript_dtsa/tables/site_master_table.csv"
+  },
+  {
+   "path": "patches/teb_v4.1.2_local_modifications.patch",
+   "role": "third-party-derived",
+   "bytes": 13054,
+   "sha256": "9e5d9dbc60851a6542fcbfd392c916784a4bdfe4819bbdb448406c107d7a8d7b",
+   "source": "patches_teb_4.1.2_closure.patch"
+  },
+  {
+   "path": "external/clmu_wsl_work/clmu_build.py",
+   "role": "model-tooling",
+   "bytes": 9598,
+   "sha256": "481494c79cc4358ce3b02b09ffc9302934c62745546954e3459e854bad2e0f32",
+   "source": "WSL /root/clmu_work/clmu_build.py"
+  },
+  {
+   "path": "external/clmu_wsl_work/clmu_build_spin.py",
+   "role": "model-tooling",
+   "bytes": 9564,
+   "sha256": "a9b6c2d740678aa3dd514a3f2cdc3657eaa0f499fc93ddb32337bc605ac28891",
+   "source": "WSL /root/clmu_work/clmu_build_spin.py"
+  },
+  {
+   "path": "external/clmu_wsl_work/clmu_build_spin_r.py",
+   "role": "model-tooling",
+   "bytes": 9569,
+   "sha256": "ff818e1ccb711af3a1b3cf828fc39927b114d7b43f490dce815836765f5dd1a0",
+   "source": "WSL /root/clmu_work/clmu_build_spin_r.py"
+  },
+  {
+   "path": "external/clmu_wsl_work/clmu_run.py",
+   "role": "model-tooling",
+   "bytes": 1211,
+   "sha256": "9fd661a3a9f4c83770ab8fc76e550bc5f574071a10a5e475fab6c1c3e76fb950",
+   "source": "WSL /root/clmu_work/clmu_run.py"
+  },
+  {
+   "path": "external/clmu_wsl_work/clmu_run_base.py",
+   "role": "model-tooling",
+   "bytes": 1216,
+   "sha256": "3552f549763537b92443b86958b399428d8487edc8b2819ce8d12ed511a45dd7",
+   "source": "WSL /root/clmu_work/clmu_run_base.py"
+  },
+  {
+   "path": "external/clmu_wsl_work/clmu_run_spin.py",
+   "role": "model-tooling",
+   "bytes": 1089,
+   "sha256": "e24ba4bc504dc4298e114b864c087c2f44b3176cda8865c1ca21b2cf5ac14851",
+   "source": "WSL /root/clmu_work/clmu_run_spin.py"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/adv_cityholdout.py",
+   "role": "release-alias",
+   "bytes": 720,
+   "sha256": "97862d7c1932cf68f7cb5bce0e6378c29f96417f88616783282b355b5b736d95",
+   "source": "new file written by build_release.py"
+  }
+ ],
+ "modified_files": [
+  {
+   "path": "analysis/revalidation_2026-08/scripts/paper_stats.py",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/paper_stats.py\n+++ release/analysis/revalidation_2026-08/scripts/paper_stats.py\n@@ -33 +33 @@\n-ROOT = Path(r'D:\\JM\\ResearchManager\\nocturnalUHIDiscovery')\n+ROOT = Path(__file__).resolve().parents[3]\n@@ -398 +398 @@\n-    (ROOT / '투고가능성평가/재검증_2026-08/방향재판단_증거/probe_rows.csv').open(encoding='utf-8')))\n+    (ROOT / 'analysis/revalidation_2026-08/evidence/probe_rows.csv').open(encoding='utf-8')))\n@@ -437 +437 @@\n-    (ROOT / '투고가능성평가/재검증_2026-08/방향재판단_증거/sign_audit_table.csv').open(encoding='utf-8-sig')))\n+    (ROOT / 'analysis/revalidation_2026-08/evidence/sign_audit_table.csv').open(encoding='utf-8-sig')))\n"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/attribution_covariates.py",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/attribution_covariates.py\n+++ release/analysis/revalidation_2026-08/scripts/attribution_covariates.py\n@@ -67 +67 @@\n-        \"script\": \"투고가능성평가/재검증_2026-08/scripts/attribution_covariates.py\",\n+        \"script\": \"analysis/revalidation_2026-08/scripts/attribution_covariates.py\",\n"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review2_additions.py",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/review2_additions.py\n+++ release/analysis/revalidation_2026-08/scripts/review2_additions.py\n@@ -78 +78 @@\n-out = {\"meta\": {\"script\": \"투고가능성평가/재검증_2026-08/scripts/review2_additions.py\",\n+out = {\"meta\": {\"script\": \"analysis/revalidation_2026-08/scripts/review2_additions.py\",\n"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review3_additions.py",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/review3_additions.py\n+++ release/analysis/revalidation_2026-08/scripts/review3_additions.py\n@@ -36 +36 @@\n-out = {\"meta\": {\"script\": \"투고가능성평가/재검증_2026-08/scripts/review3_additions.py\",\n+out = {\"meta\": {\"script\": \"analysis/revalidation_2026-08/scripts/review3_additions.py\",\n"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review3b_additions.py",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/review3b_additions.py\n+++ release/analysis/revalidation_2026-08/scripts/review3b_additions.py\n@@ -75 +75 @@\n-out = {\"meta\": {\"script\": \"투고가능성평가/재검증_2026-08/scripts/review3b_additions.py\",\n+out = {\"meta\": {\"script\": \"analysis/revalidation_2026-08/scripts/review3b_additions.py\",\n"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review4_additions.py",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/review4_additions.py\n+++ release/analysis/revalidation_2026-08/scripts/review4_additions.py\n@@ -44 +44 @@\n-out = {\"meta\": {\"script\": \"투고가능성평가/재검증_2026-08/scripts/review4_additions.py\",\n+out = {\"meta\": {\"script\": \"analysis/revalidation_2026-08/scripts/review4_additions.py\",\n"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/v10_tables.py",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/v10_tables.py\n+++ release/analysis/revalidation_2026-08/scripts/v10_tables.py\n@@ -18 +18 @@\n-ROOT = Path(r\"D:\\JM\\ResearchManager\\nocturnalUHIDiscovery\")\n+ROOT = Path(__file__).resolve().parents[3]\n"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review5_adderley_propagation.py",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/review5_adderley_propagation.py\n+++ release/analysis/revalidation_2026-08/scripts/review5_adderley_propagation.py\n@@ -58,2 +58,2 @@\n-Run:  \"C:/Users/admin/AppData/Local/Programs/Python/Python312/python.exe\" \\\n-        투고가능성평가/재검증_2026-08/scripts/review5_adderley_propagation.py\n+Run:  python \\\n+        analysis/revalidation_2026-08/scripts/review5_adderley_propagation.py\n@@ -75 +75 @@\n-ROOT = Path(r\"D:\\JM\\ResearchManager\\nocturnalUHIDiscovery\")\n+ROOT = Path(__file__).resolve().parents[3]\n@@ -208 +208 @@\n-        \"script\": \"투고가능성평가/재검증_2026-08/scripts/review5_adderley_propagation.py\",\n+        \"script\": \"analysis/revalidation_2026-08/scripts/review5_adderley_propagation.py\",\n@@ -917 +917 @@\n-                             \"투고가능성평가/재검증_2026-08/scripts/conditioning_analysis.py:119-127 \"\n+                             \"analysis/revalidation_2026-08/scripts/conditioning_analysis.py:119-127 \"\n"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review5_benchmark_skill.py",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/review5_benchmark_skill.py\n+++ release/analysis/revalidation_2026-08/scripts/review5_benchmark_skill.py\n@@ -31 +31 @@\n-Interpreter: C:/Users/admin/AppData/Local/Programs/Python/Python312/python.exe\n+Interpreter: python\n@@ -50,2 +50,2 @@\n-ROOT = Path(\"D:/JM/ResearchManager/nocturnalUHIDiscovery\")\n-sys.path.insert(0, str(ROOT / \"투고가능성평가/재검증_2026-08/scripts\"))\n+ROOT = Path(__file__).resolve().parents[3]\n+sys.path.insert(0, str(ROOT / \"analysis/revalidation_2026-08/scripts\"))\n@@ -369 +369 @@\n-            \"generator\": \"투고가능성평가/재검증_2026-08/scripts/review5_benchmark_skill.py\",\n+            \"generator\": \"analysis/revalidation_2026-08/scripts/review5_benchmark_skill.py\",\n"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review5_benchmark_cityholdout.py",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/review5_benchmark_cityholdout.py\n+++ release/analysis/revalidation_2026-08/scripts/review5_benchmark_cityholdout.py\n@@ -56 +56 @@\n-Interpreter: C:/Users/admin/AppData/Local/Programs/Python/Python312/python.exe\n+Interpreter: python\n@@ -78,2 +78,2 @@\n-ROOT = Path(\"D:/JM/ResearchManager/nocturnalUHIDiscovery\")\n-SCRIPTS = ROOT / \"투고가능성평가/재검증_2026-08/scripts\"\n+ROOT = Path(__file__).resolve().parents[3]\n+SCRIPTS = ROOT / \"analysis/revalidation_2026-08/scripts\"\n@@ -420 +420 @@\n-            \"generator\": \"투고가능성평가/재검증_2026-08/scripts/review5_benchmark_cityholdout.py\",\n+            \"generator\": \"analysis/revalidation_2026-08/scripts/review5_benchmark_cityholdout.py\",\n@@ -502 +502 @@\n-        \"file\": \"투고가능성평가/재검증_2026-08/scripts/review5_benchmark_skill.py\",\n+        \"file\": \"analysis/revalidation_2026-08/scripts/review5_benchmark_skill.py\",\n@@ -522 +522 @@\n-            \"file\": \"투고가능성평가/재검증_2026-08/scripts/review5_core15.py\",\n+            \"file\": \"analysis/revalidation_2026-08/scripts/review5_core15.py\",\n"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review5_constrained_experiments.py",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/review5_constrained_experiments.py\n+++ release/analysis/revalidation_2026-08/scripts/review5_constrained_experiments.py\n@@ -77,4 +77 @@\n-PRE_REGEN = Path(r\"C:\\Users\\admin\\AppData\\Local\\Temp\\claude\"\n-                 r\"\\D--JM-ResearchManager-nocturnalUHIDiscovery\"\n-                 r\"\\1f78fccc-7572-4b2c-b2f1-0bfd7f4547b9\\scratchpad\"\n-                 r\"\\paper_stats_v1.PRE_REGEN.json\")\n+PRE_REGEN = (ROOT / \"results\" / \"paper_stats_v1.PRE_REGEN.json\")   # optional cross-check file (absent in the release)\n@@ -578 +575 @@\n-            \"script\": \"투고가능성평가/재검증_2026-08/scripts/review5_constrained_experiments.py\",\n+            \"script\": \"analysis/revalidation_2026-08/scripts/review5_constrained_experiments.py\",\n"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review5_core15.py",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/review5_core15.py\n+++ release/analysis/revalidation_2026-08/scripts/review5_core15.py\n@@ -53 +53 @@\n-ROOT = Path(r'D:\\JM\\ResearchManager\\nocturnalUHIDiscovery')\n+ROOT = Path(__file__).resolve().parents[3]\n"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review5_obs_error_into_model.py",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/review5_obs_error_into_model.py\n+++ release/analysis/revalidation_2026-08/scripts/review5_obs_error_into_model.py\n@@ -70,2 +70,2 @@\n-  \"C:/Users/admin/AppData/Local/Programs/Python/Python312/python.exe\" \\\n-    투고가능성평가/재검증_2026-08/scripts/review5_obs_error_into_model.py\n+  python \\\n+    analysis/revalidation_2026-08/scripts/review5_obs_error_into_model.py\n@@ -86 +86 @@\n-ROOT = Path(r\"D:\\JM\\ResearchManager\\nocturnalUHIDiscovery\")\n+ROOT = Path(__file__).resolve().parents[3]\n@@ -426 +426 @@\n-            \"script\": \"투고가능성평가/재검증_2026-08/scripts/review5_obs_error_into_model.py\",\n+            \"script\": \"analysis/revalidation_2026-08/scripts/review5_obs_error_into_model.py\",\n"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review5_permutation_rebuild.py",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/review5_permutation_rebuild.py\n+++ release/analysis/revalidation_2026-08/scripts/review5_permutation_rebuild.py\n@@ -745 +745 @@\n-        \"script\": \"투고가능성평가/재검증_2026-08/scripts/review5_permutation_rebuild.py\",\n+        \"script\": \"analysis/revalidation_2026-08/scripts/review5_permutation_rebuild.py\",\n"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review5_run_provenance.py",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/review5_run_provenance.py\n+++ release/analysis/revalidation_2026-08/scripts/review5_run_provenance.py\n@@ -586 +586 @@\n-            script='투고가능성평가/재검증_2026-08/scripts/review5_run_provenance.py',\n+            script='analysis/revalidation_2026-08/scripts/review5_run_provenance.py',\n"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review5_temporal_seasonal.py",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/review5_temporal_seasonal.py\n+++ release/analysis/revalidation_2026-08/scripts/review5_temporal_seasonal.py\n@@ -65 +65 @@\n-ROOT = Path(r'D:\\JM\\ResearchManager\\nocturnalUHIDiscovery')\n+ROOT = Path(__file__).resolve().parents[3]\n@@ -805 +805 @@\n-            'script': 'nocturnalUHIDiscovery/투고가능성평가/재검증_2026-08/scripts/review5_temporal_seasonal.py',\n+            'script': 'analysis/revalidation_2026-08/scripts/review5_temporal_seasonal.py',\n"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review6_adversarial_mc_bounds.py",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/review6_adversarial_mc_bounds.py\n+++ release/analysis/revalidation_2026-08/scripts/review6_adversarial_mc_bounds.py\n@@ -21 +21 @@\n-Interpreter: C:/Users/admin/AppData/Local/Programs/Python/Python312/python.exe -X utf8\n+Interpreter: python -X utf8\n@@ -121 +121 @@\n-        'generator': '투고가능성평가/재검증_2026-08/scripts/review6_adversarial_mc_bounds.py',\n+        'generator': 'analysis/revalidation_2026-08/scripts/review6_adversarial_mc_bounds.py',\n"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review6_benchmark_holdout_verify.py",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/review6_benchmark_holdout_verify.py\n+++ release/analysis/revalidation_2026-08/scripts/review6_benchmark_holdout_verify.py\n@@ -16 +16 @@\n-ROOT = Path(\"D:/JM/ResearchManager/nocturnalUHIDiscovery\")\n+ROOT = Path(__file__).resolve().parents[3]\n"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review6_benchmark_verification_merge.py",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/review6_benchmark_verification_merge.py\n+++ release/analysis/revalidation_2026-08/scripts/review6_benchmark_verification_merge.py\n@@ -7 +7 @@\n-ROOT = Path(\"D:/JM/ResearchManager/nocturnalUHIDiscovery\")\n+ROOT = Path(__file__).resolve().parents[3]\n"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review6_minneapolis_duplication_audit.py",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/review6_minneapolis_duplication_audit.py\n+++ release/analysis/revalidation_2026-08/scripts/review6_minneapolis_duplication_audit.py\n@@ -10 +10 @@\n-ROOT = Path(\"D:/JM/ResearchManager/nocturnalUHIDiscovery\")\n+ROOT = Path(__file__).resolve().parents[3]\n"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review6_text_number_audit.py",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/review6_text_number_audit.py\n+++ release/analysis/revalidation_2026-08/scripts/review6_text_number_audit.py\n@@ -309 +309 @@\n-            script=\"투고가능성평가/재검증_2026-08/scripts/\"\n+            script=\"analysis/revalidation_2026-08/scripts/\"\n"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review8_core16_and_b1.py",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/review8_core16_and_b1.py\n+++ release/analysis/revalidation_2026-08/scripts/review8_core16_and_b1.py\n@@ -125 +125 @@\n-rows = list(csv.DictReader(io.open(ROOT / \"투고가능성평가/재검증_2026-08/방향재판단_증거/probe_rows.csv\", encoding=\"utf-8\")))\n+rows = list(csv.DictReader(io.open(ROOT / \"analysis/revalidation_2026-08/evidence/probe_rows.csv\", encoding=\"utf-8\")))\n"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review5_merge.py",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/review5_merge.py\n+++ release/analysis/revalidation_2026-08/scripts/review5_merge.py\n@@ -156 +156 @@\n-        \"script\": \"투고가능성평가/재검증_2026-08/scripts/review5_merge.py\",\n+        \"script\": \"analysis/revalidation_2026-08/scripts/review5_merge.py\",\n"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review5_table_modelvar.py",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/review5_table_modelvar.py\n+++ release/analysis/revalidation_2026-08/scripts/review5_table_modelvar.py\n@@ -67 +67,2 @@\n-_main = io.open(ROOT / \"paper/manuscript_dtsa/main.tex\", encoding=\"utf-8\").read()\n+_main_path = ROOT / \"paper/manuscript_dtsa/main.tex\"   # release: manuscript source not shipped\n+_main = io.open(_main_path, encoding=\"utf-8\").read() if _main_path.exists() else None\n@@ -71 +72 @@\n-    assert tex in _main, (\"paired difference missing from main.tex\", vk, tex)\n+    assert _main is None or tex in _main, (\"paired difference missing from main.tex\", vk, tex)\n"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/flux_direction_check.py",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/flux_direction_check.py\n+++ release/analysis/revalidation_2026-08/scripts/flux_direction_check.py\n@@ -11 +11 @@\n-sys.path.insert(0, r'D:\\JM\\ResearchManager\\nocturnalUHIDiscovery')\n+sys.path.insert(0, str(Path(__file__).resolve().parents[3]))\n@@ -14,2 +14,2 @@\n-RUNS = Path(r'D:\\JM\\ResearchManager\\nocturnalUHIDiscovery\\external\\teb_runs')\n-CORP = Path(r'D:\\JM\\ResearchManager\\nocturnalUHIDiscovery\\data\\urban-plumber\\corpus')\n+RUNS = Path(__file__).resolve().parents[3] / 'external' / 'teb_runs'\n+CORP = Path(__file__).resolve().parents[3] / 'data' / 'urban-plumber' / 'corpus'\n"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/conditioning_analysis.py",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/conditioning_analysis.py\n+++ release/analysis/revalidation_2026-08/scripts/conditioning_analysis.py\n@@ -16 +16 @@\n-  - per-site table -> 방향재판단_증거/conditioning_table.csv\n+  - per-site table -> evidence/conditioning_table.csv\n@@ -25 +25 @@\n-ROOT = Path(r'D:\\JM\\ResearchManager\\nocturnalUHIDiscovery')\n+ROOT = Path(__file__).resolve().parents[3]\n@@ -31 +31 @@\n-OUT_CSV = ROOT / '투고가능성평가' / '재검증_2026-08' / '방향재판단_증거' / 'conditioning_table.csv'\n+OUT_CSV = ROOT / 'analysis' / 'revalidation_2026-08' / 'evidence' / 'conditioning_table.csv'\n"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/sign_audit.py",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/sign_audit.py\n+++ release/analysis/revalidation_2026-08/scripts/sign_audit.py\n@@ -27 +27 @@\n-PROOT = Path(r'D:\\JM\\ResearchManager\\nocturnalUHIDiscovery')\n+PROOT = Path(__file__).resolve().parents[3]\n@@ -34 +34 @@\n-OUT_CSV = PROOT / '투고가능성평가' / '재검증_2026-08' / '방향재판단_증거' / 'sign_audit_table.csv'\n+OUT_CSV = PROOT / 'analysis' / 'revalidation_2026-08' / 'evidence' / 'sign_audit_table.csv'\n"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/check_teb_params.py",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/check_teb_params.py\n+++ release/analysis/revalidation_2026-08/scripts/check_teb_params.py\n@@ -8 +8 @@\n-RUNS = Path(r'D:\\JM\\ResearchManager\\nocturnalUHIDiscovery\\external\\teb_runs')\n+RUNS = Path(__file__).resolve().parents[3] / 'external' / 'teb_runs'\n@@ -47 +47 @@\n-FC = Path(r'D:\\JM\\ResearchManager\\nocturnalUHIDiscovery\\data\\urban-plumber\\FullCollection')\n+FC = Path(__file__).resolve().parents[3] / 'data' / 'urban-plumber' / 'FullCollection'\n"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/dslucm_surgery.py",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/dslucm_surgery.py\n+++ release/analysis/revalidation_2026-08/scripts/dslucm_surgery.py\n@@ -16 +16 @@\n-  투고가능성평가/재검증_2026-08/scripts/energy_conserving_probe.py\n+  analysis/revalidation_2026-08/scripts/energy_conserving_probe.py\n@@ -91 +91 @@\n-ROOT = Path(r\"D:\\JM\\ResearchManager\\nocturnalUHIDiscovery\")\n+ROOT = Path(__file__).resolve().parents[3]\n"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/kg1_radiometric.py",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/kg1_radiometric.py\n+++ release/analysis/revalidation_2026-08/scripts/kg1_radiometric.py\n@@ -14 +14 @@\n-sys.path.insert(0, r'D:\\JM\\ResearchManager\\nocturnalUHIDiscovery')\n+sys.path.insert(0, str(Path(__file__).resolve().parents[3]))\n@@ -18 +18 @@\n-ROOT = Path(r'D:\\JM\\ResearchManager\\nocturnalUHIDiscovery')\n+ROOT = Path(__file__).resolve().parents[3]\n"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/obs_doublecheck.py",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/obs_doublecheck.py\n+++ release/analysis/revalidation_2026-08/scripts/obs_doublecheck.py\n@@ -19 +19 @@\n-sys.path.insert(0, r'D:\\JM\\ResearchManager\\nocturnalUHIDiscovery')\n+sys.path.insert(0, str(Path(__file__).resolve().parents[3]))\n@@ -23 +23 @@\n-ROOT = Path(r'D:\\JM\\ResearchManager\\nocturnalUHIDiscovery')\n+ROOT = Path(__file__).resolve().parents[3]\n"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review5_adderley_propagation_VERIFY.py",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/review5_adderley_propagation_VERIFY.py\n+++ release/analysis/revalidation_2026-08/scripts/review5_adderley_propagation_VERIFY.py\n@@ -37 +37 @@\n-ROOT = r\"D:\\JM\\ResearchManager\\nocturnalUHIDiscovery\"\n+ROOT = str(Path(__file__).resolve().parents[3])\n@@ -255 +255 @@\n-ROOT = Path(r\"D:\\JM\\ResearchManager\\nocturnalUHIDiscovery\")\n+ROOT = Path(__file__).resolve().parents[3]\n"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review5_obs_error_into_model_VERIFY.py",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/review5_obs_error_into_model_VERIFY.py\n+++ release/analysis/revalidation_2026-08/scripts/review5_obs_error_into_model_VERIFY.py\n@@ -1,0 +2 @@\n+from pathlib import Path\n@@ -5 +6 @@\n-P = json.load(io.open(r'D:\\JM\\ResearchManager\\nocturnalUHIDiscovery\\results\\paper_stats_v1.json',\n+P = json.load(io.open(str(Path(__file__).resolve().parents[3] / 'results' / 'paper_stats_v1.json'),\n@@ -33,2 +34 @@\n-rep = json.load(io.open(r'D:\\JM\\ResearchManager\\nocturnalUHIDiscovery\\results'\n-                        r'\\review5_obs_error_into_model.json', encoding='utf-8'))\n+rep = json.load(io.open(str(Path(__file__).resolve().parents[3] / 'results' / 'review5_obs_error_into_model.json'), encoding='utf-8'))\n"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/review5_permutation_rebuild_verify.py",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/review5_permutation_rebuild_verify.py\n+++ release/analysis/revalidation_2026-08/scripts/review5_permutation_rebuild_verify.py\n@@ -35 +35 @@\n-ROOT = Path(r'D:\\JM\\ResearchManager\\nocturnalUHIDiscovery')\n+ROOT = Path(__file__).resolve().parents[3]\n"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/teb_rebuild_and_campaignA.sh",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/teb_rebuild_and_campaignA.sh\n+++ release/analysis/revalidation_2026-08/scripts/teb_rebuild_and_campaignA.sh\n@@ -9 +9 @@\n-ROOT=/mnt/d/JM/ResearchManager/nocturnalUHIDiscovery\n+ROOT=$(cd \"$(dirname \"${BASH_SOURCE[0]}\")/../../..\" && pwd)   # release: repository root\n"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/teb_run_campaignB.sh",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/teb_run_campaignB.sh\n+++ release/analysis/revalidation_2026-08/scripts/teb_run_campaignB.sh\n@@ -5 +5 @@\n-ROOT=/mnt/d/JM/ResearchManager/nocturnalUHIDiscovery\n+ROOT=$(cd \"$(dirname \"${BASH_SOURCE[0]}\")/../../..\" && pwd)   # release: repository root\n"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/clmu_setup_and_validate.sh",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/clmu_setup_and_validate.sh\n+++ release/analysis/revalidation_2026-08/scripts/clmu_setup_and_validate.sh\n@@ -6 +6 @@\n-ROOT=/mnt/d/JM/ResearchManager/nocturnalUHIDiscovery\n+ROOT=$(cd \"$(dirname \"${BASH_SOURCE[0]}\")/../../..\" && pwd)   # release: repository root\n"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/clmu_baseline_run.sh",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/clmu_baseline_run.sh\n+++ release/analysis/revalidation_2026-08/scripts/clmu_baseline_run.sh\n@@ -5 +5 @@\n-ROOT=/mnt/d/JM/ResearchManager/nocturnalUHIDiscovery\n+ROOT=$(cd \"$(dirname \"${BASH_SOURCE[0]}\")/../../..\" && pwd)   # release: repository root\n"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/clmu_campaignA.sh",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/clmu_campaignA.sh\n+++ release/analysis/revalidation_2026-08/scripts/clmu_campaignA.sh\n@@ -6 +6 @@\n-ROOT=/mnt/d/JM/ResearchManager/nocturnalUHIDiscovery\n+ROOT=$(cd \"$(dirname \"${BASH_SOURCE[0]}\")/../../..\" && pwd)   # release: repository root\n"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/clmu_campaignB.sh",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/clmu_campaignB.sh\n+++ release/analysis/revalidation_2026-08/scripts/clmu_campaignB.sh\n@@ -7 +7 @@\n-ROOT=/mnt/d/JM/ResearchManager/nocturnalUHIDiscovery\n+ROOT=$(cd \"$(dirname \"${BASH_SOURCE[0]}\")/../../..\" && pwd)   # release: repository root\n"
+  },
+  {
+   "path": "analysis/revalidation_2026-08/scripts/clmu_campaignB_run.sh",
+   "diff": "--- project/투고가능성평가/재검증_2026-08/scripts/clmu_campaignB_run.sh\n+++ release/analysis/revalidation_2026-08/scripts/clmu_campaignB_run.sh\n@@ -5 +5 @@\n-ROOT=/mnt/d/JM/ResearchManager/nocturnalUHIDiscovery\n+ROOT=$(cd \"$(dirname \"${BASH_SOURCE[0]}\")/../../..\" && pwd)   # release: repository root\n@@ -11 +11 @@\n-cp \"$ROOT/투고가능성평가/재검증_2026-08/scripts/clmu_run_spin.py\" \"$W/clmu_run_spin.py\"\n+cp \"$ROOT/analysis/revalidation_2026-08/scripts/clmu_run_spin.py\" \"$W/clmu_run_spin.py\"\n"
+  },
+  {
+   "path": "external/clmu_g1/finalize.sh",
+   "diff": "--- project/external/clmu_g1/finalize.sh\n+++ release/external/clmu_g1/finalize.sh\n@@ -9 +9 @@\n-DEST=/mnt/d/JM/ResearchManager/nocturnalUHIDiscovery/external/clmu_g1\n+DEST=$(cd \"$(dirname \"${BASH_SOURCE[0]}\")\" && pwd)   # release: this folder\n"
+  }
+ ],
+ "problems": [],
+ "documented_local_paths": [
+  {
+   "path": "external/clmu_g1/build_inputs.py",
+   "lines": [
+    "ROOT = \"/mnt/d/JM/ResearchManager/nocturnalUHIDiscovery\""
+   ]
+  }
+ ],
+ "total_bytes": 32918634,
+ "n_files": 351
+}

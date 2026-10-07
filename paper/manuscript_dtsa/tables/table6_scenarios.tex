@@ -1,0 +1,22 @@
+\begin{table}[!tbp]
+\centering\footnotesize
+\caption{Observation-error scenarios applied to the model metrics: composition and the cells whose slope interval reaches unity.}
+\label{tab:scenarios}
+\setlength{\tabcolsep}{3pt}
+\scriptsize
+\begin{tabular}{@{}p{0.50\linewidth}lrrrrr@{}}
+\toprule
+Error family and levels & Design, draws & Levels & Sets & Cells & max $P$ & CI $\ni 1$ \\
+\midrule
+independent random LW$_{\uparrow}$ error ($\sigma_E$ = 2, 4, 5, 10 W\,m$^{-2}$) & joint, 50\,000 & 4 & 4 & 32 & 0.0015 & 0 \\
+random error shared by the Minneapolis pair (same four $\sigma_E$) & joint, 50\,000 & 4 & 1 & 8 & 0.0001 & 0 \\
+placement-calibrated error \citep{Adderley2015}: per-record $\sigma$ capped at 11.2 / uncapped, flat 11.2, flat 9.4 W\,m$^{-2}$ & joint, 50\,000 & 4 & 4 & 32 & 0.0002 & 0 \\
+per-cent-of-reading scale error: common-mode $\pm$1, 2, 3\%; random-sign 1, 2, 3\% & joint, 50\,000 & 9 & 4 & 72 & 0.0044 & 0 \\
+albedo-aligned $\pm B$ step field ($B$ = 0.25, 0.5, 0.75, 1 K) & deterministic, 100\,000 & 4 & 4 & 32 & 0.0564 & 5 \\
+box-search vertex field (same four $B$) & deterministic, 100\,000 & 4 & 4 & 32 & 0.0279 & 1 \\
+\midrule
+Total & & & & 208 & 0.0564 & 6 \\
+\bottomrule
+\end{tabular}
+\par\vspace{2pt}{\scriptsize\raggedright Cells = levels $\times$ record sets $\times$ two schemes; max $P$ = largest bootstrap frequency $P(\hat\beta_{m|o}\ge1)$ in the family; CI $\ni 1$ = cells whose 95\% interval includes unity (listed in Supplementary Table~S2).\par}
+\end{table}

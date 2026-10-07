@@ -1,0 +1,389 @@
+{
+ "meta": {
+  "K_per_Wm2": 0.2004927923369955,
+  "eps": 0.95,
+  "alignment": "model row i -> corpus step i+1"
+ },
+ "validation": {
+  "max_abs_diff_Wm2": 0.0,
+  "n": 22771,
+  "verdict": "EXACT"
+ },
+ "campaign_A_albedo": {
+  "AU-Preston": {
+   "bias_Wm2": 16.18822024558862,
+   "dtsa_K": 1.2379746650190446,
+   "n": 5288,
+   "status": "OK",
+   "baseline_bias_Wm2": 14.386012053640613,
+   "baseline_dtsa_K": 0.8902809144484665,
+   "obs_dtsa_K": -1.9936108788952087,
+   "albedo_obs": 0.151
+  },
+  "CA-Sunset": {
+   "bias_Wm2": 6.004320254477362,
+   "dtsa_K": 2.094946508573603,
+   "n": 32809,
+   "status": "OK",
+   "baseline_bias_Wm2": 4.595953942416941,
+   "baseline_dtsa_K": 1.8288222220947439,
+   "obs_dtsa_K": 0.9778970865847398,
+   "albedo_obs": 0.107
+  },
+  "FI-Kumpula": {
+   "bias_Wm2": 5.313709140939081,
+   "dtsa_K": 0.8235646530260925,
+   "n": 16934,
+   "status": "OK",
+   "baseline_bias_Wm2": 4.821678347963758,
+   "baseline_dtsa_K": 0.7221257439300389,
+   "obs_dtsa_K": -0.32441160062559304,
+   "albedo_obs": 0.142
+  },
+  "FI-Torni": {
+   "bias_Wm2": 7.315197839826618,
+   "dtsa_K": 1.9203992167098338,
+   "n": 22565,
+   "status": "OK",
+   "baseline_bias_Wm2": 5.9266826099852725,
+   "baseline_dtsa_K": 1.6466998217125042,
+   "obs_dtsa_K": 0.44875052429731926,
+   "albedo_obs": 0.11
+  },
+  "FR-Capitole": {
+   "bias_Wm2": 4.852047567540302,
+   "dtsa_K": 1.423616181401586,
+   "n": 4086,
+   "status": "OK",
+   "baseline_bias_Wm2": 2.632416083564692,
+   "baseline_dtsa_K": 0.9873277496447714,
+   "obs_dtsa_K": 0.4943409397201572,
+   "albedo_obs": 0.127
+  },
+  "GR-HECKOR": {
+   "bias_Wm2": 16.248760123678213,
+   "dtsa_K": 1.421353330655853,
+   "n": 4052,
+   "status": "OK",
+   "baseline_bias_Wm2": 13.358872840982222,
+   "baseline_dtsa_K": 0.8872812754205721,
+   "obs_dtsa_K": -1.6736308628798444,
+   "albedo_obs": 0.202
+  },
+  "JP-Yoyogi": {
+   "bias_Wm2": 15.05446453663464,
+   "dtsa_K": 3.247104357920751,
+   "n": 29709,
+   "status": "OK",
+   "baseline_bias_Wm2": 12.266671806419287,
+   "baseline_dtsa_K": 2.72876214834748,
+   "obs_dtsa_K": 0.42990613265887406,
+   "albedo_obs": 0.133
+  },
+  "KR-Jungnang": {
+   "bias_Wm2": 16.718334380190505,
+   "dtsa_K": 3.876448009726224,
+   "n": 15008,
+   "status": "OK",
+   "baseline_bias_Wm2": 11.786706705700684,
+   "baseline_dtsa_K": 2.927948695390705,
+   "obs_dtsa_K": 0.6599143343566986,
+   "albedo_obs": 0.12
+  },
+  "KR-Ochang": {
+   "bias_Wm2": 23.0250311579776,
+   "dtsa_K": 2.456170247246544,
+   "n": 12995,
+   "status": "OK",
+   "baseline_bias_Wm2": 21.481985481926962,
+   "baseline_dtsa_K": 2.159187447655338,
+   "obs_dtsa_K": -2.1691148869024195,
+   "albedo_obs": 0.166
+  },
+  "NL-Amsterdam": {
+   "bias_Wm2": 10.575020092329787,
+   "dtsa_K": 2.484400541225255,
+   "n": 6110,
+   "status": "OK",
+   "baseline_bias_Wm2": 7.747437421139964,
+   "baseline_dtsa_K": 1.9458660182740501,
+   "obs_dtsa_K": 0.4420026637864456,
+   "albedo_obs": 0.096
+  },
+  "PL-Lipowa": {
+   "bias_Wm2": -12.15110423706322,
+   "dtsa_K": 3.640679176604209,
+   "n": 34463,
+   "status": "OK",
+   "baseline_bias_Wm2": -14.512326096003902,
+   "baseline_dtsa_K": 3.1852637573613456,
+   "obs_dtsa_K": 6.1160007904118805,
+   "albedo_obs": 0.085
+  },
+  "PL-Narutowicza": {
+   "bias_Wm2": 5.555695011482172,
+   "dtsa_K": 2.3048923671939603,
+   "n": 36533,
+   "status": "OK",
+   "baseline_bias_Wm2": 3.6822529833318036,
+   "baseline_dtsa_K": 1.9395519844366131,
+   "obs_dtsa_K": 1.1903241401689466,
+   "albedo_obs": 0.087
+  },
+  "SG-TelokKurau06": {
+   "bias_Wm2": 15.66493232336459,
+   "dtsa_K": 2.9349889556917357,
+   "n": 1916,
+   "status": "OK",
+   "baseline_bias_Wm2": 12.307767195662189,
+   "baseline_dtsa_K": 2.3693066122459507,
+   "obs_dtsa_K": 0.26431678242186263,
+   "albedo_obs": 0.168
+  },
+  "UK-KingsCollege": {
+   "bias_Wm2": 8.185158840596594,
+   "dtsa_K": 1.4409445285576876,
+   "n": 10486,
+   "status": "OK",
+   "baseline_bias_Wm2": 6.549069373114565,
+   "baseline_dtsa_K": 1.1240095759209576,
+   "obs_dtsa_K": -0.17089976033292786,
+   "albedo_obs": 0.109
+  },
+  "UK-Swindon": {
+   "bias_Wm2": 8.522338913083814,
+   "dtsa_K": 1.1358197211985201,
+   "n": 12787,
+   "status": "OK",
+   "baseline_bias_Wm2": 7.826312186042306,
+   "baseline_dtsa_K": 0.9945460108309581,
+   "obs_dtsa_K": -0.6339756955721989,
+   "albedo_obs": 0.139
+  },
+  "US-Baltimore": {
+   "bias_Wm2": 6.157324103112061,
+   "dtsa_K": 1.5810395728705888,
+   "n": 33699,
+   "status": "OK",
+   "baseline_bias_Wm2": 4.929212948387481,
+   "baseline_dtsa_K": 1.3452333620903563,
+   "obs_dtsa_K": 0.392837881638093,
+   "albedo_obs": 0.122
+  },
+  "US-Minneapolis1": {
+   "bias_Wm2": 19.042726023781455,
+   "dtsa_K": 1.0930058769304558,
+   "n": 19723,
+   "status": "OK",
+   "baseline_bias_Wm2": 18.741523875118666,
+   "baseline_dtsa_K": 1.0307529390726742,
+   "obs_dtsa_K": -3.0439059105555812,
+   "albedo_obs": 0.213
+  },
+  "US-Minneapolis2": {
+   "bias_Wm2": 18.971954323603473,
+   "dtsa_K": 1.0786862316712875,
+   "n": 19723,
+   "status": "OK",
+   "baseline_bias_Wm2": 18.77569884863641,
+   "baseline_dtsa_K": 1.0380120173189207,
+   "obs_dtsa_K": -3.0439059105555812,
+   "albedo_obs": 0.213
+  },
+  "US-WestPhoenix": {
+   "bias_Wm2": 21.45365619118997,
+   "dtsa_K": 2.382640831129441,
+   "n": 4701,
+   "status": "OK",
+   "baseline_bias_Wm2": 18.263431394658344,
+   "baseline_dtsa_K": 1.8458994710460412,
+   "obs_dtsa_K": -1.360702130472905,
+   "albedo_obs": 0.172
+  }
+ },
+ "campaign_B_summary": {
+  "n_clean": 15,
+  "n_excluded": 4,
+  "excluded_sites": [
+   "JP-Yoyogi",
+   "PL-Lipowa",
+   "PL-Narutowicza",
+   "US-Baltimore"
+  ],
+  "max_abs_dtsa_change_K": 1.1548186136134397e-05,
+  "mean_abs_dtsa_change_K": 2.3683767426341263e-06,
+  "max_abs_bias_change_Wm2": 5.759965111096221e-05,
+  "baseline_slope": 0.1996203334821171,
+  "spinup_slope": 0.19962044622967617
+ },
+ "campaign_B_spinup": {
+  "AU-Preston": {
+   "bias_Wm2": 14.38601033126582,
+   "dtsa_K": 0.8902805900952839,
+   "n": 5288,
+   "status": "OK",
+   "baseline_bias_Wm2": 14.386012053640613,
+   "baseline_dtsa_K": 0.8902809144484665,
+   "obs_dtsa_K": -1.9936108788952087
+  },
+  "CA-Sunset": {
+   "bias_Wm2": 4.59595560884461,
+   "dtsa_K": 1.8288225308013848,
+   "n": 32809,
+   "status": "OK",
+   "baseline_bias_Wm2": 4.595953942416941,
+   "baseline_dtsa_K": 1.8288222220947439,
+   "obs_dtsa_K": 0.9778970865847398
+  },
+  "FI-Kumpula": {
+   "bias_Wm2": 4.821675563812141,
+   "dtsa_K": 0.7221252266561379,
+   "n": 16934,
+   "status": "OK",
+   "baseline_bias_Wm2": 4.821678347963758,
+   "baseline_dtsa_K": 0.7221257439300389,
+   "obs_dtsa_K": -0.32441160062559304
+  },
+  "FI-Torni": {
+   "bias_Wm2": 5.92668108300797,
+   "dtsa_K": 1.6466995433092397,
+   "n": 22565,
+   "status": "OK",
+   "baseline_bias_Wm2": 5.9266826099852725,
+   "baseline_dtsa_K": 1.6466998217125042,
+   "obs_dtsa_K": 0.44875052429731926
+  },
+  "FR-Capitole": {
+   "bias_Wm2": 2.632431204588384,
+   "dtsa_K": 0.9873305673292335,
+   "n": 4086,
+   "status": "OK",
+   "baseline_bias_Wm2": 2.632416083564692,
+   "baseline_dtsa_K": 0.9873277496447714,
+   "obs_dtsa_K": 0.4943409397201572
+  },
+  "GR-HECKOR": {
+   "bias_Wm2": 13.358930440633333,
+   "dtsa_K": 0.8872928236067082,
+   "n": 4052,
+   "status": "OK",
+   "baseline_bias_Wm2": 13.358872840982222,
+   "baseline_dtsa_K": 0.8872812754205721,
+   "obs_dtsa_K": -1.6736308628798444
+  },
+  "JP-Yoyogi": {
+   "status": "EXCLUDED_RESOLUTION_MISMATCH"
+  },
+  "KR-Jungnang": {
+   "bias_Wm2": 11.786720772066985,
+   "dtsa_K": 2.927951078928851,
+   "n": 15008,
+   "status": "OK",
+   "baseline_bias_Wm2": 11.786706705700684,
+   "baseline_dtsa_K": 2.927948695390705,
+   "obs_dtsa_K": 0.6599143343566986
+  },
+  "KR-Ochang": {
+   "bias_Wm2": 21.481998007625126,
+   "dtsa_K": 2.1591902318498413,
+   "n": 12995,
+   "status": "OK",
+   "baseline_bias_Wm2": 21.481985481926962,
+   "baseline_dtsa_K": 2.159187447655338,
+   "obs_dtsa_K": -2.1691148869024195
+  },
+  "NL-Amsterdam": {
+   "bias_Wm2": 7.747437236254934,
+   "dtsa_K": 1.9458659837853491,
+   "n": 6110,
+   "status": "OK",
+   "baseline_bias_Wm2": 7.747437421139964,
+   "baseline_dtsa_K": 1.9458660182740501,
+   "obs_dtsa_K": 0.4420026637864456
+  },
+  "PL-Lipowa": {
+   "status": "EXCLUDED_RESOLUTION_MISMATCH"
+  },
+  "PL-Narutowicza": {
+   "status": "EXCLUDED_RESOLUTION_MISMATCH"
+  },
+  "SG-TelokKurau06": {
+   "bias_Wm2": 12.307822440873622,
+   "dtsa_K": 2.369315990242599,
+   "n": 1916,
+   "status": "OK",
+   "baseline_bias_Wm2": 12.307767195662189,
+   "baseline_dtsa_K": 2.3693066122459507,
+   "obs_dtsa_K": 0.26431678242186263
+  },
+  "UK-KingsCollege": {
+   "bias_Wm2": 6.549080591917277,
+   "dtsa_K": 1.1240118662805043,
+   "n": 10486,
+   "status": "OK",
+   "baseline_bias_Wm2": 6.549069373114565,
+   "baseline_dtsa_K": 1.1240095759209576,
+   "obs_dtsa_K": -0.17089976033292786
+  },
+  "UK-Swindon": {
+   "bias_Wm2": 7.826321435938449,
+   "dtsa_K": 0.9945479471926344,
+   "n": 12787,
+   "status": "OK",
+   "baseline_bias_Wm2": 7.826312186042306,
+   "baseline_dtsa_K": 0.9945460108309581,
+   "obs_dtsa_K": -0.6339756955721989
+  },
+  "US-Baltimore": {
+   "status": "EXCLUDED_RESOLUTION_MISMATCH"
+  },
+  "US-Minneapolis1": {
+   "bias_Wm2": 18.741523717379188,
+   "dtsa_K": 1.030752901595198,
+   "n": 19723,
+   "status": "OK",
+   "baseline_bias_Wm2": 18.741523875118666,
+   "baseline_dtsa_K": 1.0307529390726742,
+   "obs_dtsa_K": -3.0439059105555812
+  },
+  "US-Minneapolis2": {
+   "bias_Wm2": 18.77569880180682,
+   "dtsa_K": 1.0380120062449316,
+   "n": 19723,
+   "status": "OK",
+   "baseline_bias_Wm2": 18.77569884863641,
+   "baseline_dtsa_K": 1.0380120173189207,
+   "obs_dtsa_K": -3.0439059105555812
+  },
+  "US-WestPhoenix": {
+   "bias_Wm2": 18.26343694876763,
+   "dtsa_K": 1.8459003465989063,
+   "n": 4701,
+   "status": "OK",
+   "baseline_bias_Wm2": 18.263431394658344,
+   "baseline_dtsa_K": 1.8458994710460412,
+   "obs_dtsa_K": -1.360702130472905
+  }
+ },
+ "campaign_A_summary": {
+  "n": 19,
+  "baseline_slope_model_on_obs": 0.23365937091692482,
+  "baseline_r": 0.6263595157555378,
+  "albedo_slope_model_on_obs": 0.27188863968831056,
+  "albedo_r": 0.6033994520343948,
+  "baseline_model_span_K": [
+   0.7221257439300389,
+   3.1852637573613456
+  ],
+  "albedo_model_span_K": [
+   0.8235646530260925,
+   3.876448009726224
+  ],
+  "obs_span_K": [
+   -3.0439059105555812,
+   6.1160007904118805
+  ],
+  "mean_abs_bias_baseline_Wm2": 10.76800064182611,
+  "mean_abs_bias_albedo_Wm2": 12.4736839634979
+ }
+}

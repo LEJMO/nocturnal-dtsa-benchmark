@@ -1,0 +1,346 @@
+{
+ "_merge_target": "review5_additions.obs_uncertainty_v11.adversarial_verification",
+ "_supersedes": [
+  "review5_additions.obs_uncertainty_v11.manuscript_text_v11.results_passage",
+  "review5_additions.obs_uncertainty_v11.manuscript_text_v11.limitations_sentence",
+  "review5_additions.obs_uncertainty_v11.manuscript_text_v11.bibtex_to_add"
+ ],
+ "meta": {
+  "role": "adversarial verification of results/review5_adderley-propagation.json",
+  "verifier_script": "투고가능성평가/재검증_2026-08/scripts/review5_adderley_propagation_VERIFY.py",
+  "date": "2026-09-16",
+  "SIG": 5.67e-08,
+  "EPS": 0.95,
+  "K_per_Wm2": 0.2004927923369955,
+  "K_per_Wm2_if_exact_stefan_boltzmann_had_been_used": 0.20047955365022332,
+  "n_draws": 200000,
+  "seed_families": [
+   777,
+   888,
+   999,
+   4242,
+   31337
+  ],
+  "paper_stats_v1_json_untouched": true,
+  "paper_stats_v1_json_mtime": "2026-09-15 17:02:09 +0900",
+  "clmu_independence_confirmed": "The verified JSON contains 0 occurrences of clmu_dtsa and 0 of clmu_lwup_bias. The verifier script likewise reads only dtsa_std, dtsa_strict, albedo, obs_qh_qc0, cluster, obs_metadata and the raw corpus.",
+  "leaf_count_recomputed": 1908,
+  "leaf_count_claimed_in_meta": 1907,
+  "leaf_count_note": "The 1-leaf difference is meta.leaf_count counting itself; not a defect."
+ },
+ "reproduction_verdict": {
+  "summary": "Every headline number reproduces. Deterministic quantities match to all printed digits. Monte-Carlo quantities match within 0.002 in median r and 0.004 in tail fractions at 4x the draws with independent seeds. No number in the block is refuted.",
+  "deterministic_exact_matches": [
+   "baseline r: all19 -0.7934144353, excl_mpls17 -0.7093393144, core16 -0.7749052795",
+   "Adderley fit exp(3.5638 - 0.5742 z/H), R2_log 0.99999949, e-folding 1.7416 z_b, fitted 11.1947/6.3045/1.9995, max err 0.00532 W/m2, sigma(3.5) = 4.7312 W/m2",
+   "Minneapolis uncapped sigma 28.1176 W/m2 = 5.6374 K at z_rad/H = 0.39604; non-Minneapolis sigma span 0.7785 (US-Baltimore) to 10.6253 (SG-TelokKurau06)",
+   "aligned step r at B = 0.25/0.5/0.75/1.0 K, all three record sets, to 4 decimals",
+   "box supremum by exhaustive 2^n at the same amplitudes, to 4 decimals; no interior point beat the best vertex",
+   "all19 B = 1 K: supremum -0.4543317 vs aligned -0.4824837, argmax flips AU-Preston to -1 and PL-Lipowa to +1; excl_mpls17 and core16 argmax == sign(albedo - mean albedo) exactly",
+   "all 24 breakdown amplitudes B* in K, W/m2 and peak-to-peak",
+   "Q_H: baseline Spearman +0.5064 (13/19), +0.3113 (11/17), +0.3441 (11/16); core16 at B*=0.9746 K -> -0.1324 and 5/16; all19 at B*=1.8804 K -> -0.1641 and 10/19; all19 at B*(r>-0.5)=0.9635 K -> +0.3484 and 8/19",
+   "corpus mean nocturnal LWup 366.3014 W/m2, range 315.44 (US-Minneapolis1) to 451.15 (SG-TelokKurau06)",
+   "multiplicand vs albedo Pearson -0.0760 (p=0.757), Spearman -0.1255 (p=0.609)",
+   "common-mode +/-2%: -0.7828/-0.8010, -0.6809/-0.7346, -0.7223/-0.8157; 2% delta spread 0.5442 K over 19 and 0.4815 K over 17/16; random-sign 2% medians -0.6443/-0.5553/-0.4543",
+   "clear-calm: |contrast| median 0.7264 K, max 4.0157 K (US-Minneapolis2); PL-Lipowa +6.4893/+5.6891 reproducing v10's printed +6.5/+5.7; 9 negative-offset records mean -2.601 vs -0.902, contrast -1.699",
+   "flux-vs-Kelvin residual at 5 W/m2: median 2.04%, max 19.97% (KR-Jungnang, own contrast -0.573 K), <= 4.91% among the 9 negative-offset records; at 11.2 W/m2 max 0.2679 K"
+  ],
+  "monte_carlo_agreement": {
+   "random_independent_median_r_max_abs_diff": 0.0016,
+   "placement_median_r_max_abs_diff": 0.0012,
+   "tail_fraction_max_abs_diff": 0.0038,
+   "note": "Largest median gap is core16 placement capped (-0.5253 theirs vs -0.5265 mine); largest tail gap is all19 P(r>-0.5) at sigma=10 (0.2883 vs 0.2921). Both are within two combined standard errors of a 50 000-draw median or proportion."
+  },
+  "independent_netcdf_read": "A second read of the raw corpus with netCDF4 set_auto_maskandscale(True) (their pass used xarray) reproduces every per-record dTsa to 0.00e+00 against per_site.dtsa_std and gives PL-Lipowa mean nocturnal LWup = 378.83 W/m2. The -999 _FillValue trap did not fire in either code path.",
+  "masked_read_confirmed": true,
+  "sig_confirmed": "review5_adderley_propagation.py:81 sets SIG = 5.67e-8 with the comment 'NOT the exact Stefan-Boltzmann value'; EPS = 0.95 at line 82. K_per_Wm2 = 0.2004927923369955 as stored in meta. Had the exact constant been used the value would be 0.20047955365022332."
+ },
+ "defects_found": {
+  "D1_manuscript_overclaim_z_over_H": {
+   "severity": "MATERIAL -- must be fixed before the passage is pasted",
+   "sentence": "Seventeen of nineteen records sit at z_rad/H >= 2.09, where the positional component is at or below instrument accuracy",
+   "why_wrong": "Adderley et al. locate 'below the typical accuracy of common pyrgeometers' above 3.5 z_b, not above 2.09 z_b. Only 7 of 19 records are at or above 3.5 z_b. Ten records lie in 2.09-3.35 z_b with fitted sigma 5.15-10.63 W/m2, at or above the 4.73 W/m2 the block's own JSON derives as the implied instrument accuracy. The sentence contradicts adderley_placement.fit.beyond_zh_5 in the same file.",
+   "stratification": {
+    "ge_3p5_zb": {
+     "n": 7,
+     "sigma_Wm2_range": [
+      0.7785,
+      4.3973
+     ],
+     "sites": [
+      "AU-Preston",
+      "CA-Sunset",
+      "JP-Yoyogi",
+      "KR-Jungnang",
+      "PL-Lipowa",
+      "US-Baltimore",
+      "US-WestPhoenix"
+     ]
+    },
+    "2p0_to_3p5_zb": {
+     "n": 10,
+     "sigma_Wm2_range": [
+      5.1509,
+      10.6253
+     ],
+     "sites": [
+      "SG-TelokKurau06",
+      "UK-KingsCollege",
+      "GR-HECKOR",
+      "FI-Kumpula",
+      "KR-Ochang",
+      "PL-Narutowicza",
+      "UK-Swindon",
+      "NL-Amsterdam",
+      "FR-Capitole",
+      "FI-Torni"
+     ]
+    },
+    "lt_2p0_zb": {
+     "n": 2,
+     "sites": [
+      "US-Minneapolis1",
+      "US-Minneapolis2"
+     ],
+     "sigma_Wm2": 28.1176
+    }
+   },
+   "concurrent_lead_edit_agrees": "While this verification ran, the lead independently rewrote the Data-and-methods station-geometry paragraph to say 'ten of our 19 records sit at or below that ratio' against Adderley's 3.5H. That is the same finding, on the z_Ta/H convention: the ten records at or below 3.5 in z_Ta/H are exactly the ten I place at 2.0-3.5 in z_rad/H. On the z_rad/H convention the Minneapolis pair joins them, giving twelve below and seven above. The corrected Results sentence below is worded to agree with the lead's new Methods paragraph rather than introduce a second count.",
+   "second_tension_with_the_lead_edit": "The lead's new Methods text states 'we do not assume that the radiometer shares the tower height elsewhere', but the placement scenario does set z_rad = z_Ta at the other 17 records. The corrected Results sentence now labels that substitution a working assumption the collection does not document, so the two passages do not contradict each other."
+  },
+  "D2_manuscript_upper_end_mislabel": {
+   "severity": "MATERIAL",
+   "sentence": "sigma_E = 5 W/m2 --- 1.00 K, the upper end of the multiplicative specification at our LW_up levels",
+   "why_wrong": "The same Methods paragraph states 1-3% = 3.7-11.0 W/m2 at the corpus mean. 5 W/m2 is 1.37% of 366.3 W/m2, mid-range, not the upper end. The directly applicable CGR4 hourly maximum (2%) and the WMO nighttime agreement figure (2%) are both 7.33 W/m2, above the tested sigma.",
+   "correct_framing": "5 W/m2 = 1.37% of reading, close to the one-sigma equivalent (1.5%, 5.49 W/m2) of the 3% daily-total specification the CGR 4 manual quotes at 95% confidence."
+  },
+  "D3_manuscript_twice_any_documented_figure": {
+   "severity": "MATERIAL -- factually false as written",
+   "sentence": "A sigma_E = 10 W/m2 stress case, twice any documented figure",
+   "why_wrong": "10 W/m2 is BELOW three figures the block itself documents: 3% of the corpus mean nocturnal LW_up = 10.99 W/m2 (CGR 4 daily-total spec), Adderley's largest published positional RMSE 11.2 W/m2, and the WMO 'less than 5 per cent of the thermopile signal (approximately 15 W m-2)'. It is roughly twice the ONE-SIGMA equivalent of the 3% 95%-confidence spec, a different and much weaker claim.",
+   "consequence": "The sentence is false in the direction of reassurance. The honest version weakens the section, because the block's own sigma=10 result is a core16 median of -0.38. See supplementary_scenarios for the two intermediate sigmas that make the k-factor question explicit."
+  },
+  "D4_bibtex_wrong_wmo_edition": {
+   "severity": "MATERIAL -- unverified-citation rule",
+   "what": "@manual{WMO2018CIMO, title={Guide to Instruments and Methods of Observation (WMO-No. 8)}, year={2018}, note={Volume I, Chapter 7 ...}} does not describe the document actually consulted.",
+   "evidence": "https://www.weather.gov/media/epz/mesonet/CWOP-WMO8.pdf, re-fetched 2026-09-16, title page reads verbatim 'Guide to Meteorological Instruments and Methods of Observation / WMO-No. 8 / Seventh edition / 2008'; copyright page 'WMO-No. 8 (c) World Meteorological Organization, 2008 ... ISBN 978-92-63-100085'. The quoted passage sits on the page labelled I.7-22, Part I Chapter 7 Sect. 7.4.3 'Instruments for the measurement of long-wave radiation'. Four errors: year, title, 'Volume I' for 'Part I', and the cite key.",
+   "quotes_themselves_verified": true,
+   "fix": "Cite the 2008 seventh edition with its own title and Part I, or re-verify the quote in the 2018 edition before citing that year. Corrected entry in corrected_bibtex."
+  },
+  "D5_report_only_sign_count_error": {
+   "severity": "COSMETIC -- report prose only, the JSON is correct",
+   "what": "The agent's report states '14 records +1, 5 records -1 in all19' for the aligned sign vector. The true split is 8 positive and 11 negative.",
+   "evidence": "aligned_step_family.variants.all19 already records n_plus = 8, n_minus = 11, which my recompute confirms. Nothing in the manuscript text depends on the count.",
+   "min_abs_albedo_minus_mean": {
+    "all19": 0.001105263157894748,
+    "excl_mpls17": 0.0014705882352941124
+   }
+  },
+  "D6_adderley_9p4_equivalence_is_apples_to_oranges": {
+   "severity": "SUBSTANTIVE rhetorical weakness, self-harming rather than overclaiming",
+   "what": "The Results and Limitations passages equate the 9.7 W/m2 peak-to-peak displacement that erases the core16 association with Adderley's 9.4 W/m2 hemispherical-versus-complete-surface RMSE. An RMSE is a scatter; 9.7 W/m2 here is a saturated albedo-aligned offset. The block's own flat 9.4 W/m2 random scenario leaves r at -0.59 / -0.51 / -0.40, nowhere near zero, so a documented error of that magnitude and character demonstrably does NOT erase the association.",
+   "fix": "Keep the comparison but say what it is. The corrected Limitations sentence adds the flat-9.4 result so the equivalence cannot be read as stronger than it is."
+  },
+  "D7_dangling_label": {
+   "severity": "BUILD BREAK",
+   "what": "The Limitations sentence references Sect.~\\ref{sec:obsaxis}. No such label exists in paper/manuscript_dtsa/main.tex; the Results passage lands in \\label{sec:obs} at main.tex:471. Left as-is LaTeX emits '??'.",
+   "fix": "sec:obsaxis -> sec:obs, applied below."
+  }
+ },
+ "prior_findings_independently_confirmed": {
+  "aligned_step_is_not_the_box_supremum_for_all19_at_B_1K": {
+   "confirmed": true,
+   "supremum": -0.4543317,
+   "aligned": -0.4824837,
+   "argmax_flips": {
+    "AU-Preston": "+1 -> -1",
+    "PL-Lipowa": "-1 -> +1"
+   },
+   "note": "Confirms the agent's correction to the briefed ground truth. For excl_mpls17 and core16 at B = 1 K the argmax IS sign(albedo - mean albedo) exactly, so the brief holds there. Largest aligned-minus-supremum gap is core16 at B = 0.25 K (-0.7015 aligned vs -0.6374 supremum)."
+  },
+  "v10_systematic_FOV_entries_are_mislabelled": {
+   "confirmed": true,
+   "evidence": "v10_tables.py computes bias = xk*(alb.max()-alb)/(alb.max()-alb.min()), which is >= 0 and largest at LOW albedo, then evaluates pearsonr(alb, obs - bias): the low-albedo records are COOLED by up to xk K and the high-albedo records are untouched. main.tex:505-506 describes the same scenario as 'warming the dense, low-albedo records'. Confirmed mislabel, and the one-sided ramp is strictly weaker than the saturated aligned step."
+  },
+  "clear_calm_composite_discrepancy_in_main_tex": {
+   "confirmed": true,
+   "escalated": true,
+   "what": "main.tex:579-581 prints 'over the negative-offset sites the clear--calm composite mean is -3.1 K against -1.2 K'. No grouping I tried reproduces that pair.",
+   "candidates_tested": {
+    "unweighted_mean_9_negative_records": [
+     -2.601,
+     -0.902
+    ],
+    "n_weighted": [
+     -2.99,
+     -0.842
+    ],
+    "cluster_mean_8_clusters": [
+     -2.235,
+     -0.826
+    ],
+    "dtsa_strict_lt_0_9_records": [
+     -2.601,
+     -0.902
+    ],
+    "negative_excl_minneapolis_7_records": [
+     -1.765,
+     -0.728
+    ]
+   },
+   "note": "The split definition is validated: PL-Lipowa reproduces v10's printed +6.5/+5.7 at +6.4893/+5.6891, and conditioning_analysis.py:125-127 confirms the median-split definition. Grep finds the -3.1/-1.2 pair in no results/*.json. Under the project data-integrity rule this is an unsourced manuscript number and should be recomputed or removed, not reprinted."
+  }
+ },
+ "supplementary_scenarios": {
+  "spec": "Gaussian independent per-record LW_up error at the sigmas the cited specifications actually imply. Corpus mean nocturnal LW_up = 366.3014 W/m2. 200 000 draws, seed family 31337. Reported as median r [all19, excl_mpls17, core16] and P(r > -0.5).",
+  "note": "The CGR 4 <3% daily-total and the Hukx <7% figures are quoted at 95% confidence (k = 2), so a one-sigma per-record Gaussian is HALF the stated percentage. The original block used the percentages directly as one-sigma values, which is conservative; the manuscript must say so rather than call 10 W/m2 'twice any documented figure'.",
+  "sigma_5p4945_Wm2_1p50pct_one_sigma_of_3pct_k2": {
+   "sigma_K": 1.1016,
+   "median_r": [
+    -0.7045,
+    -0.6182,
+    -0.5558
+   ],
+   "P_r_above_minus0p5": [
+    0.011,
+    0.131,
+    0.359
+   ]
+  },
+  "sigma_7p3260_Wm2_2pct_WMO_night_and_CGR4_hourly": {
+   "sigma_K": 1.4688,
+   "median_r": [
+    -0.6523,
+    -0.5675,
+    -0.4738
+   ],
+   "P_r_above_minus0p5": [
+    0.086,
+    0.301,
+    0.558
+   ]
+  },
+  "sigma_10p9890_Wm2_3pct_CGR4_daily_k2_taken_as_one_sigma": {
+   "sigma_K": 2.2032,
+   "median_r": [
+    -0.5491,
+    -0.471,
+    -0.3533
+   ],
+   "P_r_above_minus0p5": [
+    0.366,
+    0.57,
+    0.761
+   ]
+  },
+  "sigma_11p2_Wm2_Adderley_largest_published": {
+   "sigma_K": 2.2455,
+   "median_r": [
+    -0.5443,
+    -0.4652,
+    -0.3485
+   ],
+   "P_r_above_minus0p5": [
+    0.381,
+    0.583,
+    0.767
+   ]
+  },
+  "headline_consequence": "Taking the WMO 2%-at-night figure directly as a one-sigma random error already puts core16 at a median r of -0.47, past -0.5. The random-error survival claim therefore rests on reading the percentage specifications as k = 2, which is correct but must be stated."
+ },
+ "external_sources_reverified": {
+  "Adderley2015": {
+   "url": "https://amt.copernicus.org/articles/8/2699/2015/",
+   "refetched": "2026-09-16",
+   "verdict": "ALL FOUR CLAIMS VERBATIM",
+   "quotes": [
+    "11.2, 6.3 and 2.0 W m-2 at 2, 3, and 5 times the mean building height z_b",
+    "The root mean squared error (RMSE) between different horizontal positions in retrieving outgoing longwave emittance L-up decreased exponentially with height",
+    "Generally, above 3.5z_b the horizontal positional error is less than the typical accuracy of common pyrgeometers",
+    "the difference between T0,h and T0,C shows an RMSE of 1.7 K (9.4 W m-2)"
+   ]
+  },
+  "KippZonen_CGR4": {
+   "url": "https://bsrn.aemet.es/manuales/kipp_manual_cgr4_1781.pdf",
+   "refetched": "2026-09-16",
+   "verdict": "VERBATIM",
+   "quotes": [
+    "Kipp & Zonen expects maximum uncertainty of 2% for hourly totals and 1% for daily totals for the CGR 4 pyrgeometer",
+    "Uncertainty in hourly total: Not defined, 95 % confidence level; Uncertainty in daily total: < 3, 95 % confidence level",
+    "Manual version: 0806"
+   ],
+   "caveat": "The spec table gives 2% MAXIMUM for hourly totals and <3% for daily totals at 95% confidence, and explicitly declines to define an hourly 95% figure. The manuscript's '1-3% of the daily total' is a fair reading of the daily row but is not a per-half-hour one-sigma error; the 2% hourly maximum (7.33 W/m2) is more directly applicable and exceeds the tested 5 W/m2."
+  },
+  "Philipona2001": {
+   "url": "https://www.patarnott.com/atms749/pdf/LongWaveIrradianceMeas.pdf",
+   "refetched": "2026-09-16",
+   "verdict": "VERBATIM",
+   "quotes": [
+    "downward longwave irradiance varied between 260 and 420 W m-2",
+    "the average (Max - Min) difference is down as low as 1.2 W m-2 with a standard deviation of 0.4 W m-2",
+    "nighttime measurements of seven pyrgeometers agree within better than 2 W m-2 for all 8 days of consecutive measurements",
+    "able to determine nighttime atmospheric longwave irradiance with an absolute uncertainty of 1.5 W m-2",
+    "In the early 1990s, precision and uncertainties of longwave measurements were of the order of 10%",
+    "the 15 pyrgeometers distributed on the five Sun trackers on the roof platform of the SGP radiation trailer"
+   ],
+   "author_list_volume_pages_doi_match_bibtex": true,
+   "caveat": "This is LW-DOWN, upfacing, sun-tracked, shaded and ventilated at a BSRN-grade site. The manuscript sentence already carries that qualification and it must not be edited out: the corpus geometry is LW-UP and downfacing on routine urban flux towers."
+  },
+  "Hukx_IR02": {
+   "url": "https://www.hukx.com/uploads/Hukx-IR02-user-manual.pdf",
+   "refetched": "2026-09-16",
+   "verdict": "VERBATIM, including the two load-bearing sentences",
+   "quotes": [
+    "calibration uncertainty < 7 % (k = 2)",
+    "achievable uncertainty (95 % confidence level) daily totals +/- 15 % (Hukx's own estimate)",
+    "Calibration uncertainty, which is larger for other than upfacing instruments; for downfacing instruments a blackbody calibration seems preferable.",
+    "Errors due to water deposition at clear nights; these completely block the longwave irradiance exchange ... may cause the signal U/S to change from a large negative value (-100 W/m2) to around 0 W/m2",
+    "non-stability < +/- 1 % change per year",
+    "A typical uncertainty of S is 4.2 % (k = 2)"
+   ],
+   "company_name_on_document": "Hukx",
+   "note": "Not cited in the manuscript text and needs no BibTeX entry; it appears only in literature_error_budget.sources."
+  },
+  "WMO_CIMO": {
+   "url": "https://www.weather.gov/media/epz/mesonet/CWOP-WMO8.pdf",
+   "refetched": "2026-09-16",
+   "verdict": "QUOTES VERBATIM, CITATION METADATA WRONG -- see defects_found.D4_bibtex_wrong_wmo_edition",
+   "quotes": [
+    "following careful calibration, fluxes measured at night agree to within 2 per cent, but in periods of high solar energy the difference between instruments may reach 13 per cent",
+    "this discrepancy can be reduced to less than 5 per cent of the thermopile signal (approximately 15 W m-2)"
+   ],
+   "actual_document": "Guide to Meteorological Instruments and Methods of Observation, WMO-No. 8, Seventh edition, 2008, ISBN 978-92-63-100085; quoted passage on the page labelled I.7-22, Part I Chapter 7 Sect. 7.4.3.",
+   "page_label_confirmed": "I.7-22"
+  },
+  "citations_asserted_from_memory": "NONE. Every source in literature_error_budget.sources was re-fetched in this verification pass and every quoted string was located in the fetched document."
+ },
+ "corrected_bibtex": {
+  "WMO2008CIMO": "@manual{WMO2008CIMO,\n  title        = {Guide to Meteorological Instruments and Methods of Observation ({WMO}-No.~8)},\n  organization = {World Meteorological Organization},\n  address      = {Geneva},\n  edition      = {Seventh},\n  year         = {2008},\n  note         = {Part~I, Chapter~7: Measurement of radiation, Sect.~7.4.3, p.~I.7-22. ISBN 978-92-63-100085}\n}",
+  "unchanged": [
+   "KippZonen2006CGR4",
+   "Philipona2001"
+  ],
+  "instruction": "Replace the WMO2018CIMO entry and its single \\citep{WMO2018CIMO} in the Methods paragraph with WMO2008CIMO. KippZonen2006CGR4 and Philipona2001 are correct as drafted; Adderley2015 already exists at references.bib:170."
+ },
+ "corrected_manuscript_text": {
+  "methods_spec_paragraph": "\\emph{Observation-uncertainty propagation}. The sensitivity of the albedo--offset association to observational error is assessed with an explicit error model rather than a single nominal figure. Error is applied as an additive perturbation $\\delta_i$ to each record's mean nocturnal offset, with a positive LW$_{\\uparrow}$ error $E_i$ giving $\\delta_i=+E_i\\times0.20$~K (an apparently warmer surface) at the linearization of Sect.~\\ref{sec:stats}; every scenario is run for all three record sets. Three families are distinguished, and the distinction is substantive: the first two are error \\emph{structures} whose magnitude can be cited from the instrument literature, whereas the third is a \\emph{sign} structure chosen after seeing the data, so its role is to bound what an error would have to look like, not to estimate one. (i)~\\emph{Random}: independent zero-mean Gaussian $\\delta_i$ at $\\sigma_E=2$, 4, 5 and 10~W\\,m$^{-2}$ ($=0.40$, 0.80, 1.00 and 2.01~K), 50\\,000 draws per scenario and record set, each from an independently seeded stream. The range follows from the fact that pyrgeometer specifications are multiplicative: 1--3\\% of the daily total for a reference-class instrument \\citep{KippZonen2006CGR4}, agreement to within 2\\% at night after careful calibration \\citep{WMO2008CIMO}, and $\\approx1$--2~W\\,m$^{-2}$ for shaded, ventilated, field-calibrated reference instruments at a dedicated radiation site \\citep{Philipona2001}; at our corpus-mean nocturnal LW$_{\\uparrow}$ of 366~W\\,m$^{-2}$, 1--3\\% is 3.7--11.0~W\\,m$^{-2}$. Because the two Minneapolis records share a tower and a radiometer and their offsets are numerically identical, a variant in which they draw one common error is run alongside the independent case. A common-mode percentage-of-reading error, $\\delta_i=\\pm p\\,\\langle\\mathrm{LW}_{\\uparrow}\\rangle_i/100$, is run separately at $p=1,2,3$, because that is the form the specifications actually take. (ii)~\\emph{Placement}: each record receives its own $\\sigma_i$ from its radiometer-to-building-height ratio $z_{\\mathrm{rad}}/H$, by interpolating the positional RMSE that \\citet{Adderley2015} report for retrieving LW$_{\\uparrow}$ over an urban canopy (11.2, 6.3 and 2.0~W\\,m$^{-2}$ at $z/H=2$, 3 and 5). Because those authors describe the decay as exponential, we fit $\\sigma=\\exp(3.564-0.574\\,z/H)$, which reproduces all three published values to within 0.005~W\\,m$^{-2}$ ($R^2=0.999999$ in $\\log\\sigma$, e-folding $1.74\\,z_b$) and so adds essentially no assumption of ours; the same exponential is continued beyond $z/H=5$, where it is immaterial because it has already fallen below instrument accuracy. The scenario is run both capped at the largest published value, 11.2~W\\,m$^{-2}$, and uncapped, and additionally as flat 11.2~W\\,m$^{-2}$ and flat 9.4~W\\,m$^{-2}$, the latter being the authors' hemispherical-versus-complete-surface temperature RMSE of 1.7~K, which is a field-of-view composition term and does not decay with height. (iii)~\\emph{Aligned}: an adversarial systematic field $\\delta_i=B\\,\\mathrm{sign}(\\alpha_i-\\bar\\alpha)$, warming every high-albedo record by $B$ and cooling every low-albedo record by $B$; this is a saturated field, so its peak-to-peak displacement is $2B$, which is the quantity comparable to an instrument specification. We report alongside it the unrestricted supremum of $r$ over the box $|\\delta_i|\\le B$, obtained by exhaustive enumeration of all $2^n$ vertices and verified against a bounded interior search from 63 starts at each amplitude (no interior point beats the best vertex at any amplitude, the largest excess being $10^{-16}$ in $r$). For both families we report the breakdown amplitude $B^*$, the smallest amplitude at which $r$ rises above $-0.5$, $-0.4$, $-0.3$ and $0$.",
+  "results_passage": "Random radiometric error at the magnitudes the instrument literature supports weakens the association but does not remove it, and how far it weakens it depends on how the specifications are read. Independent per-record LW$_{\\uparrow}$ perturbations at $\\sigma_E=2$~W\\,m$^{-2}$ (0.40~K) leave median $r$ at $-0.78$, $-0.69$ and $-0.73$ in the 19-, 17- and 16-record sets, and at $\\sigma_E=5$~W\\,m$^{-2}$ --- 1.00~K, and 1.4\\% of our mean nocturnal LW$_{\\uparrow}$, close to the one-sigma equivalent of the 3\\% daily-total specification, which is quoted at 95\\% confidence --- at $-0.72$ $[-0.84,-0.56]$, $-0.63$ $[-0.79,-0.43]$ and $-0.58$ $[-0.80,-0.25]$, with 0.4\\%, 9.0\\% and 29\\% of draws respectively rising above $-0.5$. A $\\sigma_E=10$~W\\,m$^{-2}$ case degrades the conservative core to a median $-0.38$, and we do not claim the association survives it; that case treats the full 3\\% 95\\%-confidence daily-total specification (11.0~W\\,m$^{-2}$ at our levels) as a one-sigma per-record error, and so overstates the documented random component by roughly a factor of two. Read the other way, at the one-sigma equivalent of the same specification, $\\sigma_E=5.5$~W\\,m$^{-2}$, the medians are $-0.70$, $-0.62$ and $-0.56$; at the 2\\% nighttime agreement figure taken directly as a one-sigma error, 7.3~W\\,m$^{-2}$, they are $-0.65$, $-0.57$ and $-0.47$. Which reading is adopted therefore decides whether the conservative core stays beyond $r=-0.5$ under random error alone, and we do not resolve it in our favour. Letting the two Minneapolis records share one error draw shifts the 19-record median by at most $0.006$, so the inter-record correlation structure is not load-bearing. A common-mode percentage-of-reading error behaves almost neutrally here: the multiplicand, each record's own mean nocturnal LW$_{\\uparrow}$, is uncorrelated with albedo ($r=-0.08$, $p=0.76$; Spearman $-0.13$), so $\\pm2\\%$ of reading leaves $r$ between $-0.78$ and $-0.80$ over 19 records and between $-0.72$ and $-0.82$ in the core, despite spanning 0.48--0.54~K across the corpus. The placement term matters more. Assigning each record the positional uncertainty implied by its own $z_{\\mathrm{rad}}/H$ through the \\citet{Adderley2015} exponential, capped at their largest published value, leaves the association clearly negative but weakened --- median $r=-0.67$, $-0.60$ and $-0.53$ --- and applying their flat 9.4~W\\,m$^{-2}$ field-of-view composition term to every record gives $-0.59$, $-0.51$ and $-0.40$. Only seven of nineteen records sit above $3.5\\,z_b$, the height above which \\citeauthor{Adderley2015} report the positional error falling below typical pyrgeometer accuracy. The ten records that Sect.~\\ref{sec:methods} identifies as at or below that ratio lie between 2.09 and 3.35~$z_b$ here, with a fitted positional term of 5.2--10.6~W\\,m$^{-2}$ --- comparable to or larger than instrument accuracy --- so the placement term is not a small correction over most of the corpus, and in taking $z_{\\mathrm{rad}}=z_{T_a}$ at those records we are making a working assumption the collection does not document. Lower still is the Minneapolis pair, whose 2~m radiometers sit at $z_{\\mathrm{rad}}/H=0.40$, five times below the lowest height \\citeauthor{Adderley2015} calibrate. We report the uncapped extrapolation for that pair explicitly rather than leaving it behind the cap: it implies $\\sigma=28$~W\\,m$^{-2}$ (5.6~K) and moves the 19-record median from $-0.67$ to $-0.60$, while the 17- and 16-record sets --- which exclude those records on independent height-mismatch grounds --- are unaffected, at $-0.60$ and $-0.52$. The aligned case is different, and we state it plainly. A systematic bias carrying the sign pattern that most efficiently flattens the gradient removes the association entirely in the conservative core at an amplitude of $B^*=0.97$~K (4.9~W\\,m$^{-2}$; peak-to-peak 1.95~K, 9.7~W\\,m$^{-2}$), and reduces $r$ to $-0.5$ there at $B^*=0.56$~K; in the full 19-record set the corresponding amplitudes are 1.88~K and 0.96~K. The unrestricted supremum over $|\\delta_i|\\le B$ requires no more and sometimes less --- 0.46~K to reach $-0.5$ in the core --- and at the amplitudes that drive $r$ to zero it coincides with the aligned step exactly, so the aligned pattern is the worst case there and not merely one case among many. These amplitudes are not large relative to the composite-footprint terms the urban literature documents: the peak-to-peak displacement needed to erase the 16-record association, 9.7~W\\,m$^{-2}$, is the same size as \\citeauthor{Adderley2015}'s 9.4~W\\,m$^{-2}$ hemispherical-versus-complete-surface RMSE --- although that figure is a scatter rather than an aligned offset, and imposed as a random error it leaves $r$ at $-0.59$ to $-0.40$ --- and radiometer height is documented at only two of our nineteen records. The association therefore survives the random, shared-error, placement-calibrated and calibration-scale scenarios tested, but an albedo-aligned systematic bias of amplitude $B^*\\approx1$~K would suffice to remove it in the conservative core, and such a bias is not excluded by the available metadata. Two evidence lines are immune to this construction by design. The within-site clear--calm versus cloudy--windy contrast is a difference of two composites of the same record, selected on $\\varepsilon_{\\mathrm{sky}}$ and wind alone; a static per-record $\\delta_i$ shifts both composites equally and cancels from the difference exactly, at every amplitude. (For a bias specified as a constant flux rather than a constant temperature the cancellation is not algebraically exact, because $\\partial T_s/\\partial\\mathrm{LW}_{\\uparrow}$ varies with $T_s$; the exact residual for a 5~W\\,m$^{-2}$ bias is a median 2\\% of each record's own contrast and never exceeds 4.9\\% among the negative-offset records that carry the result.) And the eddy-covariance $Q_H$ values come from a different instrument with a different footprint, so $\\delta_i$ does not touch them: the adversarial field must pay for flattening the albedo relation elsewhere, and it does. At the 16-record amplitude that drives the albedo correlation to zero, the offset--$Q_H$ rank agreement falls from $\\rho=+0.34$ to $-0.13$ and sign agreement from 11/16 to 5/16; over all 19 records, the amplitude that reduces the albedo correlation to $-0.5$ already cuts $\\rho$ from $+0.51$ to $+0.35$ and sign agreement from 13/19 to 8/19. A bias able to manufacture the albedo gradient would therefore have to destroy an independent instrumental agreement at the same time.",
+  "limitations_sentence": "Consistent with this, we do not claim that instrument or composite-footprint error has been excluded: the propagation in Sect.~\\ref{sec:obs} shows that random error of the documented magnitude cannot produce the gradient, but that a systematic bias aligned with albedo and of amplitude $\\approx1$~K --- whose peak-to-peak displacement, 9.7~W\\,m$^{-2}$, is the size of the field-of-view composition RMSE \\citet{Adderley2015} report, though that RMSE is a scatter rather than an albedo-aligned offset, and imposed as a random error of that magnitude it leaves $r$ at $-0.59$ to $-0.40$ --- would remove it, and with radiometer height documented at only two of nineteen records such a bias cannot be ruled out from the metadata; the within-site conditioning contrast and the independent $Q_H$ comparison are the two lines a bias of this form cannot manufacture.",
+  "edits_applied": [
+   "D2: 'the upper end of the multiplicative specification at our LW_up levels' -> '1.4% of our mean nocturnal LW_up, close to the one-sigma equivalent of the 3% daily-total specification, which is quoted at 95% confidence'",
+   "D3: 'stress case, twice any documented figure' removed; replaced by the k-factor statement plus the two new literature-matched sigmas (5.5 and 7.3 W/m2)",
+   "D1: the 2.09 claim replaced by the 7/10/2 stratification against Adderley's own 3.5 z_b threshold",
+   "D6: the Limitations equivalence now states the 9.4 W/m2 figure is a scatter and that imposed as random error it leaves r at -0.59 to -0.40",
+   "D7: \\ref{sec:obsaxis} -> \\ref{sec:obs}",
+   "D2/D3 follow-on: the opening claim 'The association is robust to random radiometric error of the magnitude the instrument literature supports' softened to 'weakens the association but does not remove it, and how far it weakens it depends on how the specifications are read', because at the WMO 2%-at-night figure taken as one-sigma the core16 median is -0.47",
+   "D6 follow-on: the same scatter-versus-offset qualifier added to the Results sentence that makes the 9.7 vs 9.4 W/m2 comparison, not only to the Limitations sentence",
+   "D4: \\citep{WMO2018CIMO} -> \\citep{WMO2008CIMO} in the Methods paragraph"
+  ],
+  "unchanged_from_original": "sentence_to_delete_from_v10 and text_notes carry over verbatim; every other number in the three passages was verified and is left as drafted."
+ },
+ "residual_risks_not_fixed": [
+  "Radiometer height is documented at 2 of 19 records. The placement scenario substitutes the eddy-covariance equipment height (Lipson 2022 ESSD Table 5) for z_rad at the other 17. If the true radiometer sits below the EC mast anywhere, that record's placement sigma is underestimated. Unresolvable from the archive and correctly flagged in the original caveats.",
+  "The clear-calm cancellation is exact only for a STATIC per-record bias. main.tex Limitations (ii) identifies dew/frost deposition as the most likely radiometer bias and notes it is most likely on precisely the clear--calm nights, i.e. regime-dependent and therefore NOT cancelled. The Results passage says 'a static per-record delta_i', which is literally correct, but 'Two evidence lines are immune to this construction by design' will be read more broadly than it is true. Consider naming the exception.",
+  "z/H uses building_mean_height with no displacement-height correction, matching v10_tables.py:68-69 and Adderley's own z_b."
+ ]
+}

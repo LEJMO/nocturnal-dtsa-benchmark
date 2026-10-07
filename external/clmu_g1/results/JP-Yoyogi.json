@@ -1,0 +1,26 @@
+{
+  "site": "JP-Yoyogi",
+  "lwup_bias": -4.500076574889054,
+  "n_night": 29709,
+  "qh_bias": -5.866566621009413,
+  "n_qh": 15495,
+  "dTsa_model": -0.5016865396102501,
+  "n_dtsa": 29719,
+  "align_delta": 1,
+  "align_rmse": 0.0,
+  "align_start": 17521,
+  "model_steps": 87649,
+  "lwup_bias_noDJF": -3.2557180107476618,
+  "k_equiv_bias": -0.8738012766774861,
+  "provenance": {
+    "LWup_minus_(FIRA+FLDS)_night_mean": -3.3896087318074194e-05,
+    "LWup_night_mean": 381.40061845480665,
+    "FIRA+FLDS_night_mean": 381.40065235089395,
+    "LWup_minus_FIRE_night_mean": 0.0,
+    "FIRE_night_mean": 381.40061845480665,
+    "Ts_minus_Tair_night_mean_K": -0.5016865396102501,
+    "TSKIN_minus_Tair_night_mean_K": -0.09253915894372076,
+    "TG_minus_Tair_night_mean_K": -0.09253915894372076,
+    "Tair_echo_vs_forcing_RMSE": 0.0
+  }
+}

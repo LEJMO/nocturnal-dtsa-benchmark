@@ -1,0 +1,130 @@
+{
+ "_merge_target": "review5_additions.benchmark_error_decomposition",
+ "meta": {
+  "script": "review5_benchmark_decomposition.py",
+  "question": "is each scheme's out-of-sample benchmark result driven by its mean bias or by its temporal structure?",
+  "identity": "RMSE^2 = MBE^2 + cRMSE^2 (verified per record)",
+  "debiased_proxy": "cRMSE is used as the error a mean-shift-corrected scheme would retain; it is a PROXY, since MAE and RMSE differ by a distribution-shape factor, and is labelled as such"
+ },
+ "schemes": {
+  "TEB": {
+   "identity_max_abs_residual": 1.1368683772161603e-13,
+   "abs_MBE": {
+    "median": 11.786706705700684,
+    "min": 2.632416083564692,
+    "max": 21.481985481926962
+   },
+   "cRMSE": {
+    "median": 6.0647784046727224,
+    "min": 3.8937533646360674,
+    "max": 13.310380811186391
+   },
+   "r": {
+    "median": 0.9877040821762755,
+    "min": 0.8904230729109345
+   },
+   "bias_share_of_MSE": {
+    "median": 0.6725473460133233,
+    "min": 0.07378499442981032,
+    "max": 0.9401075355329772,
+    "n_records_bias_dominated": 13,
+    "n_records": 19
+   },
+   "model_MAE": {
+    "median": 12.078210533787642
+   },
+   "corr_MAE_with_absMBE": 0.9438630759823514,
+   "corr_MAE_with_cRMSE": 0.4221396793232824,
+   "per_benchmark": {
+    "REG2": {
+     "wins_actual": 4,
+     "wins_if_own_mean_bias_removed_cRMSE_proxy": 12,
+     "corr_margin_with_absMBE": 0.12785746192210268,
+     "corr_margin_with_cRMSE": 0.08911777640744015,
+     "benchmark_MAE_median": 5.816122800448311
+    },
+    "KM3": {
+     "wins_actual": 8,
+     "wins_if_own_mean_bias_removed_cRMSE_proxy": 16,
+     "corr_margin_with_absMBE": -0.030630950243995193,
+     "corr_margin_with_cRMSE": 0.2137839019565205,
+     "benchmark_MAE_median": 9.442099233189985
+    }
+   }
+  },
+  "CLMU5": {
+   "identity_max_abs_residual": 1.4276899662490905e-09,
+   "abs_MBE": {
+    "median": 5.622635260675868,
+    "min": 0.162804162426775,
+    "max": 26.4271382886763
+   },
+   "cRMSE": {
+    "median": 5.606638921747539,
+    "min": 2.5960103911815837,
+    "max": 12.240206224673472
+   },
+   "r": {
+    "median": 0.9915971300770252,
+    "min": 0.8978479183391254
+   },
+   "bias_share_of_MSE": {
+    "median": 0.6109417919309534,
+    "min": 0.003917540079274446,
+    "max": 0.9213050429040259,
+    "n_records_bias_dominated": 12,
+    "n_records": 19
+   },
+   "model_MAE": {
+    "median": 8.069758816498462
+   },
+   "corr_MAE_with_absMBE": 0.9737288884659937,
+   "corr_MAE_with_cRMSE": 0.5806239315924911,
+   "per_benchmark": {
+    "REG2": {
+     "wins_actual": 13,
+     "wins_if_own_mean_bias_removed_cRMSE_proxy": 15,
+     "corr_margin_with_absMBE": 0.12191748935423193,
+     "corr_margin_with_cRMSE": -0.169238887122529,
+     "benchmark_MAE_median": 5.816101295386108
+    },
+    "KM3": {
+     "wins_actual": 14,
+     "wins_if_own_mean_bias_removed_cRMSE_proxy": 19,
+     "corr_margin_with_absMBE": 0.2366498583078162,
+     "corr_margin_with_cRMSE": 0.08776883372691142,
+     "benchmark_MAE_median": 9.093889853326399
+    }
+   }
+  }
+ },
+ "cross_site_slope_invariance_to_uniform_bias": {
+  "statement": "beta = r*(s_m/s_o) and r are exactly invariant to adding a constant to every record's modelled offset, whereas MAE and RMSE are not; this is why the level and cross-site axes can rank the two schemes oppositely",
+  "numerical_check": {
+   "TEB": {
+    "beta": 0.23365937091692487,
+    "r": 0.6263595157555378,
+    "max_abs_change_under_uniform_shift": 5.551115123125783e-16,
+    "shifts_tested_K": [
+     -5,
+     -1,
+     1,
+     5,
+     20
+    ]
+   },
+   "CLMU5": {
+    "beta": 0.10520556529165102,
+    "r": 0.2429856576053464,
+    "max_abs_change_under_uniform_shift": 3.3306690738754696e-16,
+    "shifts_tested_K": [
+     -5,
+     -1,
+     1,
+     5,
+     20
+    ]
+   }
+  }
+ }
+}

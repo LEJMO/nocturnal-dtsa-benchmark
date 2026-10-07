@@ -1,0 +1,26 @@
+{
+  "site": "GR-HECKOR",
+  "lwup_bias": -4.290743670600071,
+  "n_night": 4052,
+  "qh_bias": -29.82441783168102,
+  "n_qh": 3263,
+  "dTsa_model": -2.5048395076340775,
+  "n_dtsa": 4052,
+  "align_delta": 0,
+  "align_rmse": 67.55229780274333,
+  "align_start": 17520,
+  "model_steps": 35089,
+  "lwup_bias_noDJF": -6.339850567756815,
+  "k_equiv_bias": -0.8331541107961301,
+  "provenance": {
+    "LWup_minus_(FIRA+FLDS)_night_mean": -1.674906699113761e-05,
+    "LWup_night_mean": 378.54941170213255,
+    "FIRA+FLDS_night_mean": 378.5494284511995,
+    "LWup_minus_FIRE_night_mean": 0.0,
+    "FIRE_night_mean": 378.54941170213255,
+    "Ts_minus_Tair_night_mean_K": -2.5048395076340775,
+    "TSKIN_minus_Tair_night_mean_K": -2.0884103577322928,
+    "TG_minus_Tair_night_mean_K": -2.0884103577322928,
+    "Tair_echo_vs_forcing_RMSE": 0.4087278564003966
+  }
+}

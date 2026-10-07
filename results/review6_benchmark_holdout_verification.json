@@ -1,0 +1,1591 @@
+{
+ "_merge_target": "review6_additions.benchmark_holdout_adversarial_verification",
+ "meta": {
+  "purpose": "independent adversarial re-verification of review5_benchmark_cityholdout (leave-one-city-cluster-out benchmark refit). Frames and fold machinery re-implemented from the raw files by a separate script (only clmu_post_v11.align reused); own k-means seeds; plus two sensitivities the original package did not run.",
+  "verdict_on_original": "every eval-only win count and every duplication figure reproduced exactly; the original generator is bit-for-bit reproducible (0 differences over 2763 leaves, wall-clock fields excluded). Two new findings qualify its conclusions: the single count it changes is k-means-seed-dependent, and its 'every headline count identical' claim holds only while the duplicated Minneapolis observation stays double-weighted in the benchmark training pool.",
+  "constants": {
+   "SIG": 5.67e-08,
+   "EPS": 0.95,
+   "kmeans": {
+    "k": 27,
+    "n_init": 10,
+    "max_iter": 300
+   }
+  },
+  "generators": {
+   "adv_cityholdout.py": "independent frames + record/city folds, seeds 0/12345/777",
+   "adv_seed_margin.py": "record-LOO KM3 MAE at the Minneapolis records, 8 seeds",
+   "adv_dedup_pool.py": "city folds with the training pool de-duplicated",
+   "adv_dedup_control.py": "matched single-record training-pool removals (control)",
+   "verify_dup.py": "raw + corpus duplication audit, three city pairs"
+  },
+  "paper_stats_v1_untouched": true,
+  "manuscript_untouched": true
+ },
+ "published_reference": {
+  "record_loo_win_counts": {
+   "TEB": {
+    "beats_REG1": 19,
+    "beats_REG2": 4,
+    "beats_KM3": 8,
+    "beats_all_three": 3,
+    "beats_meaningful_two_REG2_KM3": 3
+   },
+   "CLMU5": {
+    "beats_REG1": 19,
+    "beats_REG2": 13,
+    "beats_KM3": 14,
+    "beats_all_three": 13,
+    "beats_meaningful_two_REG2_KM3": 13
+   }
+  },
+  "minneapolis_per_record_mae_bit_identical": {
+   "TEB": {
+    "US-Minneapolis1": {
+     "scheme_MAE": 18.84566044597407,
+     "REG1_MAE": 62.4114668271187,
+     "REG2_MAE": 17.740333079393665,
+     "KM3_MAE": 18.79757575257612
+    },
+    "US-Minneapolis2": {
+     "scheme_MAE": 18.911267573913506,
+     "REG1_MAE": 62.4114668271187,
+     "REG2_MAE": 17.740333079393665,
+     "KM3_MAE": 18.79757575257612
+    }
+   },
+   "CLMU5": {
+    "US-Minneapolis1": {
+     "scheme_MAE": 13.426521957715433,
+     "REG1_MAE": 62.41133903348465,
+     "REG2_MAE": 17.740372963065624,
+     "KM3_MAE": 18.815878668284643
+    },
+    "US-Minneapolis2": {
+     "scheme_MAE": 15.208719167761089,
+     "REG1_MAE": 62.41133903348465,
+     "REG2_MAE": 17.740372963065624,
+     "KM3_MAE": 18.815878668284643
+    }
+   }
+  }
+ },
+ "A_duplication_audit_independent": {
+  "Minneapolis": {
+   "raw_nsteps": [
+    52455,
+    52455
+   ],
+   "raw_time_identical": true,
+   "raw_time_range_a": [
+    "2006-06-01T18:00:00.000000000",
+    "2009-05-29T13:00:00.000000000"
+   ],
+   "raw_time_range_b": [
+    "2006-06-01T18:00:00.000000000",
+    "2009-05-29T13:00:00.000000000"
+   ],
+   "raw_comment_equal": false,
+   "raw_comment_a_has_2m_clause": true,
+   "raw_vars": {
+    "LWup": {
+     "n_both_finite": 49378,
+     "n_finite_a": 49378,
+     "n_finite_b": 49378,
+     "finite_mask_disagree": 0,
+     "maxabsdiff": 0.0,
+     "n_exactly_equal": 49378,
+     "r": 1.0
+    },
+    "LWdown": {
+     "n_both_finite": 49351,
+     "n_finite_a": 49351,
+     "n_finite_b": 49351,
+     "finite_mask_disagree": 0,
+     "maxabsdiff": 0.0,
+     "n_exactly_equal": 49351,
+     "r": 1.0
+    },
+    "SWdown": {
+     "n_both_finite": 26519,
+     "n_finite_a": 26519,
+     "n_finite_b": 26519,
+     "finite_mask_disagree": 0,
+     "maxabsdiff": 0.0,
+     "n_exactly_equal": 26519,
+     "r": 1.0
+    },
+    "SWup": {
+     "n_both_finite": 27178,
+     "n_finite_a": 27178,
+     "n_finite_b": 27178,
+     "finite_mask_disagree": 0,
+     "maxabsdiff": 0.0,
+     "n_exactly_equal": 27178,
+     "r": 1.0
+    },
+    "Tair": {
+     "n_both_finite": 34034,
+     "n_finite_a": 34034,
+     "n_finite_b": 34034,
+     "finite_mask_disagree": 0,
+     "maxabsdiff": 0.0,
+     "n_exactly_equal": 34034,
+     "r": 1.0
+    },
+    "Qh": {
+     "n_both_finite": 0,
+     "n_finite_a": 12717,
+     "n_finite_b": 6695,
+     "finite_mask_disagree": 19412
+    },
+    "Qle": {
+     "n_both_finite": 0,
+     "n_finite_a": 12564,
+     "n_finite_b": 6575,
+     "finite_mask_disagree": 19139
+    },
+    "LWup_qc": {
+     "identical": true,
+     "hist_a": {
+      "0": 49378,
+      "3": 3077
+     },
+     "hist_b": {
+      "0": 49378,
+      "3": 3077
+     }
+    }
+   },
+   "corpus": {
+    "obs_LWup": {
+     "len": [
+      52455,
+      52455
+     ],
+     "n_both_finite": 49378,
+     "maxabsdiff": 0.0,
+     "r": 1.0
+    },
+    "forcing_LWdown": {
+     "len": [
+      52455,
+      52455
+     ],
+     "n_both_finite": 52455,
+     "maxabsdiff": 0.0,
+     "r": 1.0
+    },
+    "forcing_Tair": {
+     "len": [
+      52455,
+      52455
+     ],
+     "n_both_finite": 52455,
+     "maxabsdiff": 0.0,
+     "r": 1.0
+    },
+    "forcing_SWdown": {
+     "len": [
+      52455,
+      52455
+     ],
+     "n_both_finite": 52455,
+     "maxabsdiff": 0.0,
+     "r": 0.9999999999999999
+    },
+    "forcing_Qair": {
+     "len": [
+      52455,
+      52455
+     ],
+     "n_both_finite": 52455,
+     "maxabsdiff": 0.0,
+     "r": 0.9999999999999998
+    },
+    "night_mask_identical": true,
+    "pre_spinup_identical": true,
+    "nocturnal_mask_n": [
+     19723,
+     19723
+    ],
+    "nocturnal_mask_identical": true,
+    "dtsa_recomputed": [
+     -0.019434616301791097,
+     -0.019434616301791097
+    ]
+   }
+  },
+  "Lodz": {
+   "raw_nsteps": [
+    43848,
+    43848
+   ],
+   "raw_time_identical": true,
+   "raw_time_range_a": [
+    "2008-01-01T00:00:00.000000000",
+    "2012-12-31T23:00:00.000000000"
+   ],
+   "raw_time_range_b": [
+    "2008-01-01T00:00:00.000000000",
+    "2012-12-31T23:00:00.000000000"
+   ],
+   "raw_comment_equal": false,
+   "raw_comment_a_has_2m_clause": false,
+   "raw_vars": {
+    "LWup": {
+     "n_both_finite": 40045,
+     "n_finite_a": 40369,
+     "n_finite_b": 43524,
+     "finite_mask_disagree": 3803,
+     "maxabsdiff": 103.27999877929688,
+     "n_exactly_equal": 8,
+     "r": 0.9571498766144358
+    },
+    "LWdown": {
+     "n_both_finite": 43848,
+     "n_finite_a": 43848,
+     "n_finite_b": 43848,
+     "finite_mask_disagree": 0,
+     "maxabsdiff": 104.86001586914062,
+     "n_exactly_equal": 3804,
+     "r": 0.9439257082532234
+    },
+    "SWdown": {
+     "n_both_finite": 23538,
+     "n_finite_a": 24417,
+     "n_finite_b": 24040,
+     "finite_mask_disagree": 1381,
+     "maxabsdiff": 549.9099731445312,
+     "n_exactly_equal": 2175,
+     "r": 0.9880844055349877
+    },
+    "SWup": {
+     "n_both_finite": 20803,
+     "n_finite_a": 22819,
+     "n_finite_b": 22675,
+     "finite_mask_disagree": 3888,
+     "maxabsdiff": 96.36000061035156,
+     "n_exactly_equal": 8,
+     "r": 0.8700807841564108
+    },
+    "Tair": {
+     "n_both_finite": 43844,
+     "n_finite_a": 43844,
+     "n_finite_b": 43847,
+     "finite_mask_disagree": 3,
+     "maxabsdiff": 12.6400146484375,
+     "n_exactly_equal": 1669,
+     "r": 0.9973334838803206
+    },
+    "Qh": {
+     "n_both_finite": 23819,
+     "n_finite_a": 29181,
+     "n_finite_b": 32126,
+     "finite_mask_disagree": 13669,
+     "maxabsdiff": 446.5279998779297,
+     "n_exactly_equal": 2,
+     "r": 0.8168210023419115
+    },
+    "Qle": {
+     "n_both_finite": 23793,
+     "n_finite_a": 29140,
+     "n_finite_b": 32102,
+     "finite_mask_disagree": 13656,
+     "maxabsdiff": 260.6340026855469,
+     "n_exactly_equal": 0,
+     "r": 0.5032923435743326
+    },
+    "LWup_qc": {
+     "identical": false,
+     "hist_a": {
+      "0": 40369,
+      "3": 3479
+     },
+     "hist_b": {
+      "0": 43524,
+      "3": 324
+     }
+    }
+   },
+   "corpus": {
+    "obs_LWup": {
+     "len": [
+      87695,
+      87695
+     ],
+     "n_both_finite": 80089,
+     "maxabsdiff": 103.27999877929688,
+     "r": 0.9571504427292677
+    },
+    "forcing_LWdown": {
+     "len": [
+      87695,
+      87695
+     ],
+     "n_both_finite": 87695,
+     "maxabsdiff": 104.86001586914062,
+     "r": 0.9439257901899496
+    },
+    "forcing_Tair": {
+     "len": [
+      87695,
+      87695
+     ],
+     "n_both_finite": 87695,
+     "maxabsdiff": 12.6400146484375,
+     "r": 0.9973328516934277
+    },
+    "forcing_SWdown": {
+     "len": [
+      87695,
+      87695
+     ],
+     "n_both_finite": 87695,
+     "maxabsdiff": 549.9099731445312,
+     "r": 0.9918678246563313
+    },
+    "forcing_Qair": {
+     "len": [
+      87695,
+      87695
+     ],
+     "n_both_finite": 87695,
+     "maxabsdiff": 0.0050156801007688046,
+     "r": 0.9826164362758547
+    },
+    "night_mask_identical": false,
+    "pre_spinup_identical": true,
+    "nocturnal_mask_n": [
+     34463,
+     36533
+    ],
+    "nocturnal_mask_identical": false,
+    "dtsa_recomputed": [
+     9.370104537144616,
+     4.384134417609074
+    ]
+   }
+  },
+  "Helsinki": {
+   "raw_nsteps": [
+    52608,
+    52608
+   ],
+   "raw_time_identical": true,
+   "raw_time_range_a": [
+    "2010-12-31T22:30:00.000000000",
+    "2013-12-31T22:00:00.000000000"
+   ],
+   "raw_time_range_b": [
+    "2010-12-31T22:30:00.000000000",
+    "2013-12-31T22:00:00.000000000"
+   ],
+   "raw_comment_equal": false,
+   "raw_comment_a_has_2m_clause": false,
+   "raw_vars": {
+    "LWup": {
+     "n_both_finite": 42914,
+     "n_finite_a": 43682,
+     "n_finite_b": 51774,
+     "finite_mask_disagree": 9628,
+     "maxabsdiff": 41.041107177734375,
+     "n_exactly_equal": 3,
+     "r": 0.9903405278015796
+    },
+    "LWdown": {
+     "n_both_finite": 43067,
+     "n_finite_a": 43835,
+     "n_finite_b": 51774,
+     "finite_mask_disagree": 9475,
+     "maxabsdiff": 79.32000732421875,
+     "n_exactly_equal": 1,
+     "r": 0.9585314719979475
+    },
+    "SWdown": {
+     "n_both_finite": 32941,
+     "n_finite_a": 51990,
+     "n_finite_b": 33284,
+     "finite_mask_disagree": 19392,
+     "maxabsdiff": 726.8489379882812,
+     "n_exactly_equal": 12026,
+     "r": 0.953209376002769
+    },
+    "SWup": {
+     "n_both_finite": 20813,
+     "n_finite_a": 30454,
+     "n_finite_b": 21128,
+     "finite_mask_disagree": 9956,
+     "maxabsdiff": 297.99998474121094,
+     "n_exactly_equal": 1304,
+     "r": 0.8178293769612247
+    },
+    "Tair": {
+     "n_both_finite": 51423,
+     "n_finite_a": 52274,
+     "n_finite_b": 51757,
+     "finite_mask_disagree": 1185,
+     "maxabsdiff": 6.8756103515625,
+     "n_exactly_equal": 22,
+     "r": 0.9962771100024013
+    },
+    "Qh": {
+     "n_both_finite": 9893,
+     "n_finite_a": 18495,
+     "n_finite_b": 24871,
+     "finite_mask_disagree": 23580,
+     "maxabsdiff": 362.8173065185547,
+     "n_exactly_equal": 0,
+     "r": 0.7409611109658375
+    },
+    "Qle": {
+     "n_both_finite": 7736,
+     "n_finite_a": 17218,
+     "n_finite_b": 22021,
+     "finite_mask_disagree": 23767,
+     "maxabsdiff": 342.48491406440735,
+     "n_exactly_equal": 0,
+     "r": 0.5506993649475042
+    },
+    "LWup_qc": {
+     "identical": false,
+     "hist_a": {
+      "0": 43682,
+      "3": 8926
+     },
+     "hist_b": {
+      "0": 51774,
+      "3": 834
+     }
+    }
+   },
+   "corpus": {
+    "obs_LWup": {
+     "len": [
+      52608,
+      52608
+     ],
+     "n_both_finite": 42914,
+     "maxabsdiff": 41.041107177734375,
+     "r": 0.9903405278015796
+    },
+    "forcing_LWdown": {
+     "len": [
+      52608,
+      52608
+     ],
+     "n_both_finite": 52608,
+     "maxabsdiff": 80.37722778320312,
+     "r": 0.9515942219475395
+    },
+    "forcing_Tair": {
+     "len": [
+      52608,
+      52608
+     ],
+     "n_both_finite": 52608,
+     "maxabsdiff": 6.8756103515625,
+     "r": 0.9962050893060853
+    },
+    "forcing_SWdown": {
+     "len": [
+      52608,
+      52608
+     ],
+     "n_both_finite": 52608,
+     "maxabsdiff": 726.8489379882812,
+     "r": 0.9499842526561811
+    },
+    "forcing_Qair": {
+     "len": [
+      52608,
+      52608
+     ],
+     "n_both_finite": 52608,
+     "maxabsdiff": 0.0030827228911221027,
+     "r": 0.99324607978523
+    },
+    "night_mask_identical": false,
+    "pre_spinup_identical": true,
+    "nocturnal_mask_n": [
+     16934,
+     22565
+    ],
+    "nocturnal_mask_identical": false,
+    "dtsa_recomputed": [
+     2.838402269987449,
+     3.6708580940499975
+    ]
+   }
+  }
+ },
+ "B_counts_by_seed_and_protocol": {
+  "note": "independent re-implementation. record_loo at seed 0 reproduces the published win_counts exactly for both schemes; city_holdout reproduces review5_benchmark_cityholdout exactly in every cell.",
+  "by_scheme_seed": {
+   "TEB": {
+    "0": {
+     "record_loo": {
+      "all19": {
+       "beats_REG1": 19,
+       "beats_REG2": 4,
+       "beats_KM3": 8,
+       "beats_all_three": 3,
+       "beats_both_informative": 3
+      },
+      "excl_mpls17": {
+       "beats_REG1": 17,
+       "beats_REG2": 4,
+       "beats_KM3": 8,
+       "beats_all_three": 3,
+       "beats_both_informative": 3
+      },
+      "core16": {
+       "beats_REG1": 16,
+       "beats_REG2": 3,
+       "beats_KM3": 7,
+       "beats_all_three": 2,
+       "beats_both_informative": 2
+      },
+      "core15": {
+       "beats_REG1": 15,
+       "beats_REG2": 2,
+       "beats_KM3": 6,
+       "beats_all_three": 1,
+       "beats_both_informative": 1
+      }
+     },
+     "city_holdout": {
+      "all19": {
+       "beats_REG1": 19,
+       "beats_REG2": 4,
+       "beats_KM3": 10,
+       "beats_all_three": 3,
+       "beats_both_informative": 3
+      },
+      "excl_mpls17": {
+       "beats_REG1": 17,
+       "beats_REG2": 4,
+       "beats_KM3": 8,
+       "beats_all_three": 3,
+       "beats_both_informative": 3
+      },
+      "core16": {
+       "beats_REG1": 16,
+       "beats_REG2": 3,
+       "beats_KM3": 7,
+       "beats_all_three": 2,
+       "beats_both_informative": 2
+      },
+      "core15": {
+       "beats_REG1": 15,
+       "beats_REG2": 2,
+       "beats_KM3": 6,
+       "beats_all_three": 1,
+       "beats_both_informative": 1
+      }
+     }
+    },
+    "12345": {
+     "record_loo": {
+      "all19": {
+       "beats_REG1": 19,
+       "beats_REG2": 4,
+       "beats_KM3": 10,
+       "beats_all_three": 3,
+       "beats_both_informative": 3
+      },
+      "excl_mpls17": {
+       "beats_REG1": 17,
+       "beats_REG2": 4,
+       "beats_KM3": 8,
+       "beats_all_three": 3,
+       "beats_both_informative": 3
+      },
+      "core16": {
+       "beats_REG1": 16,
+       "beats_REG2": 3,
+       "beats_KM3": 7,
+       "beats_all_three": 2,
+       "beats_both_informative": 2
+      },
+      "core15": {
+       "beats_REG1": 15,
+       "beats_REG2": 2,
+       "beats_KM3": 6,
+       "beats_all_three": 1,
+       "beats_both_informative": 1
+      }
+     },
+     "city_holdout": {
+      "all19": {
+       "beats_REG1": 19,
+       "beats_REG2": 4,
+       "beats_KM3": 10,
+       "beats_all_three": 3,
+       "beats_both_informative": 3
+      },
+      "excl_mpls17": {
+       "beats_REG1": 17,
+       "beats_REG2": 4,
+       "beats_KM3": 8,
+       "beats_all_three": 3,
+       "beats_both_informative": 3
+      },
+      "core16": {
+       "beats_REG1": 16,
+       "beats_REG2": 3,
+       "beats_KM3": 7,
+       "beats_all_three": 2,
+       "beats_both_informative": 2
+      },
+      "core15": {
+       "beats_REG1": 15,
+       "beats_REG2": 2,
+       "beats_KM3": 6,
+       "beats_all_three": 1,
+       "beats_both_informative": 1
+      }
+     }
+    },
+    "777": {
+     "record_loo": {
+      "all19": {
+       "beats_REG1": 19,
+       "beats_REG2": 4,
+       "beats_KM3": 10,
+       "beats_all_three": 3,
+       "beats_both_informative": 3
+      },
+      "excl_mpls17": {
+       "beats_REG1": 17,
+       "beats_REG2": 4,
+       "beats_KM3": 8,
+       "beats_all_three": 3,
+       "beats_both_informative": 3
+      },
+      "core16": {
+       "beats_REG1": 16,
+       "beats_REG2": 3,
+       "beats_KM3": 7,
+       "beats_all_three": 2,
+       "beats_both_informative": 2
+      },
+      "core15": {
+       "beats_REG1": 15,
+       "beats_REG2": 2,
+       "beats_KM3": 6,
+       "beats_all_three": 1,
+       "beats_both_informative": 1
+      }
+     },
+     "city_holdout": {
+      "all19": {
+       "beats_REG1": 19,
+       "beats_REG2": 4,
+       "beats_KM3": 10,
+       "beats_all_three": 3,
+       "beats_both_informative": 3
+      },
+      "excl_mpls17": {
+       "beats_REG1": 17,
+       "beats_REG2": 4,
+       "beats_KM3": 8,
+       "beats_all_three": 3,
+       "beats_both_informative": 3
+      },
+      "core16": {
+       "beats_REG1": 16,
+       "beats_REG2": 3,
+       "beats_KM3": 7,
+       "beats_all_three": 2,
+       "beats_both_informative": 2
+      },
+      "core15": {
+       "beats_REG1": 15,
+       "beats_REG2": 2,
+       "beats_KM3": 6,
+       "beats_all_three": 1,
+       "beats_both_informative": 1
+      }
+     }
+    }
+   },
+   "CLMU5": {
+    "0": {
+     "record_loo": {
+      "all19": {
+       "beats_REG1": 19,
+       "beats_REG2": 13,
+       "beats_KM3": 14,
+       "beats_all_three": 13,
+       "beats_both_informative": 13
+      },
+      "excl_mpls17": {
+       "beats_REG1": 17,
+       "beats_REG2": 11,
+       "beats_KM3": 12,
+       "beats_all_three": 11,
+       "beats_both_informative": 11
+      },
+      "core16": {
+       "beats_REG1": 16,
+       "beats_REG2": 10,
+       "beats_KM3": 11,
+       "beats_all_three": 10,
+       "beats_both_informative": 10
+      },
+      "core15": {
+       "beats_REG1": 15,
+       "beats_REG2": 9,
+       "beats_KM3": 10,
+       "beats_all_three": 9,
+       "beats_both_informative": 9
+      }
+     },
+     "city_holdout": {
+      "all19": {
+       "beats_REG1": 19,
+       "beats_REG2": 13,
+       "beats_KM3": 14,
+       "beats_all_three": 13,
+       "beats_both_informative": 13
+      },
+      "excl_mpls17": {
+       "beats_REG1": 17,
+       "beats_REG2": 11,
+       "beats_KM3": 12,
+       "beats_all_three": 11,
+       "beats_both_informative": 11
+      },
+      "core16": {
+       "beats_REG1": 16,
+       "beats_REG2": 10,
+       "beats_KM3": 11,
+       "beats_all_three": 10,
+       "beats_both_informative": 10
+      },
+      "core15": {
+       "beats_REG1": 15,
+       "beats_REG2": 9,
+       "beats_KM3": 10,
+       "beats_all_three": 9,
+       "beats_both_informative": 9
+      }
+     }
+    },
+    "12345": {
+     "record_loo": {
+      "all19": {
+       "beats_REG1": 19,
+       "beats_REG2": 13,
+       "beats_KM3": 14,
+       "beats_all_three": 13,
+       "beats_both_informative": 13
+      },
+      "excl_mpls17": {
+       "beats_REG1": 17,
+       "beats_REG2": 11,
+       "beats_KM3": 12,
+       "beats_all_three": 11,
+       "beats_both_informative": 11
+      },
+      "core16": {
+       "beats_REG1": 16,
+       "beats_REG2": 10,
+       "beats_KM3": 11,
+       "beats_all_three": 10,
+       "beats_both_informative": 10
+      },
+      "core15": {
+       "beats_REG1": 15,
+       "beats_REG2": 9,
+       "beats_KM3": 10,
+       "beats_all_three": 9,
+       "beats_both_informative": 9
+      }
+     },
+     "city_holdout": {
+      "all19": {
+       "beats_REG1": 19,
+       "beats_REG2": 13,
+       "beats_KM3": 14,
+       "beats_all_three": 13,
+       "beats_both_informative": 13
+      },
+      "excl_mpls17": {
+       "beats_REG1": 17,
+       "beats_REG2": 11,
+       "beats_KM3": 12,
+       "beats_all_three": 11,
+       "beats_both_informative": 11
+      },
+      "core16": {
+       "beats_REG1": 16,
+       "beats_REG2": 10,
+       "beats_KM3": 11,
+       "beats_all_three": 10,
+       "beats_both_informative": 10
+      },
+      "core15": {
+       "beats_REG1": 15,
+       "beats_REG2": 9,
+       "beats_KM3": 10,
+       "beats_all_three": 9,
+       "beats_both_informative": 9
+      }
+     }
+    },
+    "777": {
+     "record_loo": {
+      "all19": {
+       "beats_REG1": 19,
+       "beats_REG2": 13,
+       "beats_KM3": 14,
+       "beats_all_three": 13,
+       "beats_both_informative": 13
+      },
+      "excl_mpls17": {
+       "beats_REG1": 17,
+       "beats_REG2": 11,
+       "beats_KM3": 12,
+       "beats_all_three": 11,
+       "beats_both_informative": 11
+      },
+      "core16": {
+       "beats_REG1": 16,
+       "beats_REG2": 10,
+       "beats_KM3": 11,
+       "beats_all_three": 10,
+       "beats_both_informative": 10
+      },
+      "core15": {
+       "beats_REG1": 15,
+       "beats_REG2": 9,
+       "beats_KM3": 10,
+       "beats_all_three": 9,
+       "beats_both_informative": 9
+      }
+     },
+     "city_holdout": {
+      "all19": {
+       "beats_REG1": 19,
+       "beats_REG2": 13,
+       "beats_KM3": 14,
+       "beats_all_three": 13,
+       "beats_both_informative": 13
+      },
+      "excl_mpls17": {
+       "beats_REG1": 17,
+       "beats_REG2": 11,
+       "beats_KM3": 12,
+       "beats_all_three": 11,
+       "beats_both_informative": 11
+      },
+      "core16": {
+       "beats_REG1": 16,
+       "beats_REG2": 10,
+       "beats_KM3": 11,
+       "beats_all_three": 10,
+       "beats_both_informative": 10
+      },
+      "core15": {
+       "beats_REG1": 15,
+       "beats_REG2": 9,
+       "beats_KM3": 10,
+       "beats_all_three": 9,
+       "beats_both_informative": 9
+      }
+     }
+    }
+   }
+  }
+ },
+ "C_kmeans_seed_fragility_at_minneapolis": {
+  "TEB": {
+   "US-Minneapolis1": {
+    "scheme_MAE": 18.84566044597407,
+    "by_seed": {
+     "0": {
+      "KM3": 18.79757575257612,
+      "REG2": 17.740333079393665,
+      "beats_KM3": false,
+      "margin": 0.04808469339794996
+     },
+     "1": {
+      "KM3": 18.57781465071235,
+      "REG2": 17.740333079393665,
+      "beats_KM3": false,
+      "margin": 0.26784579526171726
+     },
+     "2": {
+      "KM3": 18.786696162996357,
+      "REG2": 17.740333079393665,
+      "beats_KM3": false,
+      "margin": 0.058964282977711946
+     },
+     "3": {
+      "KM3": 19.045454332808312,
+      "REG2": 17.740333079393665,
+      "beats_KM3": true,
+      "margin": -0.19979388683424304
+     },
+     "7": {
+      "KM3": 19.111375152346266,
+      "REG2": 17.740333079393665,
+      "beats_KM3": true,
+      "margin": -0.2657147063721972
+     },
+     "42": {
+      "KM3": 18.550974332896423,
+      "REG2": 17.740333079393665,
+      "beats_KM3": false,
+      "margin": 0.2946861130776455
+     },
+     "777": {
+      "KM3": 19.051675891489726,
+      "REG2": 17.740333079393665,
+      "beats_KM3": true,
+      "margin": -0.2060154455156571
+     },
+     "12345": {
+      "KM3": 19.023070326340676,
+      "REG2": 17.740333079393665,
+      "beats_KM3": true,
+      "margin": -0.1774098803666071
+     }
+    }
+   },
+   "US-Minneapolis2": {
+    "scheme_MAE": 18.911267573913506,
+    "by_seed": {
+     "0": {
+      "KM3": 18.79757575257612,
+      "REG2": 17.740333079393665,
+      "beats_KM3": false,
+      "margin": 0.11369182133738676
+     },
+     "1": {
+      "KM3": 18.57781465071235,
+      "REG2": 17.740333079393665,
+      "beats_KM3": false,
+      "margin": 0.33345292320115405
+     },
+     "2": {
+      "KM3": 18.786696162996357,
+      "REG2": 17.740333079393665,
+      "beats_KM3": false,
+      "margin": 0.12457141091714874
+     },
+     "3": {
+      "KM3": 19.045454332808312,
+      "REG2": 17.740333079393665,
+      "beats_KM3": true,
+      "margin": -0.13418675889480625
+     },
+     "7": {
+      "KM3": 19.111375152346266,
+      "REG2": 17.740333079393665,
+      "beats_KM3": true,
+      "margin": -0.2001075784327604
+     },
+     "42": {
+      "KM3": 18.550974332896423,
+      "REG2": 17.740333079393665,
+      "beats_KM3": false,
+      "margin": 0.36029324101708227
+     },
+     "777": {
+      "KM3": 19.051675891489726,
+      "REG2": 17.740333079393665,
+      "beats_KM3": true,
+      "margin": -0.1404083175762203
+     },
+     "12345": {
+      "KM3": 19.023070326340676,
+      "REG2": 17.740333079393665,
+      "beats_KM3": true,
+      "margin": -0.1118027524271703
+     }
+    }
+   }
+  }
+ },
+ "D_training_pool_deduplicated": {
+  "note": "city folds, training pool de-duplicated (US-Minneapolis2 removed from every training pool; all 19 records still evaluated)",
+  "train_pool_size": 18,
+  "TEB": {
+   "per_record_mae": {
+    "AU-Preston": {
+     "REG1": 16.803454785361325,
+     "REG2": 16.31363042949702,
+     "KM3": 13.533671847265092,
+     "REG1_pred_sd": 0.25916033420832246
+    },
+    "CA-Sunset": {
+     "REG1": 24.29868760944751,
+     "REG2": 5.4470490274076795,
+     "KM3": 7.904071559783839,
+     "REG1_pred_sd": 0.23476743788415902
+    },
+    "FR-Capitole": {
+     "REG1": 27.38477286770478,
+     "REG2": 4.348280463805729,
+     "KM3": 6.755865553280018,
+     "REG1_pred_sd": 0.3182166109945575
+    },
+    "GR-HECKOR": {
+     "REG1": 24.8039061691924,
+     "REG2": 14.037680644847336,
+     "KM3": 10.932669760889205,
+     "REG1_pred_sd": 0.2878507937821104
+    },
+    "FI-Kumpula": {
+     "REG1": 45.15608705980196,
+     "REG2": 6.356562530306694,
+     "KM3": 8.110964760640705,
+     "REG1_pred_sd": 5.684341886080802e-14
+    },
+    "FI-Torni": {
+     "REG1": 39.63670107885633,
+     "REG2": 4.288757484183289,
+     "KM3": 6.419651267722419,
+     "REG1_pred_sd": 0.07318218640052017
+    },
+    "JP-Yoyogi": {
+     "REG1": 40.57639123828718,
+     "REG2": 5.250702202481932,
+     "KM3": 8.647900385513536,
+     "REG1_pred_sd": 0.0
+    },
+    "KR-Jungnang": {
+     "REG1": 48.97528789672924,
+     "REG2": 5.414200407545786,
+     "KM3": 9.477395287951435,
+     "REG1_pred_sd": 0.5407286357201561
+    },
+    "KR-Ochang": {
+     "REG1": 49.137514835380195,
+     "REG2": 14.554593587755075,
+     "KM3": 15.598260488058546,
+     "REG1_pred_sd": 0.23777390165750403
+    },
+    "PL-Lipowa": {
+     "REG1": 40.536019132570665,
+     "REG2": 32.24641751960001,
+     "KM3": 28.949482201756208,
+     "REG1_pred_sd": 0.0005010206620345545
+    },
+    "PL-Narutowicza": {
+     "REG1": 37.94579113067724,
+     "REG2": 14.23201494922299,
+     "KM3": 16.045390057683097,
+     "REG1_pred_sd": 0.0004988954773464281
+    },
+    "US-Minneapolis1": {
+     "REG1": 64.04587235690055,
+     "REG2": 18.514030559734415,
+     "KM3": 22.516272513330435,
+     "REG1_pred_sd": 0.4636265513069265
+    },
+    "US-Minneapolis2": {
+     "REG1": 64.04587235690055,
+     "REG2": 18.514030559734415,
+     "KM3": 22.516272513330435,
+     "REG1_pred_sd": 0.4636265513069265
+    },
+    "NL-Amsterdam": {
+     "REG1": 23.70532275184041,
+     "REG2": 4.773835152817977,
+     "KM3": 7.352922134411696,
+     "REG1_pred_sd": 0.3336916949201228
+    },
+    "SG-TelokKurau06": {
+     "REG1": 89.70123107413671,
+     "REG2": 4.4368104101088806,
+     "KM3": 8.031683458145762,
+     "REG1_pred_sd": 0.3344203040525666
+    },
+    "UK-KingsCollege": {
+     "REG1": 21.690023662549965,
+     "REG2": 6.521936942960033,
+     "KM3": 6.591958810807993,
+     "REG1_pred_sd": 0.2371533213431052
+    },
+    "UK-Swindon": {
+     "REG1": 24.491539618304465,
+     "REG2": 8.24033498900124,
+     "KM3": 9.166480373699777,
+     "REG1_pred_sd": 0.39287733258761975
+    },
+    "US-Baltimore": {
+     "REG1": 42.84693911097697,
+     "REG2": 5.122739490224133,
+     "KM3": 7.93966026143829,
+     "REG1_pred_sd": 0.2523692587230761
+    },
+    "US-WestPhoenix": {
+     "REG1": 79.6834625282729,
+     "REG2": 13.026825472704461,
+     "KM3": 34.39440992780985,
+     "REG1_pred_sd": 0.19566549764487354
+    }
+   },
+   "counts": {
+    "all19": {
+     "beats_REG1": 19,
+     "beats_REG2": 6,
+     "beats_KM3": 10,
+     "beats_all_three": 4,
+     "beats_both_informative": 4
+    },
+    "excl_mpls17": {
+     "beats_REG1": 17,
+     "beats_REG2": 6,
+     "beats_KM3": 8,
+     "beats_all_three": 4,
+     "beats_both_informative": 4
+    },
+    "core16": {
+     "beats_REG1": 16,
+     "beats_REG2": 5,
+     "beats_KM3": 7,
+     "beats_all_three": 3,
+     "beats_both_informative": 3
+    },
+    "core15": {
+     "beats_REG1": 15,
+     "beats_REG2": 4,
+     "beats_KM3": 6,
+     "beats_all_three": 2,
+     "beats_both_informative": 2
+    }
+   },
+   "n_train_steps": {
+    "AU-Preston": 298576,
+    "CA-Sunset": 271055,
+    "FR-Capitole": 299778,
+    "GR-HECKOR": 299812,
+    "FI-Kumpula|FI-Torni": 264365,
+    "JP-Yoyogi": 274155,
+    "KR-Jungnang": 288856,
+    "KR-Ochang": 290869,
+    "PL-Lipowa|PL-Narutowicza": 232868,
+    "US-Minneapolis1|US-Minneapolis2": 284141,
+    "NL-Amsterdam": 297754,
+    "SG-TelokKurau06": 301948,
+    "UK-KingsCollege": 293378,
+    "UK-Swindon": 291077,
+    "US-Baltimore": 270165,
+    "US-WestPhoenix": 299163
+   }
+  },
+  "CLMU5": {
+   "per_record_mae": {
+    "AU-Preston": {
+     "REG1": 16.803419672988298,
+     "REG2": 16.313702587134006,
+     "KM3": 13.330785368234867,
+     "REG1_pred_sd": 0.2591925391805365
+    },
+    "CA-Sunset": {
+     "REG1": 24.298739249153513,
+     "REG2": 5.447029323068278,
+     "KM3": 8.142508562449555,
+     "REG1_pred_sd": 0.23481886504742538
+    },
+    "FR-Capitole": {
+     "REG1": 27.38472608902728,
+     "REG2": 4.348310096539895,
+     "KM3": 6.774444038442943,
+     "REG1_pred_sd": 0.3182577741262983
+    },
+    "GR-HECKOR": {
+     "REG1": 24.787801962059092,
+     "REG2": 14.039246629634855,
+     "KM3": 10.86340808716282,
+     "REG1_pred_sd": 0.2878812211598256
+    },
+    "FI-Kumpula": {
+     "REG1": 45.15593706561671,
+     "REG2": 6.356597404988158,
+     "KM3": 8.387515276873472,
+     "REG1_pred_sd": 5.684341886080802e-14
+    },
+    "FI-Torni": {
+     "REG1": 39.6365678325738,
+     "REG2": 4.28878809376654,
+     "KM3": 6.956890641158503,
+     "REG1_pred_sd": 0.07314019734442632
+    },
+    "JP-Yoyogi": {
+     "REG1": 40.576481283279016,
+     "REG2": 5.250689292681092,
+     "KM3": 8.698774484754683,
+     "REG1_pred_sd": 5.684341886080802e-14
+    },
+    "KR-Jungnang": {
+     "REG1": 48.975288616032856,
+     "REG2": 5.414180416016178,
+     "KM3": 9.579846840217133,
+     "REG1_pred_sd": 0.5407796955789552
+    },
+    "KR-Ochang": {
+     "REG1": 49.137480570803675,
+     "REG2": 14.554648783874793,
+     "KM3": 15.620541243935397,
+     "REG1_pred_sd": 0.23781885830691055
+    },
+    "PL-Lipowa": {
+     "REG1": 40.53608981543464,
+     "REG2": 32.24639198292715,
+     "KM3": 28.825824633651578,
+     "REG1_pred_sd": 0.0004434905399834494
+    },
+    "PL-Narutowicza": {
+     "REG1": 37.94573214487681,
+     "REG2": 14.232019640482905,
+     "KM3": 16.090353662704825,
+     "REG1_pred_sd": 0.0004416093814277463
+    },
+    "US-Minneapolis1": {
+     "REG1": 64.04574039123949,
+     "REG2": 18.514076905959108,
+     "KM3": 22.459347130013732,
+     "REG1_pred_sd": 0.46366881278361083
+    },
+    "US-Minneapolis2": {
+     "REG1": 64.04574039123949,
+     "REG2": 18.514076905959108,
+     "KM3": 22.459347130013732,
+     "REG1_pred_sd": 0.46366881278361083
+    },
+    "NL-Amsterdam": {
+     "REG1": 23.70543674587603,
+     "REG2": 4.773848720308856,
+     "KM3": 7.297216280656327,
+     "REG1_pred_sd": 0.3337377100023314
+    },
+    "SG-TelokKurau06": {
+     "REG1": 89.70149477781914,
+     "REG2": 4.436674255122379,
+     "KM3": 7.778440503918197,
+     "REG1_pred_sd": 0.3344672485480968
+    },
+    "UK-KingsCollege": {
+     "REG1": 21.691039740380912,
+     "REG2": 6.521757573364405,
+     "KM3": 6.417920404079767,
+     "REG1_pred_sd": 0.23720416931522093
+    },
+    "UK-Swindon": {
+     "REG1": 24.491400869533805,
+     "REG2": 8.24038104235106,
+     "KM3": 9.159534691968922,
+     "REG1_pred_sd": 0.39292412245343666
+    },
+    "US-Baltimore": {
+     "REG1": 42.84696166314174,
+     "REG2": 5.122737424266818,
+     "KM3": 7.946985382424059,
+     "REG1_pred_sd": 0.2523970882333346
+    },
+    "US-WestPhoenix": {
+     "REG1": 79.68367618976802,
+     "REG2": 13.026822368775763,
+     "KM3": 34.031967092713096,
+     "REG1_pred_sd": 0.1956839120515444
+    }
+   },
+   "counts": {
+    "all19": {
+     "beats_REG1": 19,
+     "beats_REG2": 14,
+     "beats_KM3": 15,
+     "beats_all_three": 14,
+     "beats_both_informative": 14
+    },
+    "excl_mpls17": {
+     "beats_REG1": 17,
+     "beats_REG2": 12,
+     "beats_KM3": 13,
+     "beats_all_three": 12,
+     "beats_both_informative": 12
+    },
+    "core16": {
+     "beats_REG1": 16,
+     "beats_REG2": 11,
+     "beats_KM3": 12,
+     "beats_all_three": 11,
+     "beats_both_informative": 11
+    },
+    "core15": {
+     "beats_REG1": 15,
+     "beats_REG2": 10,
+     "beats_KM3": 11,
+     "beats_all_three": 10,
+     "beats_both_informative": 10
+    }
+   },
+   "n_train_steps": {
+    "AU-Preston": 298574,
+    "CA-Sunset": 271053,
+    "FR-Capitole": 299776,
+    "GR-HECKOR": 299811,
+    "FI-Kumpula|FI-Torni": 264363,
+    "JP-Yoyogi": 274153,
+    "KR-Jungnang": 288854,
+    "KR-Ochang": 290867,
+    "PL-Lipowa|PL-Narutowicza": 232866,
+    "US-Minneapolis1|US-Minneapolis2": 284139,
+    "NL-Amsterdam": 297752,
+    "SG-TelokKurau06": 301946,
+    "UK-KingsCollege": 293377,
+    "UK-Swindon": 291075,
+    "US-Baltimore": 270163,
+    "US-WestPhoenix": 299161
+   }
+  }
+ },
+ "E_training_pool_single_record_controls": {
+  "frame_steps": {
+   "AU-Preston": 5288,
+   "CA-Sunset": 32809,
+   "FI-Kumpula": 16934,
+   "FI-Torni": 22565,
+   "FR-Capitole": 4086,
+   "GR-HECKOR": 4052,
+   "JP-Yoyogi": 29709,
+   "KR-Jungnang": 15008,
+   "KR-Ochang": 12995,
+   "NL-Amsterdam": 6110,
+   "PL-Lipowa": 34463,
+   "PL-Narutowicza": 36533,
+   "SG-TelokKurau06": 1916,
+   "UK-KingsCollege": 10486,
+   "UK-Swindon": 12787,
+   "US-Baltimore": 33699,
+   "US-Minneapolis1": 19723,
+   "US-Minneapolis2": 19723,
+   "US-WestPhoenix": 4701
+  },
+  "pooled_total": 323587,
+  "variants": {
+   "US-Minneapolis2": {
+    "dropped_from_training": "US-Minneapolis2",
+    "dropped_steps": 19723,
+    "counts": {
+     "all19": {
+      "beats_REG1": 19,
+      "beats_REG2": 6,
+      "beats_KM3": 10,
+      "beats_all_three": 4,
+      "beats_both_informative": 4
+     },
+     "excl_mpls17": {
+      "beats_REG1": 17,
+      "beats_REG2": 6,
+      "beats_KM3": 8,
+      "beats_all_three": 4,
+      "beats_both_informative": 4
+     },
+     "core16": {
+      "beats_REG1": 16,
+      "beats_REG2": 5,
+      "beats_KM3": 7,
+      "beats_all_three": 3,
+      "beats_both_informative": 3
+     },
+     "core15": {
+      "beats_REG1": 15,
+      "beats_REG2": 4,
+      "beats_KM3": 6,
+      "beats_all_three": 2,
+      "beats_both_informative": 2
+     }
+    },
+    "minneapolis_KM3": 22.516272513330435,
+    "minneapolis_REG2": 18.514030559734415
+   },
+   "US-Baltimore": {
+    "dropped_from_training": "US-Baltimore",
+    "dropped_steps": 33699,
+    "counts": {
+     "all19": {
+      "beats_REG1": 19,
+      "beats_REG2": 4,
+      "beats_KM3": 10,
+      "beats_all_three": 3,
+      "beats_both_informative": 3
+     },
+     "excl_mpls17": {
+      "beats_REG1": 17,
+      "beats_REG2": 4,
+      "beats_KM3": 8,
+      "beats_all_three": 3,
+      "beats_both_informative": 3
+     },
+     "core16": {
+      "beats_REG1": 16,
+      "beats_REG2": 3,
+      "beats_KM3": 7,
+      "beats_all_three": 2,
+      "beats_both_informative": 2
+     },
+     "core15": {
+      "beats_REG1": 15,
+      "beats_REG2": 2,
+      "beats_KM3": 6,
+      "beats_all_three": 1,
+      "beats_both_informative": 1
+     }
+    },
+    "minneapolis_KM3": 22.660554538208903,
+    "minneapolis_REG2": 18.80045786849663
+   },
+   "KR-Ochang": {
+    "dropped_from_training": "KR-Ochang",
+    "dropped_steps": 12995,
+    "counts": {
+     "all19": {
+      "beats_REG1": 19,
+      "beats_REG2": 7,
+      "beats_KM3": 10,
+      "beats_all_three": 5,
+      "beats_both_informative": 5
+     },
+     "excl_mpls17": {
+      "beats_REG1": 17,
+      "beats_REG2": 5,
+      "beats_KM3": 8,
+      "beats_all_three": 3,
+      "beats_both_informative": 3
+     },
+     "core16": {
+      "beats_REG1": 16,
+      "beats_REG2": 4,
+      "beats_KM3": 7,
+      "beats_all_three": 2,
+      "beats_both_informative": 2
+     },
+     "core15": {
+      "beats_REG1": 15,
+      "beats_REG2": 3,
+      "beats_KM3": 6,
+      "beats_all_three": 1,
+      "beats_both_informative": 1
+     }
+    },
+    "minneapolis_KM3": 23.299836072312203,
+    "minneapolis_REG2": 19.03494743807895
+   },
+   "UK-Swindon": {
+    "dropped_from_training": "UK-Swindon",
+    "dropped_steps": 12787,
+    "counts": {
+     "all19": {
+      "beats_REG1": 19,
+      "beats_REG2": 4,
+      "beats_KM3": 10,
+      "beats_all_three": 3,
+      "beats_both_informative": 3
+     },
+     "excl_mpls17": {
+      "beats_REG1": 17,
+      "beats_REG2": 4,
+      "beats_KM3": 8,
+      "beats_all_three": 3,
+      "beats_both_informative": 3
+     },
+     "core16": {
+      "beats_REG1": 16,
+      "beats_REG2": 3,
+      "beats_KM3": 7,
+      "beats_all_three": 2,
+      "beats_both_informative": 2
+     },
+     "core15": {
+      "beats_REG1": 15,
+      "beats_REG2": 2,
+      "beats_KM3": 6,
+      "beats_all_three": 1,
+      "beats_both_informative": 1
+     }
+    },
+    "minneapolis_KM3": 22.741540763449358,
+    "minneapolis_REG2": 18.824290634899622
+   },
+   "JP-Yoyogi": {
+    "dropped_from_training": "JP-Yoyogi",
+    "dropped_steps": 29709,
+    "counts": {
+     "all19": {
+      "beats_REG1": 19,
+      "beats_REG2": 4,
+      "beats_KM3": 10,
+      "beats_all_three": 3,
+      "beats_both_informative": 3
+     },
+     "excl_mpls17": {
+      "beats_REG1": 17,
+      "beats_REG2": 4,
+      "beats_KM3": 8,
+      "beats_all_three": 3,
+      "beats_both_informative": 3
+     },
+     "core16": {
+      "beats_REG1": 16,
+      "beats_REG2": 3,
+      "beats_KM3": 7,
+      "beats_all_three": 2,
+      "beats_both_informative": 2
+     },
+     "core15": {
+      "beats_REG1": 15,
+      "beats_REG2": 2,
+      "beats_KM3": 6,
+      "beats_all_three": 1,
+      "beats_both_informative": 1
+     }
+    },
+    "minneapolis_KM3": 22.324544851840265,
+    "minneapolis_REG2": 18.707374717046786
+   },
+   "none_baseline": {
+    "dropped_from_training": null,
+    "dropped_steps": 0,
+    "counts": {
+     "all19": {
+      "beats_REG1": 19,
+      "beats_REG2": 4,
+      "beats_KM3": 10,
+      "beats_all_three": 3,
+      "beats_both_informative": 3
+     },
+     "excl_mpls17": {
+      "beats_REG1": 17,
+      "beats_REG2": 4,
+      "beats_KM3": 8,
+      "beats_all_three": 3,
+      "beats_both_informative": 3
+     },
+     "core16": {
+      "beats_REG1": 16,
+      "beats_REG2": 3,
+      "beats_KM3": 7,
+      "beats_all_three": 2,
+      "beats_both_informative": 2
+     },
+     "core15": {
+      "beats_REG1": 15,
+      "beats_REG2": 2,
+      "beats_KM3": 6,
+      "beats_all_three": 1,
+      "beats_both_informative": 1
+     }
+    },
+    "minneapolis_KM3": 22.516272513330435,
+    "minneapolis_REG2": 18.514030559734415
+   }
+  }
+ }
+}

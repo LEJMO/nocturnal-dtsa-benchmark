@@ -1,0 +1,24 @@
+{
+  "site": "PL-Narutowicza",
+  "config": "CV_half",
+  "lwup_bias": -7.191029511237325,
+  "n_night": 36533,
+  "qh_bias": 1.6742726357809825,
+  "n_qh": 25408,
+  "dTsa_model": -0.266049785548112,
+  "lwup_bias_noDJF": -7.6118940358872695,
+  "align_delta": 1,
+  "align_rmse": 0.0,
+  "LWup_eq_FIRE": 0.0,
+  "minutes": 15.34,
+  "modified_fields": {
+    "CV_ROOF[layer0]": 850000.0,
+    "CV_WALL[layer0]": 760367.0
+  },
+  "surf_verify_readback": {
+    "TK_ROOF": 1.2000000476837158,
+    "CV_ROOF": 850000.0,
+    "EM_ROOF": 0.8999999761581421,
+    "ALB_ROOF_DIR": 0.23000000417232513
+  }
+}

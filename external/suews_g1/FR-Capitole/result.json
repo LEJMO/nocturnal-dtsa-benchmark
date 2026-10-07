@@ -1,0 +1,46 @@
+{
+  "site": "FR-Capitole",
+  "netradiationmethod": 3,
+  "storageheatmethod": 1,
+  "n_night": 4086,
+  "lwup_bias_facet_recon": 19.64029216566731,
+  "n_facet": 4086,
+  "lwup_bias_bulk_recon": -2.3222308004232657,
+  "n_bulk": 4086,
+  "lwup_bias_packaged": -2.217816003026845,
+  "n_pkg": 4086,
+  "qh_bias": -15.756028558044218,
+  "n_qh": 3937,
+  "noct_Tsurf_bulk_minus_Tair": 0.00018860286863947562,
+  "noct_Ts_facet_minus_Tair": 4.095033773143292,
+  "land_cover": {
+    "paved": 0.28,
+    "bldgs": 0.62,
+    "evetr": 0.0,
+    "dectr": 0.08,
+    "grass": 0.02,
+    "bsoil": 0.0,
+    "water": 0.0
+  },
+  "building_height": 15.0,
+  "tree_height": 15.0,
+  "lat": 43.6035,
+  "lon": 1.4454,
+  "alt": 143.0,
+  "z_meas": 48.05,
+  "timezone": 0.0,
+  "local_utc_offset": 1.0,
+  "n_obs_steps": 18000,
+  "n_spinup_steps": 17520,
+  "obs_span": [
+    "2004-02-20 00:30:00",
+    "2005-03-01 00:00:00"
+  ],
+  "supy_version": "2026.6.5",
+  "finite_Tsurf": 18000,
+  "finite_QH": 18000,
+  "lwup_bias_facet_emission_sum": [
+    17.812683989504958,
+    4086
+  ]
+}

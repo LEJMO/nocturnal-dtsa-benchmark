@@ -1,0 +1,46 @@
+{
+  "site": "US-Minneapolis1",
+  "netradiationmethod": 3,
+  "storageheatmethod": 1,
+  "n_night": 19723,
+  "lwup_bias_facet_recon": -12.83323373997245,
+  "n_facet": 19723,
+  "lwup_bias_bulk_recon": 13.979896932006168,
+  "n_bulk": 19723,
+  "lwup_bias_packaged": 14.282300300422047,
+  "n_pkg": 19723,
+  "qh_bias": 2.859286729521864,
+  "n_qh": 5464,
+  "noct_Tsurf_bulk_minus_Tair": 0.00025175625948696214,
+  "noct_Ts_facet_minus_Tair": -6.484155871098771,
+  "land_cover": {
+    "paved": 0.09,
+    "bldgs": 0.12,
+    "evetr": 0.0,
+    "dectr": 0.38,
+    "grass": 0.36,
+    "bsoil": 0.0,
+    "water": 0.05
+  },
+  "building_height": 5.05,
+  "tree_height": 12.0,
+  "lat": 44.9984,
+  "lon": -93.18836,
+  "alt": 301.0,
+  "z_meas": 40.0,
+  "timezone": 0.0,
+  "local_utc_offset": -6.0,
+  "n_obs_steps": 52455,
+  "n_spinup_steps": 17520,
+  "obs_span": [
+    "2006-06-01 18:00:00",
+    "2009-05-29 13:00:00"
+  ],
+  "supy_version": "2026.6.5",
+  "finite_Tsurf": 52455,
+  "finite_QH": 52455,
+  "lwup_bias_facet_emission_sum": [
+    -12.888344757782342,
+    19723
+  ]
+}

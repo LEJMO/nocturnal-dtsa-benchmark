@@ -1,0 +1,26 @@
+{
+  "site": "US-Baltimore",
+  "lwup_bias": -2.2677613210280487,
+  "n_night": 33699,
+  "qh_bias": 10.750758572993174,
+  "n_qh": 25709,
+  "dTsa_model": -0.03989649591798682,
+  "n_dtsa": 37771,
+  "align_delta": 1,
+  "align_rmse": 0.0,
+  "align_start": 17521,
+  "model_steps": 105169,
+  "lwup_bias_noDJF": -1.6831423199506335,
+  "k_equiv_bias": -0.44034200408311625,
+  "provenance": {
+    "LWup_minus_(FIRA+FLDS)_night_mean": -1.0020263833427401e-05,
+    "LWup_night_mean": 367.91510652015575,
+    "FIRA+FLDS_night_mean": 367.9151165404196,
+    "LWup_minus_FIRE_night_mean": 0.0,
+    "FIRE_night_mean": 367.91510652015575,
+    "Ts_minus_Tair_night_mean_K": -0.03989649591798682,
+    "TSKIN_minus_Tair_night_mean_K": 0.08312811902882875,
+    "TG_minus_Tair_night_mean_K": 0.08313717387244017,
+    "Tair_echo_vs_forcing_RMSE": 0.0
+  }
+}

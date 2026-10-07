@@ -1,0 +1,26 @@
+{
+  "site": "SG-TelokKurau06",
+  "lwup_bias": -10.57046938838441,
+  "n_night": 1916,
+  "qh_bias": -13.907798853327977,
+  "n_qh": 1913,
+  "dTsa_model": -1.505410551018655,
+  "n_dtsa": 3476,
+  "align_delta": 1,
+  "align_rmse": 0.0,
+  "align_start": 16081,
+  "model_steps": 32161,
+  "lwup_bias_noDJF": -11.463723584225303,
+  "k_equiv_bias": -2.052518327841633,
+  "provenance": {
+    "LWup_minus_(FIRA+FLDS)_night_mean": -4.7990918305238456e-06,
+    "LWup_night_mean": 440.9875057646265,
+    "FIRA+FLDS_night_mean": 440.98751056371833,
+    "LWup_minus_FIRE_night_mean": 0.0,
+    "FIRE_night_mean": 440.9875057646265,
+    "Ts_minus_Tair_night_mean_K": -1.505410551018655,
+    "TSKIN_minus_Tair_night_mean_K": -1.2177638853926926,
+    "TG_minus_Tair_night_mean_K": -1.2177638853926926,
+    "Tair_echo_vs_forcing_RMSE": 0.0
+  }
+}

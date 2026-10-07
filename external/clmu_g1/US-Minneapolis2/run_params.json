@@ -1,0 +1,42 @@
+{
+  "site": "US-Minneapolis2",
+  "RUN_STARTDATE": "2005-06-01",
+  "START_TOD": "64800",
+  "STOP_OPTION": "ndays",
+  "STOP_N": "1458",
+  "zbot": 40.0,
+  "morphology": {
+    "CANYON_HWR": 0.05,
+    "HT_ROOF": 5.05,
+    "WTLUNIT_ROOF": 0.01,
+    "WTROAD_PERV": 0.9595959595959596,
+    "WIND_HGT_CANYON": 2.525
+  },
+  "n_corpus": 52455,
+  "n_spin": 17520,
+  "n_forcing": 70071,
+  "forcing_span": [
+    "2005-06-01 18:00:00",
+    "2009-05-31 13:00:00"
+  ],
+  "eval_night_notpresp": 20778,
+  "surf_changed": [
+    "LATIXY",
+    "LONGXY",
+    "CANYON_HWR",
+    "HT_ROOF",
+    "WTLUNIT_ROOF",
+    "WTROAD_PERV",
+    "WIND_HGT_CANYON"
+  ],
+  "surf_alldiff": [
+    "LONGXY",
+    "LATIXY",
+    "CANYON_HWR",
+    "HT_ROOF",
+    "WIND_HGT_CANYON",
+    "WTLUNIT_ROOF",
+    "WTROAD_PERV"
+  ],
+  "surf_unexpected": []
+}

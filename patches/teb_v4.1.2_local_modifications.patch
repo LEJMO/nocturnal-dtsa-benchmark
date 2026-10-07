@@ -1,0 +1,227 @@
+diff --git a/src/driver/driver.F90 b/src/driver/driver.F90
+index 5306c9c..975dc84 100644
+--- a/src/driver/driver.F90
++++ b/src/driver/driver.F90
+@@ -110,26 +110,8 @@ IMPLICIT NONE
+ !           namelist file.
+ ! ---------------------------------------------------------------
+ !
+-namelist /dimensions/   NROOF_LAYER, NROAD_LAYER, NWALL_LAYER, NFLOOR_LAYER
+-
+-namelist /parameters/   XTSTEP_SURF, IYEAR, IMONTH, IDAY, ZTIME_START, ZLON, ZLAT ,&
+-                        INB_STEP_ATM, INB_ATM, KSW, ZZREF, CBEM, HROAD_DIR ,&
+-                        HWALL_OPT, LGARDEN, LGREENROOF, ZFRAC_GR, LSOLAR_PANEL ,&
+-                        ZFRAC_PANEL, LPAR_RD_IRRIG, CCOOL_COIL ,&
+-                        CHEAT_COIL, HZ0H, ZZ0, ZBLD, ZGARDEN, ZBLD_HEIGHT ,&
+-                        ZWALL_O_HOR, ZROAD_DIR, ZALB_ROOF, ZEMIS_ROOF ,&
+-                        ZHC_ROOF, ZTC_ROOF, ZD_ROOF, ZALB_ROAD, ZEMIS_ROAD ,&
+-                        ZHC_ROAD, ZTC_ROAD, ZD_ROAD, ZALB_WALL, ZEMIS_WALL, ZHC_WALL ,&
+-                        ZTC_WALL, ZD_WALL, ZHC_FLOOR, ZTC_FLOOR, ZD_FLOOR, ZH_TRAFFIC ,&
+-                        ZLE_TRAFFIC, ZH_INDUSTRY, ZLE_INDUSTRY, ZRD_START_MONTH, ZRD_END_MONTH ,&
+-                        ZRD_START_HOUR, ZRD_END_HOUR, ZRD_24H_IRRIG, ZEMIS_PANEL, ZALB_PANEL ,&
+-                        ZEFF_PANEL, ZRESIDENTIAL, ZDT_RES, ZDT_OFF, PFLOOR_HEIGHT, ZINF, ZQIN ,&
+-                        ZQIN_FRAD, ZQIN_FLAT, ZGR, ZSHGC, PU_WIN, ZSHADE, ZSHGC_SH ,&
+-                        ZNATVENT, ZV_VENT, ZF_WATER_COND, ZF_WASTE_CAN, ZTCOOL_TARGET, ZTHEAT_TARGET ,&
+-                        ZHR_TARGET, ZEFF_HEAT, ZCAP_SYS_HEAT, ZCAP_SYS_RAT, ZT_ADP, ZM_SYS_RAT ,&
+-                        ZCOP_RAT, CCH_BEM, ZROUGH_ROOF, ZROUGH_WALL, ZT_ROAD, ZT_ROOF, ZT_WALL ,&
+-                        ZT_FLOOR, ZT_MASS, ZTI_BLD, ZT_CANYON, ZT_WIN1, ZT_WIN2, ZQ_CANYON, ZQI_BLD, &
+-                        VEG_ALB, VEG_EMIS, GARDEN_BR, GREENROOF_BR, NO_OUTPUT
++LOGICAL :: NO_OUTPUT ! Whether to output results to file (moved pre-namelist for gfortran-13)
++! (namelist statements relocated after declarations for gfortran-13; see below)
+ 
+ ! ---------------------------------------------------------------
+ ! Declarations of local variables (INPUTS)
+@@ -613,7 +595,27 @@ INTEGER                           :: IDAY2               ! current day at end of
+ REAL                              :: ZTIME2              ! current time since start of the day at end of timestep (s)
+ 
+ logical :: exist ! TODO: testing remove
+-LOGICAL :: NO_OUTPUT ! Whether to output results to file
++
++namelist /dimensions/   NROOF_LAYER, NROAD_LAYER, NWALL_LAYER, NFLOOR_LAYER
++
++namelist /parameters/   XTSTEP_SURF, IYEAR, IMONTH, IDAY, ZTIME_START, ZLON, ZLAT ,&
++                        INB_STEP_ATM, INB_ATM, KSW, ZZREF, CBEM, HROAD_DIR ,&
++                        HWALL_OPT, LGARDEN, LGREENROOF, ZFRAC_GR, LSOLAR_PANEL ,&
++                        ZFRAC_PANEL, LPAR_RD_IRRIG, CCOOL_COIL ,&
++                        CHEAT_COIL, HZ0H, ZZ0, ZBLD, ZGARDEN, ZBLD_HEIGHT ,&
++                        ZWALL_O_HOR, ZROAD_DIR, ZALB_ROOF, ZEMIS_ROOF ,&
++                        ZHC_ROOF, ZTC_ROOF, ZD_ROOF, ZALB_ROAD, ZEMIS_ROAD ,&
++                        ZHC_ROAD, ZTC_ROAD, ZD_ROAD, ZALB_WALL, ZEMIS_WALL, ZHC_WALL ,&
++                        ZTC_WALL, ZD_WALL, ZHC_FLOOR, ZTC_FLOOR, ZD_FLOOR, ZH_TRAFFIC ,&
++                        ZLE_TRAFFIC, ZH_INDUSTRY, ZLE_INDUSTRY, ZRD_START_MONTH, ZRD_END_MONTH ,&
++                        ZRD_START_HOUR, ZRD_END_HOUR, ZRD_24H_IRRIG, ZEMIS_PANEL, ZALB_PANEL ,&
++                        ZEFF_PANEL, ZRESIDENTIAL, ZDT_RES, ZDT_OFF, PFLOOR_HEIGHT, ZINF, ZQIN ,&
++                        ZQIN_FRAD, ZQIN_FLAT, ZGR, ZSHGC, PU_WIN, ZSHADE, ZSHGC_SH ,&
++                        ZNATVENT, ZV_VENT, ZF_WATER_COND, ZF_WASTE_CAN, ZTCOOL_TARGET, ZTHEAT_TARGET ,&
++                        ZHR_TARGET, ZEFF_HEAT, ZCAP_SYS_HEAT, ZCAP_SYS_RAT, ZT_ADP, ZM_SYS_RAT ,&
++                        ZCOP_RAT, CCH_BEM, ZROUGH_ROOF, ZROUGH_WALL, ZT_ROAD, ZT_ROOF, ZT_WALL ,&
++                        ZT_FLOOR, ZT_MASS, ZTI_BLD, ZT_CANYON, ZT_WIN1, ZT_WIN2, ZQ_CANYON, ZQI_BLD, &
++                        VEG_ALB, VEG_EMIS, GARDEN_BR, GREENROOF_BR, NO_OUTPUT
+ 
+ !===========================================================================
+ ! Read from namelist file after default values are set.
+diff --git a/src/teb/avg_urban_fluxes.F90 b/src/teb/avg_urban_fluxes.F90
+index cda39a8..a609c5b 100644
+--- a/src/teb/avg_urban_fluxes.F90
++++ b/src/teb/avg_urban_fluxes.F90
+@@ -18,7 +18,8 @@
+                                 PRUNOFF_GD, PEVAP_GR, PRUNOFF_GR, PDRAIN_GR,       &
+                                 PRN_GRND, PH_GRND, PLE_GRND, PGFLX_GRND,           &
+                                 PRN_TWN, PH_TWN, PLE_TWN, PGFLX_TWN, PEVAP_TWN,    &
+-                                PEMIT_LW_RD, PEMIT_LW_GD, PEMIT_LW_GRND, PEMIS_GD  )
++                                PEMIT_LW_RD, PEMIT_LW_GD, PEMIT_LW_GRND, PEMIS_GD,  &
++                                PVMOD, PRI_TWN )
+ !   ##########################################################################
+ !
+ !!****  *AVG_URBAN_FLUXES* computes fluxes on urbanized surfaces  
+@@ -200,7 +201,23 @@ REAL, DIMENSION(SIZE(PLW_RAD))    :: ZLW_UP            ! upwards radiations
+ REAL, DIMENSION(SIZE(T%XROAD)) :: ZQSAT_CAN
+ REAL, DIMENSION(SIZE(T%XROAD)) :: ZRD, ZGD
+ !
++REAL, DIMENSION(:), INTENT(IN)    :: PVMOD             ! module of horizontal wind (m/s)
++REAL, DIMENSION(:), INTENT(IN)    :: PRI_TWN           ! town averaged Richardson number
+ REAL :: ZINTER
++REAL :: ZTCAN_PREV        ! canyon air temperature before update (closure features)
++REAL :: ZDH_F0, ZDH_F3, ZDH_F7, ZDH_F5, ZDH   ! 5-term closure terms (W m-2)
++CHARACTER(LEN=8) :: YDH_ENV
++INTEGER :: IDH_LEN, IDH_STAT
++LOGICAL :: LDH_CLOSURE    ! verbatim 5-term storage-release closure switch
++LOGICAL :: LDH_DIAG       ! per-step closure-feature diagnostic output switch
++LOGICAL :: LDH_CLOSURE2   ! TEB-specific 2-term closure (f4, f4*f5), LOSO coefficients
++REAL, SAVE :: ZDH2_A = 0.0, ZDH2_B = 0.0
++LOGICAL, SAVE :: LDH2_LOADED = .FALSE.
++LOGICAL :: LDH_CLOSURE3   ! planted-term twin mode: dH = C3*(T_road - T_can)/10
++REAL, SAVE :: ZDH3_C = 0.0
++LOGICAL, SAVE :: LDH3_LOADED = .FALSE.
++REAL :: ZDH_F4
++LOGICAL, SAVE :: LDH_DIAG_OPEN = .FALSE.
+ INTEGER :: JJ
+ REAL(KIND=JPRB) :: ZHOOK_HANDLE
+ !-------------------------------------------------------------------------------
+@@ -210,6 +227,32 @@ IF (LHOOK) CALL DR_HOOK('AVG_URBAN_FLUXES',0,ZHOOK_HANDLE)
+ ZRD(:)=0.
+ ZGD(:)=0.
+ !
++! Verbatim deployment switch for the 5-term storage-release closure
++! (Eq. 1 of the manuscript): enabled when env TEB_DH_CLOSURE=1.
++CALL GET_ENVIRONMENT_VARIABLE('TEB_DH_CLOSURE', YDH_ENV, IDH_LEN, IDH_STAT)
++LDH_CLOSURE = (IDH_STAT == 0 .AND. IDH_LEN >= 1 .AND. YDH_ENV(1:1) == '1')
++LDH_CLOSURE2 = (IDH_STAT == 0 .AND. IDH_LEN >= 1 .AND. YDH_ENV(1:1) == '2')
++LDH_CLOSURE3 = (IDH_STAT == 0 .AND. IDH_LEN >= 1 .AND. YDH_ENV(1:1) == '3')
++IF (LDH_CLOSURE3 .AND. .NOT. LDH3_LOADED) THEN
++  OPEN(UNIT=95, FILE='closure3_coef.txt', STATUS='OLD')
++  READ(95,*) ZDH3_C
++  CLOSE(95)
++  LDH3_LOADED = .TRUE.
++ENDIF
++IF (LDH_CLOSURE2 .AND. .NOT. LDH2_LOADED) THEN
++  OPEN(UNIT=96, FILE='closure2_coefs.txt', STATUS='OLD')
++  READ(96,*) ZDH2_A
++  READ(96,*) ZDH2_B
++  CLOSE(96)
++  LDH2_LOADED = .TRUE.
++ENDIF
++CALL GET_ENVIRONMENT_VARIABLE('TEB_DH_DIAG', YDH_ENV, IDH_LEN, IDH_STAT)
++LDH_DIAG = (IDH_STAT == 0 .AND. IDH_LEN >= 1 .AND. YDH_ENV(1:1) == '1')
++IF (LDH_DIAG .AND. .NOT. LDH_DIAG_OPEN) THEN
++  OPEN(UNIT=97, FILE='output/DH_DIAG.txt', STATUS='REPLACE')
++  LDH_DIAG_OPEN = .TRUE.
++ENDIF
++!
+ DO JJ=1,SIZE(T%XROAD)
+ !  
+   IF (T%XROAD(JJ)+T%XGARDEN(JJ).NE.0.) THEN
+@@ -346,6 +389,7 @@ DO JJ=1,SIZE(T%XROAD)
+ !             -----------------------------------
+ !
+   IF (.NOT. TOP%LCANOPY) THEN
++    ZTCAN_PREV = PT_CAN(JJ)   ! pre-update canyon air temperature (closure features)
+     ZINTER = PAC_RD(JJ) * PDF_RD(JJ) * ZRD (JJ) +  PAC_GD(JJ) * ZGD(JJ) + PAC_WL(JJ) * PWL_O_GRND(JJ) + PAC_TOP(JJ) 
+     PT_CAN(JJ) =  (  T%XT_ROAD  (JJ,1) * PAC_RD (JJ) * PDF_RD (JJ) * ZRD(JJ)        &
+                    + T%XT_WALL_A(JJ,1) * PAC_WL (JJ) * (1.-B%XGR(JJ)) * PWL_O_GRND(JJ) * 0.5 &
+@@ -361,6 +405,48 @@ DO JJ=1,SIZE(T%XROAD)
+     IF (TOP%CBEM=="BEM") THEN
+       PT_CAN(JJ) = PT_CAN(JJ) + (DMT%XH_WASTE(JJ) * B%XF_WASTE_CAN(JJ) / (1-T%XBLD(JJ)) / PRHOA(JJ) / XCPD) / ZINTER
+     ENDIF
++!
++!   Verbatim 5-term storage-release closure (manuscript Eq. 1), applied as an
++!   additive canyon-air sensible-heat source (W m-2 per canyon-ground area).
++!   Features mirror the dSLUCM deployment: pre-update canyon temperature,
++!   town bulk Richardson number, forcing LW_down and wind speed.
++    IF (LDH_DIAG) THEN
++      WRITE(97,'(8ES15.6)') PRI_TWN(JJ), T%XT_ROAD(JJ,1), ZTCAN_PREV, &
++            PLW_RAD(JJ), PVMOD(JJ), ZINTER, PRHOA(JJ), PT_CAN(JJ)
++    ENDIF
++    IF (LDH_CLOSURE) THEN
++      ZDH_F0 = PRI_TWN(JJ)
++      ZDH_F3 = (T%XT_ROAD(JJ,1) - ZTCAN_PREV) / 10.
++      ZDH_F7 = (PLW_RAD(JJ) - 300.) / 100.
++      ZDH_F5 = PVMOD(JJ) / 5.
++      ZDH = 0.913*ZDH_F0 - 31.59*ZDH_F3 - 0.197*ZDH_F7 &
++            - 0.00346*ZDH_F0*ZDH_F0 + 0.063*ZDH_F5*ZDH_F5
++      PT_CAN(JJ) = PT_CAN(JJ) + (ZDH / PRHOA(JJ) / XCPD) / ZINTER
++    ENDIF
++!
++!   TEB-specific 2-term closure identified on this model by diagnostic-balance
++!   inversion (dominant canyon-top ventilation deficit): dH = a*f4 + b*f4*f5,
++!   f4 = (T_can - T_atm)/10, f5 = U_atm/5. Coefficients are read from
++!   closure2_coefs.txt (leave-one-site-out fits; see teb_fit_deploy_closure.py).
++    IF (LDH_CLOSURE2) THEN
++!     The identified deficit dH = (a + b*f5)*(T_can - T_atm)/10 is a
++!     canyon-top ventilation correction in disguise: dH = -dG*rho*cp*
++!     (T_can - T_atm) with dG = -(a + b*f5)/(10*rho*cp). Deploying it as an
++!     explicit additive source is unstable (its gain exceeds the balance
++!     conductance sum), so it is deployed implicitly as extra canyon-top
++!     conductance in the weighted average -- unconditionally stable.
++      ZDH_F5 = PVMOD(JJ) / 5.
++      ZDH = MAX(0.0, -(ZDH2_A + ZDH2_B*ZDH_F5) / 10. / PRHOA(JJ) / XCPD)
++      PT_CAN(JJ) = (PT_CAN(JJ)*ZINTER + PTA(JJ)*ZDH) / (ZINTER + ZDH)
++    ENDIF
++!
++!   Twin-experiment planted term (identifiability control): additive
++!   storage-class deficit dH = C3*(T_road - T_can_prev)/10. Gain |C3|/10
++!   is far below the balance conductance sum, so the additive form is stable.
++    IF (LDH_CLOSURE3) THEN
++      ZDH = ZDH3_C * (T%XT_ROAD(JJ,1) - ZTCAN_PREV) / 10.
++      PT_CAN(JJ) = PT_CAN(JJ) + (ZDH / PRHOA(JJ) / XCPD) / ZINTER
++    ENDIF
+ !-------------------------------------------------------------------------------
+ !
+ !*      7.     Air canyon specific humidity
+diff --git a/src/teb/spll_modi_avg_urban_fluxes.f90 b/src/teb/spll_modi_avg_urban_fluxes.f90
+index 5cb99b3..9c79d07 100644
+--- a/src/teb/spll_modi_avg_urban_fluxes.f90
++++ b/src/teb/spll_modi_avg_urban_fluxes.f90
+@@ -16,7 +16,8 @@ INTERFACE
+                                 PRUNOFF_GD, PEVAP_GR, PRUNOFF_GR, PDRAIN_GR,       &
+                                 PRN_GRND, PH_GRND, PLE_GRND, PGFLX_GRND,           &
+                                 PRN_TWN, PH_TWN, PLE_TWN, PGFLX_TWN, PEVAP_TWN,    &
+-                                PEMIT_LW_RD, PEMIT_LW_GD, PEMIT_LW_GRND, PEMIS_GD  )
++                                PEMIT_LW_RD, PEMIT_LW_GD, PEMIT_LW_GRND, PEMIS_GD,  &
++                                PVMOD, PRI_TWN )
+ USE MODD_TEB_OPTION_n, ONLY : TEB_OPTIONS_t
+ USE MODD_TEB_n, ONLY : TEB_t
+ USE MODD_BEM_n, ONLY : BEM_t
+@@ -97,6 +98,8 @@ REAL, DIMENSION(:), INTENT(IN)    :: PEMIT_LW_RD   ! LW emitted by the road (W/m
+ REAL, DIMENSION(:), INTENT(IN)    :: PEMIT_LW_GD   ! LW emitted by the garden (W/m2 garden)
+ REAL, DIMENSION(:), INTENT(OUT)   :: PEMIT_LW_GRND ! LW emitted by the ground (road+garden) (W/m2 ground)
+ REAL, DIMENSION(:), INTENT(IN)    :: PEMIS_GD  ! garden emissivity
++REAL, DIMENSION(:), INTENT(IN)    :: PVMOD     ! module of horizontal wind (m/s)
++REAL, DIMENSION(:), INTENT(IN)    :: PRI_TWN   ! town averaged Richardson number
+ END SUBROUTINE AVG_URBAN_FLUXES
+ END INTERFACE
+ END MODULE MODI_AVG_URBAN_FLUXES
+diff --git a/src/teb/teb_garden.F90 b/src/teb/teb_garden.F90
+index 63ad213..ef296da 100644
+--- a/src/teb/teb_garden.F90
++++ b/src/teb/teb_garden.F90
+@@ -817,7 +817,8 @@ END IF
+                        ZTSRAD_GD, ZRN_GD, ZH_GD, ZLE_GD, ZGFLUX_GD, ZEVAP_GD,             &
+                        ZRUNOFF_GD, ZEVAP_GR, ZRUNOFF_GR, ZDRAIN_GR,                       &
+                        PRN_GRND, PH_GRND, PLE_GRND, PGFLX_GRND, PRN_TWN, PH_TWN, PLE_TWN, &
+-                       PGFLX_TWN, PEVAP_TWN, ZEMIT_LW_RD,ZEMIT_LW_GD, PEMIT_LW_GRND, ZEMIS_GD )
++                       PGFLX_TWN, PEVAP_TWN, ZEMIT_LW_RD,ZEMIT_LW_GD, PEMIT_LW_GRND, ZEMIS_GD, &
++                       PVMOD, PRI_TWN )
+ !
+ PSFCO2(:) = T%XGARDEN(:) * ZSFCO2_GD(:) + T%XBLD(:) * T%XGREENROOF(:) * ZSFCO2_GR(:) ! no CO2 flux from built and road yet.
+ !

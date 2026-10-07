@@ -1,0 +1,432 @@
+{
+  "meta": {
+    "n_sites": 19,
+    "sites": [
+      "US-Minneapolis1",
+      "US-Minneapolis2",
+      "KR-Ochang",
+      "AU-Preston",
+      "GR-HECKOR",
+      "US-WestPhoenix",
+      "UK-Swindon",
+      "FI-Kumpula",
+      "UK-KingsCollege",
+      "SG-TelokKurau06",
+      "US-Baltimore",
+      "JP-Yoyogi",
+      "NL-Amsterdam",
+      "FI-Torni",
+      "FR-Capitole",
+      "KR-Jungnang",
+      "CA-Sunset",
+      "PL-Narutowicza",
+      "PL-Lipowa"
+    ],
+    "f_roof": 0.5,
+    "C_perv": 93811.68228536063,
+    "mu_perv": 800.0,
+    "tau_wall": 0.425531914893617,
+    "tau_road": 0.5128205128205129,
+    "obs_neg_sites": [
+      "US-Minneapolis1",
+      "US-Minneapolis2",
+      "KR-Ochang",
+      "AU-Preston",
+      "GR-HECKOR",
+      "US-WestPhoenix",
+      "UK-Swindon",
+      "FI-Kumpula",
+      "UK-KingsCollege"
+    ],
+    "pass_rule": "n_neg>=4 AND Lipowa>=+4.0 AND slope>=0.5 AND r>=0.6"
+  },
+  "obs": {
+    "US-Minneapolis1": -3.04,
+    "US-Minneapolis2": -3.04,
+    "KR-Ochang": -2.17,
+    "AU-Preston": -1.99,
+    "GR-HECKOR": -1.67,
+    "US-WestPhoenix": -1.36,
+    "UK-Swindon": -0.63,
+    "FI-Kumpula": -0.32,
+    "UK-KingsCollege": -0.17,
+    "SG-TelokKurau06": 0.26,
+    "US-Baltimore": 0.39,
+    "JP-Yoyogi": 0.43,
+    "NL-Amsterdam": 0.44,
+    "FI-Torni": 0.45,
+    "FR-Capitole": 0.49,
+    "KR-Jungnang": 0.66,
+    "CA-Sunset": 0.98,
+    "PL-Narutowicza": 1.19,
+    "PL-Lipowa": 6.12
+  },
+  "f_perv": {
+    "US-Minneapolis1": 0.79,
+    "US-Minneapolis2": 0.95,
+    "KR-Ochang": 0.53,
+    "AU-Preston": 0.38,
+    "GR-HECKOR": 0.08450000000000002,
+    "US-WestPhoenix": 0.52,
+    "UK-Swindon": 0.51,
+    "FI-Kumpula": 0.54,
+    "UK-KingsCollege": 0.20999999999999996,
+    "SG-TelokKurau06": 0.15000000000000002,
+    "US-Baltimore": 0.687,
+    "JP-Yoyogi": 0.07999999999999996,
+    "NL-Amsterdam": 0.31999999999999995,
+    "FI-Torni": 0.22999999999999998,
+    "FR-Capitole": 0.09999999999999998,
+    "KR-Jungnang": 0.03500000000000003,
+    "CA-Sunset": 0.31999999999999995,
+    "PL-Narutowicza": 0.35,
+    "PL-Lipowa": 0.24
+  },
+  "per_site_dtsa": {
+    "A0": {
+      "US-Minneapolis1": -1.8876009075560694,
+      "US-Minneapolis2": -1.8875937109007495,
+      "KR-Ochang": -1.1834031939452934,
+      "AU-Preston": -2.09307151708249,
+      "GR-HECKOR": -2.4826783496458167,
+      "US-WestPhoenix": -1.5223770997797057,
+      "UK-Swindon": -1.6142599780139453,
+      "FI-Kumpula": -2.0897229331786424,
+      "UK-KingsCollege": -2.301506816716623,
+      "SG-TelokKurau06": -1.5346550352975574,
+      "US-Baltimore": -1.6131201885951532,
+      "JP-Yoyogi": -1.5577379548891177,
+      "NL-Amsterdam": -1.9060439510900946,
+      "FI-Torni": -1.9910964558831028,
+      "FR-Capitole": -2.175362270849022,
+      "KR-Jungnang": -1.5045432417277422,
+      "CA-Sunset": -1.2858457736750568,
+      "PL-Narutowicza": -1.4993917035020967,
+      "PL-Lipowa": -0.8578642217271522
+    },
+    "S-A1": {
+      "US-Minneapolis1": -1.996025646773749,
+      "US-Minneapolis2": -1.9960095377539833,
+      "KR-Ochang": -0.021005030563672998,
+      "AU-Preston": -2.36673002672507,
+      "GR-HECKOR": -2.01061818781682,
+      "US-WestPhoenix": -1.147675339033507,
+      "UK-Swindon": -1.450472280277232,
+      "FI-Kumpula": -2.2768495161082245,
+      "UK-KingsCollege": -2.634305110700891,
+      "SG-TelokKurau06": 0.15912729476875428,
+      "US-Baltimore": -1.2194601115310135,
+      "JP-Yoyogi": -1.3456556819169059,
+      "NL-Amsterdam": -1.7931084885038473,
+      "FI-Torni": -2.0549383186305645,
+      "FR-Capitole": -2.6853542863169557,
+      "KR-Jungnang": -1.1989432926086834,
+      "CA-Sunset": -0.6633031141995276,
+      "PL-Narutowicza": -1.3332426208368255,
+      "PL-Lipowa": -0.14724054230682151
+    },
+    "S-A2": {
+      "US-Minneapolis1": -2.5805711399881686,
+      "US-Minneapolis2": -2.5805554871654426,
+      "KR-Ochang": -0.0625854408679766,
+      "AU-Preston": -2.8681566111675796,
+      "GR-HECKOR": -2.3129103406394225,
+      "US-WestPhoenix": -1.2763075478988741,
+      "UK-Swindon": -1.7095258835911,
+      "FI-Kumpula": -2.811752178671974,
+      "UK-KingsCollege": -3.1004649351015545,
+      "SG-TelokKurau06": 0.05721648076656141,
+      "US-Baltimore": -1.740770219334016,
+      "JP-Yoyogi": -1.659946802253407,
+      "NL-Amsterdam": -2.1651510961883598,
+      "FI-Torni": -2.4780011721693525,
+      "FR-Capitole": -3.1510704771822504,
+      "KR-Jungnang": -1.3209447228062172,
+      "CA-Sunset": -0.7969234027816023,
+      "PL-Narutowicza": -1.677133668170229,
+      "PL-Lipowa": -0.28316086976073185
+    },
+    "S-B": {
+      "US-Minneapolis1": -1.8009080318556667,
+      "US-Minneapolis2": -1.784612850975319,
+      "KR-Ochang": -2.07032801239084,
+      "AU-Preston": -2.0562440805451674,
+      "GR-HECKOR": -2.533389754539654,
+      "US-WestPhoenix": -2.65568838057474,
+      "UK-Swindon": -1.4561424811815473,
+      "FI-Kumpula": -1.6863884581997073,
+      "UK-KingsCollege": -2.179111948002318,
+      "SG-TelokKurau06": -1.5926304583643671,
+      "US-Baltimore": -1.5423055190620494,
+      "JP-Yoyogi": -1.5525890414884982,
+      "NL-Amsterdam": -1.7344170984693323,
+      "FI-Torni": -1.7829394487922463,
+      "FR-Capitole": -2.1581154967403138,
+      "KR-Jungnang": -1.5350107184040525,
+      "CA-Sunset": -1.22951713131354,
+      "PL-Narutowicza": -1.3951493816559515,
+      "PL-Lipowa": -0.7493431272345928
+    },
+    "S-AB": {
+      "US-Minneapolis1": -4.70472840510062,
+      "US-Minneapolis2": -5.148344797983838,
+      "KR-Ochang": -2.510114997358007,
+      "AU-Preston": -3.8287060577398644,
+      "GR-HECKOR": -2.678593371853167,
+      "US-WestPhoenix": -4.183918745309284,
+      "UK-Swindon": -2.3594367417749265,
+      "FI-Kumpula": -3.352802342740711,
+      "UK-KingsCollege": -3.3692132103030614,
+      "SG-TelokKurau06": -0.4933703874752686,
+      "US-Baltimore": -3.6127248409687467,
+      "JP-Yoyogi": -1.8245044815963691,
+      "NL-Amsterdam": -2.5893650252649603,
+      "FI-Torni": -2.5861836498490174,
+      "FR-Capitole": -3.3513284376877777,
+      "KR-Jungnang": -1.441827065036678,
+      "CA-Sunset": -1.3712950523591592,
+      "PL-Narutowicza": -2.2393897587813782,
+      "PL-Lipowa": -0.5583942454341416
+    },
+    "S-D": {
+      "US-Minneapolis1": -1.8484921222621526,
+      "US-Minneapolis2": -1.8484859076218454,
+      "KR-Ochang": -1.083133855212199,
+      "AU-Preston": -2.0341069422438154,
+      "GR-HECKOR": -2.3385372595811607,
+      "US-WestPhoenix": -1.3886590609008898,
+      "UK-Swindon": -1.5834874499863587,
+      "FI-Kumpula": -2.077130629884983,
+      "UK-KingsCollege": -2.288013566610526,
+      "SG-TelokKurau06": -1.3440404696578037,
+      "US-Baltimore": -1.5417162315950457,
+      "JP-Yoyogi": -1.485415926264711,
+      "NL-Amsterdam": -1.8546071321170847,
+      "FI-Torni": -1.975961303764753,
+      "FR-Capitole": -2.164857443991005,
+      "KR-Jungnang": -1.418146044521109,
+      "CA-Sunset": -1.2184053537567425,
+      "PL-Narutowicza": -1.4536919686369942,
+      "PL-Lipowa": -0.7880184554860137
+    },
+    "S-ABD": {
+      "US-Minneapolis1": -4.678034161149762,
+      "US-Minneapolis2": -5.141927303090346,
+      "KR-Ochang": -2.370022032254885,
+      "AU-Preston": -3.726831231310722,
+      "GR-HECKOR": -2.3406469781612023,
+      "US-WestPhoenix": -4.044605684745599,
+      "UK-Swindon": -2.2972014114341643,
+      "FI-Kumpula": -3.3133627710064855,
+      "UK-KingsCollege": -3.294874293530675,
+      "SG-TelokKurau06": -0.16046769907433328,
+      "US-Baltimore": -3.5606744335281615,
+      "JP-Yoyogi": -1.6912547213580371,
+      "NL-Amsterdam": -2.4947545356846184,
+      "FI-Torni": -2.5304388613439657,
+      "FR-Capitole": -3.238690368490607,
+      "KR-Jungnang": -1.2142134620420015,
+      "CA-Sunset": -1.2405813001232078,
+      "PL-Narutowicza": -2.161828471732379,
+      "PL-Lipowa": -0.4410871070103098
+    }
+  },
+  "summary": {
+    "A0": {
+      "slope": 0.10310843884027455,
+      "r": 0.5092181073918776,
+      "n_neg_of_9": 9,
+      "min_site": "GR-HECKOR",
+      "min_val": -2.4826783496458167,
+      "lipowa": -0.8578642217271522,
+      "pass": false,
+      "criteria": {
+        "n_neg>=4": {
+          "value": 9,
+          "met": true
+        },
+        "Lipowa>=+4.0": {
+          "value": -0.858,
+          "met": false
+        },
+        "slope>=0.5": {
+          "value": 0.103,
+          "met": false
+        },
+        "r>=0.6": {
+          "value": 0.509,
+          "met": false
+        }
+      },
+      "bad_sites": []
+    },
+    "S-A1": {
+      "slope": 0.1573082710943419,
+      "r": 0.3730970769276323,
+      "n_neg_of_9": 9,
+      "min_site": "FR-Capitole",
+      "min_val": -2.6853542863169557,
+      "lipowa": -0.14724054230682151,
+      "pass": false,
+      "criteria": {
+        "n_neg>=4": {
+          "value": 9,
+          "met": true
+        },
+        "Lipowa>=+4.0": {
+          "value": -0.147,
+          "met": false
+        },
+        "slope>=0.5": {
+          "value": 0.157,
+          "met": false
+        },
+        "r>=0.6": {
+          "value": 0.373,
+          "met": false
+        }
+      },
+      "bad_sites": []
+    },
+    "S-A2": {
+      "slope": 0.18931860243919696,
+      "r": 0.3808742132388176,
+      "n_neg_of_9": 9,
+      "min_site": "FR-Capitole",
+      "min_val": -3.1510704771822504,
+      "lipowa": -0.28316086976073185,
+      "pass": false,
+      "criteria": {
+        "n_neg>=4": {
+          "value": 9,
+          "met": true
+        },
+        "Lipowa>=+4.0": {
+          "value": -0.283,
+          "met": false
+        },
+        "slope>=0.5": {
+          "value": 0.189,
+          "met": false
+        },
+        "r>=0.6": {
+          "value": 0.381,
+          "met": false
+        }
+      },
+      "bad_sites": []
+    },
+    "S-B": {
+      "slope": 0.15214436142913398,
+      "r": 0.683527521212077,
+      "n_neg_of_9": 9,
+      "min_site": "US-WestPhoenix",
+      "min_val": -2.65568838057474,
+      "lipowa": -0.7493431272345928,
+      "pass": false,
+      "criteria": {
+        "n_neg>=4": {
+          "value": 9,
+          "met": true
+        },
+        "Lipowa>=+4.0": {
+          "value": -0.749,
+          "met": false
+        },
+        "slope>=0.5": {
+          "value": 0.152,
+          "met": false
+        },
+        "r>=0.6": {
+          "value": 0.684,
+          "met": true
+        }
+      },
+      "bad_sites": []
+    },
+    "S-AB": {
+      "slope": 0.45766641900628924,
+      "r": 0.7202633298982013,
+      "n_neg_of_9": 9,
+      "min_site": "US-Minneapolis2",
+      "min_val": -5.148344797983838,
+      "lipowa": -0.5583942454341416,
+      "pass": false,
+      "criteria": {
+        "n_neg>=4": {
+          "value": 9,
+          "met": true
+        },
+        "Lipowa>=+4.0": {
+          "value": -0.558,
+          "met": false
+        },
+        "slope>=0.5": {
+          "value": 0.458,
+          "met": false
+        },
+        "r>=0.6": {
+          "value": 0.72,
+          "met": true
+        }
+      },
+      "bad_sites": []
+    },
+    "S-D": {
+      "slope": 0.10206389281905066,
+      "r": 0.4847374878299136,
+      "n_neg_of_9": 9,
+      "min_site": "GR-HECKOR",
+      "min_val": -2.3385372595811607,
+      "lipowa": -0.7880184554860137,
+      "pass": false,
+      "criteria": {
+        "n_neg>=4": {
+          "value": 9,
+          "met": true
+        },
+        "Lipowa>=+4.0": {
+          "value": -0.788,
+          "met": false
+        },
+        "slope>=0.5": {
+          "value": 0.102,
+          "met": false
+        },
+        "r>=0.6": {
+          "value": 0.485,
+          "met": false
+        }
+      },
+      "bad_sites": []
+    },
+    "S-ABD": {
+      "slope": 0.4618190125914811,
+      "r": 0.6975227771172996,
+      "n_neg_of_9": 9,
+      "min_site": "US-Minneapolis2",
+      "min_val": -5.141927303090346,
+      "lipowa": -0.4410871070103098,
+      "pass": false,
+      "criteria": {
+        "n_neg>=4": {
+          "value": 9,
+          "met": true
+        },
+        "Lipowa>=+4.0": {
+          "value": -0.441,
+          "met": false
+        },
+        "slope>=0.5": {
+          "value": 0.462,
+          "met": false
+        },
+        "r>=0.6": {
+          "value": 0.698,
+          "met": true
+        }
+      },
+      "bad_sites": []
+    }
+  }
+}

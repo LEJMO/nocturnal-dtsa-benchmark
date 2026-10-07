@@ -1,0 +1,31 @@
+{
+ "documented_z_rad": {
+  "US-Minneapolis1": 2.0,
+  "US-Minneapolis2": 2.0
+ },
+ "variable_height_notes": {
+  "FR-Capitole": "Observation height varied depending on windspeed. All observations at lowest tower position (~27m) excluded, with wind speed corrected using log laws, following Goret et al. (2019) https://doi.org/10.1016/j.aeaoa.2019.100042. Gap-filling from local observations by CNRM. ERA5 snowfall set to zero during analysis period per advice from CNRM."
+ },
+ "z_Ta_over_H": {
+  "US-Minneapolis1": 7.920792079207921,
+  "US-Minneapolis2": 7.920792079207921,
+  "KR-Ochang": 2.573131094257855,
+  "AU-Preston": 6.25,
+  "GR-HECKOR": 2.389380530973451,
+  "US-WestPhoenix": 4.911111111111111,
+  "UK-Swindon": 2.7777777777777777,
+  "FI-Kumpula": 2.4603174603174605,
+  "UK-KingsCollege": 2.36150234741784,
+  "SG-TelokKurau06": 2.090909090909091,
+  "US-Baltimore": 6.642857142857144,
+  "JP-Yoyogi": 5.777777777777778,
+  "NL-Amsterdam": 2.8169014084507045,
+  "FI-Torni": 3.3519553072625703,
+  "FR-Capitole": 3.203333333333333,
+  "KR-Jungnang": 4.7987974098057355,
+  "CA-Sunset": 5.061224489795918,
+  "PL-Narutowicza": 2.625,
+  "PL-Lipowa": 3.6274509803921573
+ },
+ "n_above_3.5_zTa": 9
+}

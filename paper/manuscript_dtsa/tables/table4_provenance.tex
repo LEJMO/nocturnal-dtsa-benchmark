@@ -1,0 +1,23 @@
+\begin{table}[!tbp]
+\centering\footnotesize
+\caption{Run provenance for the two schemes, read from the run output and configuration.}
+\label{tab:prov}
+\setlength{\tabcolsep}{3pt}
+\renewcommand{\arraystretch}{1.0}
+\begingroup\scriptsize
+\begin{tabular}{@{}p{0.18\linewidth}p{0.41\linewidth}p{0.36\linewidth}@{}}
+\toprule
+ & CLM-Urban (CLM5.0/CLMU) & TEB \\
+\midrule
+Output variable & \texttt{FIRE}, total upwelling longwave & \texttt{LWU} column of the driver output \\
+Aggregation level & urban landunit; the gridcell is 100\% urban at every record (non-urban weight 0.0, urban 1.0), so the landunit value and the gridcell mean coincide & town tile (built + garden), area-weighted inside the driver \\
+Facet weighting & 5 urban columns (roof, sunwall, shadewall, impervious road, pervious road) with per-record weights summing to 1; the column-to-gridcell identity holds to 3e-17. Roof weight spans 0.01--0.62 & roof, wall and road facets with canyon view factors; the diagnosed town emissivity reproduces the model's own value to 5e-10 \\
+Vegetation and non-urban & no non-urban vegetation or lake landunit exists in these runs; the vegetated fraction of the footprint is carried by the urban pervious road column, which stands in for lawns and parks without simulating vegetation explicitly & garden tile, fraction 0.04--0.90 of the town, set from the metadata tree, grass, bare-soil and water fractions (deviation 5e-04) \\
+$T_a$ reference for $\Delta T_{s-a}$ & corpus harmonized forcing air temperature, \emph{not} the model 2~m diagnostic; identical to the observations' to 0e+00~K & same corpus forcing air temperature, identical to 5.0e-06~K (text rounding) \\
+LW$_{\downarrow}$ used in the inversion & the model's own \texttt{FLDS}, which is bit-identical to the corpus forcing field, so the two schemes are inverted on the same downwelling flux & corpus forcing downwelling longwave \\
+Alignment & offset $\min(17520,n)+1$, a truncated final window allowed; exact air-temperature echo required (Supplementary Sect.~S2) & model row $i$ against corpus step $i{+}1$; output length is $n-1$ at every record \\
+Nocturnal mask & night and not pre-spin-up, intersected with finite observed and modelled LW$_{\uparrow}$ & the same mask, additionally requiring finite forcing air temperature and downwelling longwave \\
+\bottomrule
+\end{tabular}
+\endgroup
+\end{table}

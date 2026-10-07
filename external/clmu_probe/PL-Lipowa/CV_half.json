@@ -1,0 +1,24 @@
+{
+  "site": "PL-Lipowa",
+  "config": "CV_half",
+  "lwup_bias": -27.878897645872446,
+  "n_night": 34463,
+  "qh_bias": 8.12156295201602,
+  "n_qh": 23649,
+  "dTsa_model": 0.41106341541365055,
+  "lwup_bias_noDJF": -30.804136584311557,
+  "align_delta": 1,
+  "align_rmse": 0.0,
+  "LWup_eq_FIRE": 0.0,
+  "minutes": 15.29,
+  "modified_fields": {
+    "CV_ROOF[layer0]": 850000.0,
+    "CV_WALL[layer0]": 760367.0
+  },
+  "surf_verify_readback": {
+    "TK_ROOF": 1.2000000476837158,
+    "CV_ROOF": 850000.0,
+    "EM_ROOF": 0.8999999761581421,
+    "ALB_ROOF_DIR": 0.23000000417232513
+  }
+}

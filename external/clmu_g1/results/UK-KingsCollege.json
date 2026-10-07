@@ -1,0 +1,26 @@
+{
+  "site": "UK-KingsCollege",
+  "lwup_bias": -4.619779614076209,
+  "n_night": 10486,
+  "qh_bias": -52.988707757245294,
+  "n_qh": 8795,
+  "dTsa_model": -1.152135355889858,
+  "n_dtsa": 11185,
+  "align_delta": 0,
+  "align_rmse": 62.52390716797414,
+  "align_start": 17520,
+  "model_steps": 48097,
+  "lwup_bias_noDJF": -3.6829225230359124,
+  "k_equiv_bias": -0.8970445852575162,
+  "provenance": {
+    "LWup_minus_(FIRA+FLDS)_night_mean": -2.3074756856469847e-05,
+    "LWup_night_mean": 354.08205085382644,
+    "FIRA+FLDS_night_mean": 354.0820739285833,
+    "LWup_minus_FIRE_night_mean": 0.0,
+    "FIRE_night_mean": 354.08205085382644,
+    "Ts_minus_Tair_night_mean_K": -1.152135355889858,
+    "TSKIN_minus_Tair_night_mean_K": -0.8748708111929691,
+    "TG_minus_Tair_night_mean_K": -0.8748708111929691,
+    "Tair_echo_vs_forcing_RMSE": 0.3408757906505846
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "site": "CA-Sunset",
+  "lwup_bias": -6.233517286672781,
+  "n_night": 32809,
+  "qh_bias": -0.9463876589458979,
+  "n_qh": 31457,
+  "dTsa_model": -0.2719555900032784,
+  "n_dtsa": 38086,
+  "align_delta": 1,
+  "align_rmse": 0.0,
+  "align_start": 17521,
+  "model_steps": 105217,
+  "lwup_bias_noDJF": -5.926019314395135,
+  "k_equiv_bias": -1.2103917061500544,
+  "provenance": {
+    "LWup_minus_(FIRA+FLDS)_night_mean": -8.010212395588452e-07,
+    "LWup_night_mean": 361.85371584262015,
+    "FIRA+FLDS_night_mean": 361.8537166436414,
+    "LWup_minus_FIRE_night_mean": 0.0,
+    "FIRE_night_mean": 361.85371584262015,
+    "Ts_minus_Tair_night_mean_K": -0.2719555900032784,
+    "TSKIN_minus_Tair_night_mean_K": -0.09137105278211852,
+    "TG_minus_Tair_night_mean_K": -0.09137105278211852,
+    "Tair_echo_vs_forcing_RMSE": 0.0
+  }
+}

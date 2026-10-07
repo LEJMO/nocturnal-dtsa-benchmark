@@ -1,0 +1,616 @@
+{
+ "_merge_target": "review5_additions.obs_error_ordering",
+ "meta": {
+  "script": "review5_obs_error_into_model_ordering.py",
+  "task": "review issue 3, ordering leg: the obs-error scenarios carried into P(r_{m|o}<=0) and the paired d_r, which review5_obs_error_into_model.py did not cover",
+  "draws": 100000,
+  "err_draws": 50000,
+  "seed": 20260916,
+  "boot_unit": "city cluster",
+  "boot_provenance": "identical RNG call sequence to review5_scheme_ordering_paired.py, stored as per-record multiplicity vectors; verified against the published one-sided P(r<=0) in reproduction_checks",
+  "model_values_fixed": "only per_site.dtsa_std is perturbed",
+  "K_per_Wm2": 0.2004927923369955,
+  "guard": "len(unique(o[ii]))<3 evaluated on the UNPERTURBED means (stays paired)"
+ },
+ "reproduction_checks": {
+  "all19": {
+   "n": 19,
+   "n_clusters": 16,
+   "draws_used": 100000,
+   "draws_dropped": 0,
+   "TEB": {
+    "published_P_r_le_0": 0.00801,
+    "recomputed_P_r_le_0": 0.00801,
+    "abs_diff": 0.0
+   },
+   "CLMU5": {
+    "published_P_r_le_0": 0.28335,
+    "recomputed_P_r_le_0": 0.28335,
+    "abs_diff": 0.0
+   },
+   "paired_d_r": {
+    "published_P_le_0": 0.03921,
+    "recomputed_P_le_0": 0.03921,
+    "abs_diff": 0.0
+   }
+  },
+  "excl_mpls17": {
+   "n": 17,
+   "n_clusters": 15,
+   "draws_used": 100000,
+   "draws_dropped": 0,
+   "TEB": {
+    "published_P_r_le_0": 0.02416,
+    "recomputed_P_r_le_0": 0.02416,
+    "abs_diff": 0.0
+   },
+   "CLMU5": {
+    "published_P_r_le_0": 0.11729,
+    "recomputed_P_r_le_0": 0.11729,
+    "abs_diff": 0.0
+   },
+   "paired_d_r": {
+    "published_P_le_0": 0.11924,
+    "recomputed_P_le_0": 0.11924,
+    "abs_diff": 0.0
+   }
+  },
+  "core16": {
+   "n": 16,
+   "n_clusters": 15,
+   "draws_used": 100000,
+   "draws_dropped": 0,
+   "TEB": {
+    "published_P_r_le_0": 0.05139,
+    "recomputed_P_r_le_0": 0.05139,
+    "abs_diff": 0.0
+   },
+   "CLMU5": {
+    "published_P_r_le_0": 0.23157,
+    "recomputed_P_r_le_0": 0.23157,
+    "abs_diff": 0.0
+   },
+   "paired_d_r": {
+    "published_P_le_0": 0.26364,
+    "recomputed_P_le_0": 0.26364,
+    "abs_diff": 0.0
+   }
+  },
+  "core15": {
+   "n": 15,
+   "n_clusters": 14,
+   "draws_used": 100000,
+   "draws_dropped": 0,
+   "TEB": {
+    "published_P_r_le_0": 0.07444,
+    "recomputed_P_r_le_0": 0.07444,
+    "abs_diff": 0.0
+   },
+   "CLMU5": {
+    "published_P_r_le_0": 0.337,
+    "recomputed_P_r_le_0": 0.337,
+    "abs_diff": 0.0
+   },
+   "paired_d_r": {
+    "published_P_le_0": 0.18012,
+    "recomputed_P_le_0": 0.18012,
+    "abs_diff": 0.0
+   }
+  }
+ },
+ "baseline": {
+  "all19": {
+   "r_TEB_point": 0.6263595157555378,
+   "r_CLMU5_point": 0.2429856576053464,
+   "P_r_le_0_TEB": 0.00801,
+   "P_r_le_0_CLMU5": 0.28335,
+   "d_r_point": 0.3833738581501914,
+   "d_r_ci95": [
+    -0.02544456084992769,
+    1.0755639651922997
+   ],
+   "P_d_r_le_0": 0.03921
+  },
+  "excl_mpls17": {
+   "r_TEB_point": 0.5790507680883115,
+   "r_CLMU5_point": 0.4911926210379343,
+   "P_r_le_0_TEB": 0.02416,
+   "P_r_le_0_CLMU5": 0.11729,
+   "d_r_point": 0.08785814705037714,
+   "d_r_ci95": [
+    -0.09919759200196372,
+    0.587235335727913
+   ],
+   "P_d_r_le_0": 0.11924
+  },
+  "core16": {
+   "r_TEB_point": 0.35535626260962744,
+   "r_CLMU5_point": 0.24091092147165194,
+   "P_r_le_0_TEB": 0.05139,
+   "P_r_le_0_CLMU5": 0.23157,
+   "d_r_point": 0.1144453411379755,
+   "d_r_ci95": [
+    -0.18178844866735994,
+    0.6251548445261456
+   ],
+   "P_d_r_le_0": 0.26364
+  },
+  "core15": {
+   "r_TEB_point": 0.33895369944489456,
+   "r_CLMU5_point": 0.14864470745340372,
+   "P_r_le_0_TEB": 0.07444,
+   "P_r_le_0_CLMU5": 0.337,
+   "d_r_point": 0.19030899199149084,
+   "d_r_ci95": [
+    -0.18213134110491147,
+    0.7711233654391144
+   ],
+   "P_d_r_le_0": 0.18012
+  }
+ },
+ "aligned_step": {
+  "all19": {
+   "sign_vector": {
+    "AU-Preston": 1.0,
+    "CA-Sunset": -1.0,
+    "FI-Kumpula": 1.0,
+    "FI-Torni": -1.0,
+    "FR-Capitole": -1.0,
+    "GR-HECKOR": 1.0,
+    "JP-Yoyogi": -1.0,
+    "KR-Jungnang": -1.0,
+    "KR-Ochang": 1.0,
+    "NL-Amsterdam": -1.0,
+    "PL-Lipowa": -1.0,
+    "PL-Narutowicza": -1.0,
+    "SG-TelokKurau06": 1.0,
+    "UK-KingsCollege": -1.0,
+    "UK-Swindon": -1.0,
+    "US-Baltimore": -1.0,
+    "US-Minneapolis1": 1.0,
+    "US-Minneapolis2": 1.0,
+    "US-WestPhoenix": 1.0
+   },
+   "amplitudes": {
+    "B_0.25K": {
+     "r_TEB_point": 0.6322104430517643,
+     "r_CLMU5_point": 0.24656999022974083,
+     "P_r_le_0_TEB": 0.00715,
+     "P_r_le_0_CLMU5": 0.28653,
+     "d_r_point": 0.3856404528220235,
+     "d_r_ci95": [
+      -0.02188190821450527,
+      1.1149229244891918
+     ],
+     "P_d_r_le_0": 0.036
+    },
+    "B_0.50K": {
+     "r_TEB_point": 0.6305431293467392,
+     "r_CLMU5_point": 0.24744082212141258,
+     "P_r_le_0_TEB": 0.00789,
+     "P_r_le_0_CLMU5": 0.29242,
+     "d_r_point": 0.38310230722532657,
+     "d_r_ci95": [
+      -0.04000851792650598,
+      1.1547961891480882
+     ],
+     "P_d_r_le_0": 0.04478
+    },
+    "B_0.75K": {
+     "r_TEB_point": 0.6173777811636393,
+     "r_CLMU5_point": 0.24402308629445973,
+     "P_r_le_0_TEB": 0.01278,
+     "P_r_le_0_CLMU5": 0.30278,
+     "d_r_point": 0.37335469486917955,
+     "d_r_ci95": [
+      -0.08145082783963309,
+      1.1766233958977883
+     ],
+     "P_d_r_le_0": 0.05959
+    },
+    "B_1.00K": {
+     "r_TEB_point": 0.5888970795434197,
+     "r_CLMU5_point": 0.23475202100747813,
+     "P_r_le_0_TEB": 0.02847,
+     "P_r_le_0_CLMU5": 0.31809,
+     "d_r_point": 0.3541450585359416,
+     "d_r_ci95": [
+      -0.13786219763489624,
+      1.1565381391137814
+     ],
+     "P_d_r_le_0": 0.07617
+    }
+   }
+  },
+  "excl_mpls17": {
+   "sign_vector": {
+    "AU-Preston": 1.0,
+    "CA-Sunset": -1.0,
+    "FI-Kumpula": 1.0,
+    "FI-Torni": -1.0,
+    "FR-Capitole": -1.0,
+    "GR-HECKOR": 1.0,
+    "JP-Yoyogi": 1.0,
+    "KR-Jungnang": -1.0,
+    "KR-Ochang": 1.0,
+    "NL-Amsterdam": -1.0,
+    "PL-Lipowa": -1.0,
+    "PL-Narutowicza": -1.0,
+    "SG-TelokKurau06": 1.0,
+    "UK-KingsCollege": -1.0,
+    "UK-Swindon": 1.0,
+    "US-Baltimore": -1.0,
+    "US-WestPhoenix": 1.0
+   },
+   "amplitudes": {
+    "B_0.25K": {
+     "r_TEB_point": 0.5947136956044866,
+     "r_CLMU5_point": 0.5002974973535688,
+     "P_r_le_0_TEB": 0.02067,
+     "P_r_le_0_CLMU5": 0.10934,
+     "d_r_point": 0.09441619825091785,
+     "d_r_ci95": [
+      -0.0887844895316188,
+      0.596604480249338
+     ],
+     "P_d_r_le_0": 0.09744
+    },
+    "B_0.50K": {
+     "r_TEB_point": 0.6017482696613556,
+     "r_CLMU5_point": 0.5015167205683464,
+     "P_r_le_0_TEB": 0.02182,
+     "P_r_le_0_CLMU5": 0.10035,
+     "d_r_point": 0.10023154909300924,
+     "d_r_ci95": [
+      -0.13278058836391557,
+      0.5950763779375545
+     ],
+     "P_d_r_le_0": 0.12169
+    },
+    "B_0.75K": {
+     "r_TEB_point": 0.5954191538582512,
+     "r_CLMU5_point": 0.4910489116275102,
+     "P_r_le_0_TEB": 0.03127,
+     "P_r_le_0_CLMU5": 0.09062,
+     "d_r_point": 0.10437024223074098,
+     "d_r_ci95": [
+      -0.24699151946301565,
+      0.5969760698808698
+     ],
+     "P_d_r_le_0": 0.17929
+    },
+    "B_1.00K": {
+     "r_TEB_point": 0.5722321439808481,
+     "r_CLMU5_point": 0.4663156331001106,
+     "P_r_le_0_TEB": 0.04934,
+     "P_r_le_0_CLMU5": 0.08568,
+     "d_r_point": 0.1059165108807375,
+     "d_r_ci95": [
+      -0.3718359747224734,
+      0.601502450574418
+     ],
+     "P_d_r_le_0": 0.23838
+    }
+   }
+  },
+  "core16": {
+   "sign_vector": {
+    "AU-Preston": 1.0,
+    "CA-Sunset": -1.0,
+    "FI-Kumpula": 1.0,
+    "FI-Torni": -1.0,
+    "FR-Capitole": -1.0,
+    "GR-HECKOR": 1.0,
+    "JP-Yoyogi": -1.0,
+    "KR-Jungnang": -1.0,
+    "KR-Ochang": 1.0,
+    "NL-Amsterdam": -1.0,
+    "PL-Narutowicza": -1.0,
+    "SG-TelokKurau06": 1.0,
+    "UK-KingsCollege": -1.0,
+    "UK-Swindon": 1.0,
+    "US-Baltimore": -1.0,
+    "US-WestPhoenix": 1.0
+   },
+   "amplitudes": {
+    "B_0.25K": {
+     "r_TEB_point": 0.3411259212520579,
+     "r_CLMU5_point": 0.24140063632617342,
+     "P_r_le_0_TEB": 0.05894,
+     "P_r_le_0_CLMU5": 0.23245,
+     "d_r_point": 0.09972528492588445,
+     "d_r_ci95": [
+      -0.22982762063182754,
+      0.6196364599054478
+     ],
+     "P_d_r_le_0": 0.30082
+    },
+    "B_0.50K": {
+     "r_TEB_point": 0.30097074831512816,
+     "r_CLMU5_point": 0.22848888336393633,
+     "P_r_le_0_TEB": 0.09246,
+     "P_r_le_0_CLMU5": 0.23639,
+     "d_r_point": 0.07248186495119183,
+     "d_r_ci95": [
+      -0.3743192406004313,
+      0.6162808331888224
+     ],
+     "P_d_r_le_0": 0.37649
+    },
+    "B_0.75K": {
+     "r_TEB_point": 0.21398497352341256,
+     "r_CLMU5_point": 0.18624447278660317,
+     "P_r_le_0_TEB": 0.19278,
+     "P_r_le_0_CLMU5": 0.249,
+     "d_r_point": 0.027740500736809393,
+     "d_r_ci95": [
+      -0.5960481488585563,
+      0.6283163424886425
+     ],
+     "P_d_r_le_0": 0.46162
+    },
+    "B_1.00K": {
+     "r_TEB_point": 0.0878230238010552,
+     "r_CLMU5_point": 0.11308457685879043,
+     "P_r_le_0_TEB": 0.37775,
+     "P_r_le_0_CLMU5": 0.291,
+     "d_r_point": -0.02526155305773524,
+     "d_r_ci95": [
+      -0.7539672634257663,
+      0.6476403878519137
+     ],
+     "P_d_r_le_0": 0.53034
+    }
+   }
+  },
+  "core15": {
+   "sign_vector": {
+    "AU-Preston": 1.0,
+    "CA-Sunset": -1.0,
+    "FI-Kumpula": 1.0,
+    "FI-Torni": -1.0,
+    "FR-Capitole": -1.0,
+    "GR-HECKOR": 1.0,
+    "JP-Yoyogi": -1.0,
+    "KR-Jungnang": -1.0,
+    "KR-Ochang": 1.0,
+    "NL-Amsterdam": -1.0,
+    "SG-TelokKurau06": 1.0,
+    "UK-KingsCollege": -1.0,
+    "UK-Swindon": 1.0,
+    "US-Baltimore": -1.0,
+    "US-WestPhoenix": 1.0
+   },
+   "amplitudes": {
+    "B_0.25K": {
+     "r_TEB_point": 0.32375032889712546,
+     "r_CLMU5_point": 0.14670349401098326,
+     "P_r_le_0_TEB": 0.08523,
+     "P_r_le_0_CLMU5": 0.33915,
+     "d_r_point": 0.1770468348861422,
+     "d_r_ci95": [
+      -0.24413835633453407,
+      0.7696329907428764
+     ],
+     "P_d_r_le_0": 0.21335
+    },
+    "B_0.50K": {
+     "r_TEB_point": 0.2806439741967072,
+     "r_CLMU5_point": 0.1344376935515283,
+     "P_r_le_0_TEB": 0.12571,
+     "P_r_le_0_CLMU5": 0.3441,
+     "d_r_point": 0.14620628064517893,
+     "d_r_ci95": [
+      -0.4011585842107253,
+      0.7431024027629062
+     ],
+     "P_d_r_le_0": 0.29259
+    },
+    "B_0.75K": {
+     "r_TEB_point": 0.18990980859092563,
+     "r_CLMU5_point": 0.10209878550512622,
+     "P_r_le_0_TEB": 0.23652,
+     "P_r_le_0_CLMU5": 0.35439,
+     "d_r_point": 0.08781102308579941,
+     "d_r_ci95": [
+      -0.6263225735047612,
+      0.7194401349342596
+     ],
+     "P_d_r_le_0": 0.39568
+    },
+    "B_1.00K": {
+     "r_TEB_point": 0.06660161643245029,
+     "r_CLMU5_point": 0.05306294712970649,
+     "P_r_le_0_TEB": 0.41533,
+     "P_r_le_0_CLMU5": 0.38756,
+     "d_r_point": 0.013538669302743798,
+     "d_r_ci95": [
+      -0.7688931495526762,
+      0.706367505141556
+     ],
+     "P_d_r_le_0": 0.48708
+    }
+   }
+  }
+ },
+ "random_independent": {
+  "all19": {
+   "sigma_2Wm2": {
+    "sigma_Wm2": 2.0,
+    "sigma_K": 0.400985584673991,
+    "r_TEB_median_over_error_draws": 0.6154777686132571,
+    "r_CLMU5_median_over_error_draws": 0.23917090312774708,
+    "joint_P_r_le_0_TEB": 0.01306,
+    "joint_P_r_le_0_CLMU5": 0.28184,
+    "joint_P_d_r_le_0": 0.06942
+   },
+   "sigma_4Wm2": {
+    "sigma_Wm2": 4.0,
+    "sigma_K": 0.801971169347982,
+    "r_TEB_median_over_error_draws": 0.5863928620984314,
+    "r_CLMU5_median_over_error_draws": 0.22842487472402284,
+    "joint_P_r_le_0_TEB": 0.02746,
+    "joint_P_r_le_0_CLMU5": 0.28754,
+    "joint_P_d_r_le_0": 0.10556
+   },
+   "sigma_5Wm2": {
+    "sigma_Wm2": 5.0,
+    "sigma_K": 1.0024639616849775,
+    "r_TEB_median_over_error_draws": 0.5669456691593953,
+    "r_CLMU5_median_over_error_draws": 0.2210557426175534,
+    "joint_P_r_le_0_TEB": 0.03664,
+    "joint_P_r_le_0_CLMU5": 0.28956,
+    "joint_P_d_r_le_0": 0.12526
+   },
+   "sigma_10Wm2": {
+    "sigma_Wm2": 10.0,
+    "sigma_K": 2.004927923369955,
+    "r_TEB_median_over_error_draws": 0.45449558529551937,
+    "r_CLMU5_median_over_error_draws": 0.1774591236706553,
+    "joint_P_r_le_0_TEB": 0.08976,
+    "joint_P_r_le_0_CLMU5": 0.32094,
+    "joint_P_d_r_le_0": 0.21078
+   }
+  },
+  "excl_mpls17": {
+   "sigma_2Wm2": {
+    "sigma_Wm2": 2.0,
+    "sigma_K": 0.400985584673991,
+    "r_TEB_median_over_error_draws": 0.5675516677436593,
+    "r_CLMU5_median_over_error_draws": 0.4810378839779037,
+    "joint_P_r_le_0_TEB": 0.03402,
+    "joint_P_r_le_0_CLMU5": 0.12536,
+    "joint_P_d_r_le_0": 0.1946
+   },
+   "sigma_4Wm2": {
+    "sigma_Wm2": 4.0,
+    "sigma_K": 0.801971169347982,
+    "r_TEB_median_over_error_draws": 0.5361772423531106,
+    "r_CLMU5_median_over_error_draws": 0.45509743289401494,
+    "joint_P_r_le_0_TEB": 0.06064,
+    "joint_P_r_le_0_CLMU5": 0.13618,
+    "joint_P_d_r_le_0": 0.28534
+   },
+   "sigma_5Wm2": {
+    "sigma_Wm2": 5.0,
+    "sigma_K": 1.0024639616849775,
+    "r_TEB_median_over_error_draws": 0.5150703656002826,
+    "r_CLMU5_median_over_error_draws": 0.4376704304522352,
+    "joint_P_r_le_0_TEB": 0.07462,
+    "joint_P_r_le_0_CLMU5": 0.14196,
+    "joint_P_d_r_le_0": 0.31772
+   },
+   "sigma_10Wm2": {
+    "sigma_Wm2": 10.0,
+    "sigma_K": 2.004927923369955,
+    "r_TEB_median_over_error_draws": 0.40380392043366165,
+    "r_CLMU5_median_over_error_draws": 0.3424614244526184,
+    "joint_P_r_le_0_TEB": 0.13704,
+    "joint_P_r_le_0_CLMU5": 0.1945,
+    "joint_P_d_r_le_0": 0.40092
+   }
+  },
+  "core16": {
+   "sigma_2Wm2": {
+    "sigma_Wm2": 2.0,
+    "sigma_K": 0.400985584673991,
+    "r_TEB_median_over_error_draws": 0.335150049044136,
+    "r_CLMU5_median_over_error_draws": 0.22739494916002376,
+    "joint_P_r_le_0_TEB": 0.08088,
+    "joint_P_r_le_0_CLMU5": 0.24818,
+    "joint_P_d_r_le_0": 0.31834
+   },
+   "sigma_4Wm2": {
+    "sigma_Wm2": 4.0,
+    "sigma_K": 0.801971169347982,
+    "r_TEB_median_over_error_draws": 0.2906451372752624,
+    "r_CLMU5_median_over_error_draws": 0.20022848201815038,
+    "joint_P_r_le_0_TEB": 0.14678,
+    "joint_P_r_le_0_CLMU5": 0.2875,
+    "joint_P_d_r_le_0": 0.3755
+   },
+   "sigma_5Wm2": {
+    "sigma_Wm2": 5.0,
+    "sigma_K": 1.0024639616849775,
+    "r_TEB_median_over_error_draws": 0.26587079444374934,
+    "r_CLMU5_median_over_error_draws": 0.1792744731148252,
+    "joint_P_r_le_0_TEB": 0.18352,
+    "joint_P_r_le_0_CLMU5": 0.30536,
+    "joint_P_d_r_le_0": 0.39224
+   },
+   "sigma_10Wm2": {
+    "sigma_Wm2": 10.0,
+    "sigma_K": 2.004927923369955,
+    "r_TEB_median_over_error_draws": 0.1764706173338395,
+    "r_CLMU5_median_over_error_draws": 0.12112160190829371,
+    "joint_P_r_le_0_TEB": 0.30362,
+    "joint_P_r_le_0_CLMU5": 0.37854,
+    "joint_P_d_r_le_0": 0.44258
+   }
+  },
+  "core15": {
+   "sigma_2Wm2": {
+    "sigma_Wm2": 2.0,
+    "sigma_K": 0.400985584673991,
+    "r_TEB_median_over_error_draws": 0.319542814481916,
+    "r_CLMU5_median_over_error_draws": 0.1394767052243019,
+    "joint_P_r_le_0_TEB": 0.10512,
+    "joint_P_r_le_0_CLMU5": 0.34944,
+    "joint_P_d_r_le_0": 0.2388
+   },
+   "sigma_4Wm2": {
+    "sigma_Wm2": 4.0,
+    "sigma_K": 0.801971169347982,
+    "r_TEB_median_over_error_draws": 0.2756702426404798,
+    "r_CLMU5_median_over_error_draws": 0.12008206808657197,
+    "joint_P_r_le_0_TEB": 0.1753,
+    "joint_P_r_le_0_CLMU5": 0.37652,
+    "joint_P_d_r_le_0": 0.31432
+   },
+   "sigma_5Wm2": {
+    "sigma_Wm2": 5.0,
+    "sigma_K": 1.0024639616849775,
+    "r_TEB_median_over_error_draws": 0.251219096046881,
+    "r_CLMU5_median_over_error_draws": 0.11051720923235281,
+    "joint_P_r_le_0_TEB": 0.2118,
+    "joint_P_r_le_0_CLMU5": 0.39156,
+    "joint_P_d_r_le_0": 0.34236
+   },
+   "sigma_10Wm2": {
+    "sigma_Wm2": 10.0,
+    "sigma_K": 2.004927923369955,
+    "r_TEB_median_over_error_draws": 0.16197593555171194,
+    "r_CLMU5_median_over_error_draws": 0.07173105105724109,
+    "joint_P_r_le_0_TEB": 0.3251,
+    "joint_P_r_le_0_CLMU5": 0.43242,
+    "joint_P_d_r_le_0": 0.41222
+   }
+  }
+ },
+ "headline": {
+  "question": "does TEB's ordering skill stay separable from zero under the obs-error scenarios?",
+  "per_record_set": {
+   "all19": {
+    "baseline_P_r_le_0_TEB": 0.00801,
+    "max_over_scenarios_P_r_le_0_TEB": 0.08976,
+    "crosses_0p05": true
+   },
+   "excl_mpls17": {
+    "baseline_P_r_le_0_TEB": 0.02416,
+    "max_over_scenarios_P_r_le_0_TEB": 0.13704,
+    "crosses_0p05": true
+   },
+   "core16": {
+    "baseline_P_r_le_0_TEB": 0.05139,
+    "max_over_scenarios_P_r_le_0_TEB": 0.37775,
+    "crosses_0p05": true
+   },
+   "core15": {
+    "baseline_P_r_le_0_TEB": 0.07444,
+    "max_over_scenarios_P_r_le_0_TEB": 0.41533,
+    "crosses_0p05": true
+   }
+  },
+  "verdict": "all19 stays below 0.05 under the albedo-aligned field at every tested amplitude and under random error to sigma_E = 5 W/m2 (0.037), crossing only at sigma_E = 10 W/m2 (0.090); excl_mpls17 stays below 0.05 under the aligned field (max 0.049 at B = 1 K) but crosses under random error from sigma_E = 4 W/m2 (0.061); core16 and core15, where the published values are already marginal (0.051, 0.074), cross 0.05 under EVERY scenario tested, reaching 0.378 and 0.415. The ordering leg of the model conclusion is therefore the leg that is conditional on the published means in the conservative core -- not the slope, and more severely than the amplitude."
+ }
+}

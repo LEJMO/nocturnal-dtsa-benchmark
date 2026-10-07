@@ -1,0 +1,26 @@
+{
+  "site": "AU-Preston",
+  "lwup_bias": 1.4700549842730593,
+  "n_night": 5288,
+  "qh_bias": -15.054239067891775,
+  "n_qh": 3460,
+  "dTsa_model": -1.7212446688204717,
+  "n_dtsa": 7142,
+  "align_delta": 1,
+  "align_rmse": 0.0,
+  "align_start": 17521,
+  "model_steps": 40321,
+  "lwup_bias_noDJF": 1.9130370882469678,
+  "k_equiv_bias": 0.28544756976175906,
+  "provenance": {
+    "LWup_minus_(FIRA+FLDS)_night_mean": -1.4562171251958774e-05,
+    "LWup_night_mean": 362.7842165461711,
+    "FIRA+FLDS_night_mean": 362.78423110834234,
+    "LWup_minus_FIRE_night_mean": 0.0,
+    "FIRE_night_mean": 362.7842165461711,
+    "Ts_minus_Tair_night_mean_K": -1.7212446688204717,
+    "TSKIN_minus_Tair_night_mean_K": -1.4244386090246846,
+    "TG_minus_Tair_night_mean_K": -1.4244386090246846,
+    "Tair_echo_vs_forcing_RMSE": 0.0
+  }
+}

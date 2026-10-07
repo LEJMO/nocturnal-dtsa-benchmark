@@ -1,0 +1,26 @@
+{
+  "site": "UK-Swindon",
+  "lwup_bias": 0.162804162426775,
+  "n_night": 12787,
+  "qh_bias": 5.723529971176976,
+  "n_qh": 11979,
+  "dTsa_model": -0.5886145249903422,
+  "n_dtsa": 12859,
+  "align_delta": 1,
+  "align_rmse": 0.0,
+  "align_start": 17521,
+  "model_steps": 51841,
+  "lwup_bias_noDJF": 0.4119474144695873,
+  "k_equiv_bias": 0.03161245872364563,
+  "provenance": {
+    "LWup_minus_(FIRA+FLDS)_night_mean": -3.068150594457955e-06,
+    "LWup_night_mean": 345.42462872550357,
+    "FIRA+FLDS_night_mean": 345.4246317936541,
+    "LWup_minus_FIRE_night_mean": 0.0,
+    "FIRE_night_mean": 345.42462872550357,
+    "Ts_minus_Tair_night_mean_K": -0.5886145249903422,
+    "TSKIN_minus_Tair_night_mean_K": -0.4448539673962242,
+    "TG_minus_Tair_night_mean_K": -0.4448539673962242,
+    "Tair_echo_vs_forcing_RMSE": 0.0
+  }
+}

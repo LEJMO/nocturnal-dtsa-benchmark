@@ -1,0 +1,40 @@
+{
+  "site": "FR-Capitole",
+  "RUN_STARTDATE": "2003-02-20",
+  "START_TOD": "1800",
+  "STOP_OPTION": "ndays",
+  "STOP_N": "740",
+  "zbot": 48.05,
+  "morphology": {
+    "CANYON_HWR": 1.32,
+    "HT_ROOF": 15.0,
+    "WTLUNIT_ROOF": 0.62,
+    "WTROAD_PERV": 0.26315789473684204,
+    "WIND_HGT_CANYON": 7.5
+  },
+  "n_corpus": 18000,
+  "n_spin": 17520,
+  "n_forcing": 35616,
+  "forcing_span": [
+    "2003-02-20 00:30:00",
+    "2005-03-03 00:00:00"
+  ],
+  "eval_night_notpresp": 4940,
+  "surf_changed": [
+    "LATIXY",
+    "LONGXY",
+    "CANYON_HWR",
+    "HT_ROOF",
+    "WTLUNIT_ROOF",
+    "WTROAD_PERV",
+    "WIND_HGT_CANYON"
+  ],
+  "surf_alldiff": [
+    "LONGXY",
+    "LATIXY",
+    "CANYON_HWR",
+    "WTLUNIT_ROOF",
+    "WTROAD_PERV"
+  ],
+  "surf_unexpected": []
+}

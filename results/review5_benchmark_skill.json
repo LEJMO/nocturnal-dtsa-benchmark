@@ -1,0 +1,1988 @@
+{
+ "_merge_target": "review5_additions.nocturnal_benchmark_skill",
+ "meta": {
+  "purpose": "Conventional per-record nocturnal LW-up skill for TEB and CLMU5 baseline runs, plus Urban-PLUMBER-style out-of-sample benchmark analogues, on the alignment-corrected (v11) output.",
+  "generator": "투고가능성평가/재검증_2026-08/scripts/review5_benchmark_skill.py",
+  "interpreter": "Python312 (numpy/scipy/xarray/netCDF4/sklearn)",
+  "constants": {
+   "SIG": 5.67e-08,
+   "EPS": 0.95,
+   "note": "SIG is the project constant 5.67e-8, NOT exact Stefan-Boltzmann"
+  },
+  "alignment": {
+   "TEB": "model LWU row i -> corpus forcing step i+1 (model[0:n-1] vs corpus[1:n]); mask night&~presp&finite(obs,Tair,LWdown,model)",
+   "CLMU5": "clmu_post_v11.align (corrected): offset min(17520,n)+1, truncated final window allowed; SG-TelokKurau06 degeneracy resolves to offset 16081 (window 16080); mask (night&~presp)[:m]&finite(obs,model)"
+  },
+  "metric_definitions": {
+   "MBE": "mean(model-obs)  [W/m2]",
+   "RMSE": "sqrt(mean((model-obs)^2))",
+   "cRMSE": "centred RMSE = sqrt(mean(((model-mean_m)-(obs-mean_o))^2)); cRMSE^2 = RMSE^2 - MBE^2",
+   "r": "Pearson correlation(model, obs)",
+   "nSD": "std(model)/std(obs), population std (ddof=0)",
+   "NME": "PALS/PLUMBER normalized mean error = sum|M-O| / sum|O-mean(O)|",
+   "d": "Willmott (1981) index of agreement = 1 - sum(e^2)/sum((|M-Obar|+|O-Obar|)^2)",
+   "p95_abs_err": "95th percentile of |model-obs|"
+  },
+  "benchmarks": {
+   "REG1": "OLS linear regression of nocturnal LW-up on SWdown, leave-one-record-out (fit on other 18 records, predict held-out)",
+   "REG2": "OLS on SWdown and Tair, leave-one-record-out",
+   "KM3": "k-means(27) on standardized (SWdown,Tair,Qair) with cluster-mean obs as prediction, leave-one-record-out; SIMPLIFIED ANALOGUE of PLUMBER 3km27 (which uses a within-cluster piecewise-LINEAR regression, not a cluster mean)",
+   "km_settings": {
+    "k": 27,
+    "n_init": 10,
+    "seed": 0,
+    "standardized": true
+   },
+   "score": "mean absolute error (MAE) on nocturnal LW-up; a scheme BEATS a benchmark at a record when scheme MAE < benchmark MAE"
+  }
+ },
+ "validation": {
+  "TEB": {
+   "per_record_MBE_matches_frozen": true,
+   "records": {
+    "AU-Preston": {
+     "MBE": 14.386012053640613,
+     "frozen": 14.386012053640613,
+     "abs_diff": 0.0,
+     "pass": true
+    },
+    "CA-Sunset": {
+     "MBE": 4.595953942416941,
+     "frozen": 4.595953942416941,
+     "abs_diff": 0.0,
+     "pass": true
+    },
+    "FI-Kumpula": {
+     "MBE": 4.821678347963758,
+     "frozen": 4.821678347963758,
+     "abs_diff": 0.0,
+     "pass": true
+    },
+    "FI-Torni": {
+     "MBE": 5.9266826099852725,
+     "frozen": 5.9266826099852725,
+     "abs_diff": 0.0,
+     "pass": true
+    },
+    "FR-Capitole": {
+     "MBE": 2.632416083564692,
+     "frozen": 2.632416083564692,
+     "abs_diff": 0.0,
+     "pass": true
+    },
+    "GR-HECKOR": {
+     "MBE": 13.358872840982222,
+     "frozen": 13.358872840982222,
+     "abs_diff": 0.0,
+     "pass": true
+    },
+    "JP-Yoyogi": {
+     "MBE": 12.266671806419287,
+     "frozen": 12.266671806419287,
+     "abs_diff": 0.0,
+     "pass": true
+    },
+    "KR-Jungnang": {
+     "MBE": 11.786706705700684,
+     "frozen": 11.786706705700684,
+     "abs_diff": 0.0,
+     "pass": true
+    },
+    "KR-Ochang": {
+     "MBE": 21.481985481926962,
+     "frozen": 21.481985481926962,
+     "abs_diff": 0.0,
+     "pass": true
+    },
+    "NL-Amsterdam": {
+     "MBE": 7.747437421139964,
+     "frozen": 7.747437421139964,
+     "abs_diff": 0.0,
+     "pass": true
+    },
+    "PL-Lipowa": {
+     "MBE": -14.512326096003902,
+     "frozen": -14.512326096003902,
+     "abs_diff": 0.0,
+     "pass": true
+    },
+    "PL-Narutowicza": {
+     "MBE": 3.6822529833318036,
+     "frozen": 3.6822529833318036,
+     "abs_diff": 0.0,
+     "pass": true
+    },
+    "SG-TelokKurau06": {
+     "MBE": 12.307767195662189,
+     "frozen": 12.307767195662189,
+     "abs_diff": 0.0,
+     "pass": true
+    },
+    "UK-KingsCollege": {
+     "MBE": 6.549069373114565,
+     "frozen": 6.549069373114565,
+     "abs_diff": 0.0,
+     "pass": true
+    },
+    "UK-Swindon": {
+     "MBE": 7.826312186042306,
+     "frozen": 7.826312186042306,
+     "abs_diff": 0.0,
+     "pass": true
+    },
+    "US-Baltimore": {
+     "MBE": 4.929212948387481,
+     "frozen": 4.929212948387481,
+     "abs_diff": 0.0,
+     "pass": true
+    },
+    "US-Minneapolis1": {
+     "MBE": 18.741523875118666,
+     "frozen": 18.741523875118666,
+     "abs_diff": 0.0,
+     "pass": true
+    },
+    "US-Minneapolis2": {
+     "MBE": 18.77569884863641,
+     "frozen": 18.77569884863641,
+     "abs_diff": 0.0,
+     "pass": true
+    },
+    "US-WestPhoenix": {
+     "MBE": 18.263431394658344,
+     "frozen": 18.263431394658344,
+     "abs_diff": 0.0,
+     "pass": true
+    }
+   },
+   "mean_abs_MBE": 10.76800064182611,
+   "mean_abs_MBE_expected": 10.768001,
+   "mean_abs_MBE_pass": true
+  },
+  "CLMU5": {
+   "per_record_MBE_matches_frozen": true,
+   "records": {
+    "AU-Preston": {
+     "MBE": 1.4700549842730593,
+     "frozen": 1.4700549842730593,
+     "abs_diff": 0.0,
+     "pass": true
+    },
+    "CA-Sunset": {
+     "MBE": -6.233517286672781,
+     "frozen": -6.233517286672781,
+     "abs_diff": 0.0,
+     "pass": true
+    },
+    "FI-Kumpula": {
+     "MBE": -0.5108240915327521,
+     "frozen": -0.5108240915327521,
+     "abs_diff": 0.0,
+     "pass": true
+    },
+    "FI-Torni": {
+     "MBE": -3.901660428088387,
+     "frozen": -3.901660428088387,
+     "abs_diff": 0.0,
+     "pass": true
+    },
+    "FR-Capitole": {
+     "MBE": -11.17329679350029,
+     "frozen": -11.17329679350029,
+     "abs_diff": 0.0,
+     "pass": true
+    },
+    "GR-HECKOR": {
+     "MBE": -5.564200012161831,
+     "frozen": -5.564200012161831,
+     "abs_diff": 0.0,
+     "pass": true
+    },
+    "JP-Yoyogi": {
+     "MBE": -4.500076574889054,
+     "frozen": -4.500076574889054,
+     "abs_diff": 0.0,
+     "pass": true
+    },
+    "KR-Jungnang": {
+     "MBE": -10.394323243261146,
+     "frozen": -10.394323243261146,
+     "abs_diff": 0.0,
+     "pass": true
+    },
+    "KR-Ochang": {
+     "MBE": 10.790987163454169,
+     "frozen": 10.790987163454169,
+     "abs_diff": 0.0,
+     "pass": true
+    },
+    "NL-Amsterdam": {
+     "MBE": -8.242006567222981,
+     "frozen": -8.242006567222981,
+     "abs_diff": 0.0,
+     "pass": true
+    },
+    "PL-Lipowa": {
+     "MBE": -26.4271382886763,
+     "frozen": -26.4271382886763,
+     "abs_diff": 0.0,
+     "pass": true
+    },
+    "PL-Narutowicza": {
+     "MBE": -5.622635260675868,
+     "frozen": -5.622635260675868,
+     "abs_diff": 0.0,
+     "pass": true
+    },
+    "SG-TelokKurau06": {
+     "MBE": -10.57046938838441,
+     "frozen": -10.57046938838441,
+     "abs_diff": 0.0,
+     "pass": true
+    },
+    "UK-KingsCollege": {
+     "MBE": -5.319030793735284,
+     "frozen": -5.319030793735284,
+     "abs_diff": 0.0,
+     "pass": true
+    },
+    "UK-Swindon": {
+     "MBE": 0.162804162426775,
+     "frozen": 0.162804162426775,
+     "abs_diff": 0.0,
+     "pass": true
+    },
+    "US-Baltimore": {
+     "MBE": -2.2677613210280487,
+     "frozen": -2.2677613210280487,
+     "abs_diff": 0.0,
+     "pass": true
+    },
+    "US-Minneapolis1": {
+     "MBE": 13.12209206457186,
+     "frozen": 13.12209206457186,
+     "abs_diff": 0.0,
+     "pass": true
+    },
+    "US-Minneapolis2": {
+     "MBE": 14.96006612048057,
+     "frozen": 14.96006612048057,
+     "abs_diff": 0.0,
+     "pass": true
+    },
+    "US-WestPhoenix": {
+     "MBE": 4.806051124843783,
+     "frozen": 4.806051124843783,
+     "abs_diff": 0.0,
+     "pass": true
+    }
+   },
+   "mean_abs_MBE": 7.686262929993649,
+   "mean_abs_MBE_expected": 7.686262929993649,
+   "mean_abs_MBE_pass": true
+  }
+ },
+ "per_record_skill": {
+  "TEB": {
+   "AU-Preston": {
+    "MBE": 14.386012053640613,
+    "RMSE": 14.903645797995459,
+    "cRMSE": 3.8937533646360674,
+    "r": 0.9864167956053446,
+    "nSD": 1.035202575350896,
+    "NME": 0.840435009160608,
+    "d": 0.9066209219415772,
+    "p95_abs_err": 21.316681854011442,
+    "n": 5288,
+    "sd_obs": 22.723537183217836,
+    "sd_model": 23.523464213148948,
+    "align_offset": 1,
+    "align_window": 22771,
+    "truncated": false
+   },
+   "CA-Sunset": {
+    "MBE": 4.595953942416941,
+    "RMSE": 11.457078154288242,
+    "cRMSE": 10.49484860265507,
+    "r": 0.961904503184418,
+    "nSD": 1.1963422764030511,
+    "NME": 0.3071428789761038,
+    "d": 0.9677727647603568,
+    "p95_abs_err": 23.585535967884876,
+    "n": 32809,
+    "sd_obs": 29.141027230328472,
+    "sd_model": 34.86264285345447,
+    "align_offset": 1,
+    "align_window": 87695,
+    "truncated": false
+   },
+   "FI-Kumpula": {
+    "MBE": 4.821678347963758,
+    "RMSE": 7.347471114435101,
+    "cRMSE": 5.544073383915085,
+    "r": 0.9915309770669465,
+    "nSD": 1.0218464293101537,
+    "NME": 0.15598517614135698,
+    "d": 0.9923526299110944,
+    "p95_abs_err": 15.695211734324202,
+    "n": 16934,
+    "sd_obs": 41.571699998202995,
+    "sd_model": 42.47989320351665,
+    "align_offset": 1,
+    "align_window": 52607,
+    "truncated": false
+   },
+   "FI-Torni": {
+    "MBE": 5.9266826099852725,
+    "RMSE": 9.279117564678423,
+    "cRMSE": 7.13977982991225,
+    "r": 0.9903129452351069,
+    "nSD": 1.113734763736876,
+    "NME": 0.21644994103576398,
+    "d": 0.9869636576257037,
+    "p95_abs_err": 20.17861517468035,
+    "n": 22565,
+    "sd_obs": 38.43192217168486,
+    "sd_model": 42.80296775983545,
+    "align_offset": 1,
+    "align_window": 52607,
+    "truncated": false
+   },
+   "FR-Capitole": {
+    "MBE": 2.632416083564692,
+    "RMSE": 5.9583002810738215,
+    "cRMSE": 5.345252828672776,
+    "r": 0.9928782355243756,
+    "nSD": 1.103022120719104,
+    "NME": 0.17304439392352466,
+    "d": 0.9925896509844924,
+    "p95_abs_err": 11.864220905704641,
+    "n": 4086,
+    "sd_obs": 32.944908925652115,
+    "sd_model": 36.33896331007053,
+    "align_offset": 1,
+    "align_window": 17999,
+    "truncated": false
+   },
+   "GR-HECKOR": {
+    "MBE": 13.358872840982222,
+    "RMSE": 14.278493727711812,
+    "cRMSE": 5.041418406636479,
+    "r": 0.9893853410252688,
+    "nSD": 1.1054904274791084,
+    "NME": 0.6094239043304122,
+    "d": 0.9408366067952372,
+    "p95_abs_err": 22.6565479426248,
+    "n": 4052,
+    "sd_obs": 27.10399340645242,
+    "sd_model": 29.96320525729002,
+    "align_offset": 1,
+    "align_window": 17568,
+    "truncated": false
+   },
+   "JP-Yoyogi": {
+    "MBE": 12.266671806419287,
+    "RMSE": 14.11763667525945,
+    "cRMSE": 6.988306525062335,
+    "r": 0.994791914038055,
+    "nSD": 1.1157755088958332,
+    "NME": 0.32433872456447427,
+    "d": 0.9775306689465256,
+    "p95_abs_err": 25.51698722644542,
+    "n": 29709,
+    "sd_obs": 44.17489736848264,
+    "sd_model": 49.28926859173992,
+    "align_offset": 1,
+    "align_window": 70126,
+    "truncated": false
+   },
+   "KR-Jungnang": {
+    "MBE": 11.786706705700684,
+    "RMSE": 13.933590168164326,
+    "cRMSE": 7.430913807073533,
+    "r": 0.9959599630051622,
+    "nSD": 1.087295875062962,
+    "NME": 0.24405170817921037,
+    "d": 0.9868647630138437,
+    "p95_abs_err": 24.75754793283973,
+    "n": 15008,
+    "sd_obs": 58.01507500197162,
+    "sd_model": 63.079551741112105,
+    "align_offset": 1,
+    "align_window": 39581,
+    "truncated": false
+   },
+   "KR-Ochang": {
+    "MBE": 21.481985481926962,
+    "RMSE": 23.7143779440987,
+    "cRMSE": 10.0447011418874,
+    "r": 0.9877040821762755,
+    "nSD": 1.0764763686566,
+    "NME": 0.44310409485739094,
+    "d": 0.9594843512917695,
+    "p95_abs_err": 39.912953268224484,
+    "n": 12995,
+    "sd_obs": 55.871909897047296,
+    "sd_model": 60.14479067588221,
+    "align_offset": 1,
+    "align_window": 37410,
+    "truncated": false
+   },
+   "NL-Amsterdam": {
+    "MBE": 7.747437421139964,
+    "RMSE": 9.838918827404994,
+    "cRMSE": 6.0647784046727224,
+    "r": 0.9787244971030473,
+    "nSD": 1.1115118787471738,
+    "NME": 0.39665212141696354,
+    "d": 0.9652423816246785,
+    "p95_abs_err": 18.949700371345216,
+    "n": 6110,
+    "sd_obs": 24.815075381668414,
+    "sd_model": 27.582251058731,
+    "align_offset": 1,
+    "align_window": 31268,
+    "truncated": false
+   },
+   "PL-Lipowa": {
+    "MBE": -14.512326096003902,
+    "RMSE": 15.445176542597926,
+    "cRMSE": 5.286385316571366,
+    "r": 0.9939578477299936,
+    "nSD": 0.9860225526462066,
+    "NME": 0.3697587021223247,
+    "d": 0.9743622431738647,
+    "p95_abs_err": 22.67747062284651,
+    "n": 34463,
+    "sd_obs": 48.03668302442095,
+    "sd_model": 47.36525281639625,
+    "align_offset": 1,
+    "align_window": 87694,
+    "truncated": false
+   },
+   "PL-Narutowicza": {
+    "MBE": 3.6822529833318036,
+    "RMSE": 13.55593876245991,
+    "cRMSE": 13.046244237262583,
+    "r": 0.9610375516523696,
+    "nSD": 1.0286218621601169,
+    "NME": 0.32554106930457516,
+    "d": 0.9784132021711064,
+    "p95_abs_err": 22.595463455780965,
+    "n": 36533,
+    "sd_obs": 45.8470572782399,
+    "sd_model": 47.15928543210467,
+    "align_offset": 1,
+    "align_window": 87694,
+    "truncated": false
+   },
+   "SG-TelokKurau06": {
+    "MBE": 12.307767195662189,
+    "RMSE": 13.451739430735163,
+    "cRMSE": 5.428458378745928,
+    "r": 0.8904230729109345,
+    "nSD": 1.6021707288932592,
+    "NME": 2.389734963153732,
+    "d": 0.6033405050883545,
+    "p95_abs_err": 22.247617543641965,
+    "n": 1916,
+    "sd_obs": 6.42553194580576,
+    "sd_model": 10.294799201138536,
+    "align_offset": 1,
+    "align_window": 16079,
+    "truncated": false
+   },
+   "UK-KingsCollege": {
+    "MBE": 6.549069373114565,
+    "RMSE": 9.373296721647312,
+    "cRMSE": 6.705846835275694,
+    "r": 0.9818630351911843,
+    "nSD": 1.1484532891887727,
+    "NME": 0.33010390480305357,
+    "d": 0.9731966554389329,
+    "p95_abs_err": 19.92779506852125,
+    "n": 10486,
+    "sd_obs": 26.570097137717223,
+    "sd_model": 30.51451545187654,
+    "align_offset": 1,
+    "align_window": 30576,
+    "truncated": false
+   },
+   "UK-Swindon": {
+    "MBE": 7.826312186042306,
+    "RMSE": 9.197392737999817,
+    "cRMSE": 4.831239048486163,
+    "r": 0.984803207052017,
+    "nSD": 1.081132791491442,
+    "NME": 0.3935262698733161,
+    "d": 0.967624863079661,
+    "p95_abs_err": 17.773477548206817,
+    "n": 12787,
+    "sd_obs": 24.326458335782437,
+    "sd_model": 26.300131807664723,
+    "align_offset": 1,
+    "align_window": 34304,
+    "truncated": false
+   },
+   "US-Baltimore": {
+    "MBE": 4.929212948387481,
+    "RMSE": 6.612941357363791,
+    "cRMSE": 4.40838440989232,
+    "r": 0.9972189516594415,
+    "nSD": 1.0443905187933855,
+    "NME": 0.12378382275612361,
+    "d": 0.9958159643776243,
+    "p95_abs_err": 12.867223095373355,
+    "n": 33699,
+    "sd_obs": 49.9807857540661,
+    "sd_model": 52.19945876339015,
+    "align_offset": 1,
+    "align_window": 87646,
+    "truncated": false
+   },
+   "US-Minneapolis1": {
+    "MBE": 18.741523875118666,
+    "RMSE": 22.853013116650903,
+    "cRMSE": 13.077289143709221,
+    "r": 0.9812408289569148,
+    "nSD": 1.0997565527932665,
+    "NME": 0.39313942079445724,
+    "d": 0.9651254960127088,
+    "p95_abs_err": 44.252709311549246,
+    "n": 19723,
+    "sd_obs": 57.78699474833188,
+    "sd_model": 63.55162614070805,
+    "align_offset": 1,
+    "align_window": 52454,
+    "truncated": false
+   },
+   "US-Minneapolis2": {
+    "MBE": 18.77569884863641,
+    "RMSE": 23.01506255897397,
+    "cRMSE": 13.310380811186391,
+    "r": 0.980338422480153,
+    "nSD": 1.0991565248307922,
+    "NME": 0.394508051432372,
+    "d": 0.9646042694729963,
+    "p95_abs_err": 44.51822902249673,
+    "n": 19723,
+    "sd_obs": 57.78699474833188,
+    "sd_model": 63.51695232799171,
+    "align_offset": 1,
+    "align_window": 52454,
+    "truncated": false
+   },
+   "US-WestPhoenix": {
+    "MBE": 18.263431394658344,
+    "RMSE": 18.836213774104337,
+    "cRMSE": 4.609774727290469,
+    "r": 0.9968154664028108,
+    "nSD": 1.0132991813353984,
+    "NME": 0.3711843244788583,
+    "d": 0.9733675970669834,
+    "p95_abs_err": 25.366289465433795,
+    "n": 4701,
+    "sd_obs": 56.61115522716948,
+    "sd_model": 57.364037246142004,
+    "align_offset": 1,
+    "align_window": 18312,
+    "truncated": false
+   }
+  },
+  "CLMU5": {
+   "AU-Preston": {
+    "MBE": 1.4700549842730593,
+    "RMSE": 5.184838462643551,
+    "cRMSE": 4.972070818776137,
+    "r": 0.9758196235668372,
+    "nSD": 0.9657958803813039,
+    "NME": 0.242883579315522,
+    "d": 0.9864039471268561,
+    "p95_abs_err": 10.09260559082031,
+    "n": 5288,
+    "sd_obs": 22.723537183217836,
+    "sd_model": 21.946298599243164,
+    "align_offset": 17521,
+    "align_window": 22772,
+    "truncated": false
+   },
+   "CA-Sunset": {
+    "MBE": -6.233517286672781,
+    "RMSE": 9.347423195929462,
+    "cRMSE": 6.965456384323189,
+    "r": 0.9728967477302048,
+    "nSD": 1.033406231058357,
+    "NME": 0.33838277669673383,
+    "d": 0.9751348654272549,
+    "p95_abs_err": 15.736798095703122,
+    "n": 32809,
+    "sd_obs": 29.141027230328472,
+    "sd_model": 30.114519119262695,
+    "align_offset": 17521,
+    "align_window": 87696,
+    "truncated": false
+   },
+   "FI-Kumpula": {
+    "MBE": -0.5108240915327521,
+    "RMSE": 4.923613251917478,
+    "cRMSE": 4.897042597670029,
+    "r": 0.993775508344588,
+    "nSD": 0.9554869805865017,
+    "NME": 0.10464984693686652,
+    "d": 0.9963208482168772,
+    "p95_abs_err": 10.260742187499995,
+    "n": 16934,
+    "sd_obs": 41.571699998202995,
+    "sd_model": 39.72121810913086,
+    "align_offset": 17521,
+    "align_window": 52608,
+    "truncated": false
+   },
+   "FI-Torni": {
+    "MBE": -3.901660428088387,
+    "RMSE": 4.774116506923895,
+    "cRMSE": 2.7512241503830546,
+    "r": 0.9975905870886503,
+    "nSD": 1.0152447445260162,
+    "NME": 0.12947984880924407,
+    "d": 0.9962060709382727,
+    "p95_abs_err": 8.722326660156249,
+    "n": 22565,
+    "sd_obs": 38.43192217168486,
+    "sd_model": 39.01780700683594,
+    "align_offset": 17521,
+    "align_window": 52608,
+    "truncated": false
+   },
+   "FR-Capitole": {
+    "MBE": -11.17329679350029,
+    "RMSE": 12.501078402835848,
+    "cRMSE": 5.606638921747539,
+    "r": 0.9884678627243876,
+    "nSD": 1.066125553738953,
+    "NME": 0.4101889581864147,
+    "d": 0.9670174349024144,
+    "p95_abs_err": 20.37958526611328,
+    "n": 4086,
+    "sd_obs": 32.944908925652115,
+    "sd_model": 35.123409271240234,
+    "align_offset": 17521,
+    "align_window": 18000,
+    "truncated": false
+   },
+   "GR-HECKOR": {
+    "MBE": -5.564200012161831,
+    "RMSE": 9.322608662235448,
+    "cRMSE": 7.480020754907474,
+    "r": 0.9617918568345836,
+    "nSD": 0.9256226034408664,
+    "NME": 0.35382618168681457,
+    "d": 0.967886808745088,
+    "p95_abs_err": 16.781982421875,
+    "n": 4051,
+    "sd_obs": 27.085770411466154,
+    "sd_model": 25.07120132446289,
+    "align_offset": 17521,
+    "align_window": 17568,
+    "truncated": true
+   },
+   "JP-Yoyogi": {
+    "MBE": -4.500076574889054,
+    "RMSE": 6.122876640205018,
+    "cRMSE": 4.151978946483278,
+    "r": 0.9973768430863703,
+    "nSD": 1.0573318772205873,
+    "NME": 0.13185628203934546,
+    "d": 0.9954668794872827,
+    "p95_abs_err": 10.98385009765625,
+    "n": 29709,
+    "sd_obs": 44.17489736848264,
+    "sd_model": 46.70752716064453,
+    "align_offset": 17521,
+    "align_window": 70127,
+    "truncated": false
+   },
+   "KR-Jungnang": {
+    "MBE": -10.394323243261146,
+    "RMSE": 11.399623755745559,
+    "cRMSE": 4.6807548629803675,
+    "r": 0.9975390977595249,
+    "nSD": 1.037461388553048,
+    "NME": 0.2130214170208942,
+    "d": 0.9907631456848482,
+    "p95_abs_err": 17.2326416015625,
+    "n": 15008,
+    "sd_obs": 58.01507500197162,
+    "sd_model": 60.18840026855469,
+    "align_offset": 17521,
+    "align_window": 39582,
+    "truncated": false
+   },
+   "KR-Ochang": {
+    "MBE": 10.790987163454169,
+    "RMSE": 12.592487601644077,
+    "cRMSE": 6.490403688262062,
+    "r": 0.9940954052031585,
+    "nSD": 1.035570242158853,
+    "NME": 0.22379534118133684,
+    "d": 0.9878190860198133,
+    "p95_abs_err": 22.54877319335937,
+    "n": 12995,
+    "sd_obs": 55.871909897047296,
+    "sd_model": 57.85928726196289,
+    "align_offset": 17521,
+    "align_window": 37411,
+    "truncated": false
+   },
+   "NL-Amsterdam": {
+    "MBE": -8.242006567222981,
+    "RMSE": 10.040730208450025,
+    "cRMSE": 5.734595963544747,
+    "r": 0.9733170415245106,
+    "nSD": 1.0007058865854814,
+    "NME": 0.4597046779409045,
+    "d": 0.9598653136076196,
+    "p95_abs_err": 14.72637481689453,
+    "n": 6110,
+    "sd_obs": 24.815075381668414,
+    "sd_model": 24.832592010498047,
+    "align_offset": 17521,
+    "align_window": 31269,
+    "truncated": false
+   },
+   "PL-Lipowa": {
+    "MBE": -26.4271382886763,
+    "RMSE": 27.532675304953756,
+    "cRMSE": 7.723637182001192,
+    "r": 0.9915971300770252,
+    "nSD": 0.8961136945364664,
+    "NME": 0.669550916675918,
+    "d": 0.9163256105707631,
+    "p95_abs_err": 40.408416748046875,
+    "n": 34463,
+    "sd_obs": 48.03668302442095,
+    "sd_model": 43.046329498291016,
+    "align_offset": 17521,
+    "align_window": 87695,
+    "truncated": false
+   },
+   "PL-Narutowicza": {
+    "MBE": -5.622635260675868,
+    "RMSE": 13.46984319496992,
+    "cRMSE": 12.240206224673472,
+    "r": 0.9638471038456629,
+    "nSD": 0.9471414614616587,
+    "NME": 0.2973371584571779,
+    "d": 0.9769702857894292,
+    "p95_abs_err": 22.3796875,
+    "n": 36533,
+    "sd_obs": 45.8470572782399,
+    "sd_model": 43.423648834228516,
+    "align_offset": 17521,
+    "align_window": 87695,
+    "truncated": false
+   },
+   "SG-TelokKurau06": {
+    "MBE": -10.57046938838441,
+    "RMSE": 11.239580823182392,
+    "cRMSE": 3.8201248658584284,
+    "r": 0.8978479183391254,
+    "nSD": 1.2973328774293817,
+    "NME": 2.0556923426654317,
+    "d": 0.6379739290338509,
+    "p95_abs_err": 16.074851989746094,
+    "n": 1916,
+    "sd_obs": 6.42553194580576,
+    "sd_model": 8.336053848266602,
+    "align_offset": 16081,
+    "align_window": 16080,
+    "truncated": false
+   },
+   "UK-KingsCollege": {
+    "MBE": -5.319030793735284,
+    "RMSE": 6.390808205736394,
+    "cRMSE": 3.5426460362148866,
+    "r": 0.9934119383776433,
+    "nSD": 1.0615530096404877,
+    "NME": 0.25212643639322097,
+    "d": 0.9864818212735246,
+    "p95_abs_err": 10.956707763671872,
+    "n": 10485,
+    "sd_obs": 26.57123072242053,
+    "sd_model": 28.206769943237305,
+    "align_offset": 17521,
+    "align_window": 30576,
+    "truncated": true
+   },
+   "UK-Swindon": {
+    "MBE": 0.162804162426775,
+    "RMSE": 2.601110367982262,
+    "cRMSE": 2.5960103911815837,
+    "r": 0.9942909117030873,
+    "nSD": 0.9959086638867646,
+    "NME": 0.09860230076459241,
+    "d": 0.9971223561009892,
+    "p95_abs_err": 5.171670532226561,
+    "n": 12787,
+    "sd_obs": 24.326458335782437,
+    "sd_model": 24.226930618286133,
+    "align_offset": 17521,
+    "align_window": 34305,
+    "truncated": false
+   },
+   "US-Baltimore": {
+    "MBE": -2.2677613210280487,
+    "RMSE": 6.454800391444599,
+    "cRMSE": 6.043319177777523,
+    "r": 0.9935015891785892,
+    "nSD": 1.0343099758284648,
+    "NME": 0.11665212303807698,
+    "d": 0.9959597032879184,
+    "p95_abs_err": 13.071041870117186,
+    "n": 33699,
+    "sd_obs": 49.9807857540661,
+    "sd_model": 51.69562530517578,
+    "align_offset": 17521,
+    "align_window": 87647,
+    "truncated": false
+   },
+   "US-Minneapolis1": {
+    "MBE": 13.12209206457186,
+    "RMSE": 16.788162459816903,
+    "cRMSE": 10.471537548333758,
+    "r": 0.9850909518451331,
+    "nSD": 1.0420204946002891,
+    "NME": 0.2800907445442133,
+    "d": 0.9798691269660145,
+    "p95_abs_err": 33.45347442626952,
+    "n": 19723,
+    "sd_obs": 57.78699474833188,
+    "sd_model": 60.215232849121094,
+    "align_offset": 17521,
+    "align_window": 52455,
+    "truncated": false
+   },
+   "US-Minneapolis2": {
+    "MBE": 14.96006612048057,
+    "RMSE": 18.710224874674246,
+    "cRMSE": 11.2369451601282,
+    "r": 0.9827007640957182,
+    "nSD": 1.041974483486444,
+    "NME": 0.3172691698324883,
+    "d": 0.9750603133374716,
+    "p95_abs_err": 36.42372436523437,
+    "n": 19723,
+    "sd_obs": 57.78699474833188,
+    "sd_model": 60.21257400512695,
+    "align_offset": 17521,
+    "align_window": 52455,
+    "truncated": false
+   },
+   "US-WestPhoenix": {
+    "MBE": 4.806051124843783,
+    "RMSE": 6.162946173050801,
+    "cRMSE": 3.8579499889651188,
+    "r": 0.9978940843779179,
+    "nSD": 0.9769947198870781,
+    "NME": 0.10207791864534997,
+    "d": 0.996970438807461,
+    "p95_abs_err": 11.419158935546875,
+    "n": 4701,
+    "sd_obs": 56.61115522716948,
+    "sd_model": 55.308799743652344,
+    "align_offset": 17521,
+    "align_window": 18313,
+    "truncated": false
+   }
+  }
+ },
+ "skill_summary": {
+  "TEB": {
+   "MBE": {
+    "median": 7.826312186042306,
+    "min": -14.512326096003902,
+    "max": 21.481985481926962
+   },
+   "RMSE": {
+    "median": 13.55593876245991,
+    "min": 5.9583002810738215,
+    "max": 23.7143779440987
+   },
+   "cRMSE": {
+    "median": 6.0647784046727224,
+    "min": 3.8937533646360674,
+    "max": 13.310380811186391
+   },
+   "r": {
+    "median": 0.9877040821762755,
+    "min": 0.8904230729109345,
+    "max": 0.9972189516594415
+   },
+   "nSD": {
+    "median": 1.0991565248307922,
+    "min": 0.9860225526462066,
+    "max": 1.6021707288932592
+   },
+   "NME": {
+    "median": 0.3697587021223247,
+    "min": 0.12378382275612361,
+    "max": 2.389734963153732
+   },
+   "d": {
+    "median": 0.9731966554389329,
+    "min": 0.6033405050883545,
+    "max": 0.9958159643776243
+   },
+   "p95_abs_err": {
+    "median": 22.595463455780965,
+    "min": 11.864220905704641,
+    "max": 44.51822902249673
+   },
+   "n_records_r_ge_0.90": 18,
+   "n_records": 19
+  },
+  "CLMU5": {
+   "MBE": {
+    "median": -4.500076574889054,
+    "min": -26.4271382886763,
+    "max": 14.96006612048057
+   },
+   "RMSE": {
+    "median": 9.347423195929462,
+    "min": 2.601110367982262,
+    "max": 27.532675304953756
+   },
+   "cRMSE": {
+    "median": 5.606638921747539,
+    "min": 2.5960103911815837,
+    "max": 12.240206224673472
+   },
+   "r": {
+    "median": 0.9915971300770252,
+    "min": 0.8978479183391254,
+    "max": 0.9978940843779179
+   },
+   "nSD": {
+    "median": 1.033406231058357,
+    "min": 0.8961136945364664,
+    "max": 1.2973328774293817
+   },
+   "NME": {
+    "median": 0.25212643639322097,
+    "min": 0.09860230076459241,
+    "max": 2.0556923426654317
+   },
+   "d": {
+    "median": 0.9864039471268561,
+    "min": 0.6379739290338509,
+    "max": 0.9971223561009892
+   },
+   "p95_abs_err": {
+    "median": 15.736798095703122,
+    "min": 5.171670532226561,
+    "max": 40.408416748046875
+   },
+   "n_records_r_ge_0.90": 18,
+   "n_records": 19
+  }
+ },
+ "benchmark": {
+  "per_record_mae": {
+   "TEB": {
+    "AU-Preston": {
+     "scheme_MAE": 14.389306668552116,
+     "REG1_MAE": 16.58871890595587,
+     "REG2_MAE": 15.298321228033787,
+     "KM3_MAE": 12.740723647231624,
+     "beats_REG1": true,
+     "beats_REG2": true,
+     "beats_KM3": false,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "CA-Sunset": {
+     "scheme_MAE": 7.324749148694061,
+     "REG1_MAE": 24.98253027550365,
+     "REG2_MAE": 5.816122800448311,
+     "KM3_MAE": 7.911040686507672,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": true,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "FI-Kumpula": {
+     "scheme_MAE": 5.247479049589033,
+     "REG1_MAE": 42.433970731647605,
+     "REG2_MAE": 5.7005375741465105,
+     "KM3_MAE": 7.606543088853909,
+     "beats_REG1": true,
+     "beats_REG2": true,
+     "beats_KM3": true,
+     "beats_all_three": true,
+     "beats_meaningful_two_REG2_KM3": true
+    },
+    "FI-Torni": {
+     "scheme_MAE": 6.74739229460991,
+     "REG1_MAE": 37.17679600395857,
+     "REG2_MAE": 3.8899047741439934,
+     "KM3_MAE": 6.240364497814373,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": false,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "FR-Capitole": {
+     "scheme_MAE": 4.7216932275378385,
+     "REG1_MAE": 26.973270933431053,
+     "REG2_MAE": 3.9477167186403475,
+     "KM3_MAE": 6.813527550363118,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": true,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "GR-HECKOR": {
+     "scheme_MAE": 13.359235320186839,
+     "REG1_MAE": 26.48489724122871,
+     "REG2_MAE": 12.970913057121315,
+     "KM3_MAE": 11.464261413131977,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": false,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "JP-Yoyogi": {
+     "scheme_MAE": 12.320553489210162,
+     "REG1_MAE": 41.4931179046391,
+     "REG2_MAE": 5.244799309983706,
+     "KM3_MAE": 8.906804015113238,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": false,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "KR-Jungnang": {
+     "scheme_MAE": 12.018172899502009,
+     "REG1_MAE": 49.00724446127354,
+     "REG2_MAE": 5.5123286095668345,
+     "KM3_MAE": 9.955850902492987,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": false,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "KR-Ochang": {
+     "scheme_MAE": 21.48260486239267,
+     "REG1_MAE": 48.81780244380842,
+     "REG2_MAE": 13.626079072183003,
+     "KM3_MAE": 14.866484457415408,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": false,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "NL-Amsterdam": {
+     "scheme_MAE": 7.947328119822177,
+     "REG1_MAE": 25.02949612773369,
+     "REG2_MAE": 4.583683914774441,
+     "KM3_MAE": 7.370771296669058,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": false,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "PL-Lipowa": {
+     "scheme_MAE": 14.594355875040806,
+     "REG1_MAE": 41.52761230254358,
+     "REG2_MAE": 31.9110559518883,
+     "KM3_MAE": 28.43544261973852,
+     "beats_REG1": true,
+     "beats_REG2": true,
+     "beats_KM3": true,
+     "beats_all_three": true,
+     "beats_meaningful_two_REG2_KM3": true
+    },
+    "PL-Narutowicza": {
+     "scheme_MAE": 12.078210533787642,
+     "REG1_MAE": 37.78951890141555,
+     "REG2_MAE": 14.432227014987417,
+     "KM3_MAE": 16.261153880966766,
+     "beats_REG1": true,
+     "beats_REG2": true,
+     "beats_KM3": true,
+     "beats_all_three": true,
+     "beats_meaningful_two_REG2_KM3": true
+    },
+    "SG-TelokKurau06": {
+     "scheme_MAE": 12.307767195662189,
+     "REG1_MAE": 92.52601467294872,
+     "REG2_MAE": 5.758474322064483,
+     "KM3_MAE": 9.442099233189985,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": false,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "UK-KingsCollege": {
+     "scheme_MAE": 7.099271055630192,
+     "REG1_MAE": 21.45685867628889,
+     "REG2_MAE": 5.636674035042038,
+     "KM3_MAE": 6.355693887746797,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": false,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "UK-Swindon": {
+     "scheme_MAE": 7.8347950774311235,
+     "REG1_MAE": 23.043176275145846,
+     "REG2_MAE": 7.256399633631987,
+     "KM3_MAE": 8.568455876261076,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": true,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "US-Baltimore": {
+     "scheme_MAE": 5.284964980235524,
+     "REG1_MAE": 43.13185046258748,
+     "REG2_MAE": 5.024879630216773,
+     "KM3_MAE": 7.649210249816038,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": true,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "US-Minneapolis1": {
+     "scheme_MAE": 18.84566044597407,
+     "REG1_MAE": 62.4114668271187,
+     "REG2_MAE": 17.740333079393665,
+     "KM3_MAE": 18.79757575257612,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": false,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "US-Minneapolis2": {
+     "scheme_MAE": 18.911267573913506,
+     "REG1_MAE": 62.4114668271187,
+     "REG2_MAE": 17.740333079393665,
+     "KM3_MAE": 18.79757575257612,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": false,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "US-WestPhoenix": {
+     "scheme_MAE": 18.263431394658344,
+     "REG1_MAE": 81.87591010669219,
+     "REG2_MAE": 12.920176377251277,
+     "KM3_MAE": 36.19155741940085,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": true,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    }
+   },
+   "CLMU5": {
+    "AU-Preston": {
+     "scheme_MAE": 4.158473016274318,
+     "REG1_MAE": 16.588720137348986,
+     "REG2_MAE": 15.298378242543109,
+     "KM3_MAE": 12.828379039861508,
+     "beats_REG1": true,
+     "beats_REG2": true,
+     "beats_KM3": true,
+     "beats_all_three": true,
+     "beats_meaningful_two_REG2_KM3": true
+    },
+    "CA-Sunset": {
+     "scheme_MAE": 8.069758816498462,
+     "REG1_MAE": 24.982606709894657,
+     "REG2_MAE": 5.816101295386108,
+     "KM3_MAE": 7.992224853318328,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": false,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "FI-Kumpula": {
+     "scheme_MAE": 3.5205132495812097,
+     "REG1_MAE": 42.43383636380354,
+     "REG2_MAE": 5.700561764453793,
+     "KM3_MAE": 7.56398642167814,
+     "beats_REG1": true,
+     "beats_REG2": true,
+     "beats_KM3": true,
+     "beats_all_three": true,
+     "beats_meaningful_two_REG2_KM3": true
+    },
+    "FI-Torni": {
+     "scheme_MAE": 4.03627429964694,
+     "REG1_MAE": 37.176675809495144,
+     "REG2_MAE": 3.889920544455369,
+     "KM3_MAE": 6.203493275592896,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": true,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "FR-Capitole": {
+     "scheme_MAE": 11.192425145743469,
+     "REG1_MAE": 26.97324190995501,
+     "REG2_MAE": 3.9477330933374692,
+     "KM3_MAE": 6.777833831627781,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": false,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "GR-HECKOR": {
+     "scheme_MAE": 7.750731691140595,
+     "REG1_MAE": 26.468508032043175,
+     "REG2_MAE": 12.97256694843548,
+     "KM3_MAE": 11.040987794408728,
+     "beats_REG1": true,
+     "beats_REG2": true,
+     "beats_KM3": true,
+     "beats_all_three": true,
+     "beats_meaningful_two_REG2_KM3": true
+    },
+    "JP-Yoyogi": {
+     "scheme_MAE": 5.00878326488948,
+     "REG1_MAE": 41.493224837174424,
+     "REG2_MAE": 5.244782298927492,
+     "KM3_MAE": 8.8024620166875,
+     "beats_REG1": true,
+     "beats_REG2": true,
+     "beats_KM3": true,
+     "beats_all_three": true,
+     "beats_meaningful_two_REG2_KM3": true
+    },
+    "KR-Jungnang": {
+     "scheme_MAE": 10.49010572453806,
+     "REG1_MAE": 49.00725415777888,
+     "REG2_MAE": 5.512309764455419,
+     "KM3_MAE": 9.9268056706992,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": false,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "KR-Ochang": {
+     "scheme_MAE": 10.850061961603696,
+     "REG1_MAE": 48.817776961495,
+     "REG2_MAE": 13.626120172940256,
+     "KM3_MAE": 14.70998209648075,
+     "beats_REG1": true,
+     "beats_REG2": true,
+     "beats_KM3": true,
+     "beats_all_three": true,
+     "beats_meaningful_two_REG2_KM3": true
+    },
+    "NL-Amsterdam": {
+     "scheme_MAE": 9.210650130301568,
+     "REG1_MAE": 25.02962754073349,
+     "REG2_MAE": 4.583684144547832,
+     "KM3_MAE": 7.411012014395489,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": false,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "PL-Lipowa": {
+     "scheme_MAE": 26.4271382886763,
+     "REG1_MAE": 41.52769574584992,
+     "REG2_MAE": 31.911035621170356,
+     "KM3_MAE": 28.50355629635624,
+     "beats_REG1": true,
+     "beats_REG2": true,
+     "beats_KM3": true,
+     "beats_all_three": true,
+     "beats_meaningful_two_REG2_KM3": true
+    },
+    "PL-Narutowicza": {
+     "scheme_MAE": 11.031790265467126,
+     "REG1_MAE": 37.78947451733046,
+     "REG2_MAE": 14.432232075156731,
+     "KM3_MAE": 16.11723729009025,
+     "beats_REG1": true,
+     "beats_REG2": true,
+     "beats_KM3": true,
+     "beats_all_three": true,
+     "beats_meaningful_two_REG2_KM3": true
+    },
+    "SG-TelokKurau06": {
+     "scheme_MAE": 10.58735933881214,
+     "REG1_MAE": 92.52627966582752,
+     "REG2_MAE": 5.758367373265794,
+     "KM3_MAE": 9.093889853326399,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": false,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "UK-KingsCollege": {
+     "scheme_MAE": 5.422596882614114,
+     "REG1_MAE": 21.458163361362285,
+     "REG2_MAE": 5.6364973395782005,
+     "KM3_MAE": 6.315151714512361,
+     "beats_REG1": true,
+     "beats_REG2": true,
+     "beats_KM3": true,
+     "beats_all_three": true,
+     "beats_meaningful_two_REG2_KM3": true
+    },
+    "UK-Swindon": {
+     "scheme_MAE": 1.9630933937459982,
+     "REG1_MAE": 23.043056926404493,
+     "REG2_MAE": 7.256438318486358,
+     "KM3_MAE": 8.553207110835547,
+     "beats_REG1": true,
+     "beats_REG2": true,
+     "beats_KM3": true,
+     "beats_all_three": true,
+     "beats_meaningful_two_REG2_KM3": true
+    },
+    "US-Baltimore": {
+     "scheme_MAE": 4.980476215708599,
+     "REG1_MAE": 43.13188402048099,
+     "REG2_MAE": 5.024871343049999,
+     "KM3_MAE": 7.69940513423872,
+     "beats_REG1": true,
+     "beats_REG2": true,
+     "beats_KM3": true,
+     "beats_all_three": true,
+     "beats_meaningful_two_REG2_KM3": true
+    },
+    "US-Minneapolis1": {
+     "scheme_MAE": 13.426521957715433,
+     "REG1_MAE": 62.41133903348465,
+     "REG2_MAE": 17.740372963065624,
+     "KM3_MAE": 18.815878668284643,
+     "beats_REG1": true,
+     "beats_REG2": true,
+     "beats_KM3": true,
+     "beats_all_three": true,
+     "beats_meaningful_two_REG2_KM3": true
+    },
+    "US-Minneapolis2": {
+     "scheme_MAE": 15.208719167761089,
+     "REG1_MAE": 62.41133903348465,
+     "REG2_MAE": 17.740372963065624,
+     "KM3_MAE": 18.815878668284643,
+     "beats_REG1": true,
+     "beats_REG2": true,
+     "beats_KM3": true,
+     "beats_all_three": true,
+     "beats_meaningful_two_REG2_KM3": true
+    },
+    "US-WestPhoenix": {
+     "scheme_MAE": 5.022553327666321,
+     "REG1_MAE": 81.87613130557101,
+     "REG2_MAE": 12.920170423015955,
+     "KM3_MAE": 35.77582254633622,
+     "beats_REG1": true,
+     "beats_REG2": true,
+     "beats_KM3": true,
+     "beats_all_three": true,
+     "beats_meaningful_two_REG2_KM3": true
+    }
+   }
+  },
+  "win_counts": {
+   "TEB": {
+    "beats_REG1": 19,
+    "beats_REG2": 4,
+    "beats_KM3": 8,
+    "beats_all_three": 3,
+    "beats_meaningful_two_REG2_KM3": 3
+   },
+   "CLMU5": {
+    "beats_REG1": 19,
+    "beats_REG2": 13,
+    "beats_KM3": 14,
+    "beats_all_three": 13,
+    "beats_meaningful_two_REG2_KM3": 13
+   }
+  },
+  "reg1_pred_sd": {
+   "TEB": {
+    "AU-Preston": 0.20455841313238218,
+    "CA-Sunset": 0.12276987523695619,
+    "FI-Kumpula": 0.0,
+    "FI-Torni": 0.16808591548867244,
+    "FR-Capitole": 0.24545234224462084,
+    "GR-HECKOR": 0.22691720139008215,
+    "JP-Yoyogi": 0.0,
+    "KR-Jungnang": 0.42620648594474747,
+    "KR-Ochang": 0.16146601044680722,
+    "NL-Amsterdam": 0.2518586135972431,
+    "PL-Lipowa": 0.07005544109408375,
+    "PL-Narutowicza": 0.2944740455951238,
+    "SG-TelokKurau06": 0.2556970380927505,
+    "UK-KingsCollege": 0.18070721444689153,
+    "UK-Swindon": 0.29275462066132435,
+    "US-Baltimore": 0.22424750309061522,
+    "US-Minneapolis1": 0.34628650986213955,
+    "US-Minneapolis2": 0.34628650986213955,
+    "US-WestPhoenix": 0.16388494516026997
+   },
+   "CLMU5": {
+    "AU-Preston": 0.20459090467556604,
+    "CA-Sunset": 0.12282169149094016,
+    "FI-Kumpula": 1.1368683772161603e-13,
+    "FI-Torni": 0.16812838053864884,
+    "FR-Capitole": 0.24549387923420218,
+    "GR-HECKOR": 0.22694167862590514,
+    "JP-Yoyogi": 0.0,
+    "KR-Jungnang": 0.4262579230379963,
+    "KR-Ochang": 0.16151141497235894,
+    "NL-Amsterdam": 0.25190500663288945,
+    "PL-Lipowa": 0.07000376039707146,
+    "PL-Narutowicza": 0.2945223938888876,
+    "SG-TelokKurau06": 0.25574432750663095,
+    "UK-KingsCollege": 0.18075424424010245,
+    "UK-Swindon": 0.2928019534876067,
+    "US-Baltimore": 0.2242754965775381,
+    "US-Minneapolis1": 0.34632967543426146,
+    "US-Minneapolis2": 0.34632967543426146,
+    "US-WestPhoenix": 0.1639034595742932
+   }
+  },
+  "reg1_degeneracy": {
+   "TEB": {
+    "sw_max": 0.9993896484375,
+    "sw_mean": 0.012557584330120533,
+    "sw_sd": 0.0858518190538782,
+    "frac_sw_eq_zero": 0.967192748781626,
+    "frac_sw_gt_1Wm2": 0.0
+   },
+   "CLMU5": {
+    "sw_max": 0.9993896484375,
+    "sw_mean": 0.012557661945487934,
+    "sw_sd": 0.08585207869161521,
+    "frac_sw_eq_zero": 0.9671925460080041,
+    "frac_sw_gt_1Wm2": 0.0
+   }
+  },
+  "bias_decomposition": {
+   "note": "debiased error = mean|e - MBE| (per-record mean bias removed); REG1 omitted (degenerate at night). abs_MBE_over_MAE near 1 means MAE is essentially the mean bias.",
+   "per_record": {
+    "TEB": {
+     "AU-Preston": {
+      "MBE": 14.386012053640613,
+      "MAE": 14.389306668552116,
+      "abs_MBE_over_MAE": 0.9997710372718163,
+      "debiased_MAE": 2.9959968053221915,
+      "REG2_MAE": 15.298321228033787,
+      "KM3_MAE": 12.740723647231624,
+      "raw_beats_both": false,
+      "debiased_beats_both": true
+     },
+     "CA-Sunset": {
+      "MBE": 4.595953942416941,
+      "MAE": 7.324749148694061,
+      "abs_MBE_over_MAE": 0.6274554730978547,
+      "debiased_MAE": 7.48602139031986,
+      "REG2_MAE": 5.816122800448311,
+      "KM3_MAE": 7.911040686507672,
+      "raw_beats_both": false,
+      "debiased_beats_both": false
+     },
+     "FI-Kumpula": {
+      "MBE": 4.821678347963758,
+      "MAE": 5.247479049589033,
+      "abs_MBE_over_MAE": 0.9188561407103432,
+      "debiased_MAE": 4.379502082028708,
+      "REG2_MAE": 5.7005375741465105,
+      "KM3_MAE": 7.606543088853909,
+      "raw_beats_both": true,
+      "debiased_beats_both": true
+     },
+     "FI-Torni": {
+      "MBE": 5.9266826099852725,
+      "MAE": 6.74739229460991,
+      "abs_MBE_over_MAE": 0.878366389741374,
+      "debiased_MAE": 5.669928288727057,
+      "REG2_MAE": 3.8899047741439934,
+      "KM3_MAE": 6.240364497814373,
+      "raw_beats_both": false,
+      "debiased_beats_both": false
+     },
+     "FR-Capitole": {
+      "MBE": 2.632416083564692,
+      "MAE": 4.7216932275378385,
+      "abs_MBE_over_MAE": 0.5575152718969387,
+      "debiased_MAE": 4.446654391780579,
+      "REG2_MAE": 3.9477167186403475,
+      "KM3_MAE": 6.813527550363118,
+      "raw_beats_both": false,
+      "debiased_beats_both": false
+     },
+     "GR-HECKOR": {
+      "MBE": 13.358872840982222,
+      "MAE": 13.359235320186839,
+      "abs_MBE_over_MAE": 0.9999728667699963,
+      "debiased_MAE": 3.961362541519774,
+      "REG2_MAE": 12.970913057121315,
+      "KM3_MAE": 11.464261413131977,
+      "raw_beats_both": false,
+      "debiased_beats_both": true
+     },
+     "JP-Yoyogi": {
+      "MBE": 12.266671806419287,
+      "MAE": 12.320553489210162,
+      "abs_MBE_over_MAE": 0.9956266832623987,
+      "debiased_MAE": 5.530922768519467,
+      "REG2_MAE": 5.244799309983706,
+      "KM3_MAE": 8.906804015113238,
+      "raw_beats_both": false,
+      "debiased_beats_both": false
+     },
+     "KR-Jungnang": {
+      "MBE": 11.786706705700684,
+      "MAE": 12.018172899502009,
+      "abs_MBE_over_MAE": 0.9807403175393727,
+      "debiased_MAE": 5.937336110724058,
+      "REG2_MAE": 5.5123286095668345,
+      "KM3_MAE": 9.955850902492987,
+      "raw_beats_both": false,
+      "debiased_beats_both": false
+     },
+     "KR-Ochang": {
+      "MBE": 21.481985481926962,
+      "MAE": 21.48260486239267,
+      "abs_MBE_over_MAE": 0.999971168279188,
+      "debiased_MAE": 8.135183730162579,
+      "REG2_MAE": 13.626079072183003,
+      "KM3_MAE": 14.866484457415408,
+      "raw_beats_both": false,
+      "debiased_beats_both": true
+     },
+     "NL-Amsterdam": {
+      "MBE": 7.747437421139964,
+      "MAE": 7.947328119822177,
+      "abs_MBE_over_MAE": 0.9748480626861692,
+      "debiased_MAE": 4.780608340697164,
+      "REG2_MAE": 4.583683914774441,
+      "KM3_MAE": 7.370771296669058,
+      "raw_beats_both": false,
+      "debiased_beats_both": false
+     },
+     "PL-Lipowa": {
+      "MBE": -14.512326096003902,
+      "MAE": 14.594355875040806,
+      "abs_MBE_over_MAE": 0.9943793491306326,
+      "debiased_MAE": 3.989743278792969,
+      "REG2_MAE": 31.9110559518883,
+      "KM3_MAE": 28.43544261973852,
+      "raw_beats_both": true,
+      "debiased_beats_both": true
+     },
+     "PL-Narutowicza": {
+      "MBE": 3.6822529833318036,
+      "MAE": 12.078210533787642,
+      "abs_MBE_over_MAE": 0.30486742825280716,
+      "debiased_MAE": 11.404812583960673,
+      "REG2_MAE": 14.432227014987417,
+      "KM3_MAE": 16.261153880966766,
+      "raw_beats_both": true,
+      "debiased_beats_both": true
+     },
+     "SG-TelokKurau06": {
+      "MBE": 12.307767195662189,
+      "MAE": 12.307767195662189,
+      "abs_MBE_over_MAE": 1.0,
+      "debiased_MAE": 4.280560633778198,
+      "REG2_MAE": 5.758474322064483,
+      "KM3_MAE": 9.442099233189985,
+      "raw_beats_both": false,
+      "debiased_beats_both": true
+     },
+     "UK-KingsCollege": {
+      "MBE": 6.549069373114565,
+      "MAE": 7.099271055630192,
+      "abs_MBE_over_MAE": 0.9224988483741186,
+      "debiased_MAE": 5.306981322661948,
+      "REG2_MAE": 5.636674035042038,
+      "KM3_MAE": 6.355693887746797,
+      "raw_beats_both": false,
+      "debiased_beats_both": true
+     },
+     "UK-Swindon": {
+      "MBE": 7.826312186042306,
+      "MAE": 7.8347950774311235,
+      "abs_MBE_over_MAE": 0.9989172797367408,
+      "debiased_MAE": 3.757638570832598,
+      "REG2_MAE": 7.256399633631987,
+      "KM3_MAE": 8.568455876261076,
+      "raw_beats_both": false,
+      "debiased_beats_both": true
+     },
+     "US-Baltimore": {
+      "MBE": 4.929212948387481,
+      "MAE": 5.284964980235524,
+      "abs_MBE_over_MAE": 0.9326860190789402,
+      "debiased_MAE": 3.442838380830337,
+      "REG2_MAE": 5.024879630216773,
+      "KM3_MAE": 7.649210249816038,
+      "raw_beats_both": false,
+      "debiased_beats_both": true
+     },
+     "US-Minneapolis1": {
+      "MBE": 18.741523875118666,
+      "MAE": 18.84566044597407,
+      "abs_MBE_over_MAE": 0.9944742413695749,
+      "debiased_MAE": 10.232966884062197,
+      "REG2_MAE": 17.740333079393665,
+      "KM3_MAE": 18.79757575257612,
+      "raw_beats_both": false,
+      "debiased_beats_both": true
+     },
+     "US-Minneapolis2": {
+      "MBE": 18.77569884863641,
+      "MAE": 18.911267573913506,
+      "abs_MBE_over_MAE": 0.992831325306607,
+      "debiased_MAE": 10.437062639884156,
+      "REG2_MAE": 17.740333079393665,
+      "KM3_MAE": 18.79757575257612,
+      "raw_beats_both": false,
+      "debiased_beats_both": true
+     },
+     "US-WestPhoenix": {
+      "MBE": 18.263431394658344,
+      "MAE": 18.263431394658344,
+      "abs_MBE_over_MAE": 1.0,
+      "debiased_MAE": 3.646416907979375,
+      "REG2_MAE": 12.920176377251277,
+      "KM3_MAE": 36.19155741940085,
+      "raw_beats_both": false,
+      "debiased_beats_both": true
+     }
+    },
+    "CLMU5": {
+     "AU-Preston": {
+      "MBE": 1.4700549842730593,
+      "MAE": 4.158473016274318,
+      "abs_MBE_over_MAE": 0.3535083619684321,
+      "debiased_MAE": 3.9338538140771786,
+      "REG2_MAE": 15.298378242543109,
+      "KM3_MAE": 12.828379039861508,
+      "raw_beats_both": true,
+      "debiased_beats_both": true
+     },
+     "CA-Sunset": {
+      "MBE": -6.233517286672781,
+      "MAE": 8.069758816498462,
+      "abs_MBE_over_MAE": 0.7724539764346461,
+      "debiased_MAE": 4.383561609777413,
+      "REG2_MAE": 5.816101295386108,
+      "KM3_MAE": 7.992224853318328,
+      "raw_beats_both": false,
+      "debiased_beats_both": true
+     },
+     "FI-Kumpula": {
+      "MBE": -0.5108240915327521,
+      "MAE": 3.5205132495812097,
+      "abs_MBE_over_MAE": 0.14509932368341982,
+      "debiased_MAE": 3.423330870689648,
+      "REG2_MAE": 5.700561764453793,
+      "KM3_MAE": 7.56398642167814,
+      "raw_beats_both": true,
+      "debiased_beats_both": true
+     },
+     "FI-Torni": {
+      "MBE": -3.901660428088387,
+      "MAE": 4.03627429964694,
+      "abs_MBE_over_MAE": 0.9666489783485905,
+      "debiased_MAE": 2.185416821883032,
+      "REG2_MAE": 3.889920544455369,
+      "KM3_MAE": 6.203493275592896,
+      "raw_beats_both": false,
+      "debiased_beats_both": true
+     },
+     "FR-Capitole": {
+      "MBE": -11.17329679350029,
+      "MAE": 11.192425145743469,
+      "abs_MBE_over_MAE": 0.9982909555351859,
+      "debiased_MAE": 4.690136815302804,
+      "REG2_MAE": 3.9477330933374692,
+      "KM3_MAE": 6.777833831627781,
+      "raw_beats_both": false,
+      "debiased_beats_both": false
+     },
+     "GR-HECKOR": {
+      "MBE": -5.564200012161831,
+      "MAE": 7.750731691140595,
+      "abs_MBE_over_MAE": 0.7178935143016163,
+      "debiased_MAE": 6.151733733266857,
+      "REG2_MAE": 12.97256694843548,
+      "KM3_MAE": 11.040987794408728,
+      "raw_beats_both": true,
+      "debiased_beats_both": true
+     },
+     "JP-Yoyogi": {
+      "MBE": -4.500076574889054,
+      "MAE": 5.00878326488948,
+      "abs_MBE_over_MAE": 0.898437072818392,
+      "debiased_MAE": 3.468927637595348,
+      "REG2_MAE": 5.244782298927492,
+      "KM3_MAE": 8.8024620166875,
+      "raw_beats_both": true,
+      "debiased_beats_both": true
+     },
+     "KR-Jungnang": {
+      "MBE": -10.394323243261146,
+      "MAE": 10.49010572453806,
+      "abs_MBE_over_MAE": 0.9908692549158143,
+      "debiased_MAE": 3.7432549441383354,
+      "REG2_MAE": 5.512309764455419,
+      "KM3_MAE": 9.9268056706992,
+      "raw_beats_both": false,
+      "debiased_beats_both": true
+     },
+     "KR-Ochang": {
+      "MBE": 10.790987163454169,
+      "MAE": 10.850061961603696,
+      "abs_MBE_over_MAE": 0.994555349235923,
+      "debiased_MAE": 5.168036550119274,
+      "REG2_MAE": 13.626120172940256,
+      "KM3_MAE": 14.70998209648075,
+      "raw_beats_both": true,
+      "debiased_beats_both": true
+     },
+     "NL-Amsterdam": {
+      "MBE": -8.242006567222981,
+      "MAE": 9.210650130301568,
+      "abs_MBE_over_MAE": 0.8948343982916142,
+      "debiased_MAE": 4.326722123394829,
+      "REG2_MAE": 4.583684144547832,
+      "KM3_MAE": 7.411012014395489,
+      "raw_beats_both": false,
+      "debiased_beats_both": true
+     },
+     "PL-Lipowa": {
+      "MBE": -26.4271382886763,
+      "MAE": 26.4271382886763,
+      "abs_MBE_over_MAE": 1.0,
+      "debiased_MAE": 6.310848732373925,
+      "REG2_MAE": 31.911035621170356,
+      "KM3_MAE": 28.50355629635624,
+      "raw_beats_both": true,
+      "debiased_beats_both": true
+     },
+     "PL-Narutowicza": {
+      "MBE": -5.622635260675868,
+      "MAE": 11.031790265467126,
+      "abs_MBE_over_MAE": 0.5096756850315071,
+      "debiased_MAE": 11.763807515104466,
+      "REG2_MAE": 14.432232075156731,
+      "KM3_MAE": 16.11723729009025,
+      "raw_beats_both": true,
+      "debiased_beats_both": true
+     },
+     "SG-TelokKurau06": {
+      "MBE": -10.57046938838441,
+      "MAE": 10.58735933881214,
+      "abs_MBE_over_MAE": 0.9984047060379057,
+      "debiased_MAE": 3.1385863190486667,
+      "REG2_MAE": 5.758367373265794,
+      "KM3_MAE": 9.093889853326399,
+      "raw_beats_both": false,
+      "debiased_beats_both": true
+     },
+     "UK-KingsCollege": {
+      "MBE": -5.319030793735284,
+      "MAE": 5.422596882614114,
+      "abs_MBE_over_MAE": 0.980901016409521,
+      "debiased_MAE": 2.8834198296203017,
+      "REG2_MAE": 5.6364973395782005,
+      "KM3_MAE": 6.315151714512361,
+      "raw_beats_both": true,
+      "debiased_beats_both": true
+     },
+     "UK-Swindon": {
+      "MBE": 0.162804162426775,
+      "MAE": 1.9630933937459982,
+      "abs_MBE_over_MAE": 0.08293245901872766,
+      "debiased_MAE": 1.9641138466919783,
+      "REG2_MAE": 7.256438318486358,
+      "KM3_MAE": 8.553207110835547,
+      "raw_beats_both": true,
+      "debiased_beats_both": true
+     },
+     "US-Baltimore": {
+      "MBE": -2.2677613210280487,
+      "MAE": 4.980476215708599,
+      "abs_MBE_over_MAE": 0.4553302179971162,
+      "debiased_MAE": 4.64122668983432,
+      "REG2_MAE": 5.024871343049999,
+      "KM3_MAE": 7.69940513423872,
+      "raw_beats_both": true,
+      "debiased_beats_both": true
+     },
+     "US-Minneapolis1": {
+      "MBE": 13.12209206457186,
+      "MAE": 13.426521957715433,
+      "abs_MBE_over_MAE": 0.9773262283335681,
+      "debiased_MAE": 8.232083116166645,
+      "REG2_MAE": 17.740372963065624,
+      "KM3_MAE": 18.815878668284643,
+      "raw_beats_both": true,
+      "debiased_beats_both": true
+     },
+     "US-Minneapolis2": {
+      "MBE": 14.96006612048057,
+      "MAE": 15.208719167761089,
+      "abs_MBE_over_MAE": 0.9836506253723454,
+      "debiased_MAE": 8.899882711443883,
+      "REG2_MAE": 17.740372963065624,
+      "KM3_MAE": 18.815878668284643,
+      "raw_beats_both": true,
+      "debiased_beats_both": true
+     },
+     "US-WestPhoenix": {
+      "MBE": 4.806051124843783,
+      "MAE": 5.022553327666321,
+      "abs_MBE_over_MAE": 0.9568939962011049,
+      "debiased_MAE": 3.1723610995347755,
+      "REG2_MAE": 12.920170423015955,
+      "KM3_MAE": 35.77582254633622,
+      "raw_beats_both": true,
+      "debiased_beats_both": true
+     }
+    }
+   },
+   "TEB": {
+    "raw_beats": {
+     "REG2": 4,
+     "KM3": 8,
+     "both": 3
+    },
+    "debiased_beats": {
+     "REG2": 13,
+     "KM3": 19,
+     "both": 13
+    },
+    "median_absMBE_over_MAE": 0.992831325306607,
+    "corr_absMBE_MAE": 0.9438630759823513
+   },
+   "CLMU5": {
+    "raw_beats": {
+     "REG2": 13,
+     "KM3": 14,
+     "both": 13
+    },
+    "debiased_beats": {
+     "REG2": 18,
+     "KM3": 19,
+     "both": 18
+    },
+    "median_absMBE_over_MAE": 0.9568939962011049,
+    "corr_absMBE_MAE": 0.9737288884659938
+   }
+  }
+ },
+ "lipson_metric_families": {
+  "question": "What benchmark suite and metric families did Urban-PLUMBER Phase 1 actually use (including at night), so the manuscript need not call them 'level-based'?",
+  "verdict": "NOT level-based. Phase 1 benchmarking (adopted from PLUMBER, Best et al. 2015) scores models with a metric set spanning THREE families -- (i) level/magnitude bias, (ii) variability/distribution, (iii) association/timing -- each evaluable within any time subset incl. night. Level (bias) is one of three families, not the whole. This SUPPORTS the manuscript's existing wording ('whether level, correlation, or distribution').",
+  "metric_families": {
+   "level_magnitude_bias": {
+    "metrics": [
+     "Mean Bias Error (MBE)",
+     "Mean Absolute Error (MAE)",
+     "Normalised Mean Error (NME)"
+    ],
+    "note": "NME is the SUMMARY metric; it aggregates the other families."
+   },
+   "variability_distribution": {
+    "metrics": [
+     "Standard-Deviation difference / normalised standard deviation (nSD)"
+    ]
+   },
+   "association_timing": {
+    "metrics": [
+     "Correlation coefficient (Pearson r)",
+     "regression slope"
+    ]
+   }
+  },
+  "summary_metric_quote": {
+   "text": "the first three metrics provide independent information about model performance, while normalized mean error contains information about all three previous metrics, and is commonly used as a summary metric",
+   "source": "Best et al. (2015), doi:10.1175/JHM-D-14-0158.1, read at https://pmc.ncbi.nlm.nih.gov/articles/PMC5884676/",
+   "confidence": "verbatim-as-extracted from the PMC full text"
+  },
+  "benchmark_suite_actual": {
+   "source_primary": "Urban-PLUMBER Phase 1 benchmark archive (AU-Preston), Zenodo 7330052 (https://zenodo.org/records/7330052)",
+   "source_method": "Best et al. (2015) PLUMBER, doi:10.1175/JHM-D-14-0158.1; Urban-PLUMBER adopts benchmarks following PLUMBER",
+   "out_of_sample_empirical": {
+    "REG1-SWdown": "linear regression on one variable (SWdown); PLUMBER name '1lin'",
+    "REG2-SWdown-Tair": "two-variable (SWdown, Tair) linear regression; PLUMBER '2lin'",
+    "KM3-SWdown-Tair-RH": "three predictors (SWdown, Tair, RH) sorted by k-means into 27 groups with a WITHIN-CLUSTER piecewise-LINEAR regression per group (PLUMBER '3km27'); NOT a cluster mean"
+   },
+   "in_sample_empirical": {
+    "KM3-IS-SWdown-Tair-RH": "as KM3 but trained on the test site's own data",
+    "KM4-IS-SWdown-Tair-Wind": "adds wind; 81 (3^4) clusters; in-sample"
+   },
+   "physically_based": {
+    "Manabe_1T": "single-tile slab-and-bucket model"
+   },
+   "out_of_sample_fitting_quote": {
+    "text": "Each empirical model was applied out-of-sample separately at each Fluxnet site, by calibrating on data from the 19 other sites to establish regression parameters, and then using the meteorological data from the testing site to predict flux variables using these parameters",
+    "source": "Best et al. (2015), PMC5884676",
+    "confidence": "verbatim-as-extracted"
+   }
+  },
+  "night_handling": {
+   "diurnal_decomposition_exists": true,
+   "manuscript_attributed_quote": {
+    "text": "at night, most models beat all out-of-sample benchmarks",
+    "attributed_to": "Lipson et al. (2024), doi:10.1002/qj.4589",
+    "confidence": "UNVERIFIED-AT-SOURCE: quoted in main.tex and attributed to Lipson 2024; Wiley full text returned HTTP 403 to automated fetch, so this exact sentence was not re-verified against the paper body. Paper is CC BY; a human should confirm wording/location before print."
+   },
+   "reg1_night_degeneracy_quote": {
+    "text": "At night predicted values are constant where SWdown = 0",
+    "source": "Urban-PLUMBER Phase 1 benchmark archive, Zenodo 7330052 (dataset description, re REG1)",
+    "independent_confirmation": "Confirmed here: 96.7% of nocturnal steps have SWdown exactly 0 (max 0.9994 W/m2, sd 0.086); LOO REG1 collapses to ~the pooled nocturnal mean LW-up, so REG1 is NOT a meaningful nighttime hurdle."
+   }
+  },
+  "lipson_metric_list_secondary": {
+   "text": "Urban-PLUMBER Phase 1 statistical measures include MAE, MBE, normalised standard deviation (nSD), normalised mean error (NME), slope and correlation, at sub-hourly resolution",
+   "source": "secondary (search-index descriptions of Lipson 2024 / project docs); consistent with the PLUMBER metric set above",
+   "confidence": "secondary/paraphrase; primary metric definitions are Best 2015"
+  },
+  "longwave_finding": {
+   "text": "little or no improvement in long-wave radiation (and momentum) relative to the previous major intercomparison at the same site",
+   "source": "Lipson et al. (2024) open-access abstract, doi:10.1002/qj.4589",
+   "confidence": "paraphrase of the open-access abstract; substance verified"
+  },
+  "how_our_analogues_differ": [
+   "REG1/REG2 here match Urban-PLUMBER REG1-SWdown / REG2-SWdown-Tair in predictors and OLS form.",
+   "Our KM3 predicts the CLUSTER-MEAN LW-up; Urban-PLUMBER's KM3/3km27 uses a within-cluster piecewise-LINEAR regression -> ours is a SIMPLIFIED (weaker, hence conservative) analogue.",
+   "Urban-PLUMBER trains out-of-sample benchmarks on a large external FLUXNET collection; we train leave-one-record-out across the 19 urban records (an out-of-sample analogue restricted to the urban corpus).",
+   "Urban-PLUMBER Phase 1 scored the 30-model ensemble at ONE site (AU-Preston); we score OUR two schemes at all 19 records, nocturnal LW-up only."
+  ]
+ }
+}

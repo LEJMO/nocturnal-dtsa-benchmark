@@ -1,0 +1,312 @@
+{
+ "P_beta_ge_1": {
+  "bound_robustness_all_cells": {
+   "0.001": {
+    "holds_at_plus_2se": false,
+    "holds_at_plus_3se": false,
+    "holds_at_point_estimate": false
+   },
+   "0.0013": {
+    "holds_at_plus_2se": false,
+    "holds_at_plus_3se": false,
+    "holds_at_point_estimate": false
+   },
+   "0.0014": {
+    "holds_at_plus_2se": false,
+    "holds_at_plus_3se": false,
+    "holds_at_point_estimate": false
+   },
+   "0.002": {
+    "holds_at_plus_2se": false,
+    "holds_at_plus_3se": false,
+    "holds_at_point_estimate": false
+   },
+   "0.004": {
+    "holds_at_plus_2se": false,
+    "holds_at_plus_3se": false,
+    "holds_at_point_estimate": true
+   },
+   "0.005": {
+    "holds_at_plus_2se": true,
+    "holds_at_plus_3se": true,
+    "holds_at_point_estimate": true
+   }
+  },
+  "bound_robustness_six_headline_cells": {
+   "0.001": {
+    "holds_at_plus_2se": false,
+    "holds_at_plus_3se": false,
+    "holds_at_point_estimate": false
+   },
+   "0.0013": {
+    "holds_at_plus_2se": false,
+    "holds_at_plus_3se": false,
+    "holds_at_point_estimate": false
+   },
+   "0.0014": {
+    "holds_at_plus_2se": false,
+    "holds_at_plus_3se": false,
+    "holds_at_point_estimate": true
+   },
+   "0.002": {
+    "holds_at_plus_2se": true,
+    "holds_at_plus_3se": true,
+    "holds_at_point_estimate": true
+   },
+   "0.004": {
+    "holds_at_plus_2se": true,
+    "holds_at_plus_3se": true,
+    "holds_at_point_estimate": true
+   },
+   "0.005": {
+    "holds_at_plus_2se": true,
+    "holds_at_plus_3se": true,
+    "holds_at_point_estimate": true
+   }
+  },
+  "max_over_all_record_sets": {
+   "draws_used": 100000,
+   "mc_standard_error": 0.0001950745395996105,
+   "p": 0.00382,
+   "p_plus_2se": 0.004210149079199221,
+   "p_plus_3se": 0.004405223618798831,
+   "record_set": "core15",
+   "source_block": "core15_sensitivity.model_side",
+   "statistic": "TEB_P_beta_ge_1"
+  },
+  "max_over_six_headline_cells": {
+   "draws_used": 100000,
+   "mc_standard_error": 0.00011438023867784156,
+   "p": 0.00131,
+   "p_plus_2se": 0.001538760477355683,
+   "p_plus_3se": 0.0016531407160335246,
+   "record_set": "core16",
+   "source_block": "scheme_ordering_paired",
+   "statistic": "TEB_P_beta_ge_1"
+  },
+  "n_cells": 8
+ },
+ "albedo_offset_mc_se_audit": {
+  "claimed_bound": 1e-05,
+  "max": {
+   "mc_standard_error": 9.675565065611155e-06,
+   "p": 0.0018758999062050046,
+   "record_set": "excl_mpls17",
+   "scheme": "CB_city_block_restricted"
+  },
+  "n_leaves": 12,
+  "verdict": "the <=1e-5 claim holds over every albedo-offset leaf"
+ },
+ "freedman_lane_mc_se_audit": {
+  "claimed_bound": 7e-05,
+  "leaves_exceeding_7e_5": [
+   {
+    "mc_standard_error": 7.029742527290739e-05,
+    "nperm": 20000000,
+    "p": 0.11120004443999777,
+    "record_set": "excl_mpls17",
+    "scheme": "FREE"
+   },
+   {
+    "mc_standard_error": 7.188683898894151e-05,
+    "nperm": 20000000,
+    "p": 0.1170566441471678,
+    "record_set": "excl_mpls17",
+    "scheme": "LEGACY_HYBRID_review4_recomputed"
+   }
+  ],
+  "max_over_all_schemes": {
+   "mc_standard_error": 7.188683898894151e-05,
+   "nperm": 20000000,
+   "p": 0.1170566441471678,
+   "record_set": "excl_mpls17",
+   "scheme": "LEGACY_HYBRID_review4_recomputed"
+  },
+  "max_over_reported_schemes_CB_CBws_CM": {
+   "mc_standard_error": 6.606928542972048e-05,
+   "nperm": 20000000,
+   "p": 0.09664289516785524,
+   "record_set": "excl_mpls17",
+   "scheme": "CB_ws"
+  },
+  "n_leaves": 15,
+  "package_rule_quoted": "at N = 2e7 every albedo-offset permutation p has a Monte Carlo standard error below 1e-5 and every Freedman-Lane p below 7e-5, so two significant figures are safe to print provided the MC standard error is stated once in Methods; the conservative single-digit reading is also given per test as `resolved_significant_digits`",
+  "verdict": "the <=7e-5 claim is FALSE over all 15 Freedman-Lane leaves (two exceed it) but TRUE when scoped to the CB/CB_ws/CM schemes the manuscript reports"
+ },
+ "meta": {
+  "generator": "투고가능성평가/재검증_2026-08/scripts/review6_adversarial_mc_bounds.py",
+  "note": "the one-sided values are city-cluster bootstrap tail frequencies, so a printed bound must clear the binomial MC standard error implied by draws_used",
+  "purpose": "adversarial Monte Carlo robustness check on the P(beta>=1) bounds recommended by the v12 residual sweep",
+  "source": "results/paper_stats_v1.json (read-only)"
+ },
+ "tail_cells": {
+  "all19|CLMU5_P_beta_ge_1": {
+   "draws_used": 100000,
+   "mc_standard_error": 0.0,
+   "p": 0.0,
+   "p_plus_2se": 0.0,
+   "p_plus_3se": 0.0,
+   "record_set": "all19",
+   "source_block": "scheme_ordering_paired",
+   "statistic": "CLMU5_P_beta_ge_1"
+  },
+  "all19|CLMU5_P_r_le_0": {
+   "draws_used": 100000,
+   "mc_standard_error": 0.0014250009736838777,
+   "p": 0.28335,
+   "p_plus_2se": 0.2862000019473677,
+   "p_plus_3se": 0.28762500292105164,
+   "record_set": "all19",
+   "source_block": "scheme_ordering_paired",
+   "statistic": "CLMU5_P_r_le_0"
+  },
+  "all19|TEB_P_beta_ge_1": {
+   "draws_used": 100000,
+   "mc_standard_error": 4.242258832273203e-05,
+   "p": 0.00018,
+   "p_plus_2se": 0.0002648451766454641,
+   "p_plus_3se": 0.0003072677649681961,
+   "record_set": "all19",
+   "source_block": "scheme_ordering_paired",
+   "statistic": "TEB_P_beta_ge_1"
+  },
+  "all19|TEB_P_r_le_0": {
+   "draws_used": 100000,
+   "mc_standard_error": 0.00028188366217289006,
+   "p": 0.00801,
+   "p_plus_2se": 0.00857376732434578,
+   "p_plus_3se": 0.00885565098651867,
+   "record_set": "all19",
+   "source_block": "scheme_ordering_paired",
+   "statistic": "TEB_P_r_le_0"
+  },
+  "core15|CLMU5_P_beta_ge_1": {
+   "draws_used": 100000,
+   "mc_standard_error": 3.4638937628050894e-05,
+   "p": 0.00012,
+   "p_plus_2se": 0.0001892778752561018,
+   "p_plus_3se": 0.00022391681288415268,
+   "record_set": "core15",
+   "source_block": "core15_sensitivity.model_side",
+   "statistic": "CLMU5_P_beta_ge_1"
+  },
+  "core15|CLMU5_P_r_le_0": {
+   "draws_used": 100000,
+   "mc_standard_error": 0.0014947608504372865,
+   "p": 0.337,
+   "p_plus_2se": 0.3399895217008746,
+   "p_plus_3se": 0.34148428255131186,
+   "record_set": "core15",
+   "source_block": "core15_sensitivity.model_side",
+   "statistic": "CLMU5_P_r_le_0"
+  },
+  "core15|TEB_P_beta_ge_1": {
+   "draws_used": 100000,
+   "mc_standard_error": 0.0001950745395996105,
+   "p": 0.00382,
+   "p_plus_2se": 0.004210149079199221,
+   "p_plus_3se": 0.004405223618798831,
+   "record_set": "core15",
+   "source_block": "core15_sensitivity.model_side",
+   "statistic": "TEB_P_beta_ge_1"
+  },
+  "core15|TEB_P_r_le_0": {
+   "draws_used": 100000,
+   "mc_standard_error": 0.0008300523260614357,
+   "p": 0.07444,
+   "p_plus_2se": 0.07610010465212287,
+   "p_plus_3se": 0.07693015697818431,
+   "record_set": "core15",
+   "source_block": "core15_sensitivity.model_side",
+   "statistic": "TEB_P_r_le_0"
+  },
+  "core16|CLMU5_P_beta_ge_1": {
+   "draws_used": 100000,
+   "mc_standard_error": 4.9993749609326164e-05,
+   "p": 0.00025,
+   "p_plus_2se": 0.0003499874992186523,
+   "p_plus_3se": 0.0003999812488279785,
+   "record_set": "core16",
+   "source_block": "scheme_ordering_paired",
+   "statistic": "CLMU5_P_beta_ge_1"
+  },
+  "core16|CLMU5_P_r_le_0": {
+   "draws_used": 100000,
+   "mc_standard_error": 0.001333961525307233,
+   "p": 0.23157,
+   "p_plus_2se": 0.23423792305061447,
+   "p_plus_3se": 0.2355718845759217,
+   "record_set": "core16",
+   "source_block": "scheme_ordering_paired",
+   "statistic": "CLMU5_P_r_le_0"
+  },
+  "core16|TEB_P_beta_ge_1": {
+   "draws_used": 100000,
+   "mc_standard_error": 0.00011438023867784156,
+   "p": 0.00131,
+   "p_plus_2se": 0.001538760477355683,
+   "p_plus_3se": 0.0016531407160335246,
+   "record_set": "core16",
+   "source_block": "scheme_ordering_paired",
+   "statistic": "TEB_P_beta_ge_1"
+  },
+  "core16|TEB_P_r_le_0": {
+   "draws_used": 100000,
+   "mc_standard_error": 0.0006982053272497998,
+   "p": 0.05139,
+   "p_plus_2se": 0.0527864106544996,
+   "p_plus_3se": 0.053484615981749396,
+   "record_set": "core16",
+   "source_block": "scheme_ordering_paired",
+   "statistic": "TEB_P_r_le_0"
+  },
+  "excl_mpls17|CLMU5_P_beta_ge_1": {
+   "draws_used": 100000,
+   "mc_standard_error": 9.999949999874999e-06,
+   "p": 1e-05,
+   "p_plus_2se": 2.999989999975e-05,
+   "p_plus_3se": 3.9999849999624994e-05,
+   "record_set": "excl_mpls17",
+   "source_block": "scheme_ordering_paired",
+   "statistic": "CLMU5_P_beta_ge_1"
+  },
+  "excl_mpls17|CLMU5_P_r_le_0": {
+   "draws_used": 100000,
+   "mc_standard_error": 0.0010175119453844264,
+   "p": 0.11729,
+   "p_plus_2se": 0.11932502389076886,
+   "p_plus_3se": 0.12034253583615329,
+   "record_set": "excl_mpls17",
+   "source_block": "scheme_ordering_paired",
+   "statistic": "CLMU5_P_r_le_0"
+  },
+  "excl_mpls17|TEB_P_beta_ge_1": {
+   "draws_used": 100000,
+   "mc_standard_error": 9.106651964360997e-05,
+   "p": 0.00083,
+   "p_plus_2se": 0.0010121330392872199,
+   "p_plus_3se": 0.00110319955893083,
+   "record_set": "excl_mpls17",
+   "source_block": "scheme_ordering_paired",
+   "statistic": "TEB_P_beta_ge_1"
+  },
+  "excl_mpls17|TEB_P_r_le_0": {
+   "draws_used": 100000,
+   "mc_standard_error": 0.00048555426473258375,
+   "p": 0.02416,
+   "p_plus_2se": 0.02513110852946517,
+   "p_plus_3se": 0.02561666279419775,
+   "record_set": "excl_mpls17",
+   "source_block": "scheme_ordering_paired",
+   "statistic": "TEB_P_r_le_0"
+  }
+ },
+ "verdicts": {
+  "le_0p0013_six_cells": "FALSE at the point estimate (core16 TEB = 0.00131 > 0.0013)",
+  "le_0p0013_universal": "FALSE at the point estimate (core16 TEB = 0.00131 > 0.0013)",
+  "le_0p001_table2": "FALSE (0.00131 > 0.001, and 0.00131 - 2 MC SE = 0.00108 > 0.001); Table 2 caption must change",
+  "le_0p002_six_cells": "holds at the point estimate and at +3 MC SE; the manuscript text at L806 is already MC-robust as scoped and should be kept",
+  "le_0p004_universal": "holds at the point estimate but NOT at +2 MC SE (0.00382 + 2*1.95e-4 = 0.00421 > 0.004); not MC-robust",
+  "le_0p005_universal": "holds at the point estimate and at +3 MC SE; recommended universal bound"
+ }
+}

@@ -1,0 +1,26 @@
+{
+  "site": "KR-Ochang",
+  "lwup_bias": 10.790987163454169,
+  "n_night": 12995,
+  "qh_bias": 7.54746898497942,
+  "n_qh": 8929,
+  "dTsa_model": 0.046199575594029554,
+  "n_dtsa": 13380,
+  "align_delta": 1,
+  "align_rmse": 0.0,
+  "align_start": 17521,
+  "model_steps": 54961,
+  "lwup_bias_noDJF": 12.374691884817816,
+  "k_equiv_bias": 2.0953373132920716,
+  "provenance": {
+    "LWup_minus_(FIRA+FLDS)_night_mean": -1.0047839350319051e-05,
+    "LWup_night_mean": 365.51362764503926,
+    "FIRA+FLDS_night_mean": 365.5136376928786,
+    "LWup_minus_FIRE_night_mean": 0.0,
+    "FIRE_night_mean": 365.51362764503926,
+    "Ts_minus_Tair_night_mean_K": 0.046199575594029554,
+    "TSKIN_minus_Tair_night_mean_K": 0.23500016330781717,
+    "TG_minus_Tair_night_mean_K": 0.23500016330781717,
+    "Tair_echo_vs_forcing_RMSE": 0.0
+  }
+}

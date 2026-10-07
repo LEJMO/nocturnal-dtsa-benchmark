@@ -1,0 +1,423 @@
+{
+ "_merge_target": "review5_additions.temporal_sampling.teb_spread_propagation",
+ "model": "TEB",
+ "draws": 400,
+ "alignment": {
+  "AU-Preston": {
+   "alignment": "row i -> forcing step i+1",
+   "n_model": 22771
+  },
+  "CA-Sunset": {
+   "alignment": "row i -> forcing step i+1",
+   "n_model": 87695
+  },
+  "FI-Kumpula": {
+   "alignment": "row i -> forcing step i+1",
+   "n_model": 52607
+  },
+  "FI-Torni": {
+   "alignment": "row i -> forcing step i+1",
+   "n_model": 52607
+  },
+  "FR-Capitole": {
+   "alignment": "row i -> forcing step i+1",
+   "n_model": 17999
+  },
+  "GR-HECKOR": {
+   "alignment": "row i -> forcing step i+1",
+   "n_model": 17568
+  },
+  "JP-Yoyogi": {
+   "alignment": "row i -> forcing step i+1",
+   "n_model": 70126
+  },
+  "KR-Jungnang": {
+   "alignment": "row i -> forcing step i+1",
+   "n_model": 39581
+  },
+  "KR-Ochang": {
+   "alignment": "row i -> forcing step i+1",
+   "n_model": 37410
+  },
+  "NL-Amsterdam": {
+   "alignment": "row i -> forcing step i+1",
+   "n_model": 31268
+  },
+  "PL-Lipowa": {
+   "alignment": "row i -> forcing step i+1",
+   "n_model": 87694
+  },
+  "PL-Narutowicza": {
+   "alignment": "row i -> forcing step i+1",
+   "n_model": 87694
+  },
+  "SG-TelokKurau06": {
+   "alignment": "row i -> forcing step i+1",
+   "n_model": 16079
+  },
+  "UK-KingsCollege": {
+   "alignment": "row i -> forcing step i+1",
+   "n_model": 30576
+  },
+  "UK-Swindon": {
+   "alignment": "row i -> forcing step i+1",
+   "n_model": 34304
+  },
+  "US-Baltimore": {
+   "alignment": "row i -> forcing step i+1",
+   "n_model": 87646
+  },
+  "US-Minneapolis1": {
+   "alignment": "row i -> forcing step i+1",
+   "n_model": 52454
+  },
+  "US-Minneapolis2": {
+   "alignment": "row i -> forcing step i+1",
+   "n_model": 52454
+  },
+  "US-WestPhoenix": {
+   "alignment": "row i -> forcing step i+1",
+   "n_model": 18312
+  }
+ },
+ "per_record_paired": {
+  "AU-Preston": {
+   "obs_mean_paired": -1.9936108788952083,
+   "model_mean_paired": 0.8902809144484665,
+   "n_paired_steps": 5288,
+   "n_paired_nights": 228,
+   "block_L": 28,
+   "obs_se": 0.2283728141619312,
+   "model_se": 0.2594442504782103
+  },
+  "CA-Sunset": {
+   "obs_mean_paired": 0.9778970865847397,
+   "model_mean_paired": 1.8288222220947439,
+   "n_paired_steps": 32809,
+   "n_paired_nights": 1427,
+   "block_L": 53,
+   "obs_se": 0.19036843636359274,
+   "model_se": 0.22107205216366968
+  },
+  "FI-Kumpula": {
+   "obs_mean_paired": -0.324411600625593,
+   "model_mean_paired": 0.7221257439300389,
+   "n_paired_steps": 16934,
+   "n_paired_nights": 741,
+   "block_L": 12,
+   "obs_se": 0.08183833837356685,
+   "model_se": 0.08216289855245958
+  },
+  "FI-Torni": {
+   "obs_mean_paired": 0.44875052429731926,
+   "model_mean_paired": 1.6466998217125042,
+   "n_paired_steps": 22565,
+   "n_paired_nights": 923,
+   "block_L": 13,
+   "obs_se": 0.04109670028109764,
+   "model_se": 0.12851226508605887
+  },
+  "FR-Capitole": {
+   "obs_mean_paired": 0.4943409397201571,
+   "model_mean_paired": 0.9873277496447714,
+   "n_paired_steps": 4086,
+   "n_paired_nights": 163,
+   "block_L": 8,
+   "obs_se": 0.0729451366906435,
+   "model_se": 0.14591329967400518
+  },
+  "GR-HECKOR": {
+   "obs_mean_paired": -1.6736308628798442,
+   "model_mean_paired": 0.8872812754205722,
+   "n_paired_steps": 4052,
+   "n_paired_nights": 186,
+   "block_L": 37,
+   "obs_se": 0.3011520498132518,
+   "model_se": 0.45480346513195974
+  },
+  "JP-Yoyogi": {
+   "obs_mean_paired": 0.42990613265887406,
+   "model_mean_paired": 2.728762148347481,
+   "n_paired_steps": 29709,
+   "n_paired_nights": 1279,
+   "block_L": 28,
+   "obs_se": 0.04595069671100812,
+   "model_se": 0.16839451448280043
+  },
+  "KR-Jungnang": {
+   "obs_mean_paired": 0.6599143343566988,
+   "model_mean_paired": 2.927948695390705,
+   "n_paired_steps": 15008,
+   "n_paired_nights": 695,
+   "block_L": 4,
+   "obs_se": 0.03673172177202689,
+   "model_se": 0.09179495086389773
+  },
+  "KR-Ochang": {
+   "obs_mean_paired": -2.1691148869024195,
+   "model_mean_paired": 2.159187447655338,
+   "n_paired_steps": 12995,
+   "n_paired_nights": 597,
+   "block_L": 13,
+   "obs_se": 0.10309400939781202,
+   "model_se": 0.13647562514366926
+  },
+  "NL-Amsterdam": {
+   "obs_mean_paired": 0.4420026637864456,
+   "model_mean_paired": 1.9458660182740501,
+   "n_paired_steps": 6110,
+   "n_paired_nights": 314,
+   "block_L": 9,
+   "obs_se": 0.09288700821436635,
+   "model_se": 0.18552045382849672
+  },
+  "PL-Lipowa": {
+   "obs_mean_paired": 6.1160007904118805,
+   "model_mean_paired": 3.185263757361346,
+   "n_paired_steps": 34463,
+   "n_paired_nights": 1530,
+   "block_L": 47,
+   "obs_se": 0.14570745281487243,
+   "model_se": 0.19225240999884866
+  },
+  "PL-Narutowicza": {
+   "obs_mean_paired": 1.1903241401689464,
+   "model_mean_paired": 1.9395519844366131,
+   "n_paired_steps": 36533,
+   "n_paired_nights": 1638,
+   "block_L": 75,
+   "obs_se": 0.5850852103940927,
+   "model_se": 0.22564350442707742
+  },
+  "SG-TelokKurau06": {
+   "obs_mean_paired": 0.26431678242186263,
+   "model_mean_paired": 2.3693066122459516,
+   "n_paired_steps": 1916,
+   "n_paired_nights": 99,
+   "block_L": 6,
+   "obs_se": 0.0533589736602523,
+   "model_se": 0.08971213795564137
+  },
+  "UK-KingsCollege": {
+   "obs_mean_paired": -0.17089976033292786,
+   "model_mean_paired": 1.1240095759209578,
+   "n_paired_steps": 10486,
+   "n_paired_nights": 430,
+   "block_L": 16,
+   "obs_se": 0.053813410475180914,
+   "model_se": 0.22187469187343786
+  },
+  "UK-Swindon": {
+   "obs_mean_paired": -0.6339756955721989,
+   "model_mean_paired": 0.9945460108309582,
+   "n_paired_steps": 12787,
+   "n_paired_nights": 536,
+   "block_L": 32,
+   "obs_se": 0.07705592050969609,
+   "model_se": 0.20209315133427375
+  },
+  "US-Baltimore": {
+   "obs_mean_paired": 0.392837881638093,
+   "model_mean_paired": 1.3452333620903563,
+   "n_paired_steps": 33699,
+   "n_paired_nights": 1493,
+   "block_L": 6,
+   "obs_se": 0.028340303737649144,
+   "model_se": 0.04252512829345331
+  },
+  "US-Minneapolis1": {
+   "obs_mean_paired": -3.0439059105555817,
+   "model_mean_paired": 1.0307529390726742,
+   "n_paired_steps": 19723,
+   "n_paired_nights": 868,
+   "block_L": 12,
+   "obs_se": 0.1356011987655176,
+   "model_se": 0.035132374640857236
+  },
+  "US-Minneapolis2": {
+   "obs_mean_paired": -3.0439059105555817,
+   "model_mean_paired": 1.0380120173189207,
+   "n_paired_steps": 19723,
+   "n_paired_nights": 868,
+   "block_L": 12,
+   "obs_se": 0.14497703380292598,
+   "model_se": 0.028922665554503013
+  },
+  "US-WestPhoenix": {
+   "obs_mean_paired": -1.3607021304729052,
+   "model_mean_paired": 1.8458994710460408,
+   "n_paired_steps": 4701,
+   "n_paired_nights": 199,
+   "block_L": 39,
+   "obs_se": 0.4227596184561176,
+   "model_se": 0.33054046298006884
+  }
+ },
+ "note": "obs and model record means resampled with the SAME night blocks; ratio = model/obs across-record spread. Block length from the observed nightly integral timescale (seasonal-block), capped at K/5.",
+ "all19": {
+  "sites": [
+   "AU-Preston",
+   "CA-Sunset",
+   "FI-Kumpula",
+   "FI-Torni",
+   "FR-Capitole",
+   "GR-HECKOR",
+   "JP-Yoyogi",
+   "KR-Jungnang",
+   "KR-Ochang",
+   "NL-Amsterdam",
+   "PL-Lipowa",
+   "PL-Narutowicza",
+   "SG-TelokKurau06",
+   "UK-KingsCollege",
+   "UK-Swindon",
+   "US-Baltimore",
+   "US-Minneapolis1",
+   "US-Minneapolis2",
+   "US-WestPhoenix"
+  ],
+  "baseline": {
+   "sd_ratio": 0.3730435397554014,
+   "range_ratio": 0.26890426877068,
+   "iqr_ratio": 0.5228897590177836,
+   "r_model_obs": 0.6263595157555377,
+   "slope_model_on_obs": 0.2336593709169251
+  },
+  "sd_ratio_median": 0.38282741135760934,
+  "sd_ratio_ci95": [
+   0.34624708438026885,
+   0.42438021351469746
+  ],
+  "range_ratio_median": 0.2831978790531743,
+  "range_ratio_ci95": [
+   0.24228571477596916,
+   0.3430633303458193
+  ],
+  "iqr_ratio_median": 0.5614404466593379,
+  "iqr_ratio_ci95": [
+   0.4001375281718843,
+   0.7976783348929501
+  ],
+  "r_model_obs_median": 0.6217769347394986,
+  "r_model_obs_ci95": [
+   0.5448300421058636,
+   0.6917843051894744
+  ],
+  "slope_model_on_obs_median": 0.23725975018516887,
+  "slope_model_on_obs_ci95": [
+   0.2004806723751623,
+   0.2745146246855018
+  ],
+  "frac_sd_ratio_ge_1": 0.0,
+  "frac_slope_ge_1": 0.0
+ },
+ "excl_mpls17": {
+  "sites": [
+   "AU-Preston",
+   "CA-Sunset",
+   "FI-Kumpula",
+   "FI-Torni",
+   "FR-Capitole",
+   "GR-HECKOR",
+   "JP-Yoyogi",
+   "KR-Jungnang",
+   "KR-Ochang",
+   "NL-Amsterdam",
+   "PL-Lipowa",
+   "PL-Narutowicza",
+   "SG-TelokKurau06",
+   "UK-KingsCollege",
+   "UK-Swindon",
+   "US-Baltimore",
+   "US-WestPhoenix"
+  ],
+  "baseline": {
+   "sd_ratio": 0.4128634846994464,
+   "range_ratio": 0.2972967559373603,
+   "iqr_ratio": 1.0321938012751286,
+   "r_model_obs": 0.5790507680883114,
+   "slope_model_on_obs": 0.23906891793083115
+  },
+  "sd_ratio_median": 0.4242353846564567,
+  "sd_ratio_ci95": [
+   0.3817018879578345,
+   0.46999822119995066
+  ],
+  "range_ratio_median": 0.3129692213766946,
+  "range_ratio_ci95": [
+   0.270255031561372,
+   0.37679689449190135
+  ],
+  "iqr_ratio_median": 0.9931580027946538,
+  "iqr_ratio_ci95": [
+   0.6901108337589398,
+   1.3100668423636759
+  ],
+  "r_model_obs_median": 0.5795138422705117,
+  "r_model_obs_ci95": [
+   0.47942675852085553,
+   0.6631731309004434
+  ],
+  "slope_model_on_obs_median": 0.24536186369397403,
+  "slope_model_on_obs_ci95": [
+   0.18908748628974825,
+   0.29302504762832193
+  ],
+  "frac_sd_ratio_ge_1": 0.0,
+  "frac_slope_ge_1": 0.0
+ },
+ "core16": {
+  "sites": [
+   "AU-Preston",
+   "CA-Sunset",
+   "FI-Kumpula",
+   "FI-Torni",
+   "FR-Capitole",
+   "GR-HECKOR",
+   "JP-Yoyogi",
+   "KR-Jungnang",
+   "KR-Ochang",
+   "NL-Amsterdam",
+   "PL-Narutowicza",
+   "SG-TelokKurau06",
+   "UK-KingsCollege",
+   "UK-Swindon",
+   "US-Baltimore",
+   "US-WestPhoenix"
+  ],
+  "baseline": {
+   "sd_ratio": 0.6421189092302764,
+   "range_ratio": 0.6566045502494565,
+   "iqr_ratio": 0.7888780722244538,
+   "r_model_obs": 0.3553562626096274,
+   "slope_model_on_obs": 0.22818097573504154
+  },
+  "sd_ratio_median": 0.6557838539016954,
+  "sd_ratio_ci95": [
+   0.5651944808333528,
+   0.7559037716500853
+  ],
+  "range_ratio_median": 0.6636490367181326,
+  "range_ratio_ci95": [
+   0.4830564390776145,
+   0.8659387722054511
+  ],
+  "iqr_ratio_median": 0.8168667375904177,
+  "iqr_ratio_ci95": [
+   0.5451910860379592,
+   1.2545186362160632
+  ],
+  "r_model_obs_median": 0.37076130255812256,
+  "r_model_obs_ci95": [
+   0.1940716153127691,
+   0.5157509129162517
+  ],
+  "slope_model_on_obs_median": 0.24062232036371545,
+  "slope_model_on_obs_ci95": [
+   0.12353591689864532,
+   0.3451662254714165
+  ],
+  "frac_sd_ratio_ge_1": 0.0,
+  "frac_slope_ge_1": 0.0
+ }
+}

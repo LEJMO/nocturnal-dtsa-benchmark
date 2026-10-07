@@ -1,0 +1,2568 @@
+{
+ "_merge_target": "review5_additions.obs_uncertainty_v11",
+ "_supersedes": [
+  "obs_uncertainty_sensitivity"
+ ],
+ "meta": {
+  "script": "투고가능성평가/재검증_2026-08/scripts/review5_adderley_propagation.py",
+  "date": "2026-09-16",
+  "task": "review-5 task A: literature-calibrated observation-uncertainty propagation for the albedo--dTsa association",
+  "SIG": 5.67e-08,
+  "EPS": 0.95,
+  "TREF_K": 285.0,
+  "K_per_Wm2": 0.2004927923369955,
+  "seed_base": 20260916,
+  "seeding": "one independent np.random.default_rng per (scenario, record set), seed = SEED_BASE + crc32('scenario|recordset'); no RNG stream is shared across record sets, so no reported number depends on evaluation order",
+  "n_draws": 50000,
+  "perturbation_convention": "delta_i is ADDED to the record's observed nocturnal mean offset dTsa_i (K). A positive LW_up error E_i gives delta_i = +E_i*K_per_Wm2, i.e. an apparently warmer surface.",
+  "clmu_independence": "This block uses only observation-side quantities (dtsa_std, albedo, obs_qh_qc0, raw corpus LWup/Tair/LWdown/Wind) and published literature. It contains no CLMU- or TEB-derived statistic and is unaffected by the CLMU output-alignment fix.",
+  "why_supersede": [
+   "obs_uncertainty_sensitivity used sigma = 3/5/10 W/m2 with only 2000 draws and reported 5 W/m2 as 'a representative field pyrgeometer accuracy' without disclosing that it equals 1.00 K at the paper's own 0.2005 K/(W/m2).",
+   "Its systematic_FOV_0.5K / systematic_FOV_1.0K entries are a ONE-SIDED ramp bias_i = B*(alb_max-alb_i)/(alb_max-alb_min) >= 0 SUBTRACTED from the offset, i.e. the low-albedo records are COOLED by 0..B K and the high-albedo records are untouched; the manuscript prose describes the same scenario as 'warming the dense, low-albedo records'. The entries are therefore mislabelled relative to the prose and must be replaced, not merely supplemented.",
+   "It was computed for all19 only, never for the conservative core.",
+   "It licensed an exclusion claim ('not an artefact of plausible instrument or composite-footprint error') that the albedo-aligned result refutes."
+  ],
+  "leaf_count": 1907
+ },
+ "record_sets": {
+  "all19": [
+   "AU-Preston",
+   "CA-Sunset",
+   "FI-Kumpula",
+   "FI-Torni",
+   "FR-Capitole",
+   "GR-HECKOR",
+   "JP-Yoyogi",
+   "KR-Jungnang",
+   "KR-Ochang",
+   "NL-Amsterdam",
+   "PL-Lipowa",
+   "PL-Narutowicza",
+   "SG-TelokKurau06",
+   "UK-KingsCollege",
+   "UK-Swindon",
+   "US-Baltimore",
+   "US-Minneapolis1",
+   "US-Minneapolis2",
+   "US-WestPhoenix"
+  ],
+  "excl_mpls17": [
+   "AU-Preston",
+   "CA-Sunset",
+   "FI-Kumpula",
+   "FI-Torni",
+   "FR-Capitole",
+   "GR-HECKOR",
+   "JP-Yoyogi",
+   "KR-Jungnang",
+   "KR-Ochang",
+   "NL-Amsterdam",
+   "PL-Lipowa",
+   "PL-Narutowicza",
+   "SG-TelokKurau06",
+   "UK-KingsCollege",
+   "UK-Swindon",
+   "US-Baltimore",
+   "US-WestPhoenix"
+  ],
+  "core16": [
+   "AU-Preston",
+   "CA-Sunset",
+   "FI-Kumpula",
+   "FI-Torni",
+   "FR-Capitole",
+   "GR-HECKOR",
+   "JP-Yoyogi",
+   "KR-Jungnang",
+   "KR-Ochang",
+   "NL-Amsterdam",
+   "PL-Narutowicza",
+   "SG-TelokKurau06",
+   "UK-KingsCollege",
+   "UK-Swindon",
+   "US-Baltimore",
+   "US-WestPhoenix"
+  ]
+ },
+ "baseline": {
+  "all19": {
+   "n": 19,
+   "n_clusters": 16,
+   "pearson_r": -0.7934144353212927,
+   "pearson_p": 5.044750081128553e-05,
+   "spearman_rho": -0.8788410886742756,
+   "spearman_p": 7.353423317227695e-07
+  },
+  "excl_mpls17": {
+   "n": 17,
+   "n_clusters": 15,
+   "pearson_r": -0.7093393144022627,
+   "pearson_p": 0.0014283313612898964,
+   "spearman_rho": -0.8308823529411766,
+   "spearman_p": 3.611059946133302e-05
+  },
+  "core16": {
+   "n": 16,
+   "n_clusters": 15,
+   "pearson_r": -0.7749052794901222,
+   "pearson_p": 0.00042268199873076936,
+   "spearman_rho": -0.7970588235294117,
+   "spearman_p": 0.00021809806990574765
+  }
+ },
+ "literature_error_budget": {
+  "sources": [
+   {
+    "id": "CGR4_manual",
+    "citation": "Kipp & Zonen, CGR 4 Pyrgeometer Instruction Manual, manual version 0806 (2006).",
+    "url": "https://bsrn.aemet.es/manuales/kipp_manual_cgr4_1781.pdf",
+    "fetched": "2026-09-16",
+    "verbatim": [
+     "Kipp & Zonen expects maximum uncertainty of 2% for hourly totals and 1% for daily totals for the CGR 4 pyrgeometer. (Sect. 2.5, p. 12)",
+     "Performance specifications (Sect. 6.2, p. 25): Uncertainty in daily total < 3 % at 95 % confidence level; Uncertainty in hourly total 'Not defined'; Non-linearity < 1 % from -250 to +250 W/m2; Window heating offset < 4 W/m2 for 0 to 1000 W/m2 solar irradiance; Zero offset B < 2 W/m2 at 5 K/h temperature change; Non-stability < 1 %; Tilt error < 1 % (deviation when facing downwards); Field of view 180 deg; Directional error 'Not defined - irrelevant to isotropic IR source'."
+    ],
+    "relevance": "Reference-class instrument; the 1-3 % daily-total figures are MULTIPLICATIVE, i.e. % of reading."
+   },
+   {
+    "id": "WMO_CIMO",
+    "citation": "WMO, Guide to Instruments and Methods of Observation (WMO-No. 8), Part I, Chapter 7 'Measurement of radiation', Sect. 7.4.3, p. I.7-22.",
+    "url": "https://www.weather.gov/media/epz/mesonet/CWOP-WMO8.pdf",
+    "fetched": "2026-09-16",
+    "verbatim": [
+     "Several recent comparisons have been made using instruments of similar manufacture in a variety of measurement configurations. These studies have indicated that, following careful calibration, fluxes measured at night agree to within 2 per cent, but in periods of high solar energy the difference between instruments may reach 13 per cent.",
+     "By shading the instrument, ventilating it as recommended by ISO (1990a), and measuring the temperature of the dome and the instrument case, this discrepancy can be reduced to less than 5 per cent of the thermopile signal (approximately 15 W m-2).",
+     "Sect. 7.4.1, p. I.7-20 (pyrradiometers): In situ comparisons at different sites between different designs of pyrradiometer yield results manifesting differences of up to 5 to 10 per cent under the best conditions."
+    ],
+    "relevance": "The governing normative statement for our case: NIGHTTIME agreement within 2 per cent of reading after careful calibration. Also MULTIPLICATIVE."
+   },
+   {
+    "id": "Philipona2001",
+    "citation": "Philipona, R., Dutton, E. G., Stoffel, T., Michalsky, J., Reda, I., Stifter, A., Wendling, P., Wood, N., Clough, S. A., Mlawer, E. J., Anderson, G., Revercomb, H. E., and Shippert, T. R.: Atmospheric longwave irradiance uncertainty: Pyrgeometers compared to an absolute sky-scanning radiometer, atmospheric emitted radiance interferometer, and radiative transfer model calculations, J. Geophys. Res., 106(D22), 28129-28141, 2001 (paper number 2000JD000196; doi:10.1029/2000JD000196).",
+    "url": "https://www.patarnott.com/atms749/pdf/LongWaveIrradianceMeas.pdf",
+    "fetched": "2026-09-16",
+    "verbatim": [
+     "a group of modified and field-calibrated pyrgeometers is capable of measuring hourly averages of nighttime longwave irradiance with |Max - Min| differences of ~2 W m-2, which corresponds to a precision of ~+/-1 W m-2 compared to the mean irradiance value of the group. (Sect. 8.1)",
+     "Daytime measurements show average |Max - Min| differences of ~2 W m-2 larger than nighttime measurements. (Sect. 8.1)",
+     "IPASRC-I shows that atmospheric longwave irradiance measurements and calculations agree very well, which indicates that state-of-the-art longwave radiometers and radiative transfer models are able to determine nighttime atmospheric longwave irradiance with an absolute uncertainty of ~+/-1.5 W m-2. (Sect. 8.2)",
+     "In the early 1990s, precision and uncertainties of longwave measurements were of the order of 10%. (Sect. 9)",
+     "with blackbody calibration factors determined at NOAA/CMDL and PMOD/WRC the mean irradiance measured by a group of seven or eight pyrgeometers is within ~1 W m-2 to the measurement of the absolute sky-scanning radiometer. (Sect. 8.2)"
+    ],
+    "relevance": "Published FIELD INTERCOMPARISON (IPASRC-I, ARM SGP, 1999; 15 calibration-traced pyrgeometers; L_down 260-420 W/m2). Gives the BEST ACHIEVABLE nocturnal figure, ~1-2 W/m2, for UPWARD-facing, shaded, ventilated, field-calibrated reference instruments at a dedicated radiation site. It is a floor, not a realistic value for a downward-facing radiometer on a routine urban flux tower."
+   },
+   {
+    "id": "Hukx_IR02",
+    "citation": "Hukx (formerly Hukseflux; www.hukseflux.com 301-redirects to www.hukx.com, verified 2026-09-16), IR02 pyrgeometer user manual (pyrgeometer with heater).",
+    "url": "https://www.hukx.com/uploads/Hukx-IR02-user-manual.pdf",
+    "fetched": "2026-09-16",
+    "verbatim": [
+     "calibration uncertainty < 7 % (k = 2) (p. 16)",
+     "achievable uncertainty (95 % confidence level) daily totals +/- 15 % (Hukx's own estimate) (p. 16)",
+     "Calibration uncertainty, which is larger for other than upfacing instruments; for downfacing instruments a blackbody calibration seems preferable. (p. 26)",
+     "Errors due to water deposition at clear nights; these completely block the longwave irradiance exchange between pyrgeometer and may cause the signal U/S to change from a large negative value (-100 W/m2) to around 0 W/m2. Water deposition at clear nights may largely be avoided by using the on-board heater of IR02. (p. 26)",
+     "Errors due to instrument non-stability. This is now estimated at < +/-1 % change per year. (p. 26)",
+     "Errors due to the temperature measurement T ... Required accuracy of the read-out is +/-0.2 degC, which results in around 1 W/m2 uncertainty of the irradiance measurement. (p. 26)",
+     "working standard IR20 calibration at PMOD/WRC Davos ... A typical uncertainty of S is 4.2 % (k = 2). (p. 39)"
+    ],
+    "relevance": "Mid-class heated instrument, the looser end of the range used at urban flux towers. Two points bear directly on our case: (a) the manufacturer states calibration uncertainty is LARGER for DOWNFACING instruments, which is exactly our LW_up geometry; (b) dew/frost on clear nights is a large, clear-night-specific error, i.e. it is CORRELATED with the very conditions the clear--calm compositing selects."
+   },
+   {
+    "id": "Adderley2015",
+    "citation": "Adderley, C., Christen, A., and Voogt, J. A.: The effect of radiometer placement and view on inferred directional and hemispheric radiometric temperatures of an urban canopy, Atmos. Meas. Tech., 8, 2699-2714, 2015, doi:10.5194/amt-8-2699-2015.",
+    "url": "https://amt.copernicus.org/articles/8/2699/2015/",
+    "fetched": "2026-09-16",
+    "verbatim": [
+     "The root mean squared error (RMSE) between different horizontal positions in retrieving outgoing longwave emittance L_up decreased exponentially with height, and was 11.2, 6.3 and 2.0 W m-2 at 2, 3, and 5 times the mean building height z_b.",
+     "Generally, above 3.5 z_b the horizontal positional error is less than the typical accuracy of common pyrgeometers.",
+     "However, over the course of the day, the difference between T_0,h and T_0,C shows an RMSE of 1.7 K (9.4 W m-2)."
+    ],
+    "relevance": "The only published, urban, height-resolved quantification of the composite-footprint (placement) error for a downward-facing hemispherical radiometer. Supplies both the height-dependent sigma and the flat 9.4 W/m2 facet-composition term."
+   }
+  ],
+  "multiplicative_to_additive": {
+   "note": "Every manufacturer and CIMO figure above is a PERCENTAGE OF READING, not an absolute W/m2. At nocturnal LW_up levels the conversion is linear in the record's own mean LW_up.",
+   "corpus_nocturnal_mean_LWup_Wm2": {
+    "per_record": {
+     "AU-Preston": 363.83518365580085,
+     "CA-Sunset": 370.17560124195984,
+     "FI-Kumpula": 331.0787024524455,
+     "FI-Torni": 338.8949249091762,
+     "FR-Capitole": 361.4179002161535,
+     "GR-HECKOR": 382.8401553727326,
+     "JP-Yoyogi": 385.9046209546484,
+     "KR-Jungnang": 368.71461766716766,
+     "KR-Ochang": 354.31115429457356,
+     "NL-Amsterdam": 376.3710461805378,
+     "PL-Lipowa": 378.83128392221454,
+     "PL-Narutowicza": 352.96408913807915,
+     "SG-TelokKurau06": 451.1530453675973,
+     "UK-KingsCollege": 360.06232882973893,
+     "UK-Swindon": 345.54746314415934,
+     "US-Baltimore": 369.79286261721853,
+     "US-Minneapolis1": 315.4369365489248,
+     "US-Minneapolis2": 315.4369365489248,
+     "US-WestPhoenix": 436.95758340328814
+    },
+    "min": 315.4369365489248,
+    "max": 451.1530453675973,
+    "mean": 366.3013913929127,
+    "median": 363.83518365580085,
+    "argmin": "US-Minneapolis1",
+    "argmax": "SG-TelokKurau06"
+   },
+   "percent_of_reading_table": {
+    "1pct": {
+     "at_300Wm2": {
+      "Wm2": 3.0,
+      "K": 0.6014783770109865
+     },
+     "at_400Wm2": {
+      "Wm2": 4.0,
+      "K": 0.801971169347982
+     },
+     "at_corpus_mean_LWup": {
+      "mean_LWup_Wm2": 366.3013913929127,
+      "Wm2": 3.663013913929127,
+      "K": 0.7344078879729176
+     }
+    },
+    "2pct": {
+     "at_300Wm2": {
+      "Wm2": 6.0,
+      "K": 1.202956754021973
+     },
+     "at_400Wm2": {
+      "Wm2": 8.0,
+      "K": 1.603942338695964
+     },
+     "at_corpus_mean_LWup": {
+      "mean_LWup_Wm2": 366.3013913929127,
+      "Wm2": 7.326027827858254,
+      "K": 1.4688157759458351
+     }
+    },
+    "3pct": {
+     "at_300Wm2": {
+      "Wm2": 9.0,
+      "K": 1.8044351310329594
+     },
+     "at_400Wm2": {
+      "Wm2": 12.0,
+      "K": 2.405913508043946
+     },
+     "at_corpus_mean_LWup": {
+      "mean_LWup_Wm2": 366.3013913929127,
+      "Wm2": 10.989041741787382,
+      "K": 2.203223663918753
+     }
+    },
+    "7pct": {
+     "at_300Wm2": {
+      "Wm2": 21.0,
+      "K": 4.210348639076905
+     },
+     "at_400Wm2": {
+      "Wm2": 28.0,
+      "K": 5.613798185435874
+     },
+     "at_corpus_mean_LWup": {
+      "mean_LWup_Wm2": 366.3013913929127,
+      "Wm2": 25.64109739750389,
+      "K": 5.140855215810423
+     }
+    },
+    "15pct": {
+     "at_300Wm2": {
+      "Wm2": 45.0,
+      "K": 9.022175655164798
+     },
+     "at_400Wm2": {
+      "Wm2": 60.0,
+      "K": 12.029567540219729
+     },
+     "at_corpus_mean_LWup": {
+      "mean_LWup_Wm2": 366.3013913929127,
+      "Wm2": 54.94520870893691,
+      "K": 11.016118319593764
+     }
+    }
+   },
+   "multiplicand_vs_albedo": {
+    "question": "Does the multiplicand (each record's own mean nocturnal LW_up) correlate with albedo? If it does, a common-mode '% of reading' calibration-scale error is not a random error but an albedo-ALIGNED one.",
+    "pearson_r": -0.07604230956450367,
+    "pearson_p": 0.7570124230380217,
+    "spearman_rho": -0.12554872695346794,
+    "spearman_p": 0.6085559262470024,
+    "n": 19,
+    "lwup_spread_Wm2": 135.71610881867252,
+    "implied_max_differential_at_2pct_K": 0.5442020324433439
+   },
+   "recommended_budget": {
+    "instrument_random_1sigma_Wm2": [
+     2.0,
+     5.0
+    ],
+    "instrument_random_1sigma_K": [
+     0.400985584673991,
+     1.0024639616849775
+    ],
+    "basis": "CIMO 2 % of a 300-400 W/m2 nocturnal LW_up is 6-8 W/m2 at 95 % coverage, i.e. ~3-4 W/m2 as a 1-sigma; CGR4 1-3 % daily is 3-12 W/m2 at 95 %; Philipona's ~1-2 W/m2 is the reference-site floor. sigma_E = 2 W/m2 is therefore the optimistic floor and sigma_E = 5 W/m2 (= 1.00 K) the realistic upper 1-sigma for a routinely-calibrated downward-facing tower radiometer; 10 W/m2 is retained as a stress case.",
+    "placement_systematic_Wm2": "record-specific, 0.8-11.2 (Adderley fit)",
+    "facet_composition_Wm2": 9.4
+   }
+  }
+ },
+ "random_independent": {
+  "spec": "delta_i = E_i*K_per_Wm2, E_i ~ N(0, sigma_E^2) independent across records; sigma_E in {2,4,5,10} W/m2; 50 000 draws per (sigma, record set) from an independently seeded stream.",
+  "sigma_K_equivalents": {
+   "sigma_2Wm2": 0.400985584673991,
+   "sigma_4Wm2": 0.801971169347982,
+   "sigma_5Wm2": 1.0024639616849775,
+   "sigma_10Wm2": 2.004927923369955
+  },
+  "variants": {
+   "all19": {
+    "sigma_2Wm2": {
+     "r_mean": -0.7789151550448656,
+     "r_median": -0.7797603139379854,
+     "r_ci95": [
+      -0.8321049519825079,
+      -0.7213135904464973
+     ],
+     "r_min": -0.8815663952522684,
+     "r_max": -0.6276499709601843,
+     "frac_above_minus0p5": 0.0,
+     "frac_above_zero": 0.0,
+     "n_draws": 50000,
+     "sigma_Wm2": 2.0,
+     "sigma_K": 0.400985584673991
+    },
+    "sigma_4Wm2": {
+     "r_mean": -0.7390149616406259,
+     "r_median": -0.7419000476525912,
+     "r_ci95": [
+      -0.8414424831668619,
+      -0.6193729965057359
+     ],
+     "r_min": -0.9185824860118539,
+     "r_max": -0.4051428356237223,
+     "frac_above_minus0p5": 0.0001,
+     "frac_above_zero": 0.0,
+     "n_draws": 50000,
+     "sigma_Wm2": 4.0,
+     "sigma_K": 0.801971169347982
+    },
+    "sigma_5Wm2": {
+     "r_mean": -0.7136774321582167,
+     "r_median": -0.7181269556991039,
+     "r_ci95": [
+      -0.8389963886672841,
+      -0.5620637650621152
+     ],
+     "r_min": -0.9268334174865341,
+     "r_max": -0.38523536863045926,
+     "frac_above_minus0p5": 0.0036,
+     "frac_above_zero": 0.0,
+     "n_draws": 50000,
+     "sigma_Wm2": 5.0,
+     "sigma_K": 1.0024639616849775
+    },
+    "sigma_10Wm2": {
+     "r_mean": -0.5650097119602343,
+     "r_median": -0.5769111424793673,
+     "r_ci95": [
+      -0.7877166597030747,
+      -0.27495828685617146
+     ],
+     "r_min": -0.9383276017705554,
+     "r_max": 0.15563733093899193,
+     "frac_above_minus0p5": 0.2883,
+     "frac_above_zero": 0.00038,
+     "n_draws": 50000,
+     "sigma_Wm2": 10.0,
+     "sigma_K": 2.004927923369955
+    }
+   },
+   "excl_mpls17": {
+    "sigma_2Wm2": {
+     "r_mean": -0.6938154493696662,
+     "r_median": -0.6948915128836508,
+     "r_ci95": [
+      -0.7648829515095945,
+      -0.6162667898416125
+     ],
+     "r_min": -0.8320175160312637,
+     "r_max": -0.5297409738769279,
+     "frac_above_minus0p5": 0.0,
+     "frac_above_zero": 0.0,
+     "n_draws": 50000,
+     "sigma_Wm2": 2.0,
+     "sigma_K": 0.400985584673991
+    },
+    "sigma_4Wm2": {
+     "r_mean": -0.6533728829963252,
+     "r_median": -0.6576716362100798,
+     "r_ci95": [
+      -0.7874587079856727,
+      -0.4963147300046
+     ],
+     "r_min": -0.9027985964246724,
+     "r_max": -0.29612120406938186,
+     "frac_above_minus0p5": 0.02756,
+     "frac_above_zero": 0.0,
+     "n_draws": 50000,
+     "sigma_Wm2": 4.0,
+     "sigma_K": 0.801971169347982
+    },
+    "sigma_5Wm2": {
+     "r_mean": -0.6257524117376608,
+     "r_median": -0.6309580521536999,
+     "r_ci95": [
+      -0.7869438693393371,
+      -0.43366957910841747
+     ],
+     "r_min": -0.9033118789279712,
+     "r_max": -0.1410457142170653,
+     "frac_above_minus0p5": 0.0904,
+     "frac_above_zero": 0.0,
+     "n_draws": 50000,
+     "sigma_Wm2": 5.0,
+     "sigma_K": 1.0024639616849775
+    },
+    "sigma_10Wm2": {
+     "r_mean": -0.48242056341959816,
+     "r_median": -0.49568270631802763,
+     "r_ci95": [
+      -0.7528507104880385,
+      -0.13803231478724207
+     ],
+     "r_min": -0.9215817019735291,
+     "r_max": 0.3501618549138186,
+     "frac_above_minus0p5": 0.51192,
+     "frac_above_zero": 0.00432,
+     "n_draws": 50000,
+     "sigma_Wm2": 10.0,
+     "sigma_K": 2.004927923369955
+    }
+   },
+   "core16": {
+    "sigma_2Wm2": {
+     "r_mean": -0.7284195192023434,
+     "r_median": -0.7317948478977713,
+     "r_ci95": [
+      -0.837148027966264,
+      -0.6010999231006684
+     ],
+     "r_min": -0.9316833560096739,
+     "r_max": -0.4430500052733168,
+     "frac_above_minus0p5": 0.0005,
+     "frac_above_zero": 0.0,
+     "n_draws": 50000,
+     "sigma_Wm2": 2.0,
+     "sigma_K": 0.400985584673991
+    },
+    "sigma_4Wm2": {
+     "r_mean": -0.6230569648010137,
+     "r_median": -0.6331855615679369,
+     "r_ci95": [
+      -0.8222829154419661,
+      -0.3658930626875287
+     ],
+     "r_min": -0.9507262025969252,
+     "r_max": 0.0960411223007857,
+     "frac_above_minus0p5": 0.14726,
+     "frac_above_zero": 2e-05,
+     "n_draws": 50000,
+     "sigma_Wm2": 4.0,
+     "sigma_K": 0.801971169347982
+    },
+    "sigma_5Wm2": {
+     "r_mean": -0.5668853202804277,
+     "r_median": -0.5801539811917367,
+     "r_ci95": [
+      -0.8037761731291057,
+      -0.25359315770474355
+     ],
+     "r_min": -0.9457843877178622,
+     "r_max": 0.27624575929075984,
+     "frac_above_minus0p5": 0.29108,
+     "frac_above_zero": 0.00078,
+     "n_draws": 50000,
+     "sigma_Wm2": 5.0,
+     "sigma_K": 1.0024639616849775
+    },
+    "sigma_10Wm2": {
+     "r_mean": -0.3627486290891326,
+     "r_median": -0.3808469766844952,
+     "r_ci95": [
+      -0.7191767829739284,
+      0.09196817724057016
+     ],
+     "r_min": -0.9346437721197824,
+     "r_max": 0.5914725861077382,
+     "frac_above_minus0p5": 0.72388,
+     "frac_above_zero": 0.05434,
+     "n_draws": 50000,
+     "sigma_Wm2": 10.0,
+     "sigma_K": 2.004927923369955
+    }
+   }
+  }
+ },
+ "random_shared_minneapolis": {
+  "spec": "as random_independent, but US-Minneapolis1 and US-Minneapolis2 draw ONE common E: they share a tower and a radiometer and their dtsa_std agree to 16 significant figures (-3.0439059105555812 vs -3.0439059105555812).",
+  "applies_to": "all19 only -- excl_mpls17 and core16 contain no Minneapolis record, so the variant is identical to random_independent there.",
+  "dtsa_std_identical": true,
+  "all19": {
+   "sigma_2Wm2": {
+    "r_mean": -0.7789526222727052,
+    "r_median": -0.7804380575513441,
+    "r_ci95": [
+     -0.8349345044979355,
+     -0.714485131876808
+    ],
+    "r_min": -0.8912721884630411,
+    "r_max": -0.618591552262017,
+    "frac_above_minus0p5": 0.0,
+    "frac_above_zero": 0.0,
+    "n_draws": 50000,
+    "sigma_Wm2": 2.0,
+    "sigma_K": 0.400985584673991
+   },
+   "sigma_4Wm2": {
+    "r_mean": -0.739726089215226,
+    "r_median": -0.7445679244493237,
+    "r_ci95": [
+     -0.847671188640175,
+     -0.6053966184593867
+    ],
+    "r_min": -0.9380908263853146,
+    "r_max": -0.4016421285048056,
+    "frac_above_minus0p5": 0.00082,
+    "frac_above_zero": 0.0,
+    "n_draws": 50000,
+    "sigma_Wm2": 4.0,
+    "sigma_K": 0.801971169347982
+   },
+   "sigma_5Wm2": {
+    "r_mean": -0.7126998893450635,
+    "r_median": -0.7199947000053151,
+    "r_ci95": [
+     -0.8455807493391369,
+     -0.5389968024836229
+    ],
+    "r_min": -0.9367719815918216,
+    "r_max": -0.23920869098394174,
+    "frac_above_minus0p5": 0.01098,
+    "frac_above_zero": 0.0,
+    "n_draws": 50000,
+    "sigma_Wm2": 5.0,
+    "sigma_K": 1.0024639616849775
+   },
+   "sigma_10Wm2": {
+    "r_mean": -0.5639818701731961,
+    "r_median": -0.5825755289343459,
+    "r_ci95": [
+     -0.8083811764985253,
+     -0.21882903879531354
+    ],
+    "r_min": -0.9260078437351815,
+    "r_max": 0.3020896707632407,
+    "frac_above_minus0p5": 0.3033,
+    "frac_above_zero": 0.00168,
+    "n_draws": 50000,
+    "sigma_Wm2": 10.0,
+    "sigma_K": 2.004927923369955
+   }
+  }
+ },
+ "adderley_placement": {
+  "fit": {
+   "form": "sigma(z/H) = exp(c0 + c1*(z/H))  [W/m2]",
+   "c0": 3.5637913507056753,
+   "c1": -0.5741763459858541,
+   "e_folding_zh": 1.74162521147229,
+   "fitted_at_2_3_5": [
+    11.194679924784678,
+    6.304491480211438,
+    1.999524936863101
+   ],
+   "published_at_2_3_5": [
+    11.2,
+    6.3,
+    2.0
+   ],
+   "log_residuals": [
+    0.00047511956708179426,
+    -0.0007126793506262441,
+    0.00023755978354056406
+   ],
+   "r2_in_log": 0.9999994864576323,
+   "justification": "Adderley et al. state the RMSE 'decreased exponentially with height', so a straight line in log(sigma) vs z/H is the functional form the authors themselves assert. The three published points are almost exactly collinear in log space (R2_log = 0.999999, e-folding 1.742 z_b), so the interpolation adds essentially no assumption of our own.",
+   "beyond_zh_5": "The same exponential is continued for z/H > 5 (no floor). This is an extrapolation, but an immaterial one: Adderley et al. state that above 3.5 z_b the positional error already falls below typical pyrgeometer accuracy, and the fit puts sigma(3.5) = 4.73 W/m2, which is 1.29 % of our corpus mean nocturnal LW_up -- i.e. inside the 1-2 % instrument band. Any concern that extrapolating the decay makes the placement term too small at tall towers is answered by the flat 11.2 and flat 9.4 W/m2 scenarios, which bound every record from above.",
+   "implied_typical_pyrgeometer_accuracy_Wm2": 4.731177619769491,
+   "implied_typical_pyrgeometer_accuracy_pct_of_mean_LWup": 1.2916078756290061,
+   "extrapolation_warning": "US-Minneapolis1/2 have z_rad/H = 0.3960, five times BELOW the lowest published height (z/H = 2). The uncapped sigma there, 28.12 W/m2 (= 5.64 K), is an extrapolation far outside the calibration range and must be reported as such, not used as an estimate."
+  },
+  "z_rad_over_H": {
+   "AU-Preston": 6.25,
+   "CA-Sunset": 5.061224489795918,
+   "FI-Kumpula": 2.4603174603174605,
+   "FI-Torni": 3.3519553072625703,
+   "FR-Capitole": 3.203333333333333,
+   "GR-HECKOR": 2.389380530973451,
+   "JP-Yoyogi": 5.777777777777778,
+   "KR-Jungnang": 4.7987974098057355,
+   "KR-Ochang": 2.573131094257855,
+   "NL-Amsterdam": 2.8169014084507045,
+   "PL-Lipowa": 3.6274509803921573,
+   "PL-Narutowicza": 2.625,
+   "SG-TelokKurau06": 2.090909090909091,
+   "UK-KingsCollege": 2.36150234741784,
+   "UK-Swindon": 2.7777777777777777,
+   "US-Baltimore": 6.642857142857144,
+   "US-Minneapolis1": 0.39603960396039606,
+   "US-Minneapolis2": 0.39603960396039606,
+   "US-WestPhoenix": 4.911111111111111
+  },
+  "per_record_sigma_Wm2": {
+   "uncapped": {
+    "AU-Preston": 0.9754944467021454,
+    "CA-Sunset": 1.9304554643003036,
+    "FI-Kumpula": 8.594609989585253,
+    "FI-Torni": 5.1509331913982646,
+    "FR-Capitole": 5.60978908402666,
+    "GR-HECKOR": 8.951897923181663,
+    "JP-Yoyogi": 1.2793191448704513,
+    "KR-Jungnang": 2.2443936347163644,
+    "KR-Ochang": 8.05554231817575,
+    "NL-Amsterdam": 7.003382124397705,
+    "PL-Lipowa": 4.3973179644696225,
+    "PL-Narutowicza": 7.81917024768045,
+    "SG-TelokKurau06": 10.625330381950814,
+    "UK-KingsCollege": 9.096343884237214,
+    "UK-Swindon": 7.162485490649563,
+    "US-Baltimore": 0.778504824552287,
+    "US-Minneapolis1": 28.117573660691345,
+    "US-Minneapolis2": 28.117573660691345,
+    "US-WestPhoenix": 2.104225609964399
+   },
+   "capped_at_11p2": {
+    "AU-Preston": 0.9754944467021454,
+    "CA-Sunset": 1.9304554643003036,
+    "FI-Kumpula": 8.594609989585253,
+    "FI-Torni": 5.1509331913982646,
+    "FR-Capitole": 5.60978908402666,
+    "GR-HECKOR": 8.951897923181663,
+    "JP-Yoyogi": 1.2793191448704513,
+    "KR-Jungnang": 2.2443936347163644,
+    "KR-Ochang": 8.05554231817575,
+    "NL-Amsterdam": 7.003382124397705,
+    "PL-Lipowa": 4.3973179644696225,
+    "PL-Narutowicza": 7.81917024768045,
+    "SG-TelokKurau06": 10.625330381950814,
+    "UK-KingsCollege": 9.096343884237214,
+    "UK-Swindon": 7.162485490649563,
+    "US-Baltimore": 0.778504824552287,
+    "US-Minneapolis1": 11.2,
+    "US-Minneapolis2": 11.2,
+    "US-WestPhoenix": 2.104225609964399
+   }
+  },
+  "per_record_sigma_K": {
+   "uncapped": {
+    "AU-Preston": 0.19557960552854553,
+    "CA-Sunset": 0.38704240651977895,
+    "FI-Kumpula": 1.7231573558593831,
+    "FI-Torni": 1.0327249786847497,
+    "FR-Capitole": 1.1247222778781014,
+    "GR-HECKOR": 1.7947910113344425,
+    "JP-Yoyogi": 0.256494267645254,
+    "KR-Jungnang": 0.44998474692766255,
+    "KR-Ochang": 1.6150781731598898,
+    "NL-Amsterdam": 1.4041276379234953,
+    "PL-Lipowa": 0.8816305574901477,
+    "PL-Narutowicza": 1.56768727671581,
+    "SG-TelokKurau06": 2.1303021577804335,
+    "UK-KingsCollege": 1.8237513854082708,
+    "UK-Swindon": 1.436026716093546,
+    "US-Baltimore": 0.1560846061223108,
+    "US-Minneapolis1": 5.637370856973164,
+    "US-Minneapolis2": 5.637370856973164,
+    "US-WestPhoenix": 0.42188206824877994
+   },
+   "capped_at_11p2": {
+    "AU-Preston": 0.19557960552854553,
+    "CA-Sunset": 0.38704240651977895,
+    "FI-Kumpula": 1.7231573558593831,
+    "FI-Torni": 1.0327249786847497,
+    "FR-Capitole": 1.1247222778781014,
+    "GR-HECKOR": 1.7947910113344425,
+    "JP-Yoyogi": 0.256494267645254,
+    "KR-Jungnang": 0.44998474692766255,
+    "KR-Ochang": 1.6150781731598898,
+    "NL-Amsterdam": 1.4041276379234953,
+    "PL-Lipowa": 0.8816305574901477,
+    "PL-Narutowicza": 1.56768727671581,
+    "SG-TelokKurau06": 2.1303021577804335,
+    "UK-KingsCollege": 1.8237513854082708,
+    "UK-Swindon": 1.436026716093546,
+    "US-Baltimore": 0.1560846061223108,
+    "US-Minneapolis1": 2.2455192741743493,
+    "US-Minneapolis2": 2.2455192741743493,
+    "US-WestPhoenix": 0.42188206824877994
+   }
+  },
+  "variants": {
+   "all19": {
+    "capped_at_11p2": {
+     "r_mean": -0.6516239119986099,
+     "r_median": -0.667935985870159,
+     "r_ci95": [
+      -0.8500089772303299,
+      -0.3647815547879461
+     ],
+     "r_min": -0.9466297631788374,
+     "r_max": 0.07079631994449855,
+     "frac_above_minus0p5": 0.11976,
+     "frac_above_zero": 0.0001,
+     "n_draws": 50000,
+     "sigma_Wm2": {
+      "AU-Preston": 0.9754944467021454,
+      "CA-Sunset": 1.9304554643003036,
+      "FI-Kumpula": 8.594609989585253,
+      "FI-Torni": 5.1509331913982646,
+      "FR-Capitole": 5.60978908402666,
+      "GR-HECKOR": 8.951897923181663,
+      "JP-Yoyogi": 1.2793191448704513,
+      "KR-Jungnang": 2.2443936347163644,
+      "KR-Ochang": 8.05554231817575,
+      "NL-Amsterdam": 7.003382124397705,
+      "PL-Lipowa": 4.3973179644696225,
+      "PL-Narutowicza": 7.81917024768045,
+      "SG-TelokKurau06": 10.625330381950814,
+      "UK-KingsCollege": 9.096343884237214,
+      "UK-Swindon": 7.162485490649563,
+      "US-Baltimore": 0.778504824552287,
+      "US-Minneapolis1": 11.2,
+      "US-Minneapolis2": 11.2,
+      "US-WestPhoenix": 2.104225609964399
+     },
+     "sigma_K": {
+      "AU-Preston": 0.19557960552854553,
+      "CA-Sunset": 0.38704240651977895,
+      "FI-Kumpula": 1.7231573558593831,
+      "FI-Torni": 1.0327249786847497,
+      "FR-Capitole": 1.1247222778781014,
+      "GR-HECKOR": 1.7947910113344425,
+      "JP-Yoyogi": 0.256494267645254,
+      "KR-Jungnang": 0.44998474692766255,
+      "KR-Ochang": 1.6150781731598898,
+      "NL-Amsterdam": 1.4041276379234953,
+      "PL-Lipowa": 0.8816305574901477,
+      "PL-Narutowicza": 1.56768727671581,
+      "SG-TelokKurau06": 2.1303021577804335,
+      "UK-KingsCollege": 1.8237513854082708,
+      "UK-Swindon": 1.436026716093546,
+      "US-Baltimore": 0.1560846061223108,
+      "US-Minneapolis1": 2.2455192741743493,
+      "US-Minneapolis2": 2.2455192741743493,
+      "US-WestPhoenix": 0.42188206824877994
+     }
+    },
+    "uncapped": {
+     "r_mean": -0.542754595392773,
+     "r_median": -0.5964762115754446,
+     "r_ci95": [
+      -0.8464935447230973,
+      0.021082180549625438
+     ],
+     "r_min": -0.9339659926358324,
+     "r_max": 0.5130063637942404,
+     "frac_above_minus0p5": 0.34888,
+     "frac_above_zero": 0.02956,
+     "n_draws": 50000,
+     "sigma_Wm2": {
+      "AU-Preston": 0.9754944467021454,
+      "CA-Sunset": 1.9304554643003036,
+      "FI-Kumpula": 8.594609989585253,
+      "FI-Torni": 5.1509331913982646,
+      "FR-Capitole": 5.60978908402666,
+      "GR-HECKOR": 8.951897923181663,
+      "JP-Yoyogi": 1.2793191448704513,
+      "KR-Jungnang": 2.2443936347163644,
+      "KR-Ochang": 8.05554231817575,
+      "NL-Amsterdam": 7.003382124397705,
+      "PL-Lipowa": 4.3973179644696225,
+      "PL-Narutowicza": 7.81917024768045,
+      "SG-TelokKurau06": 10.625330381950814,
+      "UK-KingsCollege": 9.096343884237214,
+      "UK-Swindon": 7.162485490649563,
+      "US-Baltimore": 0.778504824552287,
+      "US-Minneapolis1": 28.117573660691345,
+      "US-Minneapolis2": 28.117573660691345,
+      "US-WestPhoenix": 2.104225609964399
+     },
+     "sigma_K": {
+      "AU-Preston": 0.19557960552854553,
+      "CA-Sunset": 0.38704240651977895,
+      "FI-Kumpula": 1.7231573558593831,
+      "FI-Torni": 1.0327249786847497,
+      "FR-Capitole": 1.1247222778781014,
+      "GR-HECKOR": 1.7947910113344425,
+      "JP-Yoyogi": 0.256494267645254,
+      "KR-Jungnang": 0.44998474692766255,
+      "KR-Ochang": 1.6150781731598898,
+      "NL-Amsterdam": 1.4041276379234953,
+      "PL-Lipowa": 0.8816305574901477,
+      "PL-Narutowicza": 1.56768727671581,
+      "SG-TelokKurau06": 2.1303021577804335,
+      "UK-KingsCollege": 1.8237513854082708,
+      "UK-Swindon": 1.436026716093546,
+      "US-Baltimore": 0.1560846061223108,
+      "US-Minneapolis1": 5.637370856973164,
+      "US-Minneapolis2": 5.637370856973164,
+      "US-WestPhoenix": 0.42188206824877994
+     }
+    },
+    "flat_11p2Wm2": {
+     "r_mean": -0.5318824564975069,
+     "r_median": -0.5446620568347436,
+     "r_ci95": [
+      -0.7728157292436229,
+      -0.21677589969390207
+     ],
+     "r_min": -0.9123169668404936,
+     "r_max": 0.2779121575092185,
+     "frac_above_minus0p5": 0.3783,
+     "frac_above_zero": 0.00118,
+     "n_draws": 50000,
+     "sigma_Wm2": 11.2,
+     "sigma_K": 2.2455192741743493
+    },
+    "flat_9p4Wm2": {
+     "r_mean": -0.5810553107888794,
+     "r_median": -0.5915571648113049,
+     "r_ci95": [
+      -0.7945910264986418,
+      -0.3075814062783884
+     ],
+     "r_min": -0.9385221998154748,
+     "r_max": 0.13869733342463947,
+     "frac_above_minus0p5": 0.24286,
+     "frac_above_zero": 0.00012,
+     "n_draws": 50000,
+     "sigma_Wm2": 9.4,
+     "sigma_K": 1.8846322479677577
+    }
+   },
+   "excl_mpls17": {
+    "capped_at_11p2": {
+     "r_mean": -0.5884016137207367,
+     "r_median": -0.602024349089456,
+     "r_ci95": [
+      -0.8219046887659547,
+      -0.27673497689798826
+     ],
+     "r_min": -0.9350776854960223,
+     "r_max": 0.12711995831650535,
+     "frac_above_minus0p5": 0.24996,
+     "frac_above_zero": 0.00022,
+     "n_draws": 50000,
+     "sigma_Wm2": {
+      "AU-Preston": 0.9754944467021454,
+      "CA-Sunset": 1.9304554643003036,
+      "FI-Kumpula": 8.594609989585253,
+      "FI-Torni": 5.1509331913982646,
+      "FR-Capitole": 5.60978908402666,
+      "GR-HECKOR": 8.951897923181663,
+      "JP-Yoyogi": 1.2793191448704513,
+      "KR-Jungnang": 2.2443936347163644,
+      "KR-Ochang": 8.05554231817575,
+      "NL-Amsterdam": 7.003382124397705,
+      "PL-Lipowa": 4.3973179644696225,
+      "PL-Narutowicza": 7.81917024768045,
+      "SG-TelokKurau06": 10.625330381950814,
+      "UK-KingsCollege": 9.096343884237214,
+      "UK-Swindon": 7.162485490649563,
+      "US-Baltimore": 0.778504824552287,
+      "US-WestPhoenix": 2.104225609964399
+     },
+     "sigma_K": {
+      "AU-Preston": 0.19557960552854553,
+      "CA-Sunset": 0.38704240651977895,
+      "FI-Kumpula": 1.7231573558593831,
+      "FI-Torni": 1.0327249786847497,
+      "FR-Capitole": 1.1247222778781014,
+      "GR-HECKOR": 1.7947910113344425,
+      "JP-Yoyogi": 0.256494267645254,
+      "KR-Jungnang": 0.44998474692766255,
+      "KR-Ochang": 1.6150781731598898,
+      "NL-Amsterdam": 1.4041276379234953,
+      "PL-Lipowa": 0.8816305574901477,
+      "PL-Narutowicza": 1.56768727671581,
+      "SG-TelokKurau06": 2.1303021577804335,
+      "UK-KingsCollege": 1.8237513854082708,
+      "UK-Swindon": 1.436026716093546,
+      "US-Baltimore": 0.1560846061223108,
+      "US-WestPhoenix": 0.42188206824877994
+     }
+    },
+    "uncapped": {
+     "r_mean": -0.587156978671985,
+     "r_median": -0.6015114902966601,
+     "r_ci95": [
+      -0.8204969529348709,
+      -0.2748692845929827
+     ],
+     "r_min": -0.9357011343240589,
+     "r_max": 0.11347583110768317,
+     "frac_above_minus0p5": 0.2558,
+     "frac_above_zero": 0.0002,
+     "n_draws": 50000,
+     "sigma_Wm2": {
+      "AU-Preston": 0.9754944467021454,
+      "CA-Sunset": 1.9304554643003036,
+      "FI-Kumpula": 8.594609989585253,
+      "FI-Torni": 5.1509331913982646,
+      "FR-Capitole": 5.60978908402666,
+      "GR-HECKOR": 8.951897923181663,
+      "JP-Yoyogi": 1.2793191448704513,
+      "KR-Jungnang": 2.2443936347163644,
+      "KR-Ochang": 8.05554231817575,
+      "NL-Amsterdam": 7.003382124397705,
+      "PL-Lipowa": 4.3973179644696225,
+      "PL-Narutowicza": 7.81917024768045,
+      "SG-TelokKurau06": 10.625330381950814,
+      "UK-KingsCollege": 9.096343884237214,
+      "UK-Swindon": 7.162485490649563,
+      "US-Baltimore": 0.778504824552287,
+      "US-WestPhoenix": 2.104225609964399
+     },
+     "sigma_K": {
+      "AU-Preston": 0.19557960552854553,
+      "CA-Sunset": 0.38704240651977895,
+      "FI-Kumpula": 1.7231573558593831,
+      "FI-Torni": 1.0327249786847497,
+      "FR-Capitole": 1.1247222778781014,
+      "GR-HECKOR": 1.7947910113344425,
+      "JP-Yoyogi": 0.256494267645254,
+      "KR-Jungnang": 0.44998474692766255,
+      "KR-Ochang": 1.6150781731598898,
+      "NL-Amsterdam": 1.4041276379234953,
+      "PL-Lipowa": 0.8816305574901477,
+      "PL-Narutowicza": 1.56768727671581,
+      "SG-TelokKurau06": 2.1303021577804335,
+      "UK-KingsCollege": 1.8237513854082708,
+      "UK-Swindon": 1.436026716093546,
+      "US-Baltimore": 0.1560846061223108,
+      "US-WestPhoenix": 0.42188206824877994
+     }
+    },
+    "flat_11p2Wm2": {
+     "r_mean": -0.45099373176579893,
+     "r_median": -0.4650137113090349,
+     "r_ci95": [
+      -0.7381536653831045,
+      -0.08039610149815747
+     ],
+     "r_min": -0.9180659232199253,
+     "r_max": 0.43204959051967995,
+     "frac_above_minus0p5": 0.58436,
+     "frac_above_zero": 0.0099,
+     "n_draws": 50000,
+     "sigma_Wm2": 11.2,
+     "sigma_K": 2.2455192741743493
+    },
+    "flat_9p4Wm2": {
+     "r_mean": -0.4975449940790289,
+     "r_median": -0.5100235650409375,
+     "r_ci95": [
+      -0.7575012738770356,
+      -0.1662349765476264
+     ],
+     "r_min": -0.9157461402241627,
+     "r_max": 0.4129907444224924,
+     "frac_above_minus0p5": 0.4739,
+     "frac_above_zero": 0.0028,
+     "n_draws": 50000,
+     "sigma_Wm2": 9.4,
+     "sigma_K": 1.8846322479677577
+    }
+   },
+   "core16": {
+    "capped_at_11p2": {
+     "r_mean": -0.5009306857919763,
+     "r_median": -0.5253257412532544,
+     "r_ci95": [
+      -0.8336121536206036,
+      -0.0327856103121958
+     ],
+     "r_min": -0.9624530893344321,
+     "r_max": 0.4672338310894864,
+     "frac_above_minus0p5": 0.4543,
+     "frac_above_zero": 0.0181,
+     "n_draws": 50000,
+     "sigma_Wm2": {
+      "AU-Preston": 0.9754944467021454,
+      "CA-Sunset": 1.9304554643003036,
+      "FI-Kumpula": 8.594609989585253,
+      "FI-Torni": 5.1509331913982646,
+      "FR-Capitole": 5.60978908402666,
+      "GR-HECKOR": 8.951897923181663,
+      "JP-Yoyogi": 1.2793191448704513,
+      "KR-Jungnang": 2.2443936347163644,
+      "KR-Ochang": 8.05554231817575,
+      "NL-Amsterdam": 7.003382124397705,
+      "PL-Narutowicza": 7.81917024768045,
+      "SG-TelokKurau06": 10.625330381950814,
+      "UK-KingsCollege": 9.096343884237214,
+      "UK-Swindon": 7.162485490649563,
+      "US-Baltimore": 0.778504824552287,
+      "US-WestPhoenix": 2.104225609964399
+     },
+     "sigma_K": {
+      "AU-Preston": 0.19557960552854553,
+      "CA-Sunset": 0.38704240651977895,
+      "FI-Kumpula": 1.7231573558593831,
+      "FI-Torni": 1.0327249786847497,
+      "FR-Capitole": 1.1247222778781014,
+      "GR-HECKOR": 1.7947910113344425,
+      "JP-Yoyogi": 0.256494267645254,
+      "KR-Jungnang": 0.44998474692766255,
+      "KR-Ochang": 1.6150781731598898,
+      "NL-Amsterdam": 1.4041276379234953,
+      "PL-Narutowicza": 1.56768727671581,
+      "SG-TelokKurau06": 2.1303021577804335,
+      "UK-KingsCollege": 1.8237513854082708,
+      "UK-Swindon": 1.436026716093546,
+      "US-Baltimore": 0.1560846061223108,
+      "US-WestPhoenix": 0.42188206824877994
+     }
+    },
+    "uncapped": {
+     "r_mean": -0.5001875204849217,
+     "r_median": -0.5242886416012207,
+     "r_ci95": [
+      -0.8337188785822796,
+      -0.03496739512736944
+     ],
+     "r_min": -0.9556108136337863,
+     "r_max": 0.4831890130181298,
+     "frac_above_minus0p5": 0.45618,
+     "frac_above_zero": 0.01794,
+     "n_draws": 50000,
+     "sigma_Wm2": {
+      "AU-Preston": 0.9754944467021454,
+      "CA-Sunset": 1.9304554643003036,
+      "FI-Kumpula": 8.594609989585253,
+      "FI-Torni": 5.1509331913982646,
+      "FR-Capitole": 5.60978908402666,
+      "GR-HECKOR": 8.951897923181663,
+      "JP-Yoyogi": 1.2793191448704513,
+      "KR-Jungnang": 2.2443936347163644,
+      "KR-Ochang": 8.05554231817575,
+      "NL-Amsterdam": 7.003382124397705,
+      "PL-Narutowicza": 7.81917024768045,
+      "SG-TelokKurau06": 10.625330381950814,
+      "UK-KingsCollege": 9.096343884237214,
+      "UK-Swindon": 7.162485490649563,
+      "US-Baltimore": 0.778504824552287,
+      "US-WestPhoenix": 2.104225609964399
+     },
+     "sigma_K": {
+      "AU-Preston": 0.19557960552854553,
+      "CA-Sunset": 0.38704240651977895,
+      "FI-Kumpula": 1.7231573558593831,
+      "FI-Torni": 1.0327249786847497,
+      "FR-Capitole": 1.1247222778781014,
+      "GR-HECKOR": 1.7947910113344425,
+      "JP-Yoyogi": 0.256494267645254,
+      "KR-Jungnang": 0.44998474692766255,
+      "KR-Ochang": 1.6150781731598898,
+      "NL-Amsterdam": 1.4041276379234953,
+      "PL-Narutowicza": 1.56768727671581,
+      "SG-TelokKurau06": 2.1303021577804335,
+      "UK-KingsCollege": 1.8237513854082708,
+      "UK-Swindon": 1.436026716093546,
+      "US-Baltimore": 0.1560846061223108,
+      "US-WestPhoenix": 0.42188206824877994
+     }
+    },
+    "flat_11p2Wm2": {
+     "r_mean": -0.3312822376996904,
+     "r_median": -0.3480532708703462,
+     "r_ci95": [
+      -0.7042626303757261,
+      0.13612348171799812
+     ],
+     "r_min": -0.9201764339974441,
+     "r_max": 0.6571246030201117,
+     "frac_above_minus0p5": 0.76592,
+     "frac_above_zero": 0.07676,
+     "n_draws": 50000,
+     "sigma_Wm2": 11.2,
+     "sigma_K": 2.2455192741743493
+    },
+    "flat_9p4Wm2": {
+     "r_mean": -0.3806695896888188,
+     "r_median": -0.39827705283553816,
+     "r_ci95": [
+      -0.7260559018511655,
+      0.06712589340900021
+     ],
+     "r_min": -0.9329421487539573,
+     "r_max": 0.578556538161879,
+     "frac_above_minus0p5": 0.69828,
+     "frac_above_zero": 0.0443,
+     "n_draws": 50000,
+     "sigma_Wm2": 9.4,
+     "sigma_K": 1.8846322479677577
+    }
+   }
+  },
+  "cap_is_load_bearing": "Compare variants.all19.capped_at_11p2 with variants.all19.uncapped: the cap changes only the two Minneapolis records, and it is those two records that carry the all19 headline r (baseline -0.793 vs -0.709 without them). The uncapped result must therefore be reported alongside the capped one, not hidden behind it.",
+  "flat_9p4_meaning": "flat_9p4Wm2 uses Adderley et al.'s T_0,h vs T_0,C RMSE, 1.7 K (9.4 W/m2). That term is NOT a positional error: it is the mismatch between what a hemispherical radiometer's field of view weights and the true facet fractions, and it does not decay with height. It is applied flat to every record for that reason."
+ },
+ "common_mode_scale_error": {
+  "spec": "delta_i = s * (p/100) * <LW_up>_i * K_per_Wm2, with <LW_up>_i the record's own mean nocturnal LW_up. This is the form the manufacturer and CIMO '% of reading' specifications actually take. 'common_mode' applies one sign to every record (a shared calibration-scale error); 'random_sign' draws the sign per record.",
+  "why_this_matters": "Because the multiplicand correlates with albedo at r = -0.0760 (p = 0.7570), a common-mode percentage error is NOT a random error with respect to the tested association -- it carries a weak albedo-aligned component. Its magnitude is nonetheless small: the full spread of 2 %-of-reading across the corpus is 0.5442 K.",
+  "variants": {
+   "all19": {
+    "common_mode_plus_1pct": {
+     "r": -0.7884451990816028,
+     "max_delta_K": 0.9045293383708879,
+     "delta_spread_K": 0.2721010162216718
+    },
+    "common_mode_minus_1pct": {
+     "r": -0.7976115338353472,
+     "max_delta_K": 0.9045293383708879,
+     "delta_spread_K": 0.2721010162216718
+    },
+    "random_sign_1pct": {
+     "r_mean": -0.7469913555047051,
+     "r_median": -0.7474879739959961,
+     "r_ci95": [
+      -0.844474073193293,
+      -0.6468621046141118
+     ],
+     "r_min": -0.9142407479010474,
+     "r_max": -0.5619639488282436,
+     "frac_above_minus0p5": 0.0,
+     "frac_above_zero": 0.0,
+     "n_draws": 50000
+    },
+    "common_mode_plus_2pct": {
+     "r": -0.7827646723985151,
+     "max_delta_K": 1.8090586767417758,
+     "delta_spread_K": 0.5442020324433436
+    },
+    "common_mode_minus_2pct": {
+     "r": -0.800979898366651,
+     "max_delta_K": 1.8090586767417758,
+     "delta_spread_K": 0.5442020324433436
+    },
+    "random_sign_2pct": {
+     "r_mean": -0.6409177954527432,
+     "r_median": -0.6442604446505398,
+     "r_ci95": [
+      -0.8142846233368152,
+      -0.44720654039828567
+     ],
+     "r_min": -0.9293028126331933,
+     "r_max": -0.2610919355894945,
+     "frac_above_minus0p5": 0.07266,
+     "frac_above_zero": 0.0,
+     "n_draws": 50000
+    },
+    "common_mode_plus_3pct": {
+     "r": -0.7764365333817049,
+     "max_delta_K": 2.7135880151126637,
+     "delta_spread_K": 0.8163030486650156
+    },
+    "common_mode_minus_3pct": {
+     "r": -0.8034686238548935,
+     "max_delta_K": 2.7135880151126637,
+     "delta_spread_K": 0.8163030486650156
+    },
+    "random_sign_3pct": {
+     "r_mean": -0.5306647131788517,
+     "r_median": -0.5376964922126346,
+     "r_ci95": [
+      -0.7649743397274337,
+      -0.256720476260747
+     ],
+     "r_min": -0.9269147960155029,
+     "r_max": 0.10101784613872064,
+     "frac_above_minus0p5": 0.38874,
+     "frac_above_zero": 0.00034,
+     "n_draws": 50000
+    }
+   },
+   "excl_mpls17": {
+    "common_mode_plus_1pct": {
+     "r": -0.6954959004265835,
+     "max_delta_K": 0.9045293383708879,
+     "delta_spread_K": 0.24074040299088717
+    },
+    "common_mode_minus_1pct": {
+     "r": -0.7223839363141661,
+     "max_delta_K": 0.9045293383708879,
+     "delta_spread_K": 0.24074040299088717
+    },
+    "random_sign_1pct": {
+     "r_mean": -0.6587412804377742,
+     "r_median": -0.6597864127647871,
+     "r_ci95": [
+      -0.7923373593349287,
+      -0.5178835982563299
+     ],
+     "r_min": -0.8735399118486097,
+     "r_max": -0.43144998922931616,
+     "frac_above_minus0p5": 0.01262,
+     "frac_above_zero": 0.0,
+     "n_draws": 50000
+    },
+    "common_mode_plus_2pct": {
+     "r": -0.6809035670593068,
+     "max_delta_K": 1.8090586767417758,
+     "delta_spread_K": 0.48148080598177434
+    },
+    "common_mode_minus_2pct": {
+     "r": -0.7345879647009782,
+     "max_delta_K": 1.8090586767417758,
+     "delta_spread_K": 0.48148080598177434
+    },
+    "random_sign_2pct": {
+     "r_mean": -0.5497773371183484,
+     "r_median": -0.5553147218719667,
+     "r_ci95": [
+      -0.7817074160688509,
+      -0.28515913777638496
+     ],
+     "r_min": -0.911473913658931,
+     "r_max": -0.010912736120363118,
+     "frac_above_minus0p5": 0.33906,
+     "frac_above_zero": 0.0,
+     "n_draws": 50000
+    },
+    "common_mode_plus_3pct": {
+     "r": -0.6656193683108347,
+     "max_delta_K": 2.7135880151126637,
+     "delta_spread_K": 0.7222212089726616
+    },
+    "common_mode_minus_3pct": {
+     "r": -0.7459183338351667,
+     "max_delta_K": 2.7135880151126637,
+     "delta_spread_K": 0.7222212089726616
+    },
+    "random_sign_3pct": {
+     "r_mean": -0.4431116406834548,
+     "r_median": -0.4537838785612989,
+     "r_ci95": [
+      -0.7469640314227282,
+      -0.0771918593870009
+     ],
+     "r_min": -0.8926228124711362,
+     "r_max": 0.3243799273016633,
+     "frac_above_minus0p5": 0.60628,
+     "frac_above_zero": 0.01018,
+     "n_draws": 50000
+    }
+   },
+   "core16": {
+    "common_mode_plus_1pct": {
+     "r": -0.7499824322351226,
+     "max_delta_K": 0.9045293383708879,
+     "delta_spread_K": 0.24074040299088717
+    },
+    "common_mode_minus_1pct": {
+     "r": -0.796860937508012,
+     "max_delta_K": 0.9045293383708879,
+     "delta_spread_K": 0.24074040299088717
+    },
+    "random_sign_1pct": {
+     "r_mean": -0.6360144835354127,
+     "r_median": -0.6410811689828066,
+     "r_ci95": [
+      -0.8331715146118058,
+      -0.41006621596041987
+     ],
+     "r_min": -0.9299842695025334,
+     "r_max": -0.24700377211024716,
+     "frac_above_minus0p5": 0.11718,
+     "frac_above_zero": 0.0,
+     "n_draws": 50000
+    },
+    "common_mode_plus_2pct": {
+     "r": -0.7223132220868963,
+     "max_delta_K": 1.8090586767417758,
+     "delta_spread_K": 0.48148080598177434
+    },
+    "common_mode_minus_2pct": {
+     "r": -0.815727266271551,
+     "max_delta_K": 1.8090586767417758,
+     "delta_spread_K": 0.48148080598177434
+    },
+    "random_sign_2pct": {
+     "r_mean": -0.44029205928415244,
+     "r_median": -0.45364745934440787,
+     "r_ci95": [
+      -0.7644670258027819,
+      -0.04247998710247627
+     ],
+     "r_min": -0.9042870132427158,
+     "r_max": 0.480677751959848,
+     "frac_above_minus0p5": 0.60074,
+     "frac_above_zero": 0.01606,
+     "n_draws": 50000
+    },
+    "common_mode_plus_3pct": {
+     "r": -0.6922079947553346,
+     "max_delta_K": 2.7135880151126637,
+     "delta_spread_K": 0.7222212089726616
+    },
+    "common_mode_minus_3pct": {
+     "r": -0.8314812160334144,
+     "max_delta_K": 2.7135880151126637,
+     "delta_spread_K": 0.7222212089726616
+    },
+    "random_sign_3pct": {
+     "r_mean": -0.32095988369477596,
+     "r_median": -0.3361350214352274,
+     "r_ci95": [
+      -0.708675183107203,
+      0.14996707446811028
+     ],
+     "r_min": -0.8786005341831873,
+     "r_max": 0.6577502754546984,
+     "frac_above_minus0p5": 0.77574,
+     "frac_above_zero": 0.08646,
+     "n_draws": 50000
+    }
+   }
+  }
+ },
+ "aligned_step_family": {
+  "spec": "delta_i = B*sign(albedo_i - mean(albedo)): the high-albedo records are warmed by B and the low-albedo records cooled by B, i.e. the sign pattern that most efficiently flattens a negative albedo--offset slope. This is a saturated field: every record is displaced by exactly B, so the peak-to-peak displacement is 2B.",
+  "note_vs_superseded_block": "The superseded systematic_FOV_* entries instead used a one-sided ramp in [0, B] applied with a single sign, which is both weaker and mislabelled.",
+  "variants": {
+   "all19": {
+    "sign_vector": {
+     "AU-Preston": 1.0,
+     "CA-Sunset": -1.0,
+     "FI-Kumpula": 1.0,
+     "FI-Torni": -1.0,
+     "FR-Capitole": -1.0,
+     "GR-HECKOR": 1.0,
+     "JP-Yoyogi": -1.0,
+     "KR-Jungnang": -1.0,
+     "KR-Ochang": 1.0,
+     "NL-Amsterdam": -1.0,
+     "PL-Lipowa": -1.0,
+     "PL-Narutowicza": -1.0,
+     "SG-TelokKurau06": 1.0,
+     "UK-KingsCollege": -1.0,
+     "UK-Swindon": -1.0,
+     "US-Baltimore": -1.0,
+     "US-Minneapolis1": 1.0,
+     "US-Minneapolis2": 1.0,
+     "US-WestPhoenix": 1.0
+    },
+    "n_plus": 8,
+    "n_minus": 11,
+    "n_zero": 0,
+    "min_abs_albedo_minus_mean": 0.001105263157894748,
+    "amplitudes": {
+     "B_0.25K": {
+      "B_K": 0.25,
+      "B_Wm2": 1.2469276181249997,
+      "peak_to_peak_K": 0.5,
+      "peak_to_peak_Wm2": 2.4938552362499995,
+      "r": -0.745842333046155,
+      "delta_r_from_baseline": 0.04757210227513775
+     },
+     "B_0.5K": {
+      "B_K": 0.5,
+      "B_Wm2": 2.4938552362499995,
+      "peak_to_peak_K": 1.0,
+      "peak_to_peak_Wm2": 4.987710472499999,
+      "r": -0.680252927759162,
+      "delta_r_from_baseline": 0.11316150756213073
+     },
+     "B_0.75K": {
+      "B_K": 0.75,
+      "B_Wm2": 3.7407828543749995,
+      "peak_to_peak_K": 1.5,
+      "peak_to_peak_Wm2": 7.481565708749999,
+      "r": -0.5929088369127835,
+      "delta_r_from_baseline": 0.20050559840850923
+     },
+     "B_1K": {
+      "B_K": 1.0,
+      "B_Wm2": 4.987710472499999,
+      "peak_to_peak_K": 2.0,
+      "peak_to_peak_Wm2": 9.975420944999998,
+      "r": -0.48248374364180446,
+      "delta_r_from_baseline": 0.3109306916794883
+     }
+    }
+   },
+   "excl_mpls17": {
+    "sign_vector": {
+     "AU-Preston": 1.0,
+     "CA-Sunset": -1.0,
+     "FI-Kumpula": 1.0,
+     "FI-Torni": -1.0,
+     "FR-Capitole": -1.0,
+     "GR-HECKOR": 1.0,
+     "JP-Yoyogi": 1.0,
+     "KR-Jungnang": -1.0,
+     "KR-Ochang": 1.0,
+     "NL-Amsterdam": -1.0,
+     "PL-Lipowa": -1.0,
+     "PL-Narutowicza": -1.0,
+     "SG-TelokKurau06": 1.0,
+     "UK-KingsCollege": -1.0,
+     "UK-Swindon": 1.0,
+     "US-Baltimore": -1.0,
+     "US-WestPhoenix": 1.0
+    },
+    "n_plus": 8,
+    "n_minus": 9,
+    "n_zero": 0,
+    "min_abs_albedo_minus_mean": 0.0014705882352941124,
+    "amplitudes": {
+     "B_0.25K": {
+      "B_K": 0.25,
+      "B_Wm2": 1.2469276181249997,
+      "peak_to_peak_K": 0.5,
+      "peak_to_peak_Wm2": 2.4938552362499995,
+      "r": -0.6424261541079369,
+      "delta_r_from_baseline": 0.06691316029432581
+     },
+     "B_0.5K": {
+      "B_K": 0.5,
+      "B_Wm2": 2.4938552362499995,
+      "peak_to_peak_K": 1.0,
+      "peak_to_peak_Wm2": 4.987710472499999,
+      "r": -0.5532794869190997,
+      "delta_r_from_baseline": 0.15605982748316305
+     },
+     "B_0.75K": {
+      "B_K": 0.75,
+      "B_Wm2": 3.7407828543749995,
+      "peak_to_peak_K": 1.5,
+      "peak_to_peak_Wm2": 7.481565708749999,
+      "r": -0.4405352486438253,
+      "delta_r_from_baseline": 0.2688040657584374
+     },
+     "B_1K": {
+      "B_K": 1.0,
+      "B_Wm2": 4.987710472499999,
+      "peak_to_peak_K": 2.0,
+      "peak_to_peak_Wm2": 9.975420944999998,
+      "r": -0.30785270597704106,
+      "delta_r_from_baseline": 0.40148660842522166
+     }
+    }
+   },
+   "core16": {
+    "sign_vector": {
+     "AU-Preston": 1.0,
+     "CA-Sunset": -1.0,
+     "FI-Kumpula": 1.0,
+     "FI-Torni": -1.0,
+     "FR-Capitole": -1.0,
+     "GR-HECKOR": 1.0,
+     "JP-Yoyogi": -1.0,
+     "KR-Jungnang": -1.0,
+     "KR-Ochang": 1.0,
+     "NL-Amsterdam": -1.0,
+     "PL-Narutowicza": -1.0,
+     "SG-TelokKurau06": 1.0,
+     "UK-KingsCollege": -1.0,
+     "UK-Swindon": 1.0,
+     "US-Baltimore": -1.0,
+     "US-WestPhoenix": 1.0
+    },
+    "n_plus": 7,
+    "n_minus": 9,
+    "n_zero": 0,
+    "min_abs_albedo_minus_mean": 0.0014374999999999805,
+    "amplitudes": {
+     "B_0.25K": {
+      "B_K": 0.25,
+      "B_Wm2": 1.2469276181249997,
+      "peak_to_peak_K": 0.5,
+      "peak_to_peak_Wm2": 2.4938552362499995,
+      "r": -0.7014627308754242,
+      "delta_r_from_baseline": 0.07344254861469801
+     },
+     "B_0.5K": {
+      "B_K": 0.5,
+      "B_Wm2": 2.4938552362499995,
+      "peak_to_peak_K": 1.0,
+      "peak_to_peak_Wm2": 4.987710472499999,
+      "r": -0.5540239996983115,
+      "delta_r_from_baseline": 0.22088127979181071
+     },
+     "B_0.75K": {
+      "B_K": 0.75,
+      "B_Wm2": 3.7407828543749995,
+      "peak_to_peak_K": 1.5,
+      "peak_to_peak_Wm2": 7.481565708749999,
+      "r": -0.29435736206837715,
+      "delta_r_from_baseline": 0.4805479174217451
+     },
+     "B_1K": {
+      "B_K": 1.0,
+      "B_Wm2": 4.987710472499999,
+      "peak_to_peak_K": 2.0,
+      "peak_to_peak_Wm2": 9.975420944999998,
+      "r": 0.032512680761574014,
+      "delta_r_from_baseline": 0.8074179602516962
+     }
+    }
+   }
+  }
+ },
+ "unrestricted_box_worstcase": {
+  "spec": "sup of r over the box |delta_i| <= B, by exhaustive enumeration of all 2^n vertices using the closed form r(B) = (C0 + B*u)/sqrt(Saa*(Syy + 2B*v + B^2*(n - w^2/n))) with u = ac.s, v = yc.s, w = sum(s). Because r is a linear form over the square root of a convex quadratic, a vertex optimum is not guaranteed a priori, so a bounded interior search (L-BFGS-B, 63 starts) is run at every B and reported.",
+  "interior_check_verdict": "At every amplitude and every record set the bounded interior search fails to beat the best vertex; the largest excess is at the level of double rounding (<= 1.2e-16 in r). The box supremum is attained at a vertex.",
+  "finding_vs_prior_audit": "CORRECTION TO A BRIEFED 'GROUND TRUTH' ITEM. The prior audit recorded that the albedo-aligned step values at B = 1 K are the box supremum. This exhaustive enumeration confirms that for excl_mpls17 and core16 at B = 1 K (the argmax sign vector equals sign(albedo - mean albedo) exactly, and the two r values agree to all printed digits) but REFUTES it for all19 at B = 1 K: the supremum there is -0.4543, not the aligned -0.4825, and it is attained by flipping AU-Preston to -1 and PL-Lipowa to +1 relative to the aligned pattern. More generally the aligned step is NOT the box supremum at sub-breakdown amplitudes in any record set; the gap is largest in core16 at small B (aligned -0.7015 vs supremum -0.6374 at B = 0.25 K). The mechanism is that r = cov/(sd*sd) can be reduced either by attacking the covariance, which is what the aligned sign pattern does, or by INFLATING var(offset) at records that lie far from the fitted line, which is why the supremum warms PL-Lipowa (+6.12 K offset, below-mean albedo) instead of cooling it. The two families coincide only at the amplitude where the aligned field has driven r to the threshold on its own. Consequence for the manuscript: quote the ALIGNED B* when describing a physically interpretable bias pattern, and the UNRESTRICTED B* when stating what cannot be excluded at all; the unrestricted one is the smaller and therefore the conservative number.",
+  "variants": {
+   "all19": {
+    "n_vertices": 524288,
+    "amplitudes": {
+     "B_0.25K": {
+      "B_K": 0.25,
+      "B_Wm2": 1.2469276181249997,
+      "r_sup_vertex": -0.7231081692624132,
+      "argmax_sign_vector": {
+       "AU-Preston": -1.0,
+       "CA-Sunset": -1.0,
+       "FI-Kumpula": 1.0,
+       "FI-Torni": -1.0,
+       "FR-Capitole": -1.0,
+       "GR-HECKOR": 1.0,
+       "JP-Yoyogi": 1.0,
+       "KR-Jungnang": -1.0,
+       "KR-Ochang": -1.0,
+       "NL-Amsterdam": -1.0,
+       "PL-Lipowa": 1.0,
+       "PL-Narutowicza": -1.0,
+       "SG-TelokKurau06": 1.0,
+       "UK-KingsCollege": -1.0,
+       "UK-Swindon": -1.0,
+       "US-Baltimore": -1.0,
+       "US-Minneapolis1": 1.0,
+       "US-Minneapolis2": 1.0,
+       "US-WestPhoenix": 1.0
+      },
+      "matches_albedo_aligned_sign": false,
+      "peak_to_peak_K": 0.5,
+      "peak_to_peak_Wm2": 2.4938552362499995,
+      "interior_search_best_r": -0.7231081692624131,
+      "interior_beats_vertex": false,
+      "interior_minus_vertex": 1.1102230246251565e-16,
+      "interior_max_abs_delta_over_B": 1.0,
+      "n_starts": 63
+     },
+     "B_0.5K": {
+      "B_K": 0.5,
+      "B_Wm2": 2.4938552362499995,
+      "r_sup_vertex": -0.6418014780170092,
+      "argmax_sign_vector": {
+       "AU-Preston": -1.0,
+       "CA-Sunset": -1.0,
+       "FI-Kumpula": 1.0,
+       "FI-Torni": -1.0,
+       "FR-Capitole": -1.0,
+       "GR-HECKOR": 1.0,
+       "JP-Yoyogi": 1.0,
+       "KR-Jungnang": -1.0,
+       "KR-Ochang": 1.0,
+       "NL-Amsterdam": -1.0,
+       "PL-Lipowa": 1.0,
+       "PL-Narutowicza": -1.0,
+       "SG-TelokKurau06": 1.0,
+       "UK-KingsCollege": -1.0,
+       "UK-Swindon": -1.0,
+       "US-Baltimore": -1.0,
+       "US-Minneapolis1": 1.0,
+       "US-Minneapolis2": 1.0,
+       "US-WestPhoenix": 1.0
+      },
+      "matches_albedo_aligned_sign": false,
+      "peak_to_peak_K": 1.0,
+      "peak_to_peak_Wm2": 4.987710472499999,
+      "interior_search_best_r": -0.6418014780170094,
+      "interior_beats_vertex": false,
+      "interior_minus_vertex": -2.220446049250313e-16,
+      "interior_max_abs_delta_over_B": 1.0,
+      "n_starts": 63
+     },
+     "B_0.75K": {
+      "B_K": 0.75,
+      "B_Wm2": 3.7407828543749995,
+      "r_sup_vertex": -0.55064001597044,
+      "argmax_sign_vector": {
+       "AU-Preston": -1.0,
+       "CA-Sunset": -1.0,
+       "FI-Kumpula": 1.0,
+       "FI-Torni": -1.0,
+       "FR-Capitole": -1.0,
+       "GR-HECKOR": 1.0,
+       "JP-Yoyogi": 1.0,
+       "KR-Jungnang": -1.0,
+       "KR-Ochang": 1.0,
+       "NL-Amsterdam": -1.0,
+       "PL-Lipowa": 1.0,
+       "PL-Narutowicza": -1.0,
+       "SG-TelokKurau06": 1.0,
+       "UK-KingsCollege": -1.0,
+       "UK-Swindon": -1.0,
+       "US-Baltimore": -1.0,
+       "US-Minneapolis1": 1.0,
+       "US-Minneapolis2": 1.0,
+       "US-WestPhoenix": 1.0
+      },
+      "matches_albedo_aligned_sign": false,
+      "peak_to_peak_K": 1.5,
+      "peak_to_peak_Wm2": 7.481565708749999,
+      "interior_search_best_r": -0.5506400159704402,
+      "interior_beats_vertex": false,
+      "interior_minus_vertex": -2.220446049250313e-16,
+      "interior_max_abs_delta_over_B": 1.0,
+      "n_starts": 63
+     },
+     "B_1K": {
+      "B_K": 1.0,
+      "B_Wm2": 4.987710472499999,
+      "r_sup_vertex": -0.4543319521150095,
+      "argmax_sign_vector": {
+       "AU-Preston": -1.0,
+       "CA-Sunset": -1.0,
+       "FI-Kumpula": 1.0,
+       "FI-Torni": -1.0,
+       "FR-Capitole": -1.0,
+       "GR-HECKOR": 1.0,
+       "JP-Yoyogi": -1.0,
+       "KR-Jungnang": -1.0,
+       "KR-Ochang": 1.0,
+       "NL-Amsterdam": -1.0,
+       "PL-Lipowa": 1.0,
+       "PL-Narutowicza": -1.0,
+       "SG-TelokKurau06": 1.0,
+       "UK-KingsCollege": -1.0,
+       "UK-Swindon": -1.0,
+       "US-Baltimore": -1.0,
+       "US-Minneapolis1": 1.0,
+       "US-Minneapolis2": 1.0,
+       "US-WestPhoenix": 1.0
+      },
+      "matches_albedo_aligned_sign": false,
+      "peak_to_peak_K": 2.0,
+      "peak_to_peak_Wm2": 9.975420944999998,
+      "interior_search_best_r": -0.45433195211500965,
+      "interior_beats_vertex": false,
+      "interior_minus_vertex": -1.6653345369377348e-16,
+      "interior_max_abs_delta_over_B": 1.0,
+      "n_starts": 63
+     }
+    }
+   },
+   "excl_mpls17": {
+    "n_vertices": 131072,
+    "amplitudes": {
+     "B_0.25K": {
+      "B_K": 0.25,
+      "B_Wm2": 1.2469276181249997,
+      "r_sup_vertex": -0.6267017498368999,
+      "argmax_sign_vector": {
+       "AU-Preston": -1.0,
+       "CA-Sunset": -1.0,
+       "FI-Kumpula": 1.0,
+       "FI-Torni": -1.0,
+       "FR-Capitole": -1.0,
+       "GR-HECKOR": 1.0,
+       "JP-Yoyogi": 1.0,
+       "KR-Jungnang": -1.0,
+       "KR-Ochang": 1.0,
+       "NL-Amsterdam": -1.0,
+       "PL-Lipowa": 1.0,
+       "PL-Narutowicza": -1.0,
+       "SG-TelokKurau06": 1.0,
+       "UK-KingsCollege": -1.0,
+       "UK-Swindon": -1.0,
+       "US-Baltimore": -1.0,
+       "US-WestPhoenix": 1.0
+      },
+      "matches_albedo_aligned_sign": false,
+      "peak_to_peak_K": 0.5,
+      "peak_to_peak_Wm2": 2.4938552362499995,
+      "interior_search_best_r": -0.6267017498368999,
+      "interior_beats_vertex": false,
+      "interior_minus_vertex": 0.0,
+      "interior_max_abs_delta_over_B": 1.0,
+      "n_starts": 63
+     },
+     "B_0.5K": {
+      "B_K": 0.5,
+      "B_Wm2": 2.4938552362499995,
+      "r_sup_vertex": -0.5354435509513458,
+      "argmax_sign_vector": {
+       "AU-Preston": -1.0,
+       "CA-Sunset": -1.0,
+       "FI-Kumpula": 1.0,
+       "FI-Torni": -1.0,
+       "FR-Capitole": -1.0,
+       "GR-HECKOR": 1.0,
+       "JP-Yoyogi": 1.0,
+       "KR-Jungnang": -1.0,
+       "KR-Ochang": 1.0,
+       "NL-Amsterdam": -1.0,
+       "PL-Lipowa": 1.0,
+       "PL-Narutowicza": -1.0,
+       "SG-TelokKurau06": 1.0,
+       "UK-KingsCollege": -1.0,
+       "UK-Swindon": 1.0,
+       "US-Baltimore": -1.0,
+       "US-WestPhoenix": 1.0
+      },
+      "matches_albedo_aligned_sign": false,
+      "peak_to_peak_K": 1.0,
+      "peak_to_peak_Wm2": 4.987710472499999,
+      "interior_search_best_r": -0.5354435509513457,
+      "interior_beats_vertex": false,
+      "interior_minus_vertex": 1.1102230246251565e-16,
+      "interior_max_abs_delta_over_B": 1.0,
+      "n_starts": 63
+     },
+     "B_0.75K": {
+      "B_K": 0.75,
+      "B_Wm2": 3.7407828543749995,
+      "r_sup_vertex": -0.4348332691367369,
+      "argmax_sign_vector": {
+       "AU-Preston": 1.0,
+       "CA-Sunset": -1.0,
+       "FI-Kumpula": 1.0,
+       "FI-Torni": -1.0,
+       "FR-Capitole": -1.0,
+       "GR-HECKOR": 1.0,
+       "JP-Yoyogi": 1.0,
+       "KR-Jungnang": -1.0,
+       "KR-Ochang": 1.0,
+       "NL-Amsterdam": -1.0,
+       "PL-Lipowa": 1.0,
+       "PL-Narutowicza": -1.0,
+       "SG-TelokKurau06": 1.0,
+       "UK-KingsCollege": -1.0,
+       "UK-Swindon": 1.0,
+       "US-Baltimore": -1.0,
+       "US-WestPhoenix": 1.0
+      },
+      "matches_albedo_aligned_sign": false,
+      "peak_to_peak_K": 1.5,
+      "peak_to_peak_Wm2": 7.481565708749999,
+      "interior_search_best_r": -0.4348332691367369,
+      "interior_beats_vertex": false,
+      "interior_minus_vertex": 0.0,
+      "interior_max_abs_delta_over_B": 1.0,
+      "n_starts": 63
+     },
+     "B_1K": {
+      "B_K": 1.0,
+      "B_Wm2": 4.987710472499999,
+      "r_sup_vertex": -0.307852705977041,
+      "argmax_sign_vector": {
+       "AU-Preston": 1.0,
+       "CA-Sunset": -1.0,
+       "FI-Kumpula": 1.0,
+       "FI-Torni": -1.0,
+       "FR-Capitole": -1.0,
+       "GR-HECKOR": 1.0,
+       "JP-Yoyogi": 1.0,
+       "KR-Jungnang": -1.0,
+       "KR-Ochang": 1.0,
+       "NL-Amsterdam": -1.0,
+       "PL-Lipowa": -1.0,
+       "PL-Narutowicza": -1.0,
+       "SG-TelokKurau06": 1.0,
+       "UK-KingsCollege": -1.0,
+       "UK-Swindon": 1.0,
+       "US-Baltimore": -1.0,
+       "US-WestPhoenix": 1.0
+      },
+      "matches_albedo_aligned_sign": true,
+      "peak_to_peak_K": 2.0,
+      "peak_to_peak_Wm2": 9.975420944999998,
+      "interior_search_best_r": -0.30785270597704106,
+      "interior_beats_vertex": false,
+      "interior_minus_vertex": -5.551115123125783e-17,
+      "interior_max_abs_delta_over_B": 1.0,
+      "n_starts": 63
+     }
+    }
+   },
+   "core16": {
+    "n_vertices": 65536,
+    "amplitudes": {
+     "B_0.25K": {
+      "B_K": 0.25,
+      "B_Wm2": 1.2469276181249997,
+      "r_sup_vertex": -0.6374072208908274,
+      "argmax_sign_vector": {
+       "AU-Preston": -1.0,
+       "CA-Sunset": -1.0,
+       "FI-Kumpula": 1.0,
+       "FI-Torni": -1.0,
+       "FR-Capitole": 1.0,
+       "GR-HECKOR": 1.0,
+       "JP-Yoyogi": 1.0,
+       "KR-Jungnang": 1.0,
+       "KR-Ochang": -1.0,
+       "NL-Amsterdam": -1.0,
+       "PL-Narutowicza": -1.0,
+       "SG-TelokKurau06": 1.0,
+       "UK-KingsCollege": -1.0,
+       "UK-Swindon": -1.0,
+       "US-Baltimore": -1.0,
+       "US-WestPhoenix": 1.0
+      },
+      "matches_albedo_aligned_sign": false,
+      "peak_to_peak_K": 0.5,
+      "peak_to_peak_Wm2": 2.4938552362499995,
+      "interior_search_best_r": -0.6374072208908272,
+      "interior_beats_vertex": false,
+      "interior_minus_vertex": 1.1102230246251565e-16,
+      "interior_max_abs_delta_over_B": 1.0,
+      "n_starts": 63
+     },
+     "B_0.5K": {
+      "B_K": 0.5,
+      "B_Wm2": 2.4938552362499995,
+      "r_sup_vertex": -0.4666946824673544,
+      "argmax_sign_vector": {
+       "AU-Preston": -1.0,
+       "CA-Sunset": -1.0,
+       "FI-Kumpula": 1.0,
+       "FI-Torni": -1.0,
+       "FR-Capitole": 1.0,
+       "GR-HECKOR": 1.0,
+       "JP-Yoyogi": 1.0,
+       "KR-Jungnang": -1.0,
+       "KR-Ochang": 1.0,
+       "NL-Amsterdam": -1.0,
+       "PL-Narutowicza": -1.0,
+       "SG-TelokKurau06": 1.0,
+       "UK-KingsCollege": -1.0,
+       "UK-Swindon": -1.0,
+       "US-Baltimore": -1.0,
+       "US-WestPhoenix": 1.0
+      },
+      "matches_albedo_aligned_sign": false,
+      "peak_to_peak_K": 1.0,
+      "peak_to_peak_Wm2": 4.987710472499999,
+      "interior_search_best_r": -0.4666946824673543,
+      "interior_beats_vertex": false,
+      "interior_minus_vertex": 1.1102230246251565e-16,
+      "interior_max_abs_delta_over_B": 1.0,
+      "n_starts": 63
+     },
+     "B_0.75K": {
+      "B_K": 0.75,
+      "B_Wm2": 3.7407828543749995,
+      "r_sup_vertex": -0.2613066839796,
+      "argmax_sign_vector": {
+       "AU-Preston": -1.0,
+       "CA-Sunset": -1.0,
+       "FI-Kumpula": 1.0,
+       "FI-Torni": -1.0,
+       "FR-Capitole": -1.0,
+       "GR-HECKOR": 1.0,
+       "JP-Yoyogi": 1.0,
+       "KR-Jungnang": -1.0,
+       "KR-Ochang": 1.0,
+       "NL-Amsterdam": -1.0,
+       "PL-Narutowicza": -1.0,
+       "SG-TelokKurau06": 1.0,
+       "UK-KingsCollege": -1.0,
+       "UK-Swindon": 1.0,
+       "US-Baltimore": -1.0,
+       "US-WestPhoenix": 1.0
+      },
+      "matches_albedo_aligned_sign": false,
+      "peak_to_peak_K": 1.5,
+      "peak_to_peak_Wm2": 7.481565708749999,
+      "interior_search_best_r": -0.2613066839795999,
+      "interior_beats_vertex": false,
+      "interior_minus_vertex": 1.1102230246251565e-16,
+      "interior_max_abs_delta_over_B": 1.0,
+      "n_starts": 63
+     },
+     "B_1K": {
+      "B_K": 1.0,
+      "B_Wm2": 4.987710472499999,
+      "r_sup_vertex": 0.03251268076157391,
+      "argmax_sign_vector": {
+       "AU-Preston": 1.0,
+       "CA-Sunset": -1.0,
+       "FI-Kumpula": 1.0,
+       "FI-Torni": -1.0,
+       "FR-Capitole": -1.0,
+       "GR-HECKOR": 1.0,
+       "JP-Yoyogi": -1.0,
+       "KR-Jungnang": -1.0,
+       "KR-Ochang": 1.0,
+       "NL-Amsterdam": -1.0,
+       "PL-Narutowicza": -1.0,
+       "SG-TelokKurau06": 1.0,
+       "UK-KingsCollege": -1.0,
+       "UK-Swindon": 1.0,
+       "US-Baltimore": -1.0,
+       "US-WestPhoenix": 1.0
+      },
+      "matches_albedo_aligned_sign": true,
+      "peak_to_peak_K": 2.0,
+      "peak_to_peak_Wm2": 9.975420944999998,
+      "interior_search_best_r": 0.03251268076157398,
+      "interior_beats_vertex": false,
+      "interior_minus_vertex": 6.938893903907228e-17,
+      "interior_max_abs_delta_over_B": 1.0,
+      "n_starts": 63
+     }
+    }
+   }
+  }
+ },
+ "breakdown_amplitude": {
+  "spec": "B* = smallest amplitude at which r exceeds the threshold. Reported in K, in W/m2 (B/K_per_Wm2), as peak-to-peak (2B for a saturated step field), and as a percentage of the corpus mean nocturnal LW_up. Peak-to-peak is the quantity a reviewer will compare against an instrument specification, because a saturated step field displaces the two ends of the albedo range in opposite directions.",
+  "thresholds": [
+   -0.5,
+   -0.4,
+   -0.3,
+   0.0
+  ],
+  "search_ceiling_K": 20.0,
+  "variants": {
+   "all19": {
+    "baseline_r": -0.7934144353212927,
+    "aligned": {
+     "r_above_-0.5": {
+      "B_K": 0.9634553784860291,
+      "B_Wm2": 4.805436481061218,
+      "peak_to_peak_K": 1.9269107569720583,
+      "peak_to_peak_Wm2": 9.610872962122436,
+      "pct_of_corpus_mean_LWup": 1.311880488028688,
+      "r_monotone_in_B": true
+     },
+     "r_above_-0.4": {
+      "B_K": 1.1618716736149957,
+      "B_Wm2": 5.795079514190615,
+      "peak_to_peak_K": 2.3237433472299913,
+      "peak_to_peak_Wm2": 11.59015902838123,
+      "pct_of_corpus_mean_LWup": 1.582052279996537,
+      "r_monotone_in_B": true
+     },
+     "r_above_-0.3": {
+      "B_K": 1.3437357866055804,
+      "B_Wm2": 6.702165055125677,
+      "peak_to_peak_K": 2.6874715732111607,
+      "peak_to_peak_Wm2": 13.404330110251355,
+      "pct_of_corpus_mean_LWup": 1.829685939668356,
+      "r_monotone_in_B": true
+     },
+     "r_above_+0.0": {
+      "B_K": 1.8804001051079886,
+      "B_Wm2": 9.378891296737214,
+      "peak_to_peak_K": 3.760800210215977,
+      "peak_to_peak_Wm2": 18.757782593474428,
+      "pct_of_corpus_mean_LWup": 2.560430158638671,
+      "r_monotone_in_B": true
+     }
+    },
+    "unrestricted": {
+     "r_above_-0.5": {
+      "B_K": 0.8823685127452497,
+      "B_Wm2": 4.400998671623731,
+      "peak_to_peak_K": 1.7647370254904995,
+      "peak_to_peak_Wm2": 8.801997343247463,
+      "pct_of_corpus_mean_LWup": 1.2014692750383265,
+      "r_sup_monotone_in_B": true
+     },
+     "r_above_-0.4": {
+      "B_K": 1.138993418264524,
+      "B_Wm2": 5.680969400386538,
+      "peak_to_peak_K": 2.277986836529048,
+      "peak_to_peak_Wm2": 11.361938800773077,
+      "pct_of_corpus_mean_LWup": 1.550900306106906,
+      "r_sup_monotone_in_B": true
+     },
+     "r_above_-0.3": {
+      "B_K": 1.3402966199065574,
+      "B_Wm2": 6.685011487364287,
+      "peak_to_peak_K": 2.6805932398131147,
+      "peak_to_peak_Wm2": 13.370022974728574,
+      "pct_of_corpus_mean_LWup": 1.825003028774635,
+      "r_sup_monotone_in_B": true
+     },
+     "r_above_+0.0": {
+      "B_K": 1.8804001051079886,
+      "B_Wm2": 9.378891296737214,
+      "peak_to_peak_K": 3.760800210215977,
+      "peak_to_peak_Wm2": 18.757782593474428,
+      "pct_of_corpus_mean_LWup": 2.560430158638671,
+      "r_sup_monotone_in_B": true
+     }
+    }
+   },
+   "excl_mpls17": {
+    "baseline_r": -0.7093393144022627,
+    "aligned": {
+     "r_above_-0.5": {
+      "B_K": 0.6244898466131223,
+      "B_Wm2": 3.1147745479221887,
+      "peak_to_peak_K": 1.2489796932262447,
+      "peak_to_peak_Wm2": 6.229549095844377,
+      "pct_of_corpus_mean_LWup": 0.8503310719289978,
+      "r_monotone_in_B": true
+     },
+     "r_above_-0.4": {
+      "B_K": 0.8298093484298583,
+      "B_Wm2": 4.138848777342005,
+      "peak_to_peak_K": 1.6596186968597166,
+      "peak_to_peak_Wm2": 8.27769755468401,
+      "pct_of_corpus_mean_LWup": 1.1299025541790735,
+      "r_monotone_in_B": true
+     },
+     "r_above_-0.3": {
+      "B_K": 1.014001428673529,
+      "B_Wm2": 5.057545544924922,
+      "peak_to_peak_K": 2.028002857347058,
+      "peak_to_peak_Wm2": 10.115091089849845,
+      "pct_of_corpus_mean_LWup": 1.380706069854906,
+      "r_monotone_in_B": true
+     },
+     "r_above_+0.0": {
+      "B_K": 1.5426612656175227,
+      "B_Wm2": 7.694347750040621,
+      "peak_to_peak_K": 3.0853225312350454,
+      "peak_to_peak_Wm2": 15.388695500081242,
+      "pct_of_corpus_mean_LWup": 2.1005510573633854,
+      "r_monotone_in_B": true
+     }
+    },
+    "unrestricted": {
+     "r_above_-0.5": {
+      "B_K": 0.591169596936257,
+      "B_Wm2": 2.9485827896625727,
+      "peak_to_peak_K": 1.182339193872514,
+      "peak_to_peak_Wm2": 5.897165579325145,
+      "pct_of_corpus_mean_LWup": 0.8049608488928123,
+      "r_sup_monotone_in_B": true
+     },
+     "r_above_-0.4": {
+      "B_K": 0.8298093484298582,
+      "B_Wm2": 4.138848777342004,
+      "peak_to_peak_K": 1.6596186968597164,
+      "peak_to_peak_Wm2": 8.277697554684009,
+      "pct_of_corpus_mean_LWup": 1.129902554179073,
+      "r_sup_monotone_in_B": true
+     },
+     "r_above_-0.3": {
+      "B_K": 1.014001428673529,
+      "B_Wm2": 5.057545544924922,
+      "peak_to_peak_K": 2.028002857347058,
+      "peak_to_peak_Wm2": 10.115091089849845,
+      "pct_of_corpus_mean_LWup": 1.380706069854906,
+      "r_sup_monotone_in_B": true
+     },
+     "r_above_+0.0": {
+      "B_K": 1.542661265617523,
+      "B_Wm2": 7.694347750040622,
+      "peak_to_peak_K": 3.085322531235046,
+      "peak_to_peak_Wm2": 15.388695500081244,
+      "pct_of_corpus_mean_LWup": 2.100551057363386,
+      "r_sup_monotone_in_B": true
+     }
+    }
+   },
+   "core16": {
+    "baseline_r": -0.7749052794901222,
+    "aligned": {
+     "r_above_-0.5": {
+      "B_K": 0.5626627530348216,
+      "B_Wm2": 2.8063989057974603,
+      "peak_to_peak_K": 1.1253255060696432,
+      "peak_to_peak_Wm2": 5.612797811594921,
+      "pct_of_corpus_mean_LWup": 0.766144757224572,
+      "r_monotone_in_B": true
+     },
+     "r_above_-0.4": {
+      "B_K": 0.6607954727868538,
+      "B_Wm2": 3.2958564997995787,
+      "peak_to_peak_K": 1.3215909455737076,
+      "peak_to_peak_Wm2": 6.5917129995991575,
+      "pct_of_corpus_mean_LWup": 0.8997663064468905,
+      "r_monotone_in_B": true
+     },
+     "r_above_-0.3": {
+      "B_K": 0.7454724226082916,
+      "B_Wm2": 3.718200609203321,
+      "peak_to_peak_K": 1.4909448452165832,
+      "peak_to_peak_Wm2": 7.436401218406642,
+      "pct_of_corpus_mean_LWup": 1.015065925647822,
+      "r_monotone_in_B": true
+     },
+     "r_above_+0.0": {
+      "B_K": 0.974568309457239,
+      "B_Wm2": 4.8608645632464915,
+      "peak_to_peak_K": 1.949136618914478,
+      "peak_to_peak_Wm2": 9.721729126492983,
+      "pct_of_corpus_mean_LWup": 1.3270123121188178,
+      "r_monotone_in_B": true
+     }
+    },
+    "unrestricted": {
+     "r_above_-0.5": {
+      "B_K": 0.4567827404710941,
+      "B_Wm2": 2.278300058304925,
+      "peak_to_peak_K": 0.9135654809421881,
+      "peak_to_peak_Wm2": 4.55660011660985,
+      "pct_of_corpus_mean_LWup": 0.6219741753208656,
+      "r_sup_monotone_in_B": true
+     },
+     "r_above_-0.4": {
+      "B_K": 0.584760960484797,
+      "B_Wm2": 2.91661836651918,
+      "peak_to_peak_K": 1.169521920969594,
+      "peak_to_peak_Wm2": 5.83323673303836,
+      "pct_of_corpus_mean_LWup": 0.7962345857951364,
+      "r_sup_monotone_in_B": true
+     },
+     "r_above_-0.3": {
+      "B_K": 0.7061957333530507,
+      "B_Wm2": 3.522299854879828,
+      "peak_to_peak_K": 1.4123914667061015,
+      "peak_to_peak_Wm2": 7.044599709759656,
+      "pct_of_corpus_mean_LWup": 0.9615851693835467,
+      "r_sup_monotone_in_B": true
+     },
+     "r_above_+0.0": {
+      "B_K": 0.9745683094572392,
+      "B_Wm2": 4.8608645632464915,
+      "peak_to_peak_K": 1.9491366189144783,
+      "peak_to_peak_Wm2": 9.721729126492983,
+      "pct_of_corpus_mean_LWup": 1.3270123121188178,
+      "r_sup_monotone_in_B": true
+     }
+    }
+   }
+  }
+ },
+ "static_bias_cancellation": {
+  "clear_calm_contrast": {
+   "definition_verified": true,
+   "definition_source": "review2_additions.clear_calm_definition and 투고가능성평가/재검증_2026-08/scripts/conditioning_analysis.py:119-127 (eps_q = np.percentile(eps_v,[25,50,75]); wnd_q = np.percentile(wind_v,[25,50,75]); clear_calm = (eps_sky <= eps_q[1]) & (wind <= wnd_q[1]); cloudy_windy = (eps_sky >= eps_q[1]) & (wind >= wnd_q[1])).",
+   "definition_quoted": "Per site, nocturnal samples with sky emissivity eps_sky = LWdown/(sigma*Ta^4) below the site median AND 10-m wind speed below the site median; cloudy-windy = both above the site median (conditioning_analysis.py).",
+   "analytic_statement": "The two composites are means of the SAME record's nocturnal samples over subsets selected by thresholds on eps_sky = LW_down/(sigma Ta^4) and wind ONLY. Neither threshold involves LW_up, T_s or dTsa, so a per-record bias delta_i leaves both masks unchanged. Writing m_cc and m_cw for the two subset means of dTsa, the biased composites are m_cc + delta_i and m_cw + delta_i, so the contrast (m_cc + delta_i) - (m_cw + delta_i) = m_cc - m_cw is EXACTLY invariant, for every delta_i and every amplitude. The adversarial aligned field of section aligned_step_family therefore cannot touch this evidence line at all.",
+   "caveat_second_order": "Exact invariance holds for a bias specified in kelvin. A bias specified as a constant LW_up offset E is not exactly constant in kelvin, because dT_s/dLW_up = 1/(4 eps sigma T_s^3) varies with T_s and T_s differs between clear--calm and cloudy--windy nights. The residual is computed exactly below and is two orders of magnitude smaller than the contrast.",
+   "per_record": {
+    "AU-Preston": {
+     "n_clear_calm": 1333,
+     "n_cloudy_windy": 1333,
+     "dtsa_clear_calm_K": -2.2457787363318102,
+     "dtsa_cloudy_windy_K": -1.6962800306325716,
+     "contrast_K": -0.5494987056992386,
+     "residual_K_if_bias_is_5Wm2": 0.006481970162775852,
+     "residual_K_if_bias_is_11p2Wm2": 0.014296244283642956
+    },
+    "CA-Sunset": {
+     "n_clear_calm": 9557,
+     "n_cloudy_windy": 9556,
+     "dtsa_clear_calm_K": 0.2848990081168391,
+     "dtsa_cloudy_windy_K": 1.5136268559078592,
+     "contrast_K": -1.2287278477910202,
+     "residual_K_if_bias_is_5Wm2": -0.020855283034844185,
+     "residual_K_if_bias_is_11p2Wm2": -0.046087798757123544
+    },
+    "FI-Kumpula": {
+     "n_clear_calm": 4856,
+     "n_cloudy_windy": 4856,
+     "dtsa_clear_calm_K": -1.0555620437150128,
+     "dtsa_cloudy_windy_K": 0.2104936733532859,
+     "contrast_K": -1.2660557170682987,
+     "residual_K_if_bias_is_5Wm2": -0.011800815149401789,
+     "residual_K_if_bias_is_11p2Wm2": -0.02623545324285681
+    },
+    "FI-Torni": {
+     "n_clear_calm": 6884,
+     "n_cloudy_windy": 6883,
+     "dtsa_clear_calm_K": 0.22749827439920384,
+     "dtsa_cloudy_windy_K": 0.5752188810219062,
+     "contrast_K": -0.3477206066227024,
+     "residual_K_if_bias_is_5Wm2": -0.020009445905876166,
+     "residual_K_if_bias_is_11p2Wm2": -0.04424305559951103
+    },
+    "FR-Capitole": {
+     "n_clear_calm": 945,
+     "n_cloudy_windy": 945,
+     "dtsa_clear_calm_K": 0.1834941513321647,
+     "dtsa_cloudy_windy_K": 0.7556661468661773,
+     "contrast_K": -0.5721719955340125,
+     "residual_K_if_bias_is_5Wm2": -0.002693983167516789,
+     "residual_K_if_bias_is_11p2Wm2": -0.005950238567514532
+    },
+    "GR-HECKOR": {
+     "n_clear_calm": 1213,
+     "n_cloudy_windy": 1213,
+     "dtsa_clear_calm_K": -1.3866037957912858,
+     "dtsa_cloudy_windy_K": -2.1373907494032527,
+     "contrast_K": 0.7507869536119669,
+     "residual_K_if_bias_is_5Wm2": -0.03141640933602363,
+     "residual_K_if_bias_is_11p2Wm2": -0.06937037447083227
+    },
+    "JP-Yoyogi": {
+     "n_clear_calm": 7256,
+     "n_cloudy_windy": 7255,
+     "dtsa_clear_calm_K": 0.07186107148845679,
+     "dtsa_cloudy_windy_K": 0.697282700473619,
+     "contrast_K": -0.6254216289851622,
+     "residual_K_if_bias_is_5Wm2": 0.04469134560631127,
+     "residual_K_if_bias_is_11p2Wm2": 0.09868289445487788
+    },
+    "KR-Jungnang": {
+     "n_clear_calm": 3636,
+     "n_cloudy_windy": 3636,
+     "dtsa_clear_calm_K": 0.3236033303056709,
+     "dtsa_cloudy_windy_K": 0.8969161276349368,
+     "contrast_K": -0.5733127973292659,
+     "residual_K_if_bias_is_5Wm2": 0.11448380165362326,
+     "residual_K_if_bias_is_11p2Wm2": 0.2525990684132746
+    },
+    "KR-Ochang": {
+     "n_clear_calm": 3234,
+     "n_cloudy_windy": 3233,
+     "dtsa_clear_calm_K": -3.54550525126643,
+     "dtsa_cloudy_windy_K": -1.0685962465189895,
+     "contrast_K": -2.4769090047474402,
+     "residual_K_if_bias_is_5Wm2": 0.12152938847491712,
+     "residual_K_if_bias_is_11p2Wm2": 0.26785259683468743
+    },
+    "NL-Amsterdam": {
+     "n_clear_calm": 1754,
+     "n_cloudy_windy": 1754,
+     "dtsa_clear_calm_K": 0.661078867084101,
+     "dtsa_cloudy_windy_K": -0.006697339284731558,
+     "contrast_K": 0.6677762063688326,
+     "residual_K_if_bias_is_5Wm2": -0.010353811532908153,
+     "residual_K_if_bias_is_11p2Wm2": -0.02286415504414885
+    },
+    "PL-Lipowa": {
+     "n_clear_calm": 9046,
+     "n_cloudy_windy": 9048,
+     "dtsa_clear_calm_K": 6.489271417455564,
+     "dtsa_cloudy_windy_K": 5.689065436095544,
+     "contrast_K": 0.80020598136002,
+     "residual_K_if_bias_is_5Wm2": -0.04421486193739732,
+     "residual_K_if_bias_is_11p2Wm2": -0.09768800811156186
+    },
+    "PL-Narutowicza": {
+     "n_clear_calm": 9576,
+     "n_cloudy_windy": 9576,
+     "dtsa_clear_calm_K": 0.43590321260984205,
+     "dtsa_cloudy_windy_K": 1.6926677534842145,
+     "contrast_K": -1.2567645408743724,
+     "residual_K_if_bias_is_5Wm2": -0.025577442079300905,
+     "residual_K_if_bias_is_11p2Wm2": -0.056484886008013824
+    },
+    "SG-TelokKurau06": {
+     "n_clear_calm": 502,
+     "n_cloudy_windy": 502,
+     "dtsa_clear_calm_K": 0.04068957277873204,
+     "dtsa_cloudy_windy_K": 0.3773473378717527,
+     "contrast_K": -0.33665776509302064,
+     "residual_K_if_bias_is_5Wm2": -0.0012849862441768334,
+     "residual_K_if_bias_is_11p2Wm2": -0.0028424386192729134
+    },
+    "UK-KingsCollege": {
+     "n_clear_calm": 2983,
+     "n_cloudy_windy": 2983,
+     "dtsa_clear_calm_K": -0.4582599741815348,
+     "dtsa_cloudy_windy_K": 0.039924427604684204,
+     "contrast_K": -0.49818440178621903,
+     "residual_K_if_bias_is_5Wm2": -0.0030239937844178666,
+     "residual_K_if_bias_is_11p2Wm2": -0.006702049816199374
+    },
+    "UK-Swindon": {
+     "n_clear_calm": 3716,
+     "n_cloudy_windy": 3715,
+     "dtsa_clear_calm_K": -0.9325014610517418,
+     "dtsa_cloudy_windy_K": -0.47012510270370095,
+     "contrast_K": -0.46237635834804086,
+     "residual_K_if_bias_is_5Wm2": 0.015235976705997967,
+     "residual_K_if_bias_is_11p2Wm2": 0.03354292118530999
+    },
+    "US-Baltimore": {
+     "n_clear_calm": 6588,
+     "n_cloudy_windy": 6591,
+     "dtsa_clear_calm_K": -0.03612734671627664,
+     "dtsa_cloudy_windy_K": 0.6902846041761951,
+     "contrast_K": -0.7264119508924717,
+     "residual_K_if_bias_is_5Wm2": 0.03073639097581904,
+     "residual_K_if_bias_is_11p2Wm2": 0.06777838513252021
+    },
+    "US-Minneapolis1": {
+     "n_clear_calm": 5144,
+     "n_cloudy_windy": 5143,
+     "dtsa_clear_calm_K": -5.525073210540918,
+     "dtsa_cloudy_windy_K": -1.5097947818220208,
+     "contrast_K": -4.015278428718897,
+     "residual_K_if_bias_is_5Wm2": 0.07207327117622264,
+     "residual_K_if_bias_is_11p2Wm2": 0.15817231334665882
+    },
+    "US-Minneapolis2": {
+     "n_clear_calm": 5144,
+     "n_cloudy_windy": 5143,
+     "dtsa_clear_calm_K": -5.5254730142291555,
+     "dtsa_cloudy_windy_K": -1.5097947818220208,
+     "contrast_K": -4.015678232407135,
+     "residual_K_if_bias_is_5Wm2": 0.0722476998825341,
+     "residual_K_if_bias_is_11p2Wm2": 0.1585550547510759
+    },
+    "US-WestPhoenix": {
+     "n_clear_calm": 1386,
+     "n_cloudy_windy": 1387,
+     "dtsa_clear_calm_K": -2.731762863053956,
+     "dtsa_cloudy_windy_K": 0.022500737329508167,
+     "contrast_K": -2.754263600383464,
+     "residual_K_if_bias_is_5Wm2": 0.11349179867338832,
+     "residual_K_if_bias_is_11p2Wm2": 0.25092279978848
+    }
+   },
+   "sample_note": "Composites are computed on the FROZEN dTsa nocturnal mask (night & ~pre_spinup & finite LW_up/T_air/LW_down) intersected with finite wind, with the site median taken over that same sample. conditioning_analysis.py additionally requires finite Q_air and takes its thresholds from np.percentile of that slightly smaller sample, so individual composites can differ in the third decimal. Validation: this recomputation gives PL-Lipowa +6.489 / +5.689 K, reproducing the +6.5 / +5.7 K printed in v10 exactly.",
+   "summary": {
+    "n_records": 19,
+    "contrast_K_median_abs": 0.7264119508924717,
+    "contrast_K_max_abs": 4.015678232407135,
+    "contrast_K_max_abs_site": "US-Minneapolis2",
+    "negative_offset_group": {
+     "sites": [
+      "AU-Preston",
+      "FI-Kumpula",
+      "GR-HECKOR",
+      "KR-Ochang",
+      "UK-KingsCollege",
+      "UK-Swindon",
+      "US-Minneapolis1",
+      "US-Minneapolis2",
+      "US-WestPhoenix"
+     ],
+     "n": 9,
+     "mean_dtsa_clear_calm_K": -2.600724483351316,
+     "mean_dtsa_cloudy_windy_K": -0.9021180949572307,
+     "mean_contrast_K": -1.6986063883940854,
+     "max_abs_residual_K_at_5Wm2": 0.12152938847491712,
+     "max_residual_fraction_of_own_contrast": 0.049064938696570706,
+     "DISCREPANCY_FLAG_FOR_LEAD": "v10 main.tex states 'over the negative-offset sites the clear--calm composite mean is -3.1 K against -1.2 K for cloudy--windy nights'. Recomputing over the 9 records with dtsa_std < 0 on the frozen mask gives -2.60 K against -0.90 K (contrast -1.70 K instead of -1.9 K). Same sign, same magnitude class, but not the printed pair: the lead should establish which grouping v10 used (PL-Lipowa reproduces exactly, so the definition is not at fault) before the numbers are reprinted. This is outside task A's scope and is NOT fixed here."
+    },
+    "second_order_residual": {
+     "meaning": "A bias specified as a constant LW_up offset E is not exactly constant in kelvin, so the cancellation is exact only for a bias stated in K. These are the EXACT residuals of the contrast, computed sample-by-sample from the raw corpus.",
+     "at_5Wm2": {
+      "median_abs_K": 0.025577442079300905,
+      "max_abs_K": 0.12152938847491712,
+      "max_abs_site": "KR-Ochang",
+      "median_fraction_of_own_contrast": 0.02035181710450379,
+      "max_fraction_of_own_contrast": 0.19968820195003034,
+      "max_fraction_site": "KR-Jungnang"
+     },
+     "at_11p2Wm2": {
+      "median_abs_K": 0.056484886008013824,
+      "max_abs_K": 0.26785259683468743
+     },
+     "verdict": "The contrast is invariant to ~2 % of its own size (median) for a 5 W/m2 bias; the worst case is KR-Jungnang at 20 %, whose own contrast is only -0.57 K. Across the 9 negative-offset records that carry the claim the residual never exceeds 4.9 % of the record's own contrast. The evidence line therefore survives a flux-specified bias too, though not with the exact algebraic cancellation that a kelvin-specified bias enjoys."
+    }
+   }
+  },
+  "independent_instrument_qh": {
+   "analytic_statement": "obs_qh_qc0 is the nocturnal mean eddy-covariance sensible heat flux: a sonic anemometer plus gas analyser, a different instrument from the pyrgeometer, with a different footprint and a different error mechanism. A radiometric bias delta_i changes no Q_H value. The dTsa--Q_H rank agreement is therefore not immune in the trivial sense (the dTsa side moves), but it is an INDEPENDENT CONSTRAINT: the adversarial field is tuned to flatten the albedo relation, Q_H is not involved in its construction, and any degradation of the Q_H agreement is a cost the construction must pay. Quantified below at each breakdown amplitude.",
+   "baseline_from_stats_file": {
+    "all": {
+     "n": 19,
+     "spearman_r": 0.50636248841296,
+     "spearman_p": 0.026948479558013348,
+     "pearson_r": 0.3130336173051413,
+     "pearson_p": 0.19191406726901808,
+     "sign_agree": 13,
+     "sign_agree_frac": 0.6842105263157895,
+     "binom_p": 0.1670684814453125
+    },
+    "excl_lipowa": {
+     "n": 18,
+     "spearman_r": 0.5389778725487749,
+     "spearman_p": 0.02099622459988771,
+     "pearson_r": 0.5246378780376233,
+     "pearson_p": 0.025396069760049326,
+     "sign_agree": 13,
+     "sign_agree_frac": 0.7222222222222222,
+     "binom_p": 0.09625244140625
+    },
+    "note": "DESCRIPTIVE only. Positive relation expected (warm surface -> upward H); Lipowa is a documented counter-example (most positive dTsa yet high +Qh)."
+   },
+   "adversarial_cost": {
+    "all19": {
+     "n_with_qh": 19,
+     "baseline_spearman_dtsa_qh": 0.50636248841296,
+     "baseline_spearman_p": 0.026948479558013348,
+     "baseline_sign_agreement": 13,
+     "at_breakdown_amplitudes": {
+      "B_star_for_r_above_-0.5": {
+       "B_K": 0.9634553784860291,
+       "albedo_r_after": -0.49999999999999994,
+       "spearman_dtsa_qh_after": 0.3483984538993849,
+       "spearman_p_after": 0.14379704828982737,
+       "spearman_change": -0.15796403451357516,
+       "sign_agreement_after": 8,
+       "sign_agreement_change": -5
+      },
+      "B_star_for_r_above_-0.4": {
+       "B_K": 1.1618716736149957,
+       "albedo_r_after": -0.39999999999999997,
+       "spearman_dtsa_qh_after": 0.3238262707528288,
+       "spearman_p_after": 0.17622190232418114,
+       "spearman_change": -0.18253621766013123,
+       "sign_agreement_after": 9,
+       "sign_agreement_change": -4
+      },
+      "B_star_for_r_above_-0.3": {
+       "B_K": 1.3437357866055804,
+       "albedo_r_after": -0.2999999999999999,
+       "spearman_dtsa_qh_after": 0.17112770405637295,
+       "spearman_p_after": 0.4836262530235429,
+       "spearman_change": -0.3352347843565871,
+       "sign_agreement_after": 10,
+       "sign_agreement_change": -3
+      },
+      "B_star_for_r_above_+0.0": {
+       "B_K": 1.8804001051079886,
+       "albedo_r_after": 1.128182708668643e-18,
+       "spearman_dtsa_qh_after": -0.16410708030021404,
+       "spearman_p_after": 0.5020053960973041,
+       "spearman_change": -0.6704695687131741,
+       "sign_agreement_after": 10,
+       "sign_agreement_change": -3
+      }
+     }
+    },
+    "excl_mpls17": {
+     "n_with_qh": 17,
+     "baseline_spearman_dtsa_qh": 0.31127450980392163,
+     "baseline_spearman_p": 0.2239239360724044,
+     "baseline_sign_agreement": 11,
+     "at_breakdown_amplitudes": {
+      "B_star_for_r_above_-0.5": {
+       "B_K": 0.6244898466131223,
+       "albedo_r_after": -0.4999999999999999,
+       "spearman_dtsa_qh_after": 0.05147058823529412,
+       "spearman_p_after": 0.8444669030406068,
+       "spearman_change": -0.2598039215686275,
+       "sign_agreement_after": 8,
+       "sign_agreement_change": -3
+      },
+      "B_star_for_r_above_-0.4": {
+       "B_K": 0.8298093484298583,
+       "albedo_r_after": -0.39999999999999997,
+       "spearman_dtsa_qh_after": -0.009803921568627453,
+       "spearman_p_after": 0.9702105713958575,
+       "spearman_change": -0.3210784313725491,
+       "sign_agreement_after": 6,
+       "sign_agreement_change": -5
+      },
+      "B_star_for_r_above_-0.3": {
+       "B_K": 1.014001428673529,
+       "albedo_r_after": -0.2999999999999999,
+       "spearman_dtsa_qh_after": -0.13480392156862747,
+       "spearman_p_after": 0.6059663630124608,
+       "spearman_change": -0.4460784313725491,
+       "sign_agreement_after": 7,
+       "sign_agreement_change": -4
+      },
+      "B_star_for_r_above_+0.0": {
+       "B_K": 1.5426612656175227,
+       "albedo_r_after": 1.5658461292543803e-17,
+       "spearman_dtsa_qh_after": -0.303921568627451,
+       "spearman_p_after": 0.23563584127730533,
+       "spearman_change": -0.6151960784313726,
+       "sign_agreement_after": 7,
+       "sign_agreement_change": -4
+      }
+     }
+    },
+    "core16": {
+     "n_with_qh": 16,
+     "baseline_spearman_dtsa_qh": 0.34411764705882353,
+     "baseline_spearman_p": 0.19185563142554293,
+     "baseline_sign_agreement": 11,
+     "at_breakdown_amplitudes": {
+      "B_star_for_r_above_-0.5": {
+       "B_K": 0.5626627530348216,
+       "albedo_r_after": -0.49999999999999994,
+       "spearman_dtsa_qh_after": 0.08529411764705883,
+       "spearman_p_after": 0.7534650694747832,
+       "spearman_change": -0.2588235294117647,
+       "sign_agreement_after": 7,
+       "sign_agreement_change": -4
+      },
+      "B_star_for_r_above_-0.4": {
+       "B_K": 0.6607954727868538,
+       "albedo_r_after": -0.3999999999999999,
+       "spearman_dtsa_qh_after": -0.01764705882352941,
+       "spearman_p_after": 0.9482801500547112,
+       "spearman_change": -0.36176470588235293,
+       "sign_agreement_after": 5,
+       "sign_agreement_change": -6
+      },
+      "B_star_for_r_above_-0.3": {
+       "B_K": 0.7454724226082916,
+       "albedo_r_after": -0.29999999999999993,
+       "spearman_dtsa_qh_after": -0.01764705882352941,
+       "spearman_p_after": 0.9482801500547112,
+       "spearman_change": -0.36176470588235293,
+       "sign_agreement_after": 5,
+       "sign_agreement_change": -6
+      },
+      "B_star_for_r_above_+0.0": {
+       "B_K": 0.974568309457239,
+       "albedo_r_after": 8.326672684688674e-17,
+       "spearman_dtsa_qh_after": -0.1323529411764706,
+       "spearman_p_after": 0.6251064291516133,
+       "spearman_change": -0.4764705882352941,
+       "sign_agreement_after": 5,
+       "sign_agreement_change": -6
+      }
+     }
+    }
+   }
+  }
+ },
+ "manuscript_text_v11": {
+  "bibtex_to_add": [
+   "@manual{KippZonen2006CGR4, title = {{CGR 4} Pyrgeometer Instruction Manual}, organization = {Kipp \\& Zonen B.V.}, address = {Delft, The Netherlands}, year = {2006}, note = {Manual version 0806. \\url{https://bsrn.aemet.es/manuales/kipp_manual_cgr4_1781.pdf}}}",
+   "@manual{WMO2018CIMO, title = {Guide to Instruments and Methods of Observation ({WMO}-No.~8)}, organization = {World Meteorological Organization}, address = {Geneva}, year = {2018}, note = {Volume~I, Chapter~7: Measurement of radiation, Sect.~7.4.3}}",
+   "@article{Philipona2001, author = {Philipona, R. and Dutton, E. G. and Stoffel, T. and Michalsky, J. and Reda, I. and Stifter, A. and Wendling, P. and Wood, N. and Clough, S. A. and Mlawer, E. J. and Anderson, G. and Revercomb, H. E. and Shippert, T. R.}, title = {Atmospheric longwave irradiance uncertainty: Pyrgeometers compared to an absolute sky-scanning radiometer, atmospheric emitted radiance interferometer, and radiative transfer model calculations}, journal = {J. Geophys. Res.}, volume = {106}, number = {D22}, pages = {28129--28141}, year = {2001}, doi = {10.1029/2000JD000196}}",
+   "NOTE: Adderley2015 is already in paper/manuscript_dtsa/references.bib (line 170)."
+  ],
+  "methods_spec_paragraph": "\\emph{Observation-uncertainty propagation}. The sensitivity of the albedo--offset association to observational error is assessed with an explicit error model rather than a single nominal figure. Error is applied as an additive perturbation $\\delta_i$ to each record's mean nocturnal offset, with a positive LW$_{\\uparrow}$ error $E_i$ giving $\\delta_i=+E_i\\times0.20$~K (an apparently warmer surface) at the linearization of Sect.~\\ref{sec:stats}; every scenario is run for all three record sets. Three families are distinguished, and the distinction is substantive: the first two are error \\emph{structures} whose magnitude can be cited from the instrument literature, whereas the third is a \\emph{sign} structure chosen after seeing the data, so its role is to bound what an error would have to look like, not to estimate one. (i)~\\emph{Random}: independent zero-mean Gaussian $\\delta_i$ at $\\sigma_E=2$, 4, 5 and 10~W\\,m$^{-2}$ ($=0.40$, 0.80, 1.00 and 2.01~K), 50\\,000 draws per scenario and record set, each from an independently seeded stream. The range follows from the fact that pyrgeometer specifications are multiplicative: 1--3\\% of the daily total for a reference-class instrument \\citep{KippZonen2006CGR4}, agreement to within 2\\% at night after careful calibration \\citep{WMO2018CIMO}, and $\\approx1$--2~W\\,m$^{-2}$ for shaded, ventilated, field-calibrated reference instruments at a dedicated radiation site \\citep{Philipona2001}; at our corpus-mean nocturnal LW$_{\\uparrow}$ of 366~W\\,m$^{-2}$, 1--3\\% is 3.7--11.0~W\\,m$^{-2}$. Because the two Minneapolis records share a tower and a radiometer and their offsets are numerically identical, a variant in which they draw one common error is run alongside the independent case. A common-mode percentage-of-reading error, $\\delta_i=\\pm p\\,\\langle\\mathrm{LW}_{\\uparrow}\\rangle_i/100$, is run separately at $p=1,2,3$, because that is the form the specifications actually take. (ii)~\\emph{Placement}: each record receives its own $\\sigma_i$ from its radiometer-to-building-height ratio $z_{\\mathrm{rad}}/H$, by interpolating the positional RMSE that \\citet{Adderley2015} report for retrieving LW$_{\\uparrow}$ over an urban canopy (11.2, 6.3 and 2.0~W\\,m$^{-2}$ at $z/H=2$, 3 and 5). Because those authors describe the decay as exponential, we fit $\\sigma=\\exp(3.564-0.574\\,z/H)$, which reproduces all three published values to within 0.005~W\\,m$^{-2}$ ($R^2=0.999999$ in $\\log\\sigma$, e-folding $1.74\\,z_b$) and so adds essentially no assumption of ours; the same exponential is continued beyond $z/H=5$, where it is immaterial because it has already fallen below instrument accuracy. The scenario is run both capped at the largest published value, 11.2~W\\,m$^{-2}$, and uncapped, and additionally as flat 11.2~W\\,m$^{-2}$ and flat 9.4~W\\,m$^{-2}$, the latter being the authors' hemispherical-versus-complete-surface temperature RMSE of 1.7~K, which is a field-of-view composition term and does not decay with height. (iii)~\\emph{Aligned}: an adversarial systematic field $\\delta_i=B\\,\\mathrm{sign}(\\alpha_i-\\bar\\alpha)$, warming every high-albedo record by $B$ and cooling every low-albedo record by $B$; this is a saturated field, so its peak-to-peak displacement is $2B$, which is the quantity comparable to an instrument specification. We report alongside it the unrestricted supremum of $r$ over the box $|\\delta_i|\\le B$, obtained by exhaustive enumeration of all $2^n$ vertices and verified against a bounded interior search from 63 starts at each amplitude (no interior point beats the best vertex at any amplitude, the largest excess being $10^{-16}$ in $r$). For both families we report the breakdown amplitude $B^*$, the smallest amplitude at which $r$ rises above $-0.5$, $-0.4$, $-0.3$ and $0$.",
+  "results_passage": "The association is robust to random radiometric error of the magnitude the instrument literature supports. Independent per-record LW$_{\\uparrow}$ perturbations at $\\sigma_E=2$~W\\,m$^{-2}$ (0.40~K) leave median $r$ at $-0.78$, $-0.69$ and $-0.73$ in the 19-, 17- and 16-record sets, and at $\\sigma_E=5$~W\\,m$^{-2}$ --- 1.00~K, the upper end of the multiplicative specification at our LW$_{\\uparrow}$ levels --- at $-0.72$ $[-0.84,-0.56]$, $-0.63$ $[-0.79,-0.43]$ and $-0.58$ $[-0.80,-0.25]$, with 0.4\\%, 9.0\\% and 29\\% of draws respectively rising above $-0.5$. A $\\sigma_E=10$~W\\,m$^{-2}$ stress case, twice any documented figure, degrades the conservative core to a median $-0.38$, and we do not claim the association survives it. Letting the two Minneapolis records share one error draw shifts the 19-record median by at most $0.006$, so the inter-record correlation structure is not load-bearing. A common-mode percentage-of-reading error behaves almost neutrally here: the multiplicand, each record's own mean nocturnal LW$_{\\uparrow}$, is uncorrelated with albedo ($r=-0.08$, $p=0.76$; Spearman $-0.13$), so $\\pm2\\%$ of reading leaves $r$ between $-0.78$ and $-0.80$ over 19 records and between $-0.72$ and $-0.82$ in the core, despite spanning 0.48--0.54~K across the corpus. The placement term matters more. Assigning each record the positional uncertainty implied by its own $z_{\\mathrm{rad}}/H$ through the \\citet{Adderley2015} exponential, capped at their largest published value, leaves the association clearly negative but weakened --- median $r=-0.67$, $-0.60$ and $-0.53$ --- and applying their flat 9.4~W\\,m$^{-2}$ field-of-view composition term to every record gives $-0.59$, $-0.51$ and $-0.40$. Seventeen of nineteen records sit at $z_{\\mathrm{rad}}/H\\ge2.09$, where the positional component is at or below instrument accuracy; the exception is the Minneapolis pair, whose 2~m radiometers sit at $z_{\\mathrm{rad}}/H=0.40$, five times below the lowest height \\citeauthor{Adderley2015} calibrate. We report the uncapped extrapolation for that pair explicitly rather than leaving it behind the cap: it implies $\\sigma=28$~W\\,m$^{-2}$ (5.6~K) and moves the 19-record median from $-0.67$ to $-0.60$, while the 17- and 16-record sets --- which exclude those records on independent height-mismatch grounds --- are unaffected, at $-0.60$ and $-0.52$. The aligned case is different, and we state it plainly. A systematic bias carrying the sign pattern that most efficiently flattens the gradient removes the association entirely in the conservative core at an amplitude of $B^*=0.97$~K (4.9~W\\,m$^{-2}$; peak-to-peak 1.95~K, 9.7~W\\,m$^{-2}$), and reduces $r$ to $-0.5$ there at $B^*=0.56$~K; in the full 19-record set the corresponding amplitudes are 1.88~K and 0.96~K. The unrestricted supremum over $|\\delta_i|\\le B$ requires no more and sometimes less --- 0.46~K to reach $-0.5$ in the core --- and at the amplitudes that drive $r$ to zero it coincides with the aligned step exactly, so the aligned pattern is the worst case there and not merely one case among many. These amplitudes are not large relative to the composite-footprint terms the urban literature documents: the peak-to-peak displacement needed to erase the 16-record association, 9.7~W\\,m$^{-2}$, is the same size as \\citeauthor{Adderley2015}'s 9.4~W\\,m$^{-2}$ hemispherical-versus-complete-surface RMSE, and radiometer height is documented at only two of our nineteen records. The association therefore survives the random, shared-error, placement-calibrated and calibration-scale scenarios tested, but an albedo-aligned systematic bias of amplitude $B^*\\approx1$~K would suffice to remove it in the conservative core, and such a bias is not excluded by the available metadata. Two evidence lines are immune to this construction by design. The within-site clear--calm versus cloudy--windy contrast is a difference of two composites of the same record, selected on $\\varepsilon_{\\mathrm{sky}}$ and wind alone; a static per-record $\\delta_i$ shifts both composites equally and cancels from the difference exactly, at every amplitude. (For a bias specified as a constant flux rather than a constant temperature the cancellation is not algebraically exact, because $\\partial T_s/\\partial\\mathrm{LW}_{\\uparrow}$ varies with $T_s$; the exact residual for a 5~W\\,m$^{-2}$ bias is a median 2\\% of each record's own contrast and never exceeds 4.9\\% among the negative-offset records that carry the result.) And the eddy-covariance $Q_H$ values come from a different instrument with a different footprint, so $\\delta_i$ does not touch them: the adversarial field must pay for flattening the albedo relation elsewhere, and it does. At the 16-record amplitude that drives the albedo correlation to zero, the offset--$Q_H$ rank agreement falls from $\\rho=+0.34$ to $-0.13$ and sign agreement from 11/16 to 5/16; over all 19 records, the amplitude that reduces the albedo correlation to $-0.5$ already cuts $\\rho$ from $+0.51$ to $+0.35$ and sign agreement from 13/19 to 8/19. A bias able to manufacture the albedo gradient would therefore have to destroy an independent instrumental agreement at the same time.",
+  "limitations_sentence": "Consistent with this, we do not claim that instrument or composite-footprint error has been excluded: the propagation in Sect.~\\ref{sec:obsaxis} shows that random error of the documented magnitude cannot produce the gradient, but that a systematic bias aligned with albedo and of amplitude $\\approx1$~K --- whose peak-to-peak displacement, 9.7~W\\,m$^{-2}$, is the size of the field-of-view composition term \\citet{Adderley2015} report --- would remove it, and with radiometer height documented at only two of nineteen records such a bias cannot be ruled out from the metadata; the within-site conditioning contrast and the independent $Q_H$ comparison are the two lines a bias of this form cannot manufacture.",
+  "sentence_to_delete_from_v10": "paper/manuscript_dtsa/main.tex lines ~489-498: delete from 'It also survives realistic radiometric measurement error: adding independent per-record LW$_{\\uparrow}$ perturbations of 5~W\\,m$^{-2}$ (a representative field pyrgeometer accuracy) ...' through '... so the albedo organization is not an artefact of plausible instrument or composite-footprint error.' and insert results_passage in its place. The final clause is the exclusion claim that must go.",
+  "text_notes": [
+   "Every number in the two passages above is taken from THIS run and is reproducible from the sibling keys of this JSON block; none is a placeholder. The lead should still cross-check them after any rerun.",
+   "The passage makes NO exclusion claim. It replaces the v10 clause 'so the albedo organization is not an artefact of plausible instrument or composite-footprint error', which must be deleted.",
+   "Three \\citep keys are new -- KippZonen2006CGR4, WMO2018CIMO, Philipona2001 -- and their BibTeX is in bibtex_to_add. Adderley2015 is already at paper/manuscript_dtsa/references.bib line 170.",
+   "\\ref{sec:obsaxis} in limitations_sentence is a placeholder label: point it at whichever section actually carries results_passage.",
+   "The Results passage deliberately does NOT reprint the -3.1 / -1.2 K negative-offset composite pair from v10; see static_bias_cancellation.clear_calm_contrast.summary.negative_offset_group.DISCREPANCY_FLAG_FOR_LEAD."
+  ]
+ }
+}

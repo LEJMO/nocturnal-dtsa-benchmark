@@ -1,0 +1,2137 @@
+{
+ "_merge_target": "review5_additions.run_provenance",
+ "meta": {
+  "script": "투고가능성평가/재검증_2026-08/scripts/review5_run_provenance.py",
+  "purpose": "Round-5 review issue 2: establish per-scheme run provenance (output variable, aggregation level, area weighting, vegetation/non-urban treatment, T_a reference, alignment, mask) from run output and run configuration.",
+  "n_records": 19,
+  "records": [
+   "AU-Preston",
+   "CA-Sunset",
+   "FI-Kumpula",
+   "FI-Torni",
+   "FR-Capitole",
+   "GR-HECKOR",
+   "JP-Yoyogi",
+   "KR-Jungnang",
+   "KR-Ochang",
+   "NL-Amsterdam",
+   "PL-Lipowa",
+   "PL-Narutowicza",
+   "SG-TelokKurau06",
+   "UK-KingsCollege",
+   "UK-Swindon",
+   "US-Baltimore",
+   "US-Minneapolis1",
+   "US-Minneapolis2",
+   "US-WestPhoenix"
+  ],
+  "constants": {
+   "SIG_inversion": 5.67e-08,
+   "EPS": 0.95,
+   "SIG_TEB": 5.670374419e-08,
+   "SPINUP_YEAR": 17520
+  },
+  "reads_only": true,
+  "redefines_no_metric": true
+ },
+ "clmu": {
+  "per_site": {
+   "AU-Preston": {
+    "landunit_ityplunit": [
+     1,
+     9
+    ],
+    "landunit_wtgcell": [
+     0.0,
+     1.0
+    ],
+    "landunit_nonurban_wtgcell": 0.0,
+    "landunit_urban_wtgcell": 1.0,
+    "n_urban_columns": 5,
+    "col_wtlunit": {
+     "roof": 0.445,
+     "sunwall": 0.18499999999999997,
+     "shadewall": 0.18499999999999997,
+     "improad": 0.058333333333333307,
+     "perroad": 0.12666666666666668
+    },
+    "col_wtgcell_urban_sum": 1.0,
+    "third_identity_maxerr": 2.7755575615628914e-17,
+    "perv_of_road_run": 0.6846846846846848,
+    "perv_of_road_formula": 0.6846846846846848,
+    "meta_roof_area_fraction": 0.445,
+    "meta_impervious_area_fraction": 0.62,
+    "align_offset": 17521,
+    "align_window": 22772,
+    "max_abs_Tair_minus_corpus_forcing_Tair": 0.0,
+    "max_abs_FLDS_minus_corpus_forcing_LWdown": 0.0,
+    "nocturnal_mean_TSA_minus_forcing_Tair_K": -0.2943871849827057
+   },
+   "CA-Sunset": {
+    "landunit_ityplunit": [
+     1,
+     9
+    ],
+    "landunit_wtgcell": [
+     0.0,
+     1.0
+    ],
+    "landunit_nonurban_wtgcell": 0.0,
+    "landunit_urban_wtgcell": 1.0,
+    "n_urban_columns": 5,
+    "col_wtlunit": {
+     "roof": 0.23,
+     "sunwall": 0.25666666666666665,
+     "shadewall": 0.25666666666666665,
+     "improad": 0.15000000000000002,
+     "perroad": 0.10666666666666665
+    },
+    "col_wtgcell_urban_sum": 1.0,
+    "third_identity_maxerr": 0.0,
+    "perv_of_road_run": 0.4155844155844155,
+    "perv_of_road_formula": 0.4155844155844155,
+    "meta_roof_area_fraction": 0.23,
+    "meta_impervious_area_fraction": 0.68,
+    "align_offset": 17521,
+    "align_window": 87696,
+    "max_abs_Tair_minus_corpus_forcing_Tair": 0.0,
+    "max_abs_FLDS_minus_corpus_forcing_LWdown": 0.0,
+    "nocturnal_mean_TSA_minus_forcing_Tair_K": 0.08768226556628214
+   },
+   "FI-Kumpula": {
+    "landunit_ityplunit": [
+     1,
+     9
+    ],
+    "landunit_wtgcell": [
+     0.0,
+     1.0
+    ],
+    "landunit_nonurban_wtgcell": 0.0,
+    "landunit_urban_wtgcell": 1.0,
+    "n_urban_columns": 5,
+    "col_wtlunit": {
+     "roof": 0.14,
+     "sunwall": 0.2866666666666667,
+     "shadewall": 0.2866666666666667,
+     "improad": 0.10666666666666667,
+     "perroad": 0.18000000000000002
+    },
+    "col_wtgcell_urban_sum": 1.0,
+    "third_identity_maxerr": 0.0,
+    "perv_of_road_run": 0.627906976744186,
+    "perv_of_road_formula": 0.627906976744186,
+    "meta_roof_area_fraction": 0.14,
+    "meta_impervious_area_fraction": 0.46,
+    "align_offset": 17521,
+    "align_window": 52608,
+    "max_abs_Tair_minus_corpus_forcing_Tair": 0.0,
+    "max_abs_FLDS_minus_corpus_forcing_LWdown": 0.0,
+    "nocturnal_mean_TSA_minus_forcing_Tair_K": 0.15593939310015167
+   },
+   "FI-Torni": {
+    "landunit_ityplunit": [
+     1,
+     9
+    ],
+    "landunit_wtgcell": [
+     0.0,
+     1.0
+    ],
+    "landunit_nonurban_wtgcell": 0.0,
+    "landunit_urban_wtgcell": 1.0,
+    "n_urban_columns": 5,
+    "col_wtlunit": {
+     "roof": 0.37,
+     "sunwall": 0.21,
+     "shadewall": 0.21,
+     "improad": 0.13333333333333333,
+     "perroad": 0.07666666666666666
+    },
+    "col_wtgcell_urban_sum": 0.9999999999999999,
+    "third_identity_maxerr": 0.0,
+    "perv_of_road_run": 0.36507936507936506,
+    "perv_of_road_formula": 0.36507936507936506,
+    "meta_roof_area_fraction": 0.37,
+    "meta_impervious_area_fraction": 0.77,
+    "align_offset": 17521,
+    "align_window": 52608,
+    "max_abs_Tair_minus_corpus_forcing_Tair": 0.0,
+    "max_abs_FLDS_minus_corpus_forcing_LWdown": 0.0,
+    "nocturnal_mean_TSA_minus_forcing_Tair_K": 0.3536493937845225
+   },
+   "FR-Capitole": {
+    "landunit_ityplunit": [
+     1,
+     9
+    ],
+    "landunit_wtgcell": [
+     0.0,
+     1.0
+    ],
+    "landunit_nonurban_wtgcell": 0.0,
+    "landunit_urban_wtgcell": 1.0,
+    "n_urban_columns": 5,
+    "col_wtlunit": {
+     "roof": 0.62,
+     "sunwall": 0.12666666666666668,
+     "shadewall": 0.12666666666666668,
+     "improad": 0.09333333333333335,
+     "perroad": 0.033333333333333326
+    },
+    "col_wtgcell_urban_sum": 1.0,
+    "third_identity_maxerr": 0.0,
+    "perv_of_road_run": 0.26315789473684204,
+    "perv_of_road_formula": 0.26315789473684204,
+    "meta_roof_area_fraction": 0.62,
+    "meta_impervious_area_fraction": 0.9,
+    "align_offset": 17521,
+    "align_window": 18000,
+    "max_abs_Tair_minus_corpus_forcing_Tair": 0.0,
+    "max_abs_FLDS_minus_corpus_forcing_LWdown": 0.0,
+    "nocturnal_mean_TSA_minus_forcing_Tair_K": -0.2271575865957901
+   },
+   "GR-HECKOR": {
+    "landunit_ityplunit": [
+     1,
+     9
+    ],
+    "landunit_wtgcell": [
+     0.0,
+     1.0
+    ],
+    "landunit_nonurban_wtgcell": 0.0,
+    "landunit_urban_wtgcell": 1.0,
+    "n_urban_columns": 5,
+    "col_wtlunit": {
+     "roof": 0.5164,
+     "sunwall": 0.1612,
+     "shadewall": 0.1612,
+     "improad": 0.13303333333333334,
+     "perroad": 0.028166666666666673
+    },
+    "col_wtgcell_urban_sum": 1.0,
+    "third_identity_maxerr": 0.0,
+    "perv_of_road_run": 0.17473118279569896,
+    "perv_of_road_formula": 0.17473118279569896,
+    "meta_roof_area_fraction": 0.5164,
+    "meta_impervious_area_fraction": 0.9155,
+    "align_offset": 17521,
+    "align_window": 17568,
+    "max_abs_Tair_minus_corpus_forcing_Tair": 0.0,
+    "max_abs_FLDS_minus_corpus_forcing_LWdown": 0.0,
+    "nocturnal_mean_TSA_minus_forcing_Tair_K": -0.8281775827438441
+   },
+   "JP-Yoyogi": {
+    "landunit_ityplunit": [
+     1,
+     9
+    ],
+    "landunit_wtgcell": [
+     0.0,
+     1.0
+    ],
+    "landunit_nonurban_wtgcell": 0.0,
+    "landunit_urban_wtgcell": 1.0,
+    "n_urban_columns": 5,
+    "col_wtlunit": {
+     "roof": 0.41,
+     "sunwall": 0.19666666666666668,
+     "shadewall": 0.19666666666666668,
+     "improad": 0.17000000000000004,
+     "perroad": 0.02666666666666665
+    },
+    "col_wtgcell_urban_sum": 1.0,
+    "third_identity_maxerr": 0.0,
+    "perv_of_road_run": 0.13559322033898297,
+    "perv_of_road_formula": 0.13559322033898297,
+    "meta_roof_area_fraction": 0.41,
+    "meta_impervious_area_fraction": 0.92,
+    "align_offset": 17521,
+    "align_window": 70127,
+    "max_abs_Tair_minus_corpus_forcing_Tair": 0.0,
+    "max_abs_FLDS_minus_corpus_forcing_LWdown": 0.0,
+    "nocturnal_mean_TSA_minus_forcing_Tair_K": 0.5372481114282162
+   },
+   "KR-Jungnang": {
+    "landunit_ityplunit": [
+     1,
+     9
+    ],
+    "landunit_wtgcell": [
+     0.0,
+     1.0
+    ],
+    "landunit_nonurban_wtgcell": 0.0,
+    "landunit_urban_wtgcell": 1.0,
+    "n_urban_columns": 5,
+    "col_wtlunit": {
+     "roof": 0.588,
+     "sunwall": 0.13733333333333334,
+     "shadewall": 0.13733333333333334,
+     "improad": 0.12566666666666665,
+     "perroad": 0.011666666666666678
+    },
+    "col_wtgcell_urban_sum": 1.0,
+    "third_identity_maxerr": 0.0,
+    "perv_of_road_run": 0.08495145631067968,
+    "perv_of_road_formula": 0.08495145631067968,
+    "meta_roof_area_fraction": 0.588,
+    "meta_impervious_area_fraction": 0.965,
+    "align_offset": 17521,
+    "align_window": 39582,
+    "max_abs_Tair_minus_corpus_forcing_Tair": 0.0,
+    "max_abs_FLDS_minus_corpus_forcing_LWdown": 0.0,
+    "nocturnal_mean_TSA_minus_forcing_Tair_K": -0.09369376066651171
+   },
+   "KR-Ochang": {
+    "landunit_ityplunit": [
+     1,
+     9
+    ],
+    "landunit_wtgcell": [
+     0.0,
+     1.0
+    ],
+    "landunit_nonurban_wtgcell": 0.0,
+    "landunit_urban_wtgcell": 1.0,
+    "n_urban_columns": 5,
+    "col_wtlunit": {
+     "roof": 0.133,
+     "sunwall": 0.289,
+     "shadewall": 0.289,
+     "improad": 0.11233333333333333,
+     "perroad": 0.17666666666666667
+    },
+    "col_wtgcell_urban_sum": 0.9999999999999999,
+    "third_identity_maxerr": 0.0,
+    "perv_of_road_run": 0.6113033448673587,
+    "perv_of_road_formula": 0.6113033448673587,
+    "meta_roof_area_fraction": 0.133,
+    "meta_impervious_area_fraction": 0.47,
+    "align_offset": 17521,
+    "align_window": 37411,
+    "max_abs_Tair_minus_corpus_forcing_Tair": 0.0,
+    "max_abs_FLDS_minus_corpus_forcing_LWdown": 0.0,
+    "nocturnal_mean_TSA_minus_forcing_Tair_K": 0.23994446713115425
+   },
+   "NL-Amsterdam": {
+    "landunit_ityplunit": [
+     1,
+     9
+    ],
+    "landunit_wtgcell": [
+     0.0,
+     1.0
+    ],
+    "landunit_nonurban_wtgcell": 0.0,
+    "landunit_urban_wtgcell": 1.0,
+    "n_urban_columns": 5,
+    "col_wtlunit": {
+     "roof": 0.44,
+     "sunwall": 0.18666666666666668,
+     "shadewall": 0.18666666666666668,
+     "improad": 0.08000000000000003,
+     "perroad": 0.10666666666666665
+    },
+    "col_wtgcell_urban_sum": 1.0,
+    "third_identity_maxerr": 0.0,
+    "perv_of_road_run": 0.5714285714285713,
+    "perv_of_road_formula": 0.5714285714285713,
+    "meta_roof_area_fraction": 0.44,
+    "meta_impervious_area_fraction": 0.68,
+    "align_offset": 17521,
+    "align_window": 31269,
+    "max_abs_Tair_minus_corpus_forcing_Tair": 0.0,
+    "max_abs_FLDS_minus_corpus_forcing_LWdown": 0.0,
+    "nocturnal_mean_TSA_minus_forcing_Tair_K": -0.039281652405244956
+   },
+   "PL-Lipowa": {
+    "landunit_ityplunit": [
+     1,
+     9
+    ],
+    "landunit_wtgcell": [
+     0.0,
+     1.0
+    ],
+    "landunit_nonurban_wtgcell": 0.0,
+    "landunit_urban_wtgcell": 1.0,
+    "n_urban_columns": 5,
+    "col_wtlunit": {
+     "roof": 0.35,
+     "sunwall": 0.21666666666666667,
+     "shadewall": 0.21666666666666667,
+     "improad": 0.13666666666666666,
+     "perroad": 0.08
+    },
+    "col_wtgcell_urban_sum": 0.9999999999999999,
+    "third_identity_maxerr": 0.0,
+    "perv_of_road_run": 0.36923076923076925,
+    "perv_of_road_formula": 0.3692307692307692,
+    "meta_roof_area_fraction": 0.35,
+    "meta_impervious_area_fraction": 0.76,
+    "align_offset": 17521,
+    "align_window": 87695,
+    "max_abs_Tair_minus_corpus_forcing_Tair": 0.0,
+    "max_abs_FLDS_minus_corpus_forcing_LWdown": 0.0,
+    "nocturnal_mean_TSA_minus_forcing_Tair_K": 0.7108178913891946
+   },
+   "PL-Narutowicza": {
+    "landunit_ityplunit": [
+     1,
+     9
+    ],
+    "landunit_wtgcell": [
+     0.0,
+     1.0
+    ],
+    "landunit_nonurban_wtgcell": 0.0,
+    "landunit_urban_wtgcell": 1.0,
+    "n_urban_columns": 5,
+    "col_wtlunit": {
+     "roof": 0.29,
+     "sunwall": 0.23666666666666666,
+     "shadewall": 0.23666666666666666,
+     "improad": 0.12,
+     "perroad": 0.11666666666666667
+    },
+    "col_wtgcell_urban_sum": 1.0,
+    "third_identity_maxerr": 0.0,
+    "perv_of_road_run": 0.49295774647887325,
+    "perv_of_road_formula": 0.49295774647887325,
+    "meta_roof_area_fraction": 0.29,
+    "meta_impervious_area_fraction": 0.65,
+    "align_offset": 17521,
+    "align_window": 87695,
+    "max_abs_Tair_minus_corpus_forcing_Tair": 0.0,
+    "max_abs_FLDS_minus_corpus_forcing_LWdown": 0.0,
+    "nocturnal_mean_TSA_minus_forcing_Tair_K": 0.49415176041973685
+   },
+   "SG-TelokKurau06": {
+    "landunit_ityplunit": [
+     1,
+     9
+    ],
+    "landunit_wtgcell": [
+     0.0,
+     1.0
+    ],
+    "landunit_nonurban_wtgcell": 0.0,
+    "landunit_urban_wtgcell": 1.0,
+    "n_urban_columns": 5,
+    "col_wtlunit": {
+     "roof": 0.39,
+     "sunwall": 0.20333333333333334,
+     "shadewall": 0.20333333333333334,
+     "improad": 0.15333333333333332,
+     "perroad": 0.05000000000000001
+    },
+    "col_wtgcell_urban_sum": 1.0,
+    "third_identity_maxerr": 0.0,
+    "perv_of_road_run": 0.24590163934426235,
+    "perv_of_road_formula": 0.24590163934426235,
+    "meta_roof_area_fraction": 0.39,
+    "meta_impervious_area_fraction": 0.85,
+    "align_offset": 16081,
+    "align_window": 16080,
+    "max_abs_Tair_minus_corpus_forcing_Tair": 0.0,
+    "max_abs_FLDS_minus_corpus_forcing_LWdown": 0.0,
+    "nocturnal_mean_TSA_minus_forcing_Tair_K": -0.5011276754328791
+   },
+   "UK-KingsCollege": {
+    "landunit_ityplunit": [
+     1,
+     9
+    ],
+    "landunit_wtgcell": [
+     0.0,
+     1.0
+    ],
+    "landunit_nonurban_wtgcell": 0.0,
+    "landunit_urban_wtgcell": 1.0,
+    "n_urban_columns": 5,
+    "col_wtlunit": {
+     "roof": 0.4,
+     "sunwall": 0.19999999999999998,
+     "shadewall": 0.19999999999999998,
+     "improad": 0.13,
+     "perroad": 0.06999999999999999
+    },
+    "col_wtgcell_urban_sum": 0.9999999999999999,
+    "third_identity_maxerr": 2.7755575615628914e-17,
+    "perv_of_road_run": 0.3499999999999999,
+    "perv_of_road_formula": 0.35,
+    "meta_roof_area_fraction": 0.4,
+    "meta_impervious_area_fraction": 0.79,
+    "align_offset": 17521,
+    "align_window": 30576,
+    "max_abs_Tair_minus_corpus_forcing_Tair": 0.0,
+    "max_abs_FLDS_minus_corpus_forcing_LWdown": 0.0,
+    "nocturnal_mean_TSA_minus_forcing_Tair_K": -0.12604247926812998
+   },
+   "UK-Swindon": {
+    "landunit_ityplunit": [
+     1,
+     9
+    ],
+    "landunit_wtgcell": [
+     0.0,
+     1.0
+    ],
+    "landunit_nonurban_wtgcell": 0.0,
+    "landunit_urban_wtgcell": 1.0,
+    "n_urban_columns": 5,
+    "col_wtlunit": {
+     "roof": 0.16,
+     "sunwall": 0.27999999999999997,
+     "shadewall": 0.27999999999999997,
+     "improad": 0.10999999999999997,
+     "perroad": 0.17
+    },
+    "col_wtgcell_urban_sum": 1.0,
+    "third_identity_maxerr": 0.0,
+    "perv_of_road_run": 0.6071428571428572,
+    "perv_of_road_formula": 0.6071428571428572,
+    "meta_roof_area_fraction": 0.16,
+    "meta_impervious_area_fraction": 0.49,
+    "align_offset": 17521,
+    "align_window": 34305,
+    "max_abs_Tair_minus_corpus_forcing_Tair": 0.0,
+    "max_abs_FLDS_minus_corpus_forcing_LWdown": 0.0,
+    "nocturnal_mean_TSA_minus_forcing_Tair_K": -0.02568955439617923
+   },
+   "US-Baltimore": {
+    "landunit_ityplunit": [
+     1,
+     9
+    ],
+    "landunit_wtgcell": [
+     0.0,
+     1.0
+    ],
+    "landunit_nonurban_wtgcell": 0.0,
+    "landunit_urban_wtgcell": 1.0,
+    "n_urban_columns": 5,
+    "col_wtlunit": {
+     "roof": 0.16,
+     "sunwall": 0.27999999999999997,
+     "shadewall": 0.27999999999999997,
+     "improad": 0.05099999999999997,
+     "perroad": 0.229
+    },
+    "col_wtgcell_urban_sum": 0.9999999999999999,
+    "third_identity_maxerr": 0.0,
+    "perv_of_road_run": 0.817857142857143,
+    "perv_of_road_formula": 0.817857142857143,
+    "meta_roof_area_fraction": 0.16,
+    "meta_impervious_area_fraction": 0.313,
+    "align_offset": 17521,
+    "align_window": 87647,
+    "max_abs_Tair_minus_corpus_forcing_Tair": 0.0,
+    "max_abs_FLDS_minus_corpus_forcing_LWdown": 0.0,
+    "nocturnal_mean_TSA_minus_forcing_Tair_K": 0.24164542536793482
+   },
+   "US-Minneapolis1": {
+    "landunit_ityplunit": [
+     1,
+     9
+    ],
+    "landunit_wtgcell": [
+     0.0,
+     1.0
+    ],
+    "landunit_nonurban_wtgcell": 0.0,
+    "landunit_urban_wtgcell": 1.0,
+    "n_urban_columns": 5,
+    "col_wtlunit": {
+     "roof": 0.12,
+     "sunwall": 0.29333333333333333,
+     "shadewall": 0.29333333333333333,
+     "improad": 0.029999999999999975,
+     "perroad": 0.26333333333333336
+    },
+    "col_wtgcell_urban_sum": 1.0,
+    "third_identity_maxerr": 0.0,
+    "perv_of_road_run": 0.8977272727272728,
+    "perv_of_road_formula": 0.8977272727272728,
+    "meta_roof_area_fraction": 0.12,
+    "meta_impervious_area_fraction": 0.21,
+    "align_offset": 17521,
+    "align_window": 52455,
+    "max_abs_Tair_minus_corpus_forcing_Tair": 0.0,
+    "max_abs_FLDS_minus_corpus_forcing_LWdown": 0.0,
+    "nocturnal_mean_TSA_minus_forcing_Tair_K": 0.1384591794654258
+   },
+   "US-Minneapolis2": {
+    "landunit_ityplunit": [
+     1,
+     9
+    ],
+    "landunit_wtgcell": [
+     0.0,
+     1.0
+    ],
+    "landunit_nonurban_wtgcell": 0.0,
+    "landunit_urban_wtgcell": 1.0,
+    "n_urban_columns": 5,
+    "col_wtlunit": {
+     "roof": 0.01,
+     "sunwall": 0.33,
+     "shadewall": 0.33,
+     "improad": 0.013333333333333346,
+     "perroad": 0.31666666666666665
+    },
+    "col_wtgcell_urban_sum": 1.0,
+    "third_identity_maxerr": 0.0,
+    "perv_of_road_run": 0.9595959595959596,
+    "perv_of_road_formula": 0.9595959595959596,
+    "meta_roof_area_fraction": 0.01,
+    "meta_impervious_area_fraction": 0.05,
+    "align_offset": 17521,
+    "align_window": 52455,
+    "max_abs_Tair_minus_corpus_forcing_Tair": 0.0,
+    "max_abs_FLDS_minus_corpus_forcing_LWdown": 0.0,
+    "nocturnal_mean_TSA_minus_forcing_Tair_K": 0.25061275369451574
+   },
+   "US-WestPhoenix": {
+    "landunit_ityplunit": [
+     1,
+     9
+    ],
+    "landunit_wtgcell": [
+     0.0,
+     1.0
+    ],
+    "landunit_nonurban_wtgcell": 0.0,
+    "landunit_urban_wtgcell": 1.0,
+    "n_urban_columns": 5,
+    "col_wtlunit": {
+     "roof": 0.26,
+     "sunwall": 0.24666666666666667,
+     "shadewall": 0.24666666666666667,
+     "improad": 0.07333333333333332,
+     "perroad": 0.17333333333333334
+    },
+    "col_wtgcell_urban_sum": 1.0,
+    "third_identity_maxerr": 2.7755575615628914e-17,
+    "perv_of_road_run": 0.7027027027027027,
+    "perv_of_road_formula": 0.7027027027027027,
+    "meta_roof_area_fraction": 0.26,
+    "meta_impervious_area_fraction": 0.48,
+    "align_offset": 17521,
+    "align_window": 18313,
+    "max_abs_Tair_minus_corpus_forcing_Tair": 0.0,
+    "max_abs_FLDS_minus_corpus_forcing_LWdown": 0.0,
+    "nocturnal_mean_TSA_minus_forcing_Tair_K": 0.26656136576659223
+   }
+  },
+  "findings": {
+   "FIRE_dims": [
+    "time/gridcell"
+   ],
+   "FIRE_is_gridcell_dimensioned": true,
+   "gridcell_has_exactly_one_nonzero_weight_landunit": true,
+   "nonurban_landunit_present_in_structure": true,
+   "nonurban_landunit_area_weight_exactly_zero": true,
+   "worst_nonurban_landunit_wtgcell": 0.0,
+   "conclusion": "FIRE is dimensioned on gridcell, but the gridcell contains exactly one landunit with non-zero area weight -- urban medium-density (ityplunit 9) at wtgcell 1.0. The vegetated/bare-soil landunit (ityplunit 1) is allocated by CLM but carries wtgcell exactly 0.0 at all 19 records. The gridcell mean therefore EQUALS the urban-landunit value identically, not approximately.",
+   "facet_weight_identity": "cols1d_wtlunit: roof = WTLUNIT_ROOF ; sunwall = shadewall = improad+perroad = (1-WTLUNIT_ROOF)/3 ; road split by WTROAD_PERV. Sum over the five urban columns = 1.",
+   "worst_third_identity_error": 2.7755575615628914e-17,
+   "worst_roof_vs_metadata_error": 0.0,
+   "worst_perv_vs_formula_error": 5.551115123125783e-17,
+   "vegetation_treatment": "No vegetated landunit AREA exists (weight 0). The site non-impervious fraction enters solely as CLM's urban PERVIOUS-ROAD column, with WTROAD_PERV = (1-impervious_area_fraction)/(1-roof_area_fraction).",
+   "worst_Tair_echo_error_K": 0.0,
+   "worst_FLDS_echo_error_Wm2": 0.0,
+   "nocturnal_TSA_minus_forcing_Tair_K": {
+    "min": -0.8281775827438441,
+    "max": 0.7108178913891946,
+    "mean": 0.0705870805590759
+   },
+   "surfdata_provenance": "per-site surfdata built by /root/clmu_work/clmu_build.py from pyclmuapp's packaged King's College surfdata with PCT_URBAN = [0, 0, 100] (TBD 0%, HD 0%, MD 100%) and PCT_NATVEG = PCT_CROP = PCT_LAKE = PCT_WETLAND = PCT_GLACIER = 0; only LATIXY, LONGXY and {CANYON_HWR, HT_ROOF, WTLUNIT_ROOF, WTROAD_PERV, WIND_HGT_CANYON} overridden per site (materials left at default). Independently confirmed from the history files as land1d_wtgcell = [0.0, 1.0]."
+  }
+ },
+ "clmu_urban_albedo_response": {
+  "per_site": {
+   "AU-Preston": {
+    "mean_FIRE_baseline": 393.2213134765625,
+    "mean_FIRE_albedo": 394.5060119628906,
+    "d_mean_FIRE": 1.284698486328125,
+    "max_abs_d_FIRE": 14.077117919921875,
+    "eff_albedo_baseline": 0.14817462861537933,
+    "eff_albedo_override": 0.11938147991895676
+   },
+   "CA-Sunset": {
+    "mean_FIRE_baseline": 385.0635070800781,
+    "mean_FIRE_albedo": 386.2929992675781,
+    "d_mean_FIRE": 1.2294921875,
+    "max_abs_d_FIRE": 19.0875244140625,
+    "eff_albedo_baseline": 0.13074345886707306,
+    "eff_albedo_override": 0.09277645498514175
+   },
+   "FI-Kumpula": {
+    "mean_FIRE_baseline": 355.9563293457031,
+    "mean_FIRE_albedo": 355.8826904296875,
+    "d_mean_FIRE": -0.073638916015625,
+    "max_abs_d_FIRE": 10.72998046875,
+    "eff_albedo_baseline": 0.1108502745628357,
+    "eff_albedo_override": 0.10888141393661499
+   },
+   "FI-Torni": {
+    "mean_FIRE_baseline": 357.74798583984375,
+    "mean_FIRE_albedo": 359.5008239746094,
+    "d_mean_FIRE": 1.752838134765625,
+    "max_abs_d_FIRE": 21.034393310546875,
+    "eff_albedo_baseline": 0.13386082649230957,
+    "eff_albedo_override": 0.06398012489080429
+   },
+   "FR-Capitole": {
+    "mean_FIRE_baseline": 394.2641296386719,
+    "mean_FIRE_albedo": 397.47265625,
+    "d_mean_FIRE": 3.208526611328125,
+    "max_abs_d_FIRE": 36.235382080078125,
+    "eff_albedo_baseline": 0.16901075839996338,
+    "eff_albedo_override": 0.09361331164836884
+   },
+   "GR-HECKOR": {
+    "mean_FIRE_baseline": 433.9715881347656,
+    "mean_FIRE_albedo": 433.8623046875,
+    "d_mean_FIRE": -0.109283447265625,
+    "max_abs_d_FIRE": 5.45220947265625,
+    "eff_albedo_baseline": 0.16570836305618286,
+    "eff_albedo_override": 0.16836777329444885
+   },
+   "JP-Yoyogi": {
+    "mean_FIRE_baseline": 416.5146484375,
+    "mean_FIRE_albedo": 418.8619689941406,
+    "d_mean_FIRE": 2.347320556640625,
+    "max_abs_d_FIRE": 29.61419677734375,
+    "eff_albedo_baseline": 0.13732142746448517,
+    "eff_albedo_override": 0.08058327436447144
+   },
+   "KR-Jungnang": {
+    "mean_FIRE_baseline": 399.51806640625,
+    "mean_FIRE_albedo": 403.18572998046875,
+    "d_mean_FIRE": 3.66766357421875,
+    "max_abs_d_FIRE": 37.47198486328125,
+    "eff_albedo_baseline": 0.16772331297397614,
+    "eff_albedo_override": 0.0889773741364479
+   },
+   "KR-Ochang": {
+    "mean_FIRE_baseline": 400.9881286621094,
+    "mean_FIRE_albedo": 400.153076171875,
+    "d_mean_FIRE": -0.835052490234375,
+    "max_abs_d_FIRE": 14.61614990234375,
+    "eff_albedo_baseline": 0.10597637295722961,
+    "eff_albedo_override": 0.12213054299354553
+   },
+   "NL-Amsterdam": {
+    "mean_FIRE_baseline": 380.2387390136719,
+    "mean_FIRE_albedo": 382.82879638671875,
+    "d_mean_FIRE": 2.590057373046875,
+    "max_abs_d_FIRE": 29.24908447265625,
+    "eff_albedo_baseline": 0.14439678192138672,
+    "eff_albedo_override": 0.06279435753822327
+   },
+   "PL-Lipowa": {
+    "mean_FIRE_baseline": 379.8974304199219,
+    "mean_FIRE_albedo": 382.26519775390625,
+    "d_mean_FIRE": 2.367767333984375,
+    "max_abs_d_FIRE": 24.50323486328125,
+    "eff_albedo_baseline": 0.13484813272953033,
+    "eff_albedo_override": 0.05373962223529816
+   },
+   "PL-Narutowicza": {
+    "mean_FIRE_baseline": 374.1551208496094,
+    "mean_FIRE_albedo": 376.1362609863281,
+    "d_mean_FIRE": 1.98114013671875,
+    "max_abs_d_FIRE": 21.179229736328125,
+    "eff_albedo_baseline": 0.1248176172375679,
+    "eff_albedo_override": 0.05206454172730446
+   },
+   "SG-TelokKurau06": {
+    "mean_FIRE_baseline": 476.4051818847656,
+    "mean_FIRE_albedo": 477.7604675292969,
+    "d_mean_FIRE": 1.35528564453125,
+    "max_abs_d_FIRE": 17.1490478515625,
+    "eff_albedo_baseline": 0.14066903293132782,
+    "eff_albedo_override": 0.12087421864271164
+   },
+   "UK-KingsCollege": {
+    "mean_FIRE_baseline": 377.58233642578125,
+    "mean_FIRE_albedo": 379.4330139160156,
+    "d_mean_FIRE": 1.850677490234375,
+    "max_abs_d_FIRE": 18.146331787109375,
+    "eff_albedo_baseline": 0.13655659556388855,
+    "eff_albedo_override": 0.06556212902069092
+   },
+   "UK-Swindon": {
+    "mean_FIRE_baseline": 372.3680114746094,
+    "mean_FIRE_albedo": 372.4119873046875,
+    "d_mean_FIRE": 0.043975830078125,
+    "max_abs_d_FIRE": 11.3887939453125,
+    "eff_albedo_baseline": 0.11342006921768188,
+    "eff_albedo_override": 0.11031244695186615
+   },
+   "US-Baltimore": {
+    "mean_FIRE_baseline": 397.3368835449219,
+    "mean_FIRE_albedo": 397.2583312988281,
+    "d_mean_FIRE": -0.07855224609375,
+    "max_abs_d_FIRE": 12.445098876953125,
+    "eff_albedo_baseline": 0.10915395617485046,
+    "eff_albedo_override": 0.10886792838573456
+   },
+   "US-Minneapolis1": {
+    "mean_FIRE_baseline": 366.9222412109375,
+    "mean_FIRE_albedo": 362.7221984863281,
+    "d_mean_FIRE": -4.200042724609375,
+    "max_abs_d_FIRE": 45.855712890625,
+    "eff_albedo_baseline": 0.10197249054908752,
+    "eff_albedo_override": 0.20269280672073364
+   },
+   "US-Minneapolis2": {
+    "mean_FIRE_baseline": 366.5293273925781,
+    "mean_FIRE_albedo": 361.5866394042969,
+    "d_mean_FIRE": -4.94268798828125,
+    "max_abs_d_FIRE": 54.813720703125,
+    "eff_albedo_baseline": 0.08306914567947388,
+    "eff_albedo_override": 0.20134644210338593
+   },
+   "US-WestPhoenix": {
+    "mean_FIRE_baseline": 468.86419677734375,
+    "mean_FIRE_albedo": 468.39996337890625,
+    "d_mean_FIRE": -0.4642333984375,
+    "max_abs_d_FIRE": 7.55517578125,
+    "eff_albedo_baseline": 0.12094472348690033,
+    "eff_albedo_override": 0.12616147100925446
+   }
+  },
+  "n_sites": 19,
+  "min_abs_d_mean_FIRE": 0.043975830078125,
+  "max_abs_d_mean_FIRE": 4.94268798828125,
+  "note": "The override touches ALB_ROOF / ALB_IMPROAD / ALB_PERROAD / ALB_WALL -- urban-landunit parameters only. FIRE responds at every site, which a gridcell mean diluted by non-urban land could not do at full amplitude and a non-urban quantity could not do at all."
+ },
+ "clmu_pervious_transpiration_open_question": {
+  "status": "UNRESOLVED OBSERVATION -- nothing in the run-provenance table depends on it",
+  "per_site": {
+   "AU-Preston": {
+    "perroad_wtlunit": 0.12666666666666668,
+    "mean_FCTR_Wm2": 19.855724334716797,
+    "max_abs_QVEGT": 0.0001330479426542297,
+    "max_abs_FCEV": 0.0
+   },
+   "CA-Sunset": {
+    "perroad_wtlunit": 0.10666666666666665,
+    "mean_FCTR_Wm2": 18.644119262695312,
+    "max_abs_QVEGT": 9.020810830406845e-05,
+    "max_abs_FCEV": 0.0
+   },
+   "FI-Kumpula": {
+    "perroad_wtlunit": 0.18000000000000002,
+    "mean_FCTR_Wm2": 18.774778366088867,
+    "max_abs_QVEGT": 0.00011994208034593612,
+    "max_abs_FCEV": 0.0
+   },
+   "FI-Torni": {
+    "perroad_wtlunit": 0.07666666666666666,
+    "mean_FCTR_Wm2": 7.702408313751221,
+    "max_abs_QVEGT": 3.771268529817462e-05,
+    "max_abs_FCEV": 0.0
+   },
+   "FR-Capitole": {
+    "perroad_wtlunit": 0.033333333333333326,
+    "mean_FCTR_Wm2": 4.614780902862549,
+    "max_abs_QVEGT": 2.2965919924899936e-05,
+    "max_abs_FCEV": 0.0
+   },
+   "GR-HECKOR": {
+    "perroad_wtlunit": 0.028166666666666673,
+    "mean_FCTR_Wm2": 3.602914571762085,
+    "max_abs_QVEGT": 2.748961196630262e-05,
+    "max_abs_FCEV": 0.0
+   },
+   "JP-Yoyogi": {
+    "perroad_wtlunit": 0.02666666666666665,
+    "mean_FCTR_Wm2": 5.155827522277832,
+    "max_abs_QVEGT": 2.264077375002671e-05,
+    "max_abs_FCEV": 0.0
+   },
+   "KR-Jungnang": {
+    "perroad_wtlunit": 0.011666666666666678,
+    "mean_FCTR_Wm2": 2.7361905574798584,
+    "max_abs_QVEGT": 8.905941285775043e-06,
+    "max_abs_FCEV": 0.0
+   },
+   "KR-Ochang": {
+    "perroad_wtlunit": 0.17666666666666667,
+    "mean_FCTR_Wm2": 27.498428344726562,
+    "max_abs_QVEGT": 0.0001516417833045125,
+    "max_abs_FCEV": 0.0
+   },
+   "NL-Amsterdam": {
+    "perroad_wtlunit": 0.10666666666666665,
+    "mean_FCTR_Wm2": 19.306196212768555,
+    "max_abs_QVEGT": 6.910414231242612e-05,
+    "max_abs_FCEV": 0.0
+   },
+   "PL-Lipowa": {
+    "perroad_wtlunit": 0.08,
+    "mean_FCTR_Wm2": 4.526491641998291,
+    "max_abs_QVEGT": 4.1879993659676984e-05,
+    "max_abs_FCEV": 0.0
+   },
+   "PL-Narutowicza": {
+    "perroad_wtlunit": 0.11666666666666667,
+    "mean_FCTR_Wm2": 6.723948001861572,
+    "max_abs_QVEGT": 6.191059947013855e-05,
+    "max_abs_FCEV": 0.0
+   },
+   "SG-TelokKurau06": {
+    "perroad_wtlunit": 0.05000000000000001,
+    "mean_FCTR_Wm2": 21.665842056274414,
+    "max_abs_QVEGT": 4.8302004870492965e-05,
+    "max_abs_FCEV": 0.0
+   },
+   "UK-KingsCollege": {
+    "perroad_wtlunit": 0.06999999999999999,
+    "mean_FCTR_Wm2": 11.313559532165527,
+    "max_abs_QVEGT": 4.0167207771446556e-05,
+    "max_abs_FCEV": 0.0
+   },
+   "UK-Swindon": {
+    "perroad_wtlunit": 0.17,
+    "mean_FCTR_Wm2": 26.557966232299805,
+    "max_abs_QVEGT": 0.00013775378465652466,
+    "max_abs_FCEV": 0.0
+   },
+   "US-Baltimore": {
+    "perroad_wtlunit": 0.229,
+    "mean_FCTR_Wm2": 28.183019638061523,
+    "max_abs_QVEGT": 0.00019004885689355433,
+    "max_abs_FCEV": 0.0
+   },
+   "US-Minneapolis1": {
+    "perroad_wtlunit": 0.26333333333333336,
+    "mean_FCTR_Wm2": 33.633419036865234,
+    "max_abs_QVEGT": 0.00025567307602614164,
+    "max_abs_FCEV": 0.0
+   },
+   "US-Minneapolis2": {
+    "perroad_wtlunit": 0.31666666666666665,
+    "mean_FCTR_Wm2": 40.16023635864258,
+    "max_abs_QVEGT": 0.0003019946743734181,
+    "max_abs_FCEV": 0.0
+   },
+   "US-WestPhoenix": {
+    "perroad_wtlunit": 0.17333333333333334,
+    "mean_FCTR_Wm2": 10.343181610107422,
+    "max_abs_QVEGT": 0.00010515438043512404,
+    "max_abs_FCEV": 0.0
+   }
+  },
+  "all_pfts1d_itype_veg_values": [
+   0
+  ],
+  "corr_perroad_weight_vs_mean_FCTR": 0.8604262715497238,
+  "FCEV_identically_zero": true,
+  "note": "Every PFT in every history file has pfts1d_itype_veg = 0 (\"not vegetated\"), yet FCTR (canopy transpiration) is non-zero and correlates r = 0.860 with the urban PERVIOUS-ROAD area weight, while FCEV (canopy evaporation) is identically zero. The correlation places the source inside the urban landunit, not in the zero-area vegetated landunit. How CLM5 routes transpiration on an itype_veg = 0 column could not be established from the archived files, so this is recorded as an open question. It does not affect LW_up or dTsa, which are radiative."
+ },
+ "teb": {
+  "output_variable": {
+   "AU-Preston": {
+    "file": "external/teb_runs/AU-Preston/output/LWU_base.txt",
+    "n_rows": 22771,
+    "corpus_steps": 22772,
+    "rows_equal_corpus_minus_one": true
+   },
+   "CA-Sunset": {
+    "file": "external/teb_runs/CA-Sunset/output/LWU_base.txt",
+    "n_rows": 87695,
+    "corpus_steps": 87696,
+    "rows_equal_corpus_minus_one": true
+   },
+   "FI-Kumpula": {
+    "file": "external/teb_runs/FI-Kumpula/output/LWU_base.txt",
+    "n_rows": 52607,
+    "corpus_steps": 52608,
+    "rows_equal_corpus_minus_one": true
+   },
+   "FI-Torni": {
+    "file": "external/teb_runs/FI-Torni/output/LWU_base.txt",
+    "n_rows": 52607,
+    "corpus_steps": 52608,
+    "rows_equal_corpus_minus_one": true
+   },
+   "FR-Capitole": {
+    "file": "external/teb_runs/FR-Capitole/output/LWU_base.txt",
+    "n_rows": 17999,
+    "corpus_steps": 18000,
+    "rows_equal_corpus_minus_one": true
+   },
+   "GR-HECKOR": {
+    "file": "external/teb_runs/GR-HECKOR/output/LWU_base.txt",
+    "n_rows": 17568,
+    "corpus_steps": 17569,
+    "rows_equal_corpus_minus_one": true
+   },
+   "JP-Yoyogi": {
+    "file": "external/teb_runs/JP-Yoyogi/output/LWU_base.txt",
+    "n_rows": 70126,
+    "corpus_steps": 70127,
+    "rows_equal_corpus_minus_one": true
+   },
+   "KR-Jungnang": {
+    "file": "external/teb_runs/KR-Jungnang/output/LWU_base.txt",
+    "n_rows": 39581,
+    "corpus_steps": 39582,
+    "rows_equal_corpus_minus_one": true
+   },
+   "KR-Ochang": {
+    "file": "external/teb_runs/KR-Ochang/output/LWU_base.txt",
+    "n_rows": 37410,
+    "corpus_steps": 37411,
+    "rows_equal_corpus_minus_one": true
+   },
+   "NL-Amsterdam": {
+    "file": "external/teb_runs/NL-Amsterdam/output/LWU_base.txt",
+    "n_rows": 31268,
+    "corpus_steps": 31269,
+    "rows_equal_corpus_minus_one": true
+   },
+   "PL-Lipowa": {
+    "file": "external/teb_runs/PL-Lipowa/output/LWU_base.txt",
+    "n_rows": 87694,
+    "corpus_steps": 87695,
+    "rows_equal_corpus_minus_one": true
+   },
+   "PL-Narutowicza": {
+    "file": "external/teb_runs/PL-Narutowicza/output/LWU_base.txt",
+    "n_rows": 87694,
+    "corpus_steps": 87695,
+    "rows_equal_corpus_minus_one": true
+   },
+   "SG-TelokKurau06": {
+    "file": "external/teb_runs/SG-TelokKurau06/output/LWU_base.txt",
+    "n_rows": 16079,
+    "corpus_steps": 16080,
+    "rows_equal_corpus_minus_one": true
+   },
+   "UK-KingsCollege": {
+    "file": "external/teb_runs/UK-KingsCollege/output/LWU_base.txt",
+    "n_rows": 30576,
+    "corpus_steps": 30577,
+    "rows_equal_corpus_minus_one": true
+   },
+   "UK-Swindon": {
+    "file": "external/teb_runs/UK-Swindon/output/LWU_base.txt",
+    "n_rows": 34304,
+    "corpus_steps": 34305,
+    "rows_equal_corpus_minus_one": true
+   },
+   "US-Baltimore": {
+    "file": "external/teb_runs/US-Baltimore/output/LWU_base.txt",
+    "n_rows": 87646,
+    "corpus_steps": 87647,
+    "rows_equal_corpus_minus_one": true
+   },
+   "US-Minneapolis1": {
+    "file": "external/teb_runs/US-Minneapolis1/output/LWU_base.txt",
+    "n_rows": 52454,
+    "corpus_steps": 52455,
+    "rows_equal_corpus_minus_one": true
+   },
+   "US-Minneapolis2": {
+    "file": "external/teb_runs/US-Minneapolis2/output/LWU_base.txt",
+    "n_rows": 52454,
+    "corpus_steps": 52455,
+    "rows_equal_corpus_minus_one": true
+   },
+   "US-WestPhoenix": {
+    "file": "external/teb_runs/US-WestPhoenix/output/LWU_base.txt",
+    "n_rows": 18312,
+    "corpus_steps": 18313,
+    "rows_equal_corpus_minus_one": true
+   }
+  },
+  "aggregation_identity": {
+   "Mpls2__gbase": {
+    "BLD": 0.05,
+    "GARDEN": 0.9,
+    "ROAD": 0.04999999999999993,
+    "WALL_O_HOR": 0.1,
+    "VEG_EMIS": 0.98,
+    "canyon_h_over_w": 0.052631578947368425,
+    "SVF_floor": 0.9487525047600235,
+    "SVF_wall": 0.4868512047797758,
+    "EMIS_TOWN_predicted": 0.97806439629046,
+    "EMIS_TOWN_model": 0.978064396,
+    "abs_error": 2.9046010041611225e-10,
+    "model_value_is_time_constant": true
+   },
+   "Mpls2__gzero": {
+    "BLD": 0.05,
+    "GARDEN": 0.0,
+    "ROAD": 0.95,
+    "WALL_O_HOR": 0.1,
+    "VEG_EMIS": 0.98,
+    "canyon_h_over_w": 0.052631578947368425,
+    "SVF_floor": 0.9487525047600235,
+    "SVF_wall": 0.4868512047797758,
+    "EMIS_TOWN_predicted": 0.9609868512047797,
+    "EMIS_TOWN_model": 0.960986851,
+    "abs_error": 2.0477963769138796e-10,
+    "model_value_is_time_constant": true
+   },
+   "Mpls2__gemis090": {
+    "BLD": 0.05,
+    "GARDEN": 0.9,
+    "ROAD": 0.04999999999999993,
+    "WALL_O_HOR": 0.1,
+    "VEG_EMIS": 0.9,
+    "canyon_h_over_w": 0.052631578947368425,
+    "SVF_floor": 0.9487525047600235,
+    "SVF_wall": 0.4868512047797758,
+    "EMIS_TOWN_predicted": 0.9097542159477384,
+    "EMIS_TOWN_model": 0.909754216,
+    "abs_error": 5.2261528438179994e-11,
+    "model_value_is_time_constant": true
+   },
+   "Lipowa__gbase": {
+    "BLD": 0.35,
+    "GARDEN": 0.24,
+    "ROAD": 0.41000000000000003,
+    "WALL_O_HOR": 1.05,
+    "VEG_EMIS": 0.98,
+    "canyon_h_over_w": 0.8076923076923077,
+    "SVF_floor": 0.4777519205437233,
+    "SVF_wall": 0.32329643013959986,
+    "EMIS_TOWN_predicted": 0.9691878217350757,
+    "EMIS_TOWN_model": 0.969187822,
+    "abs_error": 2.649243047159189e-10,
+    "model_value_is_time_constant": true
+   },
+   "Lipowa__gzero": {
+    "BLD": 0.35,
+    "GARDEN": 0.0,
+    "ROAD": 0.65,
+    "WALL_O_HOR": 1.05,
+    "VEG_EMIS": 0.98,
+    "canyon_h_over_w": 0.8076923076923077,
+    "SVF_floor": 0.4777519205437233,
+    "SVF_wall": 0.32329643013959986,
+    "EMIS_TOWN_predicted": 0.9668946125164658,
+    "EMIS_TOWN_model": 0.966894613,
+    "abs_error": 4.835342126696673e-10,
+    "model_value_is_time_constant": true
+   },
+   "production__AU-Preston": {
+    "BLD": 0.445,
+    "GARDEN": 0.38,
+    "ROAD": 0.17499999999999993,
+    "WALL_O_HOR": 0.4,
+    "VEG_EMIS": 0.98,
+    "EM_ROOF": 0.97,
+    "EM_ROAD": 0.96,
+    "EM_WALL": 0.97,
+    "canyon_h_over_w": 0.3603603603603604,
+    "SVF_floor": 0.7025881752325198,
+    "SVF_wall": 0.4126589068648787,
+    "EMIS_TOWN_predicted": 0.9714403057592265,
+    "EMIS_TOWN_model": 0.971440306,
+    "abs_error": 2.407735122389454e-10,
+    "model_value_is_time_constant": true
+   },
+   "production__CA-Sunset": {
+    "BLD": 0.23,
+    "GARDEN": 0.32,
+    "ROAD": 0.45,
+    "WALL_O_HOR": 0.18,
+    "VEG_EMIS": 0.98,
+    "EM_ROOF": 0.97,
+    "EM_ROAD": 0.96,
+    "EM_WALL": 0.97,
+    "canyon_h_over_w": 0.11688311688311688,
+    "SVF_floor": 0.889924542509834,
+    "SVF_wall": 0.4708783459301541,
+    "EMIS_TOWN_predicted": 0.9688430980947372,
+    "EMIS_TOWN_model": 0.968843098,
+    "abs_error": 9.473721807040647e-11,
+    "model_value_is_time_constant": true
+   },
+   "production__FI-Kumpula": {
+    "BLD": 0.14,
+    "GARDEN": 0.54,
+    "ROAD": 0.31999999999999995,
+    "WALL_O_HOR": 0.43,
+    "VEG_EMIS": 0.98,
+    "EM_ROOF": 0.97,
+    "EM_ROAD": 0.96,
+    "EM_WALL": 0.97,
+    "canyon_h_over_w": 0.25,
+    "SVF_floor": 0.7807764064044151,
+    "SVF_wall": 0.4384471871911697,
+    "EMIS_TOWN_predicted": 0.9717177080940896,
+    "EMIS_TOWN_model": 0.971717708,
+    "abs_error": 9.408962498014262e-11,
+    "model_value_is_time_constant": true
+   },
+   "production__FI-Torni": {
+    "BLD": 0.37,
+    "GARDEN": 0.23,
+    "ROAD": 0.4,
+    "WALL_O_HOR": 1.38,
+    "VEG_EMIS": 0.98,
+    "EM_ROOF": 0.97,
+    "EM_ROAD": 0.96,
+    "EM_WALL": 0.97,
+    "canyon_h_over_w": 1.0952380952380951,
+    "SVF_floor": 0.3878487145140417,
+    "SVF_wall": 0.2794603694609809,
+    "EMIS_TOWN_predicted": 0.969340657185326,
+    "EMIS_TOWN_model": 0.969340657,
+    "abs_error": 1.8532597678699858e-10,
+    "model_value_is_time_constant": true
+   },
+   "production__FR-Capitole": {
+    "BLD": 0.62,
+    "GARDEN": 0.1,
+    "ROAD": 0.28,
+    "WALL_O_HOR": 1.0,
+    "VEG_EMIS": 0.98,
+    "EM_ROOF": 0.97,
+    "EM_ROAD": 0.96,
+    "EM_WALL": 0.97,
+    "canyon_h_over_w": 1.3157894736842106,
+    "SVF_floor": 0.3368756282218506,
+    "SVF_wall": 0.25198726127569676,
+    "EMIS_TOWN_predicted": 0.9693936238692006,
+    "EMIS_TOWN_model": 0.969393624,
+    "abs_error": 1.3079937133397834e-10,
+    "model_value_is_time_constant": true
+   },
+   "production__GR-HECKOR": {
+    "BLD": 0.516,
+    "GARDEN": 0.085,
+    "ROAD": 0.39899999999999997,
+    "WALL_O_HOR": 0.39,
+    "VEG_EMIS": 0.98,
+    "EM_ROOF": 0.97,
+    "EM_ROAD": 0.96,
+    "EM_WALL": 0.97,
+    "canyon_h_over_w": 0.4028925619834711,
+    "SVF_floor": 0.6752180151381917,
+    "SVF_wall": 0.4030627709567057,
+    "EMIS_TOWN_predicted": 0.9678798154324659,
+    "EMIS_TOWN_model": 0.967879815,
+    "abs_error": 4.3246595193835446e-10,
+    "model_value_is_time_constant": true
+   },
+   "production__JP-Yoyogi": {
+    "BLD": 0.41,
+    "GARDEN": 0.08,
+    "ROAD": 0.5100000000000001,
+    "WALL_O_HOR": 1.14,
+    "VEG_EMIS": 0.98,
+    "EM_ROOF": 0.97,
+    "EM_ROAD": 0.96,
+    "EM_WALL": 0.97,
+    "canyon_h_over_w": 0.966101694915254,
+    "SVF_floor": 0.42434876623686,
+    "SVF_wall": 0.29792476133355494,
+    "EMIS_TOWN_predicted": 0.9681753003051814,
+    "EMIS_TOWN_model": 0.9681753,
+    "abs_error": 3.051814356780369e-10,
+    "model_value_is_time_constant": true
+   },
+   "production__KR-Jungnang": {
+    "BLD": 0.588,
+    "GARDEN": 0.035,
+    "ROAD": 0.377,
+    "WALL_O_HOR": 0.825,
+    "VEG_EMIS": 0.98,
+    "EM_ROOF": 0.97,
+    "EM_ROAD": 0.96,
+    "EM_WALL": 0.97,
+    "canyon_h_over_w": 1.0012135922330097,
+    "SVF_floor": 0.4138583696375262,
+    "SVF_wall": 0.2927155778295021,
+    "EMIS_TOWN_predicted": 0.9685846043758396,
+    "EMIS_TOWN_model": 0.968584604,
+    "abs_error": 3.7583958167886067e-10,
+    "model_value_is_time_constant": true
+   },
+   "production__KR-Ochang": {
+    "BLD": 0.133,
+    "GARDEN": 0.53,
+    "ROAD": 0.33699999999999997,
+    "WALL_O_HOR": 0.551,
+    "VEG_EMIS": 0.98,
+    "EM_ROOF": 0.97,
+    "EM_ROAD": 0.96,
+    "EM_WALL": 0.97,
+    "canyon_h_over_w": 0.317762399077278,
+    "SVF_floor": 0.7315101786008711,
+    "SVF_wall": 0.42246946488755854,
+    "EMIS_TOWN_predicted": 0.9714118146446997,
+    "EMIS_TOWN_model": 0.971411815,
+    "abs_error": 3.5530023367869035e-10,
+    "model_value_is_time_constant": true
+   },
+   "production__NL-Amsterdam": {
+    "BLD": 0.44,
+    "GARDEN": 0.32,
+    "ROAD": 0.24000000000000005,
+    "WALL_O_HOR": 1.02,
+    "VEG_EMIS": 0.98,
+    "EM_ROOF": 0.97,
+    "EM_ROAD": 0.96,
+    "EM_WALL": 0.97,
+    "canyon_h_over_w": 0.9107142857142857,
+    "SVF_floor": 0.44183904417850683,
+    "SVF_wall": 0.3064413090784668,
+    "EMIS_TOWN_predicted": 0.9703534712353428,
+    "EMIS_TOWN_model": 0.970353471,
+    "abs_error": 2.3534274529168897e-10,
+    "model_value_is_time_constant": true
+   },
+   "production__PL-Lipowa": {
+    "BLD": 0.35,
+    "GARDEN": 0.24,
+    "ROAD": 0.41000000000000003,
+    "WALL_O_HOR": 1.05,
+    "VEG_EMIS": 0.98,
+    "EM_ROOF": 0.97,
+    "EM_ROAD": 0.96,
+    "EM_WALL": 0.97,
+    "canyon_h_over_w": 0.8076923076923077,
+    "SVF_floor": 0.4777519205437233,
+    "SVF_wall": 0.32329643013959986,
+    "EMIS_TOWN_predicted": 0.9691878217350757,
+    "EMIS_TOWN_model": 0.969187822,
+    "abs_error": 2.649243047159189e-10,
+    "model_value_is_time_constant": true
+   },
+   "production__PL-Narutowicza": {
+    "BLD": 0.29,
+    "GARDEN": 0.35,
+    "ROAD": 0.36,
+    "WALL_O_HOR": 1.06,
+    "VEG_EMIS": 0.98,
+    "EM_ROOF": 0.97,
+    "EM_ROAD": 0.96,
+    "EM_WALL": 0.97,
+    "canyon_h_over_w": 0.7464788732394367,
+    "SVF_floor": 0.5014116300471374,
+    "SVF_wall": 0.33396013459106827,
+    "EMIS_TOWN_predicted": 0.9699498588369952,
+    "EMIS_TOWN_model": 0.969949859,
+    "abs_error": 1.6300472083230488e-10,
+    "model_value_is_time_constant": true
+   },
+   "production__SG-TelokKurau06": {
+    "BLD": 0.39,
+    "GARDEN": 0.15,
+    "ROAD": 0.45999999999999996,
+    "WALL_O_HOR": 0.66,
+    "VEG_EMIS": 0.98,
+    "EM_ROOF": 0.97,
+    "EM_ROAD": 0.96,
+    "EM_WALL": 0.97,
+    "canyon_h_over_w": 0.5409836065573771,
+    "SVF_floor": 0.5959698940589969,
+    "SVF_wall": 0.37342176458183607,
+    "EMIS_TOWN_predicted": 0.9681524933284171,
+    "EMIS_TOWN_model": 0.968152493,
+    "abs_error": 3.2841718233811434e-10,
+    "model_value_is_time_constant": true
+   },
+   "production__UK-KingsCollege": {
+    "BLD": 0.4,
+    "GARDEN": 0.21,
+    "ROAD": 0.39,
+    "WALL_O_HOR": 1.35,
+    "VEG_EMIS": 0.98,
+    "EM_ROOF": 0.97,
+    "EM_ROAD": 0.96,
+    "EM_WALL": 0.97,
+    "canyon_h_over_w": 1.1250000000000002,
+    "SVF_floor": 0.38019932234903675,
+    "SVF_wall": 0.2754669678448724,
+    "EMIS_TOWN_predicted": 0.9693156412197715,
+    "EMIS_TOWN_model": 0.969315641,
+    "abs_error": 2.1977153430441376e-10,
+    "model_value_is_time_constant": true
+   },
+   "production__UK-Swindon": {
+    "BLD": 0.16,
+    "GARDEN": 0.51,
+    "ROAD": 0.32999999999999996,
+    "WALL_O_HOR": 0.39,
+    "VEG_EMIS": 0.98,
+    "EM_ROOF": 0.97,
+    "EM_ROAD": 0.96,
+    "EM_WALL": 0.97,
+    "canyon_h_over_w": 0.23214285714285715,
+    "SVF_floor": 0.7944487394146291,
+    "SVF_wall": 0.44272579203002954,
+    "EMIS_TOWN_predicted": 0.9714300077309461,
+    "EMIS_TOWN_model": 0.971430008,
+    "abs_error": 2.690538902783146e-10,
+    "model_value_is_time_constant": true
+   },
+   "production__US-Baltimore": {
+    "BLD": 0.16,
+    "GARDEN": 0.687,
+    "ROAD": 0.1529999999999999,
+    "WALL_O_HOR": 0.18,
+    "VEG_EMIS": 0.98,
+    "EM_ROOF": 0.97,
+    "EM_ROAD": 0.96,
+    "EM_WALL": 0.97,
+    "canyon_h_over_w": 0.10714285714285714,
+    "SVF_floor": 0.8985805600234803,
+    "SVF_wall": 0.4732907198904258,
+    "EMIS_TOWN_predicted": 0.9747984201905254,
+    "EMIS_TOWN_model": 0.97479842,
+    "abs_error": 1.9052537325592311e-10,
+    "model_value_is_time_constant": true
+   },
+   "production__US-Minneapolis1": {
+    "BLD": 0.12,
+    "GARDEN": 0.79,
+    "ROAD": 0.08999999999999997,
+    "WALL_O_HOR": 0.1,
+    "VEG_EMIS": 0.98,
+    "EM_ROOF": 0.97,
+    "EM_ROAD": 0.96,
+    "EM_WALL": 0.97,
+    "canyon_h_over_w": 0.05681818181818182,
+    "SVF_floor": 0.9447946704281958,
+    "SVF_wall": 0.4858069002318773,
+    "EMIS_TOWN_predicted": 0.9766135626929974,
+    "EMIS_TOWN_model": 0.976613563,
+    "abs_error": 3.07002645527632e-10,
+    "model_value_is_time_constant": true
+   },
+   "production__US-Minneapolis2": {
+    "BLD": 0.05,
+    "GARDEN": 0.9,
+    "ROAD": 0.04999999999999993,
+    "WALL_O_HOR": 0.1,
+    "VEG_EMIS": 0.98,
+    "EM_ROOF": 0.97,
+    "EM_ROAD": 0.96,
+    "EM_WALL": 0.97,
+    "canyon_h_over_w": 0.052631578947368425,
+    "SVF_floor": 0.9487525047600235,
+    "SVF_wall": 0.4868512047797758,
+    "EMIS_TOWN_predicted": 0.97806439629046,
+    "EMIS_TOWN_model": 0.978064396,
+    "abs_error": 2.9046010041611225e-10,
+    "model_value_is_time_constant": true
+   },
+   "production__US-WestPhoenix": {
+    "BLD": 0.26,
+    "GARDEN": 0.52,
+    "ROAD": 0.21999999999999997,
+    "WALL_O_HOR": 0.59,
+    "VEG_EMIS": 0.98,
+    "EM_ROOF": 0.97,
+    "EM_ROAD": 0.96,
+    "EM_WALL": 0.97,
+    "canyon_h_over_w": 0.39864864864864863,
+    "SVF_floor": 0.6778831646617587,
+    "SVF_wall": 0.40401094601745524,
+    "EMIS_TOWN_predicted": 0.9720336494939852,
+    "EMIS_TOWN_model": 0.972033649,
+    "abs_error": 4.939851860896738e-10,
+    "model_value_is_time_constant": true
+   }
+  },
+  "garden_fraction": {
+   "AU-Preston": {
+    "ZGARDEN": 0.38,
+    "ZBLD": 0.445,
+    "ZWALL_O_HOR": 0.4,
+    "ZROAD": 0.17499999999999993,
+    "cover_parts": {
+     "tree_area_fraction": 0.225,
+     "grass_area_fraction": 0.15,
+     "bare_soil_area_fraction": 0.005,
+     "water_area_fraction": 0.0
+    },
+    "raw_sum": 0.38,
+    "predicted": 0.38,
+    "deviation": 0.0,
+    "meta_roof_area_fraction": 0.445,
+    "ZBLD_equals_meta_roof": true,
+    "emis_roof": 0.97,
+    "emis_road": 0.96,
+    "emis_wall": 0.97,
+    "veg_emis": 0.98
+   },
+   "CA-Sunset": {
+    "ZGARDEN": 0.32,
+    "ZBLD": 0.23,
+    "ZWALL_O_HOR": 0.18,
+    "ZROAD": 0.45,
+    "cover_parts": {
+     "tree_area_fraction": 0.12,
+     "grass_area_fraction": 0.2,
+     "bare_soil_area_fraction": 0.0,
+     "water_area_fraction": 0.0
+    },
+    "raw_sum": 0.32,
+    "predicted": 0.32,
+    "deviation": 0.0,
+    "meta_roof_area_fraction": 0.23,
+    "ZBLD_equals_meta_roof": true,
+    "emis_roof": 0.97,
+    "emis_road": 0.96,
+    "emis_wall": 0.97,
+    "veg_emis": 0.98
+   },
+   "FI-Kumpula": {
+    "ZGARDEN": 0.54,
+    "ZBLD": 0.14,
+    "ZWALL_O_HOR": 0.43,
+    "ZROAD": 0.31999999999999995,
+    "cover_parts": {
+     "tree_area_fraction": 0.3,
+     "grass_area_fraction": 0.24,
+     "bare_soil_area_fraction": 0.0,
+     "water_area_fraction": 0.0
+    },
+    "raw_sum": 0.54,
+    "predicted": 0.54,
+    "deviation": 0.0,
+    "meta_roof_area_fraction": 0.14,
+    "ZBLD_equals_meta_roof": true,
+    "emis_roof": 0.97,
+    "emis_road": 0.96,
+    "emis_wall": 0.97,
+    "veg_emis": 0.98
+   },
+   "FI-Torni": {
+    "ZGARDEN": 0.23,
+    "ZBLD": 0.37,
+    "ZWALL_O_HOR": 1.38,
+    "ZROAD": 0.4,
+    "cover_parts": {
+     "tree_area_fraction": 0.15,
+     "grass_area_fraction": 0.07,
+     "bare_soil_area_fraction": 0.0,
+     "water_area_fraction": 0.01
+    },
+    "raw_sum": 0.23,
+    "predicted": 0.23,
+    "deviation": 0.0,
+    "meta_roof_area_fraction": 0.37,
+    "ZBLD_equals_meta_roof": true,
+    "emis_roof": 0.97,
+    "emis_road": 0.96,
+    "emis_wall": 0.97,
+    "veg_emis": 0.98
+   },
+   "FR-Capitole": {
+    "ZGARDEN": 0.1,
+    "ZBLD": 0.62,
+    "ZWALL_O_HOR": 1.0,
+    "ZROAD": 0.28,
+    "cover_parts": {
+     "tree_area_fraction": 0.08,
+     "grass_area_fraction": 0.02,
+     "bare_soil_area_fraction": 0.0,
+     "water_area_fraction": 0.0
+    },
+    "raw_sum": 0.1,
+    "predicted": 0.1,
+    "deviation": 0.0,
+    "meta_roof_area_fraction": 0.62,
+    "ZBLD_equals_meta_roof": true,
+    "emis_roof": 0.97,
+    "emis_road": 0.96,
+    "emis_wall": 0.97,
+    "veg_emis": 0.98
+   },
+   "GR-HECKOR": {
+    "ZGARDEN": 0.085,
+    "ZBLD": 0.516,
+    "ZWALL_O_HOR": 0.39,
+    "ZROAD": 0.39899999999999997,
+    "cover_parts": {
+     "tree_area_fraction": 0.0401,
+     "grass_area_fraction": 0.0156,
+     "bare_soil_area_fraction": 0.0099,
+     "water_area_fraction": 0.0189
+    },
+    "raw_sum": 0.08449999999999999,
+    "predicted": 0.08449999999999999,
+    "deviation": -0.0005000000000000143,
+    "meta_roof_area_fraction": 0.5164,
+    "ZBLD_equals_meta_roof": true,
+    "emis_roof": 0.97,
+    "emis_road": 0.96,
+    "emis_wall": 0.97,
+    "veg_emis": 0.98
+   },
+   "JP-Yoyogi": {
+    "ZGARDEN": 0.08,
+    "ZBLD": 0.41,
+    "ZWALL_O_HOR": 1.14,
+    "ZROAD": 0.5100000000000001,
+    "cover_parts": {
+     "tree_area_fraction": 0.06,
+     "grass_area_fraction": 0.01,
+     "bare_soil_area_fraction": 0.01,
+     "water_area_fraction": 0.0
+    },
+    "raw_sum": 0.08,
+    "predicted": 0.08,
+    "deviation": 0.0,
+    "meta_roof_area_fraction": 0.41,
+    "ZBLD_equals_meta_roof": true,
+    "emis_roof": 0.97,
+    "emis_road": 0.96,
+    "emis_wall": 0.97,
+    "veg_emis": 0.98
+   },
+   "KR-Jungnang": {
+    "ZGARDEN": 0.035,
+    "ZBLD": 0.588,
+    "ZWALL_O_HOR": 0.825,
+    "ZROAD": 0.377,
+    "cover_parts": {
+     "tree_area_fraction": 0.0,
+     "grass_area_fraction": 0.019,
+     "bare_soil_area_fraction": 0.016,
+     "water_area_fraction": 0.0
+    },
+    "raw_sum": 0.035,
+    "predicted": 0.035,
+    "deviation": 0.0,
+    "meta_roof_area_fraction": 0.588,
+    "ZBLD_equals_meta_roof": true,
+    "emis_roof": 0.97,
+    "emis_road": 0.96,
+    "emis_wall": 0.97,
+    "veg_emis": 0.98
+   },
+   "KR-Ochang": {
+    "ZGARDEN": 0.53,
+    "ZBLD": 0.133,
+    "ZWALL_O_HOR": 0.551,
+    "ZROAD": 0.33699999999999997,
+    "cover_parts": {
+     "tree_area_fraction": 0.184,
+     "grass_area_fraction": 0.333,
+     "bare_soil_area_fraction": 0.013,
+     "water_area_fraction": 0.0
+    },
+    "raw_sum": 0.53,
+    "predicted": 0.53,
+    "deviation": 0.0,
+    "meta_roof_area_fraction": 0.133,
+    "ZBLD_equals_meta_roof": true,
+    "emis_roof": 0.97,
+    "emis_road": 0.96,
+    "emis_wall": 0.97,
+    "veg_emis": 0.98
+   },
+   "NL-Amsterdam": {
+    "ZGARDEN": 0.32,
+    "ZBLD": 0.44,
+    "ZWALL_O_HOR": 1.02,
+    "ZROAD": 0.24000000000000005,
+    "cover_parts": {
+     "tree_area_fraction": 0.15,
+     "grass_area_fraction": 0.0,
+     "bare_soil_area_fraction": 0.0,
+     "water_area_fraction": 0.17
+    },
+    "raw_sum": 0.32,
+    "predicted": 0.32,
+    "deviation": 0.0,
+    "meta_roof_area_fraction": 0.44,
+    "ZBLD_equals_meta_roof": true,
+    "emis_roof": 0.97,
+    "emis_road": 0.96,
+    "emis_wall": 0.97,
+    "veg_emis": 0.98
+   },
+   "PL-Lipowa": {
+    "ZGARDEN": 0.24,
+    "ZBLD": 0.35,
+    "ZWALL_O_HOR": 1.05,
+    "ZROAD": 0.41000000000000003,
+    "cover_parts": {
+     "tree_area_fraction": 0.16,
+     "grass_area_fraction": 0.08,
+     "bare_soil_area_fraction": 0.0,
+     "water_area_fraction": 0.0
+    },
+    "raw_sum": 0.24,
+    "predicted": 0.24,
+    "deviation": 0.0,
+    "meta_roof_area_fraction": 0.35,
+    "ZBLD_equals_meta_roof": true,
+    "emis_roof": 0.97,
+    "emis_road": 0.96,
+    "emis_wall": 0.97,
+    "veg_emis": 0.98
+   },
+   "PL-Narutowicza": {
+    "ZGARDEN": 0.35,
+    "ZBLD": 0.29,
+    "ZWALL_O_HOR": 1.06,
+    "ZROAD": 0.36,
+    "cover_parts": {
+     "tree_area_fraction": 0.22,
+     "grass_area_fraction": 0.09,
+     "bare_soil_area_fraction": 0.04,
+     "water_area_fraction": 0.0
+    },
+    "raw_sum": 0.35,
+    "predicted": 0.35,
+    "deviation": 0.0,
+    "meta_roof_area_fraction": 0.29,
+    "ZBLD_equals_meta_roof": true,
+    "emis_roof": 0.97,
+    "emis_road": 0.96,
+    "emis_wall": 0.97,
+    "veg_emis": 0.98
+   },
+   "SG-TelokKurau06": {
+    "ZGARDEN": 0.15,
+    "ZBLD": 0.39,
+    "ZWALL_O_HOR": 0.66,
+    "ZROAD": 0.45999999999999996,
+    "cover_parts": {
+     "tree_area_fraction": 0.11,
+     "grass_area_fraction": 0.04,
+     "bare_soil_area_fraction": 0.0,
+     "water_area_fraction": 0.0
+    },
+    "raw_sum": 0.15,
+    "predicted": 0.15,
+    "deviation": 0.0,
+    "meta_roof_area_fraction": 0.39,
+    "ZBLD_equals_meta_roof": true,
+    "emis_roof": 0.97,
+    "emis_road": 0.96,
+    "emis_wall": 0.97,
+    "veg_emis": 0.98
+   },
+   "UK-KingsCollege": {
+    "ZGARDEN": 0.21,
+    "ZBLD": 0.4,
+    "ZWALL_O_HOR": 1.35,
+    "ZROAD": 0.39,
+    "cover_parts": {
+     "tree_area_fraction": 0.03,
+     "grass_area_fraction": 0.04,
+     "bare_soil_area_fraction": 0.0,
+     "water_area_fraction": 0.14
+    },
+    "raw_sum": 0.21000000000000002,
+    "predicted": 0.21000000000000002,
+    "deviation": 2.7755575615628914e-17,
+    "meta_roof_area_fraction": 0.4,
+    "ZBLD_equals_meta_roof": true,
+    "emis_roof": 0.97,
+    "emis_road": 0.96,
+    "emis_wall": 0.97,
+    "veg_emis": 0.98
+   },
+   "UK-Swindon": {
+    "ZGARDEN": 0.51,
+    "ZBLD": 0.16,
+    "ZWALL_O_HOR": 0.39,
+    "ZROAD": 0.32999999999999996,
+    "cover_parts": {
+     "tree_area_fraction": 0.09,
+     "grass_area_fraction": 0.36,
+     "bare_soil_area_fraction": 0.06,
+     "water_area_fraction": 0.0
+    },
+    "raw_sum": 0.51,
+    "predicted": 0.51,
+    "deviation": 0.0,
+    "meta_roof_area_fraction": 0.16,
+    "ZBLD_equals_meta_roof": true,
+    "emis_roof": 0.97,
+    "emis_road": 0.96,
+    "emis_wall": 0.97,
+    "veg_emis": 0.98
+   },
+   "US-Baltimore": {
+    "ZGARDEN": 0.687,
+    "ZBLD": 0.16,
+    "ZWALL_O_HOR": 0.18,
+    "ZROAD": 0.1529999999999999,
+    "cover_parts": {
+     "tree_area_fraction": 0.536,
+     "grass_area_fraction": 0.138,
+     "bare_soil_area_fraction": 0.007,
+     "water_area_fraction": 0.006
+    },
+    "raw_sum": 0.687,
+    "predicted": 0.687,
+    "deviation": 0.0,
+    "meta_roof_area_fraction": 0.16,
+    "ZBLD_equals_meta_roof": true,
+    "emis_roof": 0.97,
+    "emis_road": 0.96,
+    "emis_wall": 0.97,
+    "veg_emis": 0.98
+   },
+   "US-Minneapolis1": {
+    "ZGARDEN": 0.79,
+    "ZBLD": 0.12,
+    "ZWALL_O_HOR": 0.1,
+    "ZROAD": 0.08999999999999997,
+    "cover_parts": {
+     "tree_area_fraction": 0.38,
+     "grass_area_fraction": 0.36,
+     "bare_soil_area_fraction": 0.0,
+     "water_area_fraction": 0.05
+    },
+    "raw_sum": 0.79,
+    "predicted": 0.79,
+    "deviation": 0.0,
+    "meta_roof_area_fraction": 0.12,
+    "ZBLD_equals_meta_roof": true,
+    "emis_roof": 0.97,
+    "emis_road": 0.96,
+    "emis_wall": 0.97,
+    "veg_emis": 0.98
+   },
+   "US-Minneapolis2": {
+    "ZGARDEN": 0.9,
+    "ZBLD": 0.05,
+    "ZWALL_O_HOR": 0.1,
+    "ZROAD": 0.04999999999999993,
+    "cover_parts": {
+     "tree_area_fraction": 0.2,
+     "grass_area_fraction": 0.73,
+     "bare_soil_area_fraction": 0.0,
+     "water_area_fraction": 0.02
+    },
+    "raw_sum": 0.95,
+    "predicted": 0.9,
+    "deviation": 0.0,
+    "meta_roof_area_fraction": 0.01,
+    "ZBLD_equals_meta_roof": false,
+    "emis_roof": 0.97,
+    "emis_road": 0.96,
+    "emis_wall": 0.97,
+    "veg_emis": 0.98
+   },
+   "US-WestPhoenix": {
+    "ZGARDEN": 0.52,
+    "ZBLD": 0.26,
+    "ZWALL_O_HOR": 0.59,
+    "ZROAD": 0.21999999999999997,
+    "cover_parts": {
+     "tree_area_fraction": 0.05,
+     "grass_area_fraction": 0.1,
+     "bare_soil_area_fraction": 0.37,
+     "water_area_fraction": 0.0
+    },
+    "raw_sum": 0.52,
+    "predicted": 0.52,
+    "deviation": 0.0,
+    "meta_roof_area_fraction": 0.26,
+    "ZBLD_equals_meta_roof": true,
+    "emis_roof": 0.97,
+    "emis_road": 0.96,
+    "emis_wall": 0.97,
+    "veg_emis": 0.98
+   }
+  },
+  "garden_probe": {
+   "Mpls2": {
+    "site": "US-Minneapolis2",
+    "cases": {
+     "gbase": {
+      "night_lwup_bias": 18.77569884863641,
+      "day_lwup_bias": 2.136987331427992,
+      "n_night": 19723,
+      "n_day": 21285,
+      "ZGARDEN": 0.9,
+      "VEG_EMIS": 0.98,
+      "bit_identical_to_production_LWU_base": true
+     },
+     "gzero": {
+      "night_lwup_bias": 18.129688909653265,
+      "day_lwup_bias": 41.91213492711675,
+      "n_night": 19723,
+      "n_day": 21285,
+      "ZGARDEN": 0.0,
+      "VEG_EMIS": 0.98
+     },
+     "gemis090": {
+      "night_lwup_bias": 14.638709946384205,
+      "day_lwup_bias": -2.2550545501455086,
+      "n_night": 19723,
+      "n_day": 21285,
+      "ZGARDEN": 0.9,
+      "VEG_EMIS": 0.9
+     }
+    },
+    "deltas": {
+     "gzero": {
+      "n": 19723,
+      "d_night_lwup": -0.6460099389831432,
+      "emissivity_channel": -1.0575443351989322,
+      "temperature_channel": 0.4189757515282095,
+      "cross_term": -0.007315548253946455,
+      "sum_of_channels": -0.6458841319246691,
+      "residual": -0.00012580705847409224,
+      "mean_d_EMIS_TOWN": -0.01707754508568049,
+      "mean_sigTs4_minus_LWD": 61.92601629174925,
+      "mean_d_TS_TOWN_K": -0.013033330119775614,
+      "nocturnal_road_skin_K": 276.2072180027364,
+      "nocturnal_canyon_air_K": 276.2219687573136,
+      "road_minus_garden_radiative_T_K": -0.01475075457719041
+     },
+     "gemis090": {
+      "n": 19723,
+      "d_night_lwup": -4.136988902252204,
+      "emissivity_channel": -4.230177340795709,
+      "temperature_channel": 0.10076612640920754,
+      "cross_term": -0.007037729104092931,
+      "sum_of_channels": -4.136448943490595,
+      "residual": -0.0005399587616095047,
+      "mean_d_EMIS_TOWN": -0.06831018034272163,
+      "mean_sigTs4_minus_LWD": 61.92601629174925,
+      "mean_d_TS_TOWN_K": 0.020704903853467013,
+      "nocturnal_road_skin_K": 276.0506569240988,
+      "nocturnal_canyon_air_K": 276.2219687573136,
+      "road_minus_garden_radiative_T_K": -0.17131183321478421
+     }
+    }
+   },
+   "Lipowa": {
+    "site": "PL-Lipowa",
+    "cases": {
+     "gbase": {
+      "night_lwup_bias": -14.512326096003902,
+      "day_lwup_bias": -9.254841164197778,
+      "n_night": 34463,
+      "n_day": 38302,
+      "ZGARDEN": 0.24,
+      "VEG_EMIS": 0.98,
+      "bit_identical_to_production_LWU_base": true
+     },
+     "gzero": {
+      "night_lwup_bias": -12.657532533253306,
+      "day_lwup_bias": -4.846316464341673,
+      "n_night": 34463,
+      "n_day": 38302,
+      "ZGARDEN": 0.0,
+      "VEG_EMIS": 0.98
+     }
+    },
+    "deltas": {
+     "gzero": {
+      "n": 34463,
+      "d_night_lwup": 1.8547935627505967,
+      "emissivity_channel": -0.06924380495491414,
+      "temperature_channel": 1.928574899306271,
+      "cross_term": -0.004563228755754687,
+      "sum_of_channels": 1.8547678655956021,
+      "residual": 2.569715499456393e-05,
+      "mean_d_EMIS_TOWN": -0.0022932092186098707,
+      "mean_sigTs4_minus_LWD": 30.195153757880536,
+      "mean_d_TS_TOWN_K": 0.3667005999400005,
+      "nocturnal_road_skin_K": 283.0250890054891,
+      "nocturnal_canyon_air_K": 280.60990025857694,
+      "road_minus_garden_radiative_T_K": 2.415188746912204
+     }
+    }
+   }
+  },
+  "findings": {
+   "lwu_file_is_single_column": true,
+   "lwu_base_vs_lwu_max_abs_diff": {
+    "AU-Preston": 4.917005320913404,
+    "CA-Sunset": 7.44781420319066,
+    "FI-Kumpula": 2.3489368366793997,
+    "FI-Torni": 3.378005864555348,
+    "FR-Capitole": 2.557920623680616,
+    "GR-HECKOR": 3.929357948412985,
+    "JP-Yoyogi": 4.627287894753863,
+    "KR-Jungnang": 5.835716974621164,
+    "KR-Ochang": 6.252286605929044,
+    "NL-Amsterdam": 4.077102206664904,
+    "PL-Lipowa": 2.4897598187076255,
+    "PL-Narutowicza": 2.523701795836928,
+    "SG-TelokKurau06": 3.7285350379944475,
+    "UK-KingsCollege": 3.276516875981997,
+    "UK-Swindon": 3.709655588748433,
+    "US-Baltimore": 12.339715265081225,
+    "US-Minneapolis1": 7.41302125134348,
+    "US-Minneapolis2": 6.145244906765356,
+    "US-WestPhoenix": 6.858312652216341
+   },
+   "lwu_base_is_the_uncorrected_baseline": "output/LWU.txt in teb_runs is a closure-CORRECTED variant (differs from LWU_base.txt by up to 12.34 W/m2); every manuscript number uses LWU_base.txt.",
+   "lwu_write_statement": {
+    "source": "external/teb/src/driver/driver.F90",
+    "line": 1192,
+    "code": "WRITE(43,*) ZEMIS_TOWN * XSTEFAN *ZTS_TOWN**4 + (1.-ZEMIS_TOWN)*XLW",
+    "unit_open": "line 868, OPEN(UNIT=43, FILE=LWU)  with LWU='output/LWU.txt' at line 578"
+   },
+   "garden_in_aggregate_source": {
+    "lw_up": {
+     "source": "external/teb/src/teb/avg_urban_fluxes.F90",
+     "lines": "326-335",
+     "term": "+PGD_FRAC(JJ) * DMT%XABS_LW_GARDEN(JJ)"
+    },
+    "emis_town": {
+     "source": "external/teb/src/teb/avg_urban_fluxes.F90",
+     "lines": "344-351",
+     "term": "+ T%XGARDEN(JJ)*T%XSVF_GARDEN(JJ)*PEMIS_GD(JJ)"
+    },
+    "ts_town": {
+     "source": "external/teb/src/teb/avg_urban_fluxes.F90",
+     "line": 356,
+     "code": "PTS_TWN = ((ZLW_UP - PLW_RAD*(1.-PEMIS_TWN))/PEMIS_TWN/XSTEFAN)**0.25"
+    }
+   },
+   "emis_town_worst_abs_error": 4.835342126696673e-10,
+   "area_weighting_formula": "EMIS_TOWN = ZBLD*EM_ROOF + ZROAD*SVF_floor*EM_ROAD + ZGARDEN*SVF_floor*VEG_EMIS + ZWALL_O_HOR*SVF_wall*EM_WALL, with ZROAD = 1-ZBLD-ZGARDEN, h/w = 0.5*ZWALL_O_HOR/(1-ZBLD), SVF_floor = sqrt((h/w)^2+1)-(h/w), SVF_wall = 0.5*((h/w)+1-sqrt((h/w)^2+1))/(h/w). Reproduces the model's own EMIS_TOWN to 4.8e-10 at 5 independent configurations across 2 sites, which establishes both that the garden IS in the town aggregate and how every facet is weighted.",
+   "emis_town_worst_abs_error_production_19": 4.939851860896738e-10,
+   "emis_town_verified_on": "all 19 production records (worst 4.94e-10) plus 5 probe configurations at 2 sites (worst 4.84e-10)",
+   "zgarden_formula": "ZGARDEN = min(0.90, tree+grass+bare_soil+water), clipped so ZBLD+ZGARDEN <= 0.97. Water is folded into the garden tile and the cap is HARD at 0.90, so the garden UNDER-represents cover at the wettest/greenest records (US-Minneapolis2: true 0.95 -> 0.90).",
+   "zgarden_worst_deviation": 0.0005000000000000143,
+   "zbld_provenance": "ZBLD = site roof_area_fraction at 18/19 records exactly; the single exception is US-Minneapolis2, where ZBLD = 0.050 against a metadata roof fraction of 0.010 (a floor needed to keep a viable building tile). Reported, not hidden.",
+   "no_nonurban_tile": "Standalone TEB runs ONE town tile. There is no non-urban tile and no tile-level mixing: all site cover is mapped inside the town tile as roof / road / garden / walls. So \"gridcell mean vs urban landunit\" cannot arise on the TEB side.",
+   "garden_physics": {
+    "source": "external/teb/src/proxi_SVAT/garden.F90",
+    "self_label": "line 173: \"Proxi model based on a fixed Bowen ratio\"",
+    "Tsrad_pinned_to_air": "line 203: PTSRAD(:) = PTA(:)",
+    "net_radiation_shortwave_only": "line 176: PRN(:) = (1.-PALB_GD) * PSW(:)",
+    "ground_heat_flux_neglected": "line 182: PGFLUX(:) = 0.",
+    "fixed_bowen": "lines 178-179: PH = GARDEN_BR*PRN ; PLE = (1-GARDEN_BR)*PRN",
+    "consequence": "At night PSW = 0, so the proxy garden has no net radiation, no ground heat storage, and a radiative temperature identically equal to canyon air temperature. Its nocturnal LW-up is therefore VEG_EMIS*sigma*Ta^4 + (1-VEG_EMIS)*LWdown -- it contributes through EMISSIVITY only, and has no independent nocturnal temperature to lose when it is removed.",
+    "misleading_comment": "The scheme is NOT ISBA; the \"call the vegetation scheme (ISBA)\" header comment in the standalone driver is misleading."
+   }
+  }
+ },
+ "air_temperature_reference": {
+  "per_site": {
+   "AU-Preston": {
+    "teb_forcTA_vs_corpus_forcing_Tair_maxabs": 4.8828125045474735e-06,
+    "teb_forcLW_vs_corpus_forcing_LWdown_maxabs": 4.9902344017027644e-06,
+    "night_mask_mismatch_vs_SWdown_lt_1": 0
+   },
+   "CA-Sunset": {
+    "teb_forcTA_vs_corpus_forcing_Tair_maxabs": 4.804687478099368e-06,
+    "teb_forcLW_vs_corpus_forcing_LWdown_maxabs": 4.8828125045474735e-06,
+    "night_mask_mismatch_vs_SWdown_lt_1": 0
+   },
+   "FI-Kumpula": {
+    "teb_forcTA_vs_corpus_forcing_Tair_maxabs": 4.9804687591858965e-06,
+    "teb_forcLW_vs_corpus_forcing_LWdown_maxabs": 4.9999999873762135e-06,
+    "night_mask_mismatch_vs_SWdown_lt_1": 0
+   },
+   "FI-Torni": {
+    "teb_forcTA_vs_corpus_forcing_Tair_maxabs": 4.9999999873762135e-06,
+    "teb_forcLW_vs_corpus_forcing_LWdown_maxabs": 4.9707031166690285e-06,
+    "night_mask_mismatch_vs_SWdown_lt_1": 0
+   },
+   "FR-Capitole": {
+    "teb_forcTA_vs_corpus_forcing_Tair_maxabs": 4.9707031166690285e-06,
+    "teb_forcLW_vs_corpus_forcing_LWdown_maxabs": 4.995117194539489e-06,
+    "night_mask_mismatch_vs_SWdown_lt_1": 0
+   },
+   "GR-HECKOR": {
+    "teb_forcTA_vs_corpus_forcing_Tair_maxabs": 4.9999999873762135e-06,
+    "teb_forcLW_vs_corpus_forcing_LWdown_maxabs": 4.9902344017027644e-06,
+    "night_mask_mismatch_vs_SWdown_lt_1": 0
+   },
+   "JP-Yoyogi": {
+    "teb_forcTA_vs_corpus_forcing_Tair_maxabs": 4.9999999873762135e-06,
+    "teb_forcLW_vs_corpus_forcing_LWdown_maxabs": 4.995117194539489e-06,
+    "night_mask_mismatch_vs_SWdown_lt_1": 0
+   },
+   "KR-Jungnang": {
+    "teb_forcTA_vs_corpus_forcing_Tair_maxabs": 4.9999999873762135e-06,
+    "teb_forcLW_vs_corpus_forcing_LWdown_maxabs": 4.9999999873762135e-06,
+    "night_mask_mismatch_vs_SWdown_lt_1": 0
+   },
+   "KR-Ochang": {
+    "teb_forcTA_vs_corpus_forcing_Tair_maxabs": 4.9999999873762135e-06,
+    "teb_forcLW_vs_corpus_forcing_LWdown_maxabs": 4.995117194539489e-06,
+    "night_mask_mismatch_vs_SWdown_lt_1": 0
+   },
+   "NL-Amsterdam": {
+    "teb_forcTA_vs_corpus_forcing_Tair_maxabs": 4.9999999873762135e-06,
+    "teb_forcLW_vs_corpus_forcing_LWdown_maxabs": 4.9999999873762135e-06,
+    "night_mask_mismatch_vs_SWdown_lt_1": 0
+   },
+   "PL-Lipowa": {
+    "teb_forcTA_vs_corpus_forcing_Tair_maxabs": 4.8828125045474735e-06,
+    "teb_forcLW_vs_corpus_forcing_LWdown_maxabs": 4.8828125045474735e-06,
+    "night_mask_mismatch_vs_SWdown_lt_1": 0
+   },
+   "PL-Narutowicza": {
+    "teb_forcTA_vs_corpus_forcing_Tair_maxabs": 4.8828125045474735e-06,
+    "teb_forcLW_vs_corpus_forcing_LWdown_maxabs": 4.8828125045474735e-06,
+    "night_mask_mismatch_vs_SWdown_lt_1": 0
+   },
+   "SG-TelokKurau06": {
+    "teb_forcTA_vs_corpus_forcing_Tair_maxabs": 4.9999999873762135e-06,
+    "teb_forcLW_vs_corpus_forcing_LWdown_maxabs": 4.9999999873762135e-06,
+    "night_mask_mismatch_vs_SWdown_lt_1": 0
+   },
+   "UK-KingsCollege": {
+    "teb_forcTA_vs_corpus_forcing_Tair_maxabs": 4.9902344017027644e-06,
+    "teb_forcLW_vs_corpus_forcing_LWdown_maxabs": 4.9511718884787115e-06,
+    "night_mask_mismatch_vs_SWdown_lt_1": 0
+   },
+   "UK-Swindon": {
+    "teb_forcTA_vs_corpus_forcing_Tair_maxabs": 4.8828125045474735e-06,
+    "teb_forcLW_vs_corpus_forcing_LWdown_maxabs": 4.8828125045474735e-06,
+    "night_mask_mismatch_vs_SWdown_lt_1": 0
+   },
+   "US-Baltimore": {
+    "teb_forcTA_vs_corpus_forcing_Tair_maxabs": 4.9707031166690285e-06,
+    "teb_forcLW_vs_corpus_forcing_LWdown_maxabs": 4.9999999873762135e-06,
+    "night_mask_mismatch_vs_SWdown_lt_1": 0
+   },
+   "US-Minneapolis1": {
+    "teb_forcTA_vs_corpus_forcing_Tair_maxabs": 4.9999999873762135e-06,
+    "teb_forcLW_vs_corpus_forcing_LWdown_maxabs": 4.9999999873762135e-06,
+    "night_mask_mismatch_vs_SWdown_lt_1": 0
+   },
+   "US-Minneapolis2": {
+    "teb_forcTA_vs_corpus_forcing_Tair_maxabs": 4.9999999873762135e-06,
+    "teb_forcLW_vs_corpus_forcing_LWdown_maxabs": 4.9999999873762135e-06,
+    "night_mask_mismatch_vs_SWdown_lt_1": 0
+   },
+   "US-WestPhoenix": {
+    "teb_forcTA_vs_corpus_forcing_Tair_maxabs": 4.9999999873762135e-06,
+    "teb_forcLW_vs_corpus_forcing_LWdown_maxabs": 4.9609374741521606e-06,
+    "night_mask_mismatch_vs_SWdown_lt_1": 0
+   }
+  },
+  "findings": {
+   "observations_Ta": "corpus forcing_Tair",
+   "teb_Ta": "corpus forcing_Tair (row i+1 against model row i)",
+   "clmu_Ta": "corpus forcing_Tair (same array; NOT the model 2 m diagnostic TSA)",
+   "teb_LWdown_for_reflection": "corpus forcing_LWdown",
+   "clmu_LWdown_for_reflection": "the model's own FLDS",
+   "clmu_FLDS_equals_corpus_forcing_LWdown_bitwise": true,
+   "apparent_asymmetry_resolved": "TEB's inversion uses corpus forcing_LWdown while CLMU's uses the model FLDS field. This is NOT a real asymmetry: CLMU's FLDS is BIT-IDENTICAL to corpus forcing_LWdown over the whole evaluation window at all 19 records (max abs deviation exactly 0.0), because the container datm streams that array in unchanged.",
+   "worst_teb_forcTA_deviation_K": 4.9999999873762135e-06,
+   "worst_teb_forcLW_deviation_Wm2": 4.9999999873762135e-06,
+   "teb_text_roundtrip_note": "TEB reads its forcing from ASCII decks, so its copy of forcing_Tair agrees with the corpus to 5e-06 K -- text round-off, not a different variable.",
+   "night_mask_definition": "night_mask == (forcing_SWdown < 1 W/m2)",
+   "night_mask_total_mismatches": 0,
+   "eval_mask": "night_mask & ~pre_spinup_flag & finite(obs_LWup) & finite(model LWup)",
+   "residual_asymmetry": "The one irreducible asymmetry is the SPIN-UP convention, already disclosed in Sect. 2.3: TEB is a cold start with the first six months discarded, CLMU prepends one recycled forcing year. The evaluation mask is identical for both and for the observations."
+  }
+ }
+}

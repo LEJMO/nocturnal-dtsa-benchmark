@@ -1,0 +1,42 @@
+{
+  "site": "US-WestPhoenix",
+  "RUN_STARTDATE": "2010-12-16",
+  "START_TOD": "66600",
+  "STOP_OPTION": "ndays",
+  "STOP_N": "747",
+  "zbot": 22.1,
+  "morphology": {
+    "CANYON_HWR": 0.4,
+    "HT_ROOF": 4.5,
+    "WTLUNIT_ROOF": 0.26,
+    "WTROAD_PERV": 0.7027027027027027,
+    "WIND_HGT_CANYON": 2.25
+  },
+  "n_corpus": 18313,
+  "n_spin": 17520,
+  "n_forcing": 35929,
+  "forcing_span": [
+    "2010-12-16 18:30:00",
+    "2013-01-03 06:30:00"
+  ],
+  "eval_night_notpresp": 4701,
+  "surf_changed": [
+    "LATIXY",
+    "LONGXY",
+    "CANYON_HWR",
+    "HT_ROOF",
+    "WTLUNIT_ROOF",
+    "WTROAD_PERV",
+    "WIND_HGT_CANYON"
+  ],
+  "surf_alldiff": [
+    "LONGXY",
+    "LATIXY",
+    "CANYON_HWR",
+    "HT_ROOF",
+    "WIND_HGT_CANYON",
+    "WTLUNIT_ROOF",
+    "WTROAD_PERV"
+  ],
+  "surf_unexpected": []
+}

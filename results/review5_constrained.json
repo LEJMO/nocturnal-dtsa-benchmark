@@ -1,0 +1,1018 @@
+{
+ "_meta": {
+  "script": "투고가능성평가/재검증_2026-08/scripts/review5_constrained_experiments.py",
+  "date": "2026-09-16",
+  "purpose": "regenerate the 3 constrained-experiment stats sections from raw model output (closes 44/113 unsourced leaves)",
+  "constants": {
+   "SIG": 5.67e-08,
+   "EPS": 0.95,
+   "high_sun_Wm2": 300.0
+  },
+  "output_is_read_only_merge": "lead merges each top-level key into results/paper_stats_v1.json"
+ },
+ "teb_constrained_experiments": {
+  "_meta": {
+   "sources": {
+    "baseline": "external/teb_runs/<SITE>/output/LWU_base.txt",
+    "albedo": "external/teb_albedo19/<SITE>/LWU_alb.txt",
+    "spinup": "external/teb_spinup10/<SITE>/LWU_spin.txt",
+    "solar": "SWD.txt / SWU.txt under teb_runs & teb_albedo19",
+    "corpus": "data/urban-plumber/corpus/<SITE>.nc"
+   },
+   "conventions": {
+    "SIG": 5.67e-08,
+    "EPS": 0.95,
+    "alignment": "model row i -> corpus step i+1",
+    "eff_albedo": "sum(SWU)/sum(SWD) over SWD>300 W/m2"
+   }
+  },
+  "baseline_reproduction": {
+   "max_abs_diff_Wm2": 0.0,
+   "n": 22771,
+   "verdict": "EXACT"
+  },
+  "albedo_constrained": {
+   "n": 19,
+   "baseline_slope_model_on_obs": 0.23365937091692482,
+   "baseline_r": 0.6263595157555378,
+   "albedo_slope_model_on_obs": 0.27188863968831056,
+   "albedo_r": 0.6033994520343948,
+   "baseline_model_span_K": [
+    0.7221257439300389,
+    3.1852637573613456
+   ],
+   "albedo_model_span_K": [
+    0.8235646530260925,
+    3.876448009726224
+   ],
+   "obs_span_K": [
+    -3.0439059105555812,
+    6.1160007904118805
+   ],
+   "mean_abs_bias_baseline_Wm2": 10.76800064182611,
+   "mean_abs_bias_albedo_Wm2": 12.4736839634979
+  },
+  "albedo_constrained_warming_per_record": {
+   "min_K": 0.040674214352366844,
+   "max_K": 0.9484993143355194,
+   "mean_K": 0.3674630108479045,
+   "median_K": 0.34769375057057816,
+   "n_outside_0.2_0.5": 10,
+   "sites_outside_0.2_0.5": [
+    "FI-Kumpula",
+    "GR-HECKOR",
+    "JP-Yoyogi",
+    "KR-Jungnang",
+    "NL-Amsterdam",
+    "SG-TelokKurau06",
+    "UK-Swindon",
+    "US-Minneapolis1",
+    "US-Minneapolis2",
+    "US-WestPhoenix"
+   ],
+   "per_record_K": {
+    "AU-Preston": 0.34769375057057816,
+    "CA-Sunset": 0.2661242864788591,
+    "FI-Kumpula": 0.10143890909605358,
+    "FI-Torni": 0.27369939499732965,
+    "FR-Capitole": 0.43628843175681453,
+    "GR-HECKOR": 0.5340720552352809,
+    "JP-Yoyogi": 0.5183422095732708,
+    "KR-Jungnang": 0.9484993143355194,
+    "KR-Ochang": 0.296982799591206,
+    "NL-Amsterdam": 0.5385345229512051,
+    "PL-Lipowa": 0.45541541924286344,
+    "PL-Narutowicza": 0.36534038275734715,
+    "SG-TelokKurau06": 0.5656823434457849,
+    "UK-KingsCollege": 0.31693495263673,
+    "UK-Swindon": 0.1412737103675621,
+    "US-Baltimore": 0.23580621078023256,
+    "US-Minneapolis1": 0.06225293785778163,
+    "US-Minneapolis2": 0.040674214352366844,
+    "US-WestPhoenix": 0.5367413600833999
+   },
+   "note": "manuscript's 'near-uniform 0.2-0.5 K' is FALSE: 0.0407..0.9485 K, 10/19 outside",
+   "crosscheck_teb_persite_warming_maxabs": 0.0
+  },
+  "equilibrium_spinup": {
+   "n_clean": 15,
+   "n_excluded": 4,
+   "excluded_sites": [
+    "JP-Yoyogi",
+    "PL-Lipowa",
+    "PL-Narutowicza",
+    "US-Baltimore"
+   ],
+   "excluded_reason": "hourly FullCollection metforcing (not half-hourly-comparable)",
+   "max_abs_dtsa_change_K": 1.1548186136134397e-05,
+   "mean_abs_dtsa_change_K": 2.3683767426341263e-06,
+   "max_abs_bias_change_Wm2": 5.759965111096221e-05,
+   "baseline_slope": 0.1996203334821171,
+   "spinup_slope": 0.19962044622967617
+  },
+  "native_vs_observed_albedo": {
+   "native_range": [
+    0.18213156768602,
+    0.27937448666353165
+   ],
+   "observed_range": [
+    0.085,
+    0.213
+   ],
+   "achieved_effective_range": [
+    0.052953347669032355,
+    0.19511353606452128
+   ],
+   "r_native_vs_observed": 0.22607720155562186,
+   "r_achieved_vs_observed": 0.9626763456261819,
+   "native_effective_per_site": {
+    "AU-Preston": 0.2615933249192704,
+    "CA-Sunset": 0.20263290445218504,
+    "FI-Kumpula": 0.18988198819184215,
+    "FI-Torni": 0.20859638569431127,
+    "FR-Capitole": 0.27937448666353165,
+    "GR-HECKOR": 0.25629274254215634,
+    "JP-Yoyogi": 0.21711741018109534,
+    "KR-Jungnang": 0.2706910926521436,
+    "KR-Ochang": 0.18213156768602,
+    "NL-Amsterdam": 0.23607669757509755,
+    "PL-Lipowa": 0.206902623377457,
+    "PL-Narutowicza": 0.19501362469081598,
+    "SG-TelokKurau06": 0.22243227616495148,
+    "UK-KingsCollege": 0.21454382735453323,
+    "UK-Swindon": 0.19371528820875597,
+    "US-Baltimore": 0.22927530306017938,
+    "US-Minneapolis1": 0.23947098534996686,
+    "US-Minneapolis2": 0.23468257162244366,
+    "US-WestPhoenix": 0.21453252590253066
+   },
+   "achieved_effective_per_site": {
+    "AU-Preston": 0.12064623868365701,
+    "CA-Sunset": 0.09275426423526002,
+    "FI-Kumpula": 0.10829512979785405,
+    "FI-Torni": 0.06489977548852137,
+    "FR-Capitole": 0.09401398360789882,
+    "GR-HECKOR": 0.1654793351489284,
+    "JP-Yoyogi": 0.08472578289817967,
+    "KR-Jungnang": 0.08925570378466328,
+    "KR-Ochang": 0.11727993470744195,
+    "NL-Amsterdam": 0.0636673318913538,
+    "PL-Lipowa": 0.05335643709670671,
+    "PL-Narutowicza": 0.052953347669032355,
+    "SG-TelokKurau06": 0.1198536949306003,
+    "UK-KingsCollege": 0.0665545405921801,
+    "UK-Swindon": 0.11016502332793765,
+    "US-Baltimore": 0.10463804369329624,
+    "US-Minneapolis1": 0.19511353606452128,
+    "US-Minneapolis2": 0.19488003351621722,
+    "US-WestPhoenix": 0.12133061636894307
+   },
+   "observed_albedo_per_site": {
+    "AU-Preston": 0.151,
+    "CA-Sunset": 0.107,
+    "FI-Kumpula": 0.142,
+    "FI-Torni": 0.11,
+    "FR-Capitole": 0.127,
+    "GR-HECKOR": 0.202,
+    "JP-Yoyogi": 0.133,
+    "KR-Jungnang": 0.12,
+    "KR-Ochang": 0.166,
+    "NL-Amsterdam": 0.096,
+    "PL-Lipowa": 0.085,
+    "PL-Narutowicza": 0.087,
+    "SG-TelokKurau06": 0.168,
+    "UK-KingsCollege": 0.109,
+    "UK-Swindon": 0.139,
+    "US-Baltimore": 0.122,
+    "US-Minneapolis1": 0.213,
+    "US-Minneapolis2": 0.213,
+    "US-WestPhoenix": 0.172
+   }
+  },
+  "_reproduction_check": {
+   "baseline_reproduction.max_abs_diff_Wm2": {
+    "recomputed": 0.0,
+    "pre_regen": 0.0,
+    "status": "reproduced"
+   },
+   "albedo_constrained.baseline_slope_model_on_obs": {
+    "recomputed": 0.23365937091692482,
+    "pre_regen": 0.23365937091692482,
+    "status": "reproduced"
+   },
+   "albedo_constrained.baseline_r": {
+    "recomputed": 0.6263595157555378,
+    "pre_regen": 0.6263595157555378,
+    "status": "reproduced"
+   },
+   "albedo_constrained.albedo_slope_model_on_obs": {
+    "recomputed": 0.27188863968831056,
+    "pre_regen": 0.27188863968831056,
+    "status": "reproduced"
+   },
+   "albedo_constrained.albedo_r": {
+    "recomputed": 0.6033994520343948,
+    "pre_regen": 0.6033994520343948,
+    "status": "reproduced"
+   },
+   "albedo_constrained.mean_abs_bias_baseline_Wm2": {
+    "recomputed": 10.76800064182611,
+    "pre_regen": 10.76800064182611,
+    "status": "reproduced"
+   },
+   "albedo_constrained.mean_abs_bias_albedo_Wm2": {
+    "recomputed": 12.4736839634979,
+    "pre_regen": 12.4736839634979,
+    "status": "reproduced"
+   },
+   "albedo_constrained.baseline_model_span_K": {
+    "recomputed": [
+     0.7221257439300389,
+     3.1852637573613456
+    ],
+    "pre_regen": [
+     0.7221257439300389,
+     3.1852637573613456
+    ],
+    "status": "reproduced",
+    "max_abs_residual": 0.0
+   },
+   "albedo_constrained.albedo_model_span_K": {
+    "recomputed": [
+     0.8235646530260925,
+     3.876448009726224
+    ],
+    "pre_regen": [
+     0.8235646530260925,
+     3.876448009726224
+    ],
+    "status": "reproduced",
+    "max_abs_residual": 0.0
+   },
+   "albedo_constrained.obs_span_K": {
+    "recomputed": [
+     -3.0439059105555812,
+     6.1160007904118805
+    ],
+    "pre_regen": [
+     -3.0439059105555812,
+     6.1160007904118805
+    ],
+    "status": "reproduced",
+    "max_abs_residual": 0.0
+   },
+   "equilibrium_spinup.max_abs_dtsa_change_K": {
+    "recomputed": 1.1548186136134397e-05,
+    "pre_regen": 1.1548186136134397e-05,
+    "status": "reproduced"
+   },
+   "equilibrium_spinup.mean_abs_dtsa_change_K": {
+    "recomputed": 2.3683767426341263e-06,
+    "pre_regen": 2.3683767426341263e-06,
+    "status": "reproduced"
+   },
+   "equilibrium_spinup.max_abs_bias_change_Wm2": {
+    "recomputed": 5.759965111096221e-05,
+    "pre_regen": 5.759965111096221e-05,
+    "status": "reproduced"
+   },
+   "equilibrium_spinup.baseline_slope": {
+    "recomputed": 0.1996203334821171,
+    "pre_regen": 0.1996203334821171,
+    "status": "reproduced"
+   },
+   "equilibrium_spinup.spinup_slope": {
+    "recomputed": 0.19962044622967617,
+    "pre_regen": 0.19962044622967617,
+    "status": "reproduced"
+   },
+   "native_vs_observed_albedo.native_range": {
+    "recomputed": [
+     0.18213156768602,
+     0.27937448666353165
+    ],
+    "pre_regen_rounded3dp": [
+     0.182,
+     0.279
+    ],
+    "status": "reproduced",
+    "max_abs_residual": 0.00037448666353162574
+   },
+   "native_vs_observed_albedo.observed_range": {
+    "recomputed": [
+     0.085,
+     0.213
+    ],
+    "pre_regen_rounded3dp": [
+     0.085,
+     0.213
+    ],
+    "status": "reproduced",
+    "max_abs_residual": 0.0
+   },
+   "native_vs_observed_albedo.achieved_effective_range": {
+    "recomputed": [
+     0.052953347669032355,
+     0.19511353606452128
+    ],
+    "pre_regen_rounded3dp": [
+     0.053,
+     0.195
+    ],
+    "status": "reproduced",
+    "max_abs_residual": 0.00011353606452127463
+   }
+  }
+ },
+ "clmu_constrained_experiments": {
+  "_meta": {
+   "sources": {
+    "dtsa_lwup": "results/clmu_v11_rebuild.json (v11 alignment-fixed; script scripts/clmu_post_v11.py)",
+    "solar": "external/clmu_{baseline,albedo}19/<SITE>_{base,alb}.nc FSR/FSDS",
+    "corpus": "data/urban-plumber/corpus/<SITE>.nc"
+   },
+   "conventions": {
+    "eff_albedo": "sum(FSR)/sum(FSDS) over FSDS>300 W/m2",
+    "within_pair": "campaign minus v11 baseline, same record"
+   },
+   "note": "archived CLMU pipeline mis-aligned GR-HECKOR & UK-KingsCollege; its '0.24 K spin-up response' was a cross-alignment artefact. All numbers here reference the v11 baseline within matched pairs."
+  },
+  "albedo_constrained": {
+   "n": 19,
+   "baseline_slope_model_on_obs": 0.10520553002716351,
+   "baseline_r": 0.24298565651885387,
+   "campaign_slope_model_on_obs": 0.1465521747429314,
+   "campaign_r": 0.3529485689887791,
+   "baseline_span_K": [
+    -2.7515097500159102,
+    0.712319490990772
+   ],
+   "campaign_span_K": [
+    -2.8078844404255894,
+    0.7482460859916125
+   ],
+   "obs_span_K": [
+    -3.0439059105555812,
+    6.1160007904118805
+   ],
+   "max_abs_dtsa_change_K": 0.39598860976119765,
+   "mean_abs_dtsa_change_K": 0.07977373251686076,
+   "per_record_withinpair_delta_dtsa_K": {
+    "AU-Preston": -0.012322358810010314,
+    "CA-Sunset": 0.006768561809283202,
+    "FI-Kumpula": -0.03182482596789554,
+    "FI-Torni": 0.02331882030593202,
+    "FR-Capitole": 0.044531941896508,
+    "GR-HECKOR": -0.05637469040967913,
+    "JP-Yoyogi": 0.04744832670308763,
+    "KR-Jungnang": 0.07486515716194853,
+    "KR-Ochang": -0.11665695486938293,
+    "NL-Amsterdam": 0.04168066297784967,
+    "PL-Lipowa": 0.0359265950008405,
+    "PL-Narutowicza": 0.029666001991586553,
+    "SG-TelokKurau06": 0.01554525570710319,
+    "UK-KingsCollege": 0.03010710251007298,
+    "UK-Swindon": -0.033503627858679996,
+    "US-Baltimore": -0.06345120376692354,
+    "US-Minneapolis1": -0.33837310838015455,
+    "US-Minneapolis2": -0.39598860976119765,
+    "US-WestPhoenix": -0.11734711193221853
+   }
+  },
+  "equilibrium_spinup_5yr": {
+   "n": 19,
+   "baseline_slope_model_on_obs": 0.10520553002716351,
+   "baseline_r": 0.24298565651885387,
+   "campaign_slope_model_on_obs": 0.10252817612868866,
+   "campaign_r": 0.23646939717459828,
+   "baseline_span_K": [
+    -2.7515097500159102,
+    0.712319490990772
+   ],
+   "campaign_span_K": [
+    -2.738344733493177,
+    0.7180583043444825
+   ],
+   "obs_span_K": [
+    -3.0439059105555812,
+    6.1160007904118805
+   ],
+   "max_abs_dtsa_change_K": 0.06372764277422693,
+   "mean_abs_dtsa_change_K": 0.014292912311950103,
+   "max_change_site": "US-WestPhoenix",
+   "per_record_withinpair_delta_dtsa_K": {
+    "AU-Preston": 0.019448520956303783,
+    "CA-Sunset": 0.009648158846611132,
+    "FI-Kumpula": 0.006701181258877031,
+    "FI-Torni": 0.0011921555263675332,
+    "FR-Capitole": 0.004995665762588475,
+    "GR-HECKOR": 0.013165016522733275,
+    "JP-Yoyogi": 0.005289187441443688,
+    "KR-Jungnang": 0.004454328053033141,
+    "KR-Ochang": 0.023826879663852295,
+    "NL-Amsterdam": 0.007290167216285504,
+    "PL-Lipowa": 0.005738813353710515,
+    "PL-Narutowicza": 0.006934176297229408,
+    "SG-TelokKurau06": -0.0008039748847004091,
+    "UK-KingsCollege": 0.03178679448511135,
+    "UK-Swindon": 0.01626270322965062,
+    "US-Baltimore": 0.01968792133665089,
+    "US-Minneapolis1": 0.014115191364279162,
+    "US-Minneapolis2": 0.016496854953396867,
+    "US-WestPhoenix": 0.06372764277422693
+   }
+  },
+  "native_effective_albedo": {
+   "AU-Preston": 0.14817462861537933,
+   "CA-Sunset": 0.13074345886707306,
+   "FI-Kumpula": 0.1108502745628357,
+   "FI-Torni": 0.13386082649230957,
+   "FR-Capitole": 0.16901075839996338,
+   "GR-HECKOR": 0.16570836305618286,
+   "JP-Yoyogi": 0.13732142746448517,
+   "KR-Jungnang": 0.16772331297397614,
+   "KR-Ochang": 0.10597637295722961,
+   "NL-Amsterdam": 0.14439678192138672,
+   "PL-Lipowa": 0.13484813272953033,
+   "PL-Narutowicza": 0.1248176172375679,
+   "SG-TelokKurau06": 0.14066903293132782,
+   "UK-KingsCollege": 0.13655659556388855,
+   "UK-Swindon": 0.11342006921768188,
+   "US-Baltimore": 0.10915395617485046,
+   "US-Minneapolis1": 0.10197249054908752,
+   "US-Minneapolis2": 0.08306914567947388,
+   "US-WestPhoenix": 0.12094472348690033
+  },
+  "constrained_effective_albedo": {
+   "AU-Preston": 0.11938147991895676,
+   "CA-Sunset": 0.09277645498514175,
+   "FI-Kumpula": 0.10888141393661499,
+   "FI-Torni": 0.06398012489080429,
+   "FR-Capitole": 0.09361331164836884,
+   "GR-HECKOR": 0.16836777329444885,
+   "JP-Yoyogi": 0.08058327436447144,
+   "KR-Jungnang": 0.0889773741364479,
+   "KR-Ochang": 0.12213054299354553,
+   "NL-Amsterdam": 0.06279435753822327,
+   "PL-Lipowa": 0.05373962223529816,
+   "PL-Narutowicza": 0.05206454172730446,
+   "SG-TelokKurau06": 0.12087421864271164,
+   "UK-KingsCollege": 0.06556212902069092,
+   "UK-Swindon": 0.11031244695186615,
+   "US-Baltimore": 0.10886792838573456,
+   "US-Minneapolis1": 0.20269280672073364,
+   "US-Minneapolis2": 0.20134644210338593,
+   "US-WestPhoenix": 0.12616147100925446
+  },
+  "observed_albedo": {
+   "AU-Preston": 0.151,
+   "CA-Sunset": 0.107,
+   "FI-Kumpula": 0.142,
+   "FI-Torni": 0.11,
+   "FR-Capitole": 0.127,
+   "GR-HECKOR": 0.202,
+   "JP-Yoyogi": 0.133,
+   "KR-Jungnang": 0.12,
+   "KR-Ochang": 0.166,
+   "NL-Amsterdam": 0.096,
+   "PL-Lipowa": 0.085,
+   "PL-Narutowicza": 0.087,
+   "SG-TelokKurau06": 0.168,
+   "UK-KingsCollege": 0.109,
+   "UK-Swindon": 0.139,
+   "US-Baltimore": 0.122,
+   "US-Minneapolis1": 0.213,
+   "US-Minneapolis2": 0.213,
+   "US-WestPhoenix": 0.172
+  },
+  "effective_albedo_correlations": {
+   "r_native_vs_observed": -0.33448085949851736,
+   "r_constrained_vs_observed": 0.9605254162981178,
+   "native_range": [
+    0.08306914567947388,
+    0.16901075839996338
+   ],
+   "constrained_range": [
+    0.05206454172730446,
+    0.20269280672073364
+   ]
+  },
+  "alignment_provenance": {
+   "AU-Preston": {
+    "align_offset": 17521,
+    "truncated": false,
+    "align_rmse_Tair": 0.0
+   },
+   "CA-Sunset": {
+    "align_offset": 17521,
+    "truncated": false,
+    "align_rmse_Tair": 0.0
+   },
+   "FI-Kumpula": {
+    "align_offset": 17521,
+    "truncated": false,
+    "align_rmse_Tair": 0.0
+   },
+   "FI-Torni": {
+    "align_offset": 17521,
+    "truncated": false,
+    "align_rmse_Tair": 0.0
+   },
+   "FR-Capitole": {
+    "align_offset": 17521,
+    "truncated": false,
+    "align_rmse_Tair": 0.0
+   },
+   "GR-HECKOR": {
+    "align_offset": 17521,
+    "truncated": true,
+    "align_rmse_Tair": 0.0
+   },
+   "JP-Yoyogi": {
+    "align_offset": 17521,
+    "truncated": false,
+    "align_rmse_Tair": 0.0
+   },
+   "KR-Jungnang": {
+    "align_offset": 17521,
+    "truncated": false,
+    "align_rmse_Tair": 0.0
+   },
+   "KR-Ochang": {
+    "align_offset": 17521,
+    "truncated": false,
+    "align_rmse_Tair": 0.0
+   },
+   "NL-Amsterdam": {
+    "align_offset": 17521,
+    "truncated": false,
+    "align_rmse_Tair": 0.0
+   },
+   "PL-Lipowa": {
+    "align_offset": 17521,
+    "truncated": false,
+    "align_rmse_Tair": 0.0
+   },
+   "PL-Narutowicza": {
+    "align_offset": 17521,
+    "truncated": false,
+    "align_rmse_Tair": 0.0
+   },
+   "SG-TelokKurau06": {
+    "align_offset": 16081,
+    "truncated": false,
+    "align_rmse_Tair": 0.0
+   },
+   "UK-KingsCollege": {
+    "align_offset": 17521,
+    "truncated": true,
+    "align_rmse_Tair": 0.0
+   },
+   "UK-Swindon": {
+    "align_offset": 17521,
+    "truncated": false,
+    "align_rmse_Tair": 0.0
+   },
+   "US-Baltimore": {
+    "align_offset": 17521,
+    "truncated": false,
+    "align_rmse_Tair": 0.0
+   },
+   "US-Minneapolis1": {
+    "align_offset": 17521,
+    "truncated": false,
+    "align_rmse_Tair": 0.0
+   },
+   "US-Minneapolis2": {
+    "align_offset": 17521,
+    "truncated": false,
+    "align_rmse_Tair": 0.0
+   },
+   "US-WestPhoenix": {
+    "align_offset": 17521,
+    "truncated": false,
+    "align_rmse_Tair": 0.0
+   }
+  },
+  "baseline_reproduction": {
+   "definition": "v11 dTsa minus archived dTsa, per record",
+   "max_abs_dtsa_diff_K": 0.24667024238183277,
+   "max_abs_diff_site": "GR-HECKOR",
+   "n_records_changed_gt_1e_3": 2,
+   "changed_records": {
+    "GR-HECKOR": -0.24667024238183277,
+    "UK-KingsCollege": -0.14251457594548578
+   },
+   "note": "17 records reproduce archived to ~1.7e-6 (library drift); GR-HECKOR & UK-KingsCollege change by the alignment fix."
+  },
+  "_reproduction_check": {
+   "albedo_constrained.baseline_slope_model_on_obs": {
+    "recomputed": 0.10520553002716351,
+    "pre_regen": 0.10007123012930681,
+    "status": "changed",
+    "delta": 0.005134299897856701,
+    "reason": "the CLMU v11 alignment correction (GR-HECKOR, UK-KingsCollege)"
+   },
+   "albedo_constrained.baseline_r": {
+    "recomputed": 0.24298565651885387,
+    "pre_regen": 0.24094242725245912,
+    "status": "changed",
+    "delta": 0.002043229266394747,
+    "reason": "the CLMU v11 alignment correction (GR-HECKOR, UK-KingsCollege)"
+   },
+   "albedo_constrained.campaign_slope_model_on_obs": {
+    "recomputed": 0.1465521747429314,
+    "pre_regen": 0.1467818374104976,
+    "status": "changed",
+    "delta": -0.00022966266756621612,
+    "reason": "the CLMU v11 alignment correction (GR-HECKOR, UK-KingsCollege)"
+   },
+   "albedo_constrained.campaign_r": {
+    "recomputed": 0.3529485689887791,
+    "pre_regen": 0.35455786195799194,
+    "status": "changed",
+    "delta": -0.001609292969212861,
+    "reason": "the CLMU v11 alignment correction (GR-HECKOR, UK-KingsCollege)"
+   },
+   "albedo_constrained.max_abs_dtsa_change_K": {
+    "recomputed": 0.39598860976119765,
+    "pre_regen": 0.39599034568154123,
+    "status": "changed",
+    "delta": -1.7359203435818316e-06,
+    "reason": "the CLMU v11 alignment correction (GR-HECKOR, UK-KingsCollege)"
+   },
+   "albedo_constrained.mean_abs_dtsa_change_K": {
+    "recomputed": 0.07977373251686076,
+    "pre_regen": 0.09350424392373094,
+    "status": "changed",
+    "delta": -0.013730511406870177,
+    "reason": "the CLMU v11 alignment correction (GR-HECKOR, UK-KingsCollege)"
+   },
+   "equilibrium_spinup_5yr.baseline_slope_model_on_obs": {
+    "recomputed": 0.10520553002716351,
+    "pre_regen": 0.10007123012930681,
+    "status": "changed",
+    "delta": 0.005134299897856701,
+    "reason": "the CLMU v11 alignment correction (GR-HECKOR, UK-KingsCollege) + archived cross-alignment artefact"
+   },
+   "equilibrium_spinup_5yr.baseline_r": {
+    "recomputed": 0.24298565651885387,
+    "pre_regen": 0.24094242725245912,
+    "status": "changed",
+    "delta": 0.002043229266394747,
+    "reason": "the CLMU v11 alignment correction (GR-HECKOR, UK-KingsCollege) + archived cross-alignment artefact"
+   },
+   "equilibrium_spinup_5yr.campaign_slope_model_on_obs": {
+    "recomputed": 0.10252817612868866,
+    "pre_regen": 0.10283076967314643,
+    "status": "changed",
+    "delta": -0.0003025935444577743,
+    "reason": "the CLMU v11 alignment correction (GR-HECKOR, UK-KingsCollege) + archived cross-alignment artefact"
+   },
+   "equilibrium_spinup_5yr.campaign_r": {
+    "recomputed": 0.23646939717459828,
+    "pre_regen": 0.23838384307856456,
+    "status": "changed",
+    "delta": -0.0019144459039662776,
+    "reason": "the CLMU v11 alignment correction (GR-HECKOR, UK-KingsCollege) + archived cross-alignment artefact"
+   },
+   "equilibrium_spinup_5yr.max_abs_dtsa_change_K": {
+    "recomputed": 0.06372764277422693,
+    "pre_regen": 0.2425433615026913,
+    "status": "changed",
+    "delta": -0.17881571872846436,
+    "reason": "the CLMU v11 alignment correction (GR-HECKOR, UK-KingsCollege) + archived cross-alignment artefact"
+   },
+   "equilibrium_spinup_5yr.mean_abs_dtsa_change_K": {
+    "recomputed": 0.014292912311950103,
+    "pre_regen": 0.027425811664956827,
+    "status": "changed",
+    "delta": -0.013132899353006725,
+    "reason": "the CLMU v11 alignment correction (GR-HECKOR, UK-KingsCollege) + archived cross-alignment artefact"
+   },
+   "albedo_constrained.baseline_span_K": {
+    "recomputed": [
+     -2.7515097500159102,
+     0.712319490990772
+    ],
+    "pre_regen": [
+     -2.5048395076340775,
+     0.7123211947302801
+    ],
+    "status": "changed",
+    "max_abs_residual": 0.24667024238183277,
+    "reason": "the CLMU v11 alignment correction (GR-HECKOR, UK-KingsCollege)"
+   },
+   "albedo_constrained.campaign_span_K": {
+    "recomputed": [
+     -2.8078844404255894,
+     0.7482460859916125
+    ],
+    "pre_regen": [
+     -2.82022280001099,
+     0.7482460859916125
+    ],
+    "status": "changed",
+    "max_abs_residual": 0.012338359585400749,
+    "reason": "the CLMU v11 alignment correction (GR-HECKOR, UK-KingsCollege)"
+   },
+   "albedo_constrained.obs_span_K": {
+    "recomputed": [
+     -3.0439059105555812,
+     6.1160007904118805
+    ],
+    "pre_regen": [
+     -3.0439059105555812,
+     6.1160007904118805
+    ],
+    "status": "reproduced",
+    "max_abs_residual": 0.0,
+    "reason": ""
+   },
+   "equilibrium_spinup_5yr.baseline_span_K": {
+    "recomputed": [
+     -2.7515097500159102,
+     0.712319490990772
+    ],
+    "pre_regen": [
+     -2.5048395076340775,
+     0.7123211947302801
+    ],
+    "status": "changed",
+    "max_abs_residual": 0.24667024238183277,
+    "reason": "the CLMU v11 alignment correction (GR-HECKOR, UK-KingsCollege)"
+   },
+   "equilibrium_spinup_5yr.campaign_span_K": {
+    "recomputed": [
+     -2.738344733493177,
+     0.7180583043444825
+    ],
+    "pre_regen": [
+     -2.7473828691367688,
+     0.7180583043444825
+    ],
+    "status": "changed",
+    "max_abs_residual": 0.009038135643591794,
+    "reason": "the CLMU v11 alignment correction (GR-HECKOR, UK-KingsCollege)"
+   },
+   "equilibrium_spinup_5yr.obs_span_K": {
+    "recomputed": [
+     -3.0439059105555812,
+     6.1160007904118805
+    ],
+    "pre_regen": [
+     -3.0439059105555812,
+     6.1160007904118805
+    ],
+    "status": "reproduced",
+    "max_abs_residual": 0.0,
+    "reason": ""
+   },
+   "observed_albedo.max_abs_residual": {
+    "value": 0.0,
+    "status": "reproduced"
+   },
+   "baseline_reproduction_maxdiff_K": {
+    "pre_regen": 0.26212124645919443,
+    "status": "unreproducible_superseded",
+    "explanation": "PRE-REGEN 0.262 K was the max diff of a MIS-ALIGNED fresh 19-record re-run vs archived (itself an artefact of the same alignment bug). The meaningful, alignment-fixed correction is v11-vs-archived = 0.24667 K at GR-HECKOR; see the 'baseline_reproduction' block."
+   },
+   "fresh_baseline_slope": {
+    "pre_regen": 0.106,
+    "status": "unreproducible_superseded",
+    "explanation": "PRE-REGEN 0.106 was a fresh-run slope on a differently-aligned baseline; the authoritative v11 baseline slope on obs is 0.10521."
+   },
+   "fresh_baseline_note": {
+    "pre_regen": "19-record fresh re-run; matches archived per-site dTsa to <0.05K at 18 records, 0.26K at GR-HECKOR. slope 0.106 ~ archived 0.100. albedo->0.147, spin5yr->0.103 hold on either baseline.",
+    "status": "dropped_narrative",
+    "explanation": "free-text note about the fresh re-run; not a numeric leaf."
+   },
+   "native_effective_albedo.max_abs_residual": {
+    "value": 0.0,
+    "status": "reproduced"
+   },
+   "constrained_effective_albedo.max_abs_residual": {
+    "value": 0.0,
+    "status": "reproduced"
+   }
+  }
+ },
+ "amplitude_ordering_decomposition": {
+  "note": "model-on-obs slope beta = r * (s_model/s_obs); amplitude (sd/range/iqr ratio) and ordering (r, rho) reported separately. per_site source = regenerated results/paper_stats_v1.json (v11-corrected CLMU dTsa).",
+  "_beta_identity_max_residual": 2.7755575615628914e-16,
+  "all19": {
+   "TEB": {
+    "slope": 0.23365937091692487,
+    "slope_ols_check": 0.23365937091692482,
+    "beta_minus_ols": 5.551115123125783e-17,
+    "r": 0.6263595157555378,
+    "rho": 0.50636248841296,
+    "sd_ratio": 0.3730435397554013,
+    "range_ratio": 0.26890426877067997,
+    "iqr_ratio": 0.5228897590177836
+   },
+   "CLMU5": {
+    "slope": 0.10520556529165101,
+    "slope_ols_check": 0.10520556529165087,
+    "beta_minus_ols": 1.3877787807814457e-16,
+    "r": 0.24298565760534638,
+    "rho": 0.061430457866390294,
+    "sd_ratio": 0.43297026799221333,
+    "range_ratio": 0.37815133470522616,
+    "iqr_ratio": 0.6574786068406727
+   }
+  },
+  "excl_mpls17": {
+   "TEB": {
+    "slope": 0.2390689179308311,
+    "slope_ols_check": 0.23906891793083082,
+    "beta_minus_ols": 2.7755575615628914e-16,
+    "r": 0.5790507680883112,
+    "rho": 0.465686274509804,
+    "sd_ratio": 0.4128634846994463,
+    "range_ratio": 0.29729675593736027,
+    "iqr_ratio": 1.0321938012751284
+   },
+   "CLMU5": {
+    "slope": 0.2330437036932479,
+    "slope_ols_check": 0.2330437036932479,
+    "beta_minus_ols": 0.0,
+    "r": 0.4911926210379345,
+    "rho": 0.32843137254901966,
+    "sd_ratio": 0.47444463477648635,
+    "range_ratio": 0.4180787667492199,
+    "iqr_ratio": 1.0931815790305868
+   }
+  },
+  "core16": {
+   "TEB": {
+    "slope": 0.2281809757350415,
+    "slope_ols_check": 0.22818097573504154,
+    "beta_minus_ols": -2.7755575615628914e-17,
+    "r": 0.3553562626096273,
+    "rho": 0.3588235294117647,
+    "sd_ratio": 0.6421189092302763,
+    "range_ratio": 0.6566045502494564,
+    "iqr_ratio": 0.7888780722244539
+   },
+   "CLMU5": {
+    "slope": 0.1823270835017892,
+    "slope_ols_check": 0.18232708350178925,
+    "beta_minus_ols": -5.551115123125783e-17,
+    "r": 0.24091092147165188,
+    "rho": 0.19411764705882353,
+    "sd_ratio": 0.7568236524438504,
+    "range_ratio": 0.8349088651469095,
+    "iqr_ratio": 0.8970980968752579
+   }
+  },
+  "_reproduction_check": {
+   "all19.TEB.slope": {
+    "recomputed": 0.23365937091692487,
+    "pre_regen": 0.23365937091692482,
+    "status": "reproduced"
+   },
+   "all19.TEB.r": {
+    "recomputed": 0.6263595157555378,
+    "pre_regen": 0.6263595157555378,
+    "status": "reproduced"
+   },
+   "all19.TEB.rho": {
+    "recomputed": 0.50636248841296,
+    "pre_regen": 0.50636248841296,
+    "status": "reproduced"
+   },
+   "all19.TEB.sd_ratio": {
+    "recomputed": 0.3730435397554013,
+    "pre_regen": 0.3730435397554013,
+    "status": "reproduced"
+   },
+   "all19.TEB.range_ratio": {
+    "recomputed": 0.26890426877067997,
+    "pre_regen": 0.26890426877067997,
+    "status": "reproduced"
+   },
+   "all19.TEB.iqr_ratio": {
+    "recomputed": 0.5228897590177836,
+    "pre_regen": 0.5228897590177836,
+    "status": "reproduced"
+   },
+   "all19.CLMU5.slope": {
+    "recomputed": 0.10520556529165101,
+    "pre_regen": 0.10007123012930681,
+    "status": "changed",
+    "delta": 0.005134335162344197,
+    "reason": "CLMU v11 alignment correction propagated into per_site clmu_dtsa"
+   },
+   "all19.CLMU5.r": {
+    "recomputed": 0.24298565760534638,
+    "pre_regen": 0.24094242725245912,
+    "status": "changed",
+    "delta": 0.002043230352887254,
+    "reason": "CLMU v11 alignment correction propagated into per_site clmu_dtsa"
+   },
+   "all19.CLMU5.rho": {
+    "recomputed": 0.061430457866390294,
+    "pre_regen": 0.0544098341102314,
+    "status": "changed",
+    "delta": 0.007020623756158896,
+    "reason": "CLMU v11 alignment correction propagated into per_site clmu_dtsa"
+   },
+   "all19.CLMU5.sd_ratio": {
+    "recomputed": 0.43297026799221333,
+    "pre_regen": 0.41533253927276376,
+    "status": "changed",
+    "delta": 0.017637728719449575,
+    "reason": "CLMU v11 alignment correction propagated into per_site clmu_dtsa"
+   },
+   "all19.CLMU5.range_ratio": {
+    "recomputed": 0.37815133470522616,
+    "pre_regen": 0.35122199465465775,
+    "status": "changed",
+    "delta": 0.026929340050568407,
+    "reason": "CLMU v11 alignment correction propagated into per_site clmu_dtsa"
+   },
+   "all19.CLMU5.iqr_ratio": {
+    "recomputed": 0.6574786068406727,
+    "pre_regen": 0.6311658638867101,
+    "status": "changed",
+    "delta": 0.026312742953962576,
+    "reason": "CLMU v11 alignment correction propagated into per_site clmu_dtsa"
+   },
+   "core16.TEB.slope": {
+    "recomputed": 0.2281809757350415,
+    "pre_regen": 0.22818097573504154,
+    "status": "reproduced"
+   },
+   "core16.TEB.r": {
+    "recomputed": 0.3553562626096273,
+    "pre_regen": 0.3553562626096273,
+    "status": "reproduced"
+   },
+   "core16.TEB.rho": {
+    "recomputed": 0.3588235294117647,
+    "pre_regen": 0.3588235294117647,
+    "status": "reproduced"
+   },
+   "core16.TEB.sd_ratio": {
+    "recomputed": 0.6421189092302763,
+    "pre_regen": 0.6421189092302763,
+    "status": "reproduced"
+   },
+   "core16.TEB.range_ratio": {
+    "recomputed": 0.6566045502494564,
+    "pre_regen": 0.6566045502494564,
+    "status": "reproduced"
+   },
+   "core16.TEB.iqr_ratio": {
+    "recomputed": 0.7888780722244539,
+    "pre_regen": 0.7888780722244539,
+    "status": "reproduced"
+   },
+   "core16.CLMU5.slope": {
+    "recomputed": 0.1823270835017892,
+    "pre_regen": 0.16113288605590778,
+    "status": "changed",
+    "delta": 0.021194197445881413,
+    "reason": "CLMU v11 alignment correction propagated into per_site clmu_dtsa"
+   },
+   "core16.CLMU5.r": {
+    "recomputed": 0.24091092147165188,
+    "pre_regen": 0.22402819505202531,
+    "status": "changed",
+    "delta": 0.01688272641962657,
+    "reason": "CLMU v11 alignment correction propagated into per_site clmu_dtsa"
+   },
+   "core16.CLMU5.rho": {
+    "recomputed": 0.19411764705882353,
+    "pre_regen": 0.18235294117647058,
+    "status": "changed",
+    "delta": 0.011764705882352955,
+    "reason": "CLMU v11 alignment correction propagated into per_site clmu_dtsa"
+   },
+   "core16.CLMU5.sd_ratio": {
+    "recomputed": 0.7568236524438504,
+    "pre_regen": 0.7192527084302418,
+    "status": "changed",
+    "delta": 0.03757094401360861,
+    "reason": "CLMU v11 alignment correction propagated into per_site clmu_dtsa"
+   },
+   "core16.CLMU5.range_ratio": {
+    "recomputed": 0.8349088651469095,
+    "pre_regen": 0.7614828436016188,
+    "status": "changed",
+    "delta": 0.07342602154529076,
+    "reason": "CLMU v11 alignment correction propagated into per_site clmu_dtsa"
+   },
+   "core16.CLMU5.iqr_ratio": {
+    "recomputed": 0.8970980968752579,
+    "pre_regen": 0.8970980968752579,
+    "status": "reproduced"
+   },
+   "excl_mpls17": {
+    "status": "new_variant",
+    "note": "absent from PRE-REGEN (violated 3-variant convention)"
+   }
+  }
+ }
+}

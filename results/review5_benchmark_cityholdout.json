@@ -1,0 +1,3535 @@
+{
+ "_merge_target": "review5_additions.benchmark_city_holdout",
+ "meta": {
+  "generator": "투고가능성평가/재검증_2026-08/scripts/review5_benchmark_cityholdout.py",
+  "date": "2026-09-17",
+  "purpose": "refit the out-of-sample nocturnal LW-up benchmarks leave-one-CITY-CLUSTER-out, because leave-one-RECORD-out leaves the held-out Minneapolis observations in the training pool via the duplicate record",
+  "frames": "imported verbatim from review5_benchmark_skill.py (frame_teb / frame_clmu): frozen nocturnal masks, TEB model row i -> corpus step i+1, corrected CLMU alignment clmu_post_v11.align",
+  "constants": {
+   "SIG": 5.67e-08,
+   "EPS": 0.95,
+   "note": "SIG is the project constant 5.67e-8, NOT exact Stefan-Boltzmann"
+  },
+  "kmeans": {
+   "k": 27,
+   "n_init": 10,
+   "seed": 0,
+   "max_iter": 300,
+   "standardizer": "StandardScaler fitted INSIDE each training fold (training records only); refitted per fold",
+   "prediction": "training-fold cluster mean of observed LW-up"
+  },
+  "score": "mean absolute error on nocturnal LW-up; a scheme BEATS a benchmark at a record when scheme MAE < benchmark MAE (identical to the published convention)",
+  "reg_standardization": "REG1/REG2 are fitted on the RAW design matrix, as in the published run; OLS is affine-equivariant so this cannot matter, and the 'ols_affine_invariance_check' block verifies it",
+  "restriction_conventions": {
+   "eval_only": "benchmark training pool = all 19 records minus the held-out city cluster; the record set restricts only which records are COUNTED. This is what the published core15/core16 benchmark counts did.",
+   "refit_within_variant": "the excluded records are removed from the benchmark TRAINING POOL as well, then the benchmarks are refitted leave-one-city-out within the variant"
+  },
+  "runtime_seconds": 1693.1
+ },
+ "fold_definition": {
+  "unit": "city cluster (the same 16 clusters used for every bootstrap, permutation and LOCO correction elsewhere in the manuscript)",
+  "source": "results/paper_stats_v1.json per_site[*].cluster",
+  "n_clusters": 16,
+  "clusters": {
+   "AU-Preston": [
+    "AU-Preston"
+   ],
+   "CA-Sunset": [
+    "CA-Sunset"
+   ],
+   "FR-Capitole": [
+    "FR-Capitole"
+   ],
+   "GR-HECKOR": [
+    "GR-HECKOR"
+   ],
+   "Helsinki": [
+    "FI-Kumpula",
+    "FI-Torni"
+   ],
+   "JP-Yoyogi": [
+    "JP-Yoyogi"
+   ],
+   "KR-Jungnang": [
+    "KR-Jungnang"
+   ],
+   "KR-Ochang": [
+    "KR-Ochang"
+   ],
+   "Lodz": [
+    "PL-Lipowa",
+    "PL-Narutowicza"
+   ],
+   "Minneapolis": [
+    "US-Minneapolis1",
+    "US-Minneapolis2"
+   ],
+   "NL-Amsterdam": [
+    "NL-Amsterdam"
+   ],
+   "SG-TelokKurau06": [
+    "SG-TelokKurau06"
+   ],
+   "UK-KingsCollege": [
+    "UK-KingsCollege"
+   ],
+   "UK-Swindon": [
+    "UK-Swindon"
+   ],
+   "US-Baltimore": [
+    "US-Baltimore"
+   ],
+   "US-WestPhoenix": [
+    "US-WestPhoenix"
+   ]
+  },
+  "n_records": 19
+ },
+ "duplicate_record_audit": {
+  "question": "do any two of the 19 records share the same radiation measurements, so that leave-one-RECORD-out leaves the held-out targets in the training pool?",
+  "pairs": {
+   "Minneapolis": {
+    "records": [
+     "US-Minneapolis1",
+     "US-Minneapolis2"
+    ],
+    "raw_collection": {
+     "file": "data/urban-plumber/FullCollection/<S>/timeseries/<S>_clean_observations_v1.nc",
+     "time_axes_identical": true,
+     "n_steps": 52455,
+     "comment_attr": {
+      "US-Minneapolis1": "Residential sectors (285°-75°) of Minneapolis KUOM tower. Air pressure (PSurf) from Minneapolis-Saint Paul International Airport. Radiation components (SWdown,SWup,LWdown,LWup) measured at 2 m above ground level, not from tower as other variables. SoilTemp at 5cm depth. Tower fluxes from original dataset which are flagged 2 excluded.",
+      "US-Minneapolis2": "Recreational sectors (180°-270°) of Minneapolis KUOM tower only. Air pressure (PSurf) from Minneapolis-Saint Paul International Airport. Radiation components (SWdown,SWup,LWdown,LWup) measured at 2 m above ground level, not from tower as other variables. SoilTemp at 5cm depth. Tower fluxes from original dataset which are flagged 2 excluded."
+     },
+     "observations_reference": {
+      "US-Minneapolis1": "Peters, Hiller, McFadden (2011): https://doi.org/10.1029/2010JG001463; Menzer and McFadden (2017): https://doi.org/10.1016/j.atmosenv.2017.09.049",
+      "US-Minneapolis2": "Peters, Hiller, McFadden (2011): https://doi.org/10.1029/2010JG001463; Menzer and McFadden (2017): https://doi.org/10.1016/j.atmosenv.2017.09.049"
+     },
+     "observations_contact": {
+      "US-Minneapolis1": "Joe McFadden (mcfadden@ucsb.edu) University of California, Santa Barbara",
+      "US-Minneapolis2": "Joe McFadden (mcfadden@ucsb.edu) University of California, Santa Barbara"
+     },
+     "variables": {
+      "LWup": {
+       "n_both_finite": 49378,
+       "n_finite_a": 49378,
+       "n_finite_b": 49378,
+       "finite_mask_disagreements": 0,
+       "max_abs_diff": 0.0,
+       "mean_abs_diff": 0.0,
+       "pearson_r": 1.0,
+       "n_exactly_equal": 49378,
+       "bit_identical": true
+      },
+      "LWdown": {
+       "n_both_finite": 49351,
+       "n_finite_a": 49351,
+       "n_finite_b": 49351,
+       "finite_mask_disagreements": 0,
+       "max_abs_diff": 0.0,
+       "mean_abs_diff": 0.0,
+       "pearson_r": 1.0,
+       "n_exactly_equal": 49351,
+       "bit_identical": true
+      },
+      "SWdown": {
+       "n_both_finite": 26519,
+       "n_finite_a": 26519,
+       "n_finite_b": 26519,
+       "finite_mask_disagreements": 0,
+       "max_abs_diff": 0.0,
+       "mean_abs_diff": 0.0,
+       "pearson_r": 1.0,
+       "n_exactly_equal": 26519,
+       "bit_identical": true
+      },
+      "SWup": {
+       "n_both_finite": 27178,
+       "n_finite_a": 27178,
+       "n_finite_b": 27178,
+       "finite_mask_disagreements": 0,
+       "max_abs_diff": 0.0,
+       "mean_abs_diff": 0.0,
+       "pearson_r": 1.0,
+       "n_exactly_equal": 27178,
+       "bit_identical": true
+      },
+      "Tair": {
+       "n_both_finite": 34034,
+       "n_finite_a": 34034,
+       "n_finite_b": 34034,
+       "finite_mask_disagreements": 0,
+       "max_abs_diff": 0.0,
+       "mean_abs_diff": 0.0,
+       "pearson_r": 1.0,
+       "n_exactly_equal": 34034,
+       "bit_identical": true
+      },
+      "Qh": {
+       "n_both_finite": 0,
+       "n_finite_a": 12717,
+       "n_finite_b": 6695,
+       "finite_mask_disagreements": 19412,
+       "max_abs_diff": null,
+       "mean_abs_diff": null,
+       "pearson_r": null,
+       "n_exactly_equal": 0,
+       "bit_identical": false,
+       "note": "no time step is finite in both records"
+      },
+      "Qle": {
+       "n_both_finite": 0,
+       "n_finite_a": 12564,
+       "n_finite_b": 6575,
+       "finite_mask_disagreements": 19139,
+       "max_abs_diff": null,
+       "mean_abs_diff": null,
+       "pearson_r": null,
+       "n_exactly_equal": 0,
+       "bit_identical": false,
+       "note": "no time step is finite in both records"
+      }
+     },
+     "LWup_qc_flag_vector_identical": true
+    },
+    "corpus_analysis_input": {
+     "file": "data/urban-plumber/corpus/<S>.nc",
+     "lengths": [
+      52455,
+      52455
+     ],
+     "variables": {
+      "obs_LWup": {
+       "n_both_finite": 49378,
+       "n_finite_a": 49378,
+       "n_finite_b": 49378,
+       "finite_mask_disagreements": 0,
+       "max_abs_diff": 0.0,
+       "mean_abs_diff": 0.0,
+       "pearson_r": 1.0,
+       "n_exactly_equal": 49378,
+       "bit_identical": true
+      },
+      "forcing_LWdown": {
+       "n_both_finite": 52455,
+       "n_finite_a": 52455,
+       "n_finite_b": 52455,
+       "finite_mask_disagreements": 0,
+       "max_abs_diff": 0.0,
+       "mean_abs_diff": 0.0,
+       "pearson_r": 1.0,
+       "n_exactly_equal": 52455,
+       "bit_identical": true
+      },
+      "forcing_Tair": {
+       "n_both_finite": 52455,
+       "n_finite_a": 52455,
+       "n_finite_b": 52455,
+       "finite_mask_disagreements": 0,
+       "max_abs_diff": 0.0,
+       "mean_abs_diff": 0.0,
+       "pearson_r": 1.0,
+       "n_exactly_equal": 52455,
+       "bit_identical": true
+      },
+      "forcing_SWdown": {
+       "n_both_finite": 52455,
+       "n_finite_a": 52455,
+       "n_finite_b": 52455,
+       "finite_mask_disagreements": 0,
+       "max_abs_diff": 0.0,
+       "mean_abs_diff": 0.0,
+       "pearson_r": 0.9999999999999999,
+       "n_exactly_equal": 52455,
+       "bit_identical": true
+      },
+      "forcing_Qair": {
+       "n_both_finite": 52455,
+       "n_finite_a": 52455,
+       "n_finite_b": 52455,
+       "finite_mask_disagreements": 0,
+       "max_abs_diff": 0.0,
+       "mean_abs_diff": 0.0,
+       "pearson_r": 0.9999999999999998,
+       "n_exactly_equal": 52455,
+       "bit_identical": true
+      }
+     },
+     "night_mask_identical": true,
+     "pre_spinup_flag_identical": true
+    },
+    "ledger": {
+     "dtsa_std": [
+      -3.0439059105555812,
+      -3.0439059105555812
+     ],
+     "albedo": [
+      0.213,
+      0.213
+     ],
+     "teb_dtsa": [
+      1.0307529390726742,
+      1.0380120173189207
+     ],
+     "clmu_dtsa": [
+      -0.14509249589021733,
+      0.26634023522253714
+     ]
+    },
+    "nocturnal_evaluation_mask": {
+     "n_a": 19723,
+     "n_b": 19723,
+     "identical": true,
+     "n_intersection": 19723
+    },
+    "verdict_duplicate_targets_and_predictors": true
+   },
+   "Lodz": {
+    "records": [
+     "PL-Lipowa",
+     "PL-Narutowicza"
+    ],
+    "raw_collection": {
+     "file": "data/urban-plumber/FullCollection/<S>/timeseries/<S>_clean_observations_v1.nc",
+     "time_axes_identical": true,
+     "n_steps": 43848,
+     "comment_attr": {
+      "PL-Lipowa": "Missing forcing filled with PL-Narutowicza tower site where available. Precipitation from IMGW Łódź Lublinek. Subset of available years included here.",
+      "PL-Narutowicza": "Missing forcing filled with PL-Lipowa tower site where available. Precipitation from IMGW Łódź Lublinek."
+     },
+     "observations_reference": {
+      "PL-Lipowa": "Fortuniak, Pawlak and Siedlecki (2013): https://doi.org/10.1007/s10546-012-9762-1; Pawlak, Fortuniak, Siedlecki (2011): https://doi.org/10.1002/joc.2247; Offerle, Grimmond, Fortuniak, Pawlak (2006): https://doi.org/10.1175/JAM2319.1",
+      "PL-Narutowicza": "Fortuniak, Pawlak and Siedlecki (2013): https://doi.org/10.1007/s10546-012-9762-1; Fortuniak, Kłysik, Siedlecki (2006): http://www.urban-climate.org/documents/ICUC6_Preprints.pdf (p64-67)"
+     },
+     "observations_contact": {
+      "PL-Lipowa": "Wlodzimierz Pawlak (wlodzimierz.pawlak@geo.uni.lodz.pl) Krzysztof Fortuniak (krzysztof.fortuniak@geo.uni.lodz.pl)",
+      "PL-Narutowicza": "Wlodzimierz Pawlak: wlodzimierz.pawlak@geo.uni.lodz.pl, Krzysztof Fortuniak: krzysztof.fortuniak@geo.uni.lodz.pl"
+     },
+     "variables": {
+      "LWup": {
+       "n_both_finite": 40045,
+       "n_finite_a": 40369,
+       "n_finite_b": 43524,
+       "finite_mask_disagreements": 3803,
+       "max_abs_diff": 103.27999877929688,
+       "mean_abs_diff": 26.06832021998323,
+       "pearson_r": 0.9571498766144358,
+       "n_exactly_equal": 8,
+       "bit_identical": false
+      },
+      "LWdown": {
+       "n_both_finite": 43848,
+       "n_finite_a": 43848,
+       "n_finite_b": 43848,
+       "finite_mask_disagreements": 0,
+       "max_abs_diff": 104.86001586914062,
+       "mean_abs_diff": 22.902754431983627,
+       "pearson_r": 0.9439257082532234,
+       "n_exactly_equal": 3804,
+       "bit_identical": false
+      },
+      "SWdown": {
+       "n_both_finite": 23538,
+       "n_finite_a": 24417,
+       "n_finite_b": 24040,
+       "finite_mask_disagreements": 1381,
+       "max_abs_diff": 549.9099731445312,
+       "mean_abs_diff": 17.950133602384074,
+       "pearson_r": 0.9880844055349877,
+       "n_exactly_equal": 2175,
+       "bit_identical": false
+      },
+      "SWup": {
+       "n_both_finite": 20803,
+       "n_finite_a": 22819,
+       "n_finite_b": 22675,
+       "finite_mask_disagreements": 3888,
+       "max_abs_diff": 96.36000061035156,
+       "mean_abs_diff": 7.882351592087308,
+       "pearson_r": 0.8700807841564108,
+       "n_exactly_equal": 8,
+       "bit_identical": false
+      },
+      "Tair": {
+       "n_both_finite": 43844,
+       "n_finite_a": 43844,
+       "n_finite_b": 43847,
+       "finite_mask_disagreements": 3,
+       "max_abs_diff": 12.6400146484375,
+       "mean_abs_diff": 0.5568388274263895,
+       "pearson_r": 0.9973334838803206,
+       "n_exactly_equal": 1669,
+       "bit_identical": false
+      },
+      "Qh": {
+       "n_both_finite": 23819,
+       "n_finite_a": 29181,
+       "n_finite_b": 32126,
+       "finite_mask_disagreements": 13669,
+       "max_abs_diff": 446.5279998779297,
+       "mean_abs_diff": 27.787571001829146,
+       "pearson_r": 0.8168210023419115,
+       "n_exactly_equal": 2,
+       "bit_identical": false
+      },
+      "Qle": {
+       "n_both_finite": 23793,
+       "n_finite_a": 29140,
+       "n_finite_b": 32102,
+       "finite_mask_disagreements": 13656,
+       "max_abs_diff": 260.6340026855469,
+       "mean_abs_diff": 25.608018449404348,
+       "pearson_r": 0.5032923435743326,
+       "n_exactly_equal": 0,
+       "bit_identical": false
+      }
+     },
+     "LWup_qc_flag_vector_identical": false
+    },
+    "corpus_analysis_input": {
+     "file": "data/urban-plumber/corpus/<S>.nc",
+     "lengths": [
+      87695,
+      87695
+     ],
+     "variables": {
+      "obs_LWup": {
+       "n_both_finite": 80089,
+       "n_finite_a": 80737,
+       "n_finite_b": 87047,
+       "finite_mask_disagreements": 7606,
+       "max_abs_diff": 103.27999877929688,
+       "mean_abs_diff": 26.06861087552488,
+       "pearson_r": 0.9571504427292677,
+       "n_exactly_equal": 16,
+       "bit_identical": false
+      },
+      "forcing_LWdown": {
+       "n_both_finite": 87695,
+       "n_finite_a": 87695,
+       "n_finite_b": 87695,
+       "finite_mask_disagreements": 0,
+       "max_abs_diff": 104.86001586914062,
+       "mean_abs_diff": 22.902996666789345,
+       "pearson_r": 0.9439257901899496,
+       "n_exactly_equal": 7608,
+       "bit_identical": false
+      },
+      "forcing_Tair": {
+       "n_both_finite": 87695,
+       "n_finite_a": 87695,
+       "n_finite_b": 87695,
+       "finite_mask_disagreements": 0,
+       "max_abs_diff": 12.6400146484375,
+       "mean_abs_diff": 0.5568736426037376,
+       "pearson_r": 0.9973328516934277,
+       "n_exactly_equal": 3338,
+       "bit_identical": false
+      },
+      "forcing_SWdown": {
+       "n_both_finite": 87695,
+       "n_finite_a": 87695,
+       "n_finite_b": 87695,
+       "finite_mask_disagreements": 0,
+       "max_abs_diff": 549.9099731445312,
+       "mean_abs_diff": 9.674325969219323,
+       "pearson_r": 0.9918678246563313,
+       "n_exactly_equal": 43589,
+       "bit_identical": false
+      },
+      "forcing_Qair": {
+       "n_both_finite": 87695,
+       "n_finite_a": 87695,
+       "n_finite_b": 87695,
+       "finite_mask_disagreements": 0,
+       "max_abs_diff": 0.0050156801007688046,
+       "mean_abs_diff": 0.0009063094381684359,
+       "pearson_r": 0.9826164362758547,
+       "n_exactly_equal": 388,
+       "bit_identical": false
+      }
+     },
+     "night_mask_identical": false,
+     "pre_spinup_flag_identical": true
+    },
+    "ledger": {
+     "dtsa_std": [
+      6.1160007904118805,
+      1.1903241401689466
+     ],
+     "albedo": [
+      0.085,
+      0.087
+     ],
+     "teb_dtsa": [
+      3.1852637573613456,
+      1.9395519844366131
+     ],
+     "clmu_dtsa": [
+      0.7123211947302801,
+      0.05331567560648203
+     ]
+    },
+    "nocturnal_evaluation_mask": {
+     "n_a": 34463,
+     "n_b": 36533,
+     "identical": false,
+     "n_intersection": 33459
+    },
+    "verdict_duplicate_targets_and_predictors": false
+   },
+   "Helsinki": {
+    "records": [
+     "FI-Kumpula",
+     "FI-Torni"
+    ],
+    "raw_collection": {
+     "file": "data/urban-plumber/FullCollection/<S>/timeseries/<S>_clean_observations_v1.nc",
+     "time_axes_identical": true,
+     "n_steps": 52608,
+     "comment_attr": {
+      "FI-Kumpula": "Inhomogeneous footprint, land surface characteristics and turbulent flux data restricted to sectors 180-320 (Ku3 in Karsisto et al., 2016)",
+      "FI-Torni": "Flow distortion in sectors 40-150 degrees excluded from flux analyses. Air pressure, relative humidity, wind and rainfall filled from nearby Kumpula tower."
+     },
+     "observations_reference": {
+      "FI-Kumpula": "Karsisto, Fortelius, Demuzere, Grimmond, Oleson, Kouznetsov, Masson and Järvi (2016): https://doi.org/10.1002/qj.2659",
+      "FI-Torni": "Järvi, Rannik, Kokkonen, Kurppa, Karppinen, Kouznetsov, Rantala, Vesala and Wood (2018): https://doi.org/10.5194/amt-11-5421-2018; Nordbo, Järvi, Haapanala, Moilanen, Vesala, (2013): https://doi.org/10.1007/s10546-012-9773-y"
+     },
+     "observations_contact": {
+      "FI-Kumpula": "Leena Järvi (leena.jarvi@helsinki.fi)",
+      "FI-Torni": "Leena Järvi (leena.jarvi@helsinki.fi)"
+     },
+     "variables": {
+      "LWup": {
+       "n_both_finite": 42914,
+       "n_finite_a": 43682,
+       "n_finite_b": 51774,
+       "finite_mask_disagreements": 9628,
+       "max_abs_diff": 41.041107177734375,
+       "mean_abs_diff": 5.92751847312619,
+       "pearson_r": 0.9903405278015796,
+       "n_exactly_equal": 3,
+       "bit_identical": false
+      },
+      "LWdown": {
+       "n_both_finite": 43067,
+       "n_finite_a": 43835,
+       "n_finite_b": 51774,
+       "finite_mask_disagreements": 9475,
+       "max_abs_diff": 79.32000732421875,
+       "mean_abs_diff": 12.863308479641596,
+       "pearson_r": 0.9585314719979475,
+       "n_exactly_equal": 1,
+       "bit_identical": false
+      },
+      "SWdown": {
+       "n_both_finite": 32941,
+       "n_finite_a": 51990,
+       "n_finite_b": 33284,
+       "finite_mask_disagreements": 19392,
+       "max_abs_diff": 726.8489379882812,
+       "mean_abs_diff": 31.377130163888815,
+       "pearson_r": 0.953209376002769,
+       "n_exactly_equal": 12026,
+       "bit_identical": false
+      },
+      "SWup": {
+       "n_both_finite": 20813,
+       "n_finite_a": 30454,
+       "n_finite_b": 21128,
+       "finite_mask_disagreements": 9956,
+       "max_abs_diff": 297.99998474121094,
+       "mean_abs_diff": 22.118595367451103,
+       "pearson_r": 0.8178293769612247,
+       "n_exactly_equal": 1304,
+       "bit_identical": false
+      },
+      "Tair": {
+       "n_both_finite": 51423,
+       "n_finite_a": 52274,
+       "n_finite_b": 51757,
+       "finite_mask_disagreements": 1185,
+       "max_abs_diff": 6.8756103515625,
+       "mean_abs_diff": 0.6339232845331247,
+       "pearson_r": 0.9962771100024013,
+       "n_exactly_equal": 22,
+       "bit_identical": false
+      },
+      "Qh": {
+       "n_both_finite": 9893,
+       "n_finite_a": 18495,
+       "n_finite_b": 24871,
+       "finite_mask_disagreements": 23580,
+       "max_abs_diff": 362.8173065185547,
+       "mean_abs_diff": 45.39694746181679,
+       "pearson_r": 0.7409611109658375,
+       "n_exactly_equal": 0,
+       "bit_identical": false
+      },
+      "Qle": {
+       "n_both_finite": 7736,
+       "n_finite_a": 17218,
+       "n_finite_b": 22021,
+       "finite_mask_disagreements": 23767,
+       "max_abs_diff": 342.48491406440735,
+       "mean_abs_diff": 18.971022713392696,
+       "pearson_r": 0.5506993649475042,
+       "n_exactly_equal": 0,
+       "bit_identical": false
+      }
+     },
+     "LWup_qc_flag_vector_identical": false
+    },
+    "corpus_analysis_input": {
+     "file": "data/urban-plumber/corpus/<S>.nc",
+     "lengths": [
+      52608,
+      52608
+     ],
+     "variables": {
+      "obs_LWup": {
+       "n_both_finite": 42914,
+       "n_finite_a": 43682,
+       "n_finite_b": 51774,
+       "finite_mask_disagreements": 9628,
+       "max_abs_diff": 41.041107177734375,
+       "mean_abs_diff": 5.92751847312619,
+       "pearson_r": 0.9903405278015796,
+       "n_exactly_equal": 3,
+       "bit_identical": false
+      },
+      "forcing_LWdown": {
+       "n_both_finite": 52608,
+       "n_finite_a": 52608,
+       "n_finite_b": 52608,
+       "finite_mask_disagreements": 0,
+       "max_abs_diff": 80.37722778320312,
+       "mean_abs_diff": 13.488901116842191,
+       "pearson_r": 0.9515942219475395,
+       "n_exactly_equal": 1,
+       "bit_identical": false
+      },
+      "forcing_Tair": {
+       "n_both_finite": 52608,
+       "n_finite_a": 52608,
+       "n_finite_b": 52608,
+       "finite_mask_disagreements": 0,
+       "max_abs_diff": 6.8756103515625,
+       "mean_abs_diff": 0.6410227680438336,
+       "pearson_r": 0.9962050893060853,
+       "n_exactly_equal": 22,
+       "bit_identical": false
+      },
+      "forcing_SWdown": {
+       "n_both_finite": 52608,
+       "n_finite_a": 52608,
+       "n_finite_b": 52608,
+       "finite_mask_disagreements": 0,
+       "max_abs_diff": 726.8489379882812,
+       "mean_abs_diff": 27.05196746827784,
+       "pearson_r": 0.9499842526561811,
+       "n_exactly_equal": 24725,
+       "bit_identical": false
+      },
+      "forcing_Qair": {
+       "n_both_finite": 52608,
+       "n_finite_a": 52608,
+       "n_finite_b": 52608,
+       "finite_mask_disagreements": 0,
+       "max_abs_diff": 0.0030827228911221027,
+       "mean_abs_diff": 0.00023171443371578692,
+       "pearson_r": 0.99324607978523,
+       "n_exactly_equal": 22,
+       "bit_identical": false
+      }
+     },
+     "night_mask_identical": false,
+     "pre_spinup_flag_identical": true
+    },
+    "ledger": {
+     "dtsa_std": [
+      -0.32441160062559304,
+      0.44875052429731926
+     ],
+     "albedo": [
+      0.142,
+      0.11
+     ],
+     "teb_dtsa": [
+      0.7221257439300389,
+      1.6466998217125042
+     ],
+     "clmu_dtsa": [
+      -0.429853895002343,
+      -0.4043711007135214
+     ]
+    },
+    "nocturnal_evaluation_mask": {
+     "n_a": 16934,
+     "n_b": 22565,
+     "identical": false,
+     "n_intersection": 16611
+    },
+    "verdict_duplicate_targets_and_predictors": false
+   }
+  },
+  "benchmark_frame_level": {
+   "note": "checked on the exact arrays the benchmark consumes: the two Minneapolis records supply identical targets and identical predictors and differ only in the modelled LW-up, because the sitedata morphology differs",
+   "schemes": {
+    "TEB": {
+     "n": [
+      19723,
+      19723
+     ],
+     "obs_bit_identical": true,
+     "sw_bit_identical": true,
+     "ta_bit_identical": true,
+     "qa_bit_identical": true,
+     "model_max_abs_diff": 4.223760403268614,
+     "model_mean_abs_diff": 0.6483101733244697
+    },
+    "CLMU5": {
+     "n": [
+      19723,
+      19723
+     ],
+     "obs_bit_identical": true,
+     "sw_bit_identical": true,
+     "ta_bit_identical": true,
+     "qa_bit_identical": true,
+     "model_max_abs_diff": 16.64849853515625,
+     "model_mean_abs_diff": 1.9368445873260498
+    }
+   }
+  }
+ },
+ "published_protocol_audit": {
+  "file": "투고가능성평가/재검증_2026-08/scripts/review5_benchmark_skill.py",
+  "fold_definition": {
+   "verdict": "leave-one-RECORD-out; the fold is a single site record",
+   "quotes": [
+    {
+     "line": 266,
+     "text": "def loo_benchmarks(frames, order):"
+    },
+    {
+     "line": 273,
+     "text": "    for held in order:"
+    },
+    {
+     "line": 274,
+     "text": "        tr = [s for s in order if s != held]"
+    },
+    {
+     "line": 459,
+     "text": "        mae_b, r1sd = loo_benchmarks(frames[scheme], SITES)"
+    }
+   ]
+  },
+  "feature_standardization": {
+   "verdict": "KM3 only, and fitted INSIDE the fold on the training pool (X3_tr) -- not on pooled data. REG1/REG2 are fitted on the raw design matrix, which is equivalent because OLS is affine-equivariant.",
+   "quotes": [
+    {
+     "line": 290,
+     "text": "        sc = StandardScaler().fit(X3_tr)"
+    },
+    {
+     "line": 277,
+     "text": "        X1_tr = np.concatenate([sw[s] for s in tr])[:, None]"
+    },
+    {
+     "line": 281,
+     "text": "        X2_tr = np.column_stack([np.concatenate([sw[s] for s in tr]),"
+    },
+    {
+     "line": 282,
+     "text": "                                 np.concatenate([ta[s] for s in tr])])"
+    }
+   ]
+  },
+  "kmeans_refit": {
+   "verdict": "refitted inside every fold, on the training pool only; the cluster means are training-only as well",
+   "quotes": [
+    {
+     "line": 291,
+     "text": "        km = KMeans(n_clusters=KM_K, n_init=KM_NINIT, max_iter=300,"
+    },
+    {
+     "line": 292,
+     "text": "                    random_state=KM_SEED).fit(sc.transform(X3_tr))"
+    },
+    {
+     "line": 293,
+     "text": "        lab_tr = km.labels_"
+    },
+    {
+     "line": 294,
+     "text": "        cmean = np.array([y_tr[lab_tr == c].mean() if np.any(lab_tr == c)"
+    },
+    {
+     "line": 295,
+     "text": "                          else y_tr.mean() for c in range(KM_K)])"
+    }
+   ]
+  },
+  "core15_counts_provenance": {
+   "verdict": "the core15/core16/excl_mpls17 benchmark counts in review5_core15.benchmark_win_counts are a RE-COUNT of the frozen per-record flags from the all-19 record-LOO fit. The excluded records were removed from EVALUATION only; they stayed in every other fold's TRAINING pool.",
+   "file": "투고가능성평가/재검증_2026-08/scripts/review5_core15.py",
+   "quotes": [
+    {
+     "line": 362,
+     "text": "def benchmark_core15(bm):"
+    },
+    {
+     "line": 363,
+     "text": "    \"\"\"Restrict review5 benchmark win counts to each record set.\"\"\""
+    },
+    {
+     "line": 364,
+     "text": "    per = bm['benchmark']['per_record_mae']"
+    },
+    {
+     "line": 380,
+     "text": "            blk[sch] = {f: int(sum(bool(per[sch][s][f]) for s in ss)) for f in flags}"
+    }
+   ],
+   "consequence": "in the published core15 count, PL-Narutowicza and PL-Lipowa are not evaluated but still train every fold, and each Minneapolis record still trains the other's fold -- the leak the reviewer identified"
+  },
+  "leakage_consequence": "because US-Minneapolis1 and US-Minneapolis2 carry bit-identical obs_LWup, forcing_Tair, forcing_SWdown and forcing_Qair on an identical nocturnal mask, the record-LOO training pool for either Minneapolis fold contains the held-out record's (y, X) pairs verbatim; the Methods sentence asserting that within-record temporal dependence cannot leak is false for that pair"
+ },
+ "validation": {
+  "record_loo_reproduction": {
+   "TEB": {
+    "recomputed": {
+     "beats_REG1": 19,
+     "beats_REG2": 4,
+     "beats_KM3": 8,
+     "beats_all_three": 3,
+     "beats_meaningful_two_REG2_KM3": 3
+    },
+    "published": {
+     "beats_REG1": 19,
+     "beats_REG2": 4,
+     "beats_KM3": 8,
+     "beats_all_three": 3,
+     "beats_meaningful_two_REG2_KM3": 3
+    },
+    "match": true
+   },
+   "CLMU5": {
+    "recomputed": {
+     "beats_REG1": 19,
+     "beats_REG2": 13,
+     "beats_KM3": 14,
+     "beats_all_three": 13,
+     "beats_meaningful_two_REG2_KM3": 13
+    },
+    "published": {
+     "beats_REG1": 19,
+     "beats_REG2": 13,
+     "beats_KM3": 14,
+     "beats_all_three": 13,
+     "beats_meaningful_two_REG2_KM3": 13
+    },
+    "match": true
+   }
+  }
+ },
+ "city_holdout": {
+  "per_record_mae": {
+   "TEB": {
+    "AU-Preston": {
+     "scheme_MAE": 14.389306668552116,
+     "REG1_MAE": 16.58871890595587,
+     "REG2_MAE": 15.298321228033787,
+     "KM3_MAE": 12.740723647231624,
+     "n": 5288,
+     "beats_REG1": true,
+     "beats_REG2": true,
+     "beats_KM3": false,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "CA-Sunset": {
+     "scheme_MAE": 7.324749148694061,
+     "REG1_MAE": 24.98253027550365,
+     "REG2_MAE": 5.816122800448311,
+     "KM3_MAE": 7.911040686507672,
+     "n": 32809,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": true,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "FI-Kumpula": {
+     "scheme_MAE": 5.247479049589033,
+     "REG1_MAE": 43.31197368593828,
+     "REG2_MAE": 5.7326576496324595,
+     "KM3_MAE": 7.6289875813844175,
+     "n": 16934,
+     "beats_REG1": true,
+     "beats_REG2": true,
+     "beats_KM3": true,
+     "beats_all_three": true,
+     "beats_meaningful_two_REG2_KM3": true
+    },
+    "FI-Torni": {
+     "scheme_MAE": 6.74739229460991,
+     "REG1_MAE": 37.97509840912925,
+     "REG2_MAE": 3.9224223853795293,
+     "KM3_MAE": 6.357954423912504,
+     "n": 22565,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": false,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "FR-Capitole": {
+     "scheme_MAE": 4.7216932275378385,
+     "REG1_MAE": 26.973270933431053,
+     "REG2_MAE": 3.9477167186403475,
+     "KM3_MAE": 6.813527550363118,
+     "n": 4086,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": true,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "GR-HECKOR": {
+     "scheme_MAE": 13.359235320186839,
+     "REG1_MAE": 26.48489724122871,
+     "REG2_MAE": 12.970913057121315,
+     "KM3_MAE": 11.464261413131977,
+     "n": 4052,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": false,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "JP-Yoyogi": {
+     "scheme_MAE": 12.320553489210162,
+     "REG1_MAE": 41.4931179046391,
+     "REG2_MAE": 5.244799309983706,
+     "KM3_MAE": 8.906804015113238,
+     "n": 29709,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": false,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "KR-Jungnang": {
+     "scheme_MAE": 12.018172899502009,
+     "REG1_MAE": 49.00724446127354,
+     "REG2_MAE": 5.5123286095668345,
+     "KM3_MAE": 9.955850902492987,
+     "n": 15008,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": false,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "KR-Ochang": {
+     "scheme_MAE": 21.48260486239267,
+     "REG1_MAE": 48.81780244380842,
+     "REG2_MAE": 13.626079072183003,
+     "KM3_MAE": 14.866484457415408,
+     "n": 12995,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": false,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "NL-Amsterdam": {
+     "scheme_MAE": 7.947328119822177,
+     "REG1_MAE": 25.02949612773369,
+     "REG2_MAE": 4.583683914774441,
+     "KM3_MAE": 7.370771296669058,
+     "n": 6110,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": false,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "PL-Lipowa": {
+     "scheme_MAE": 14.594355875040806,
+     "REG1_MAE": 41.37947445990877,
+     "REG2_MAE": 32.947960945181066,
+     "KM3_MAE": 29.557627289720983,
+     "n": 34463,
+     "beats_REG1": true,
+     "beats_REG2": true,
+     "beats_KM3": true,
+     "beats_all_three": true,
+     "beats_meaningful_two_REG2_KM3": true
+    },
+    "PL-Narutowicza": {
+     "scheme_MAE": 12.078210533787642,
+     "REG1_MAE": 37.44039290007911,
+     "REG2_MAE": 14.168010237735071,
+     "KM3_MAE": 16.170362406631433,
+     "n": 36533,
+     "beats_REG1": true,
+     "beats_REG2": true,
+     "beats_KM3": true,
+     "beats_all_three": true,
+     "beats_meaningful_two_REG2_KM3": true
+    },
+    "SG-TelokKurau06": {
+     "scheme_MAE": 12.307767195662189,
+     "REG1_MAE": 92.52601467294872,
+     "REG2_MAE": 5.758474322064483,
+     "KM3_MAE": 9.442099233189985,
+     "n": 1916,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": false,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "UK-KingsCollege": {
+     "scheme_MAE": 7.099271055630192,
+     "REG1_MAE": 21.45685867628889,
+     "REG2_MAE": 5.636674035042038,
+     "KM3_MAE": 6.355693887746797,
+     "n": 10486,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": false,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "UK-Swindon": {
+     "scheme_MAE": 7.8347950774311235,
+     "REG1_MAE": 23.043176275145846,
+     "REG2_MAE": 7.256399633631987,
+     "KM3_MAE": 8.568455876261076,
+     "n": 12787,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": true,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "US-Baltimore": {
+     "scheme_MAE": 5.284964980235524,
+     "REG1_MAE": 43.13185046258748,
+     "REG2_MAE": 5.024879630216773,
+     "KM3_MAE": 7.649210249816038,
+     "n": 33699,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": true,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "US-Minneapolis1": {
+     "scheme_MAE": 18.84566044597407,
+     "REG1_MAE": 64.04587235690055,
+     "REG2_MAE": 18.514030559734415,
+     "KM3_MAE": 22.516272513330435,
+     "n": 19723,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": true,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "US-Minneapolis2": {
+     "scheme_MAE": 18.911267573913506,
+     "REG1_MAE": 64.04587235690055,
+     "REG2_MAE": 18.514030559734415,
+     "KM3_MAE": 22.516272513330435,
+     "n": 19723,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": true,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "US-WestPhoenix": {
+     "scheme_MAE": 18.263431394658344,
+     "REG1_MAE": 81.87591010669219,
+     "REG2_MAE": 12.920176377251277,
+     "KM3_MAE": 36.19155741940085,
+     "n": 4701,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": true,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    }
+   },
+   "CLMU5": {
+    "AU-Preston": {
+     "scheme_MAE": 4.158473016274318,
+     "REG1_MAE": 16.588720137348986,
+     "REG2_MAE": 15.298378242543109,
+     "KM3_MAE": 12.828379039861508,
+     "n": 5288,
+     "beats_REG1": true,
+     "beats_REG2": true,
+     "beats_KM3": true,
+     "beats_all_three": true,
+     "beats_meaningful_two_REG2_KM3": true
+    },
+    "CA-Sunset": {
+     "scheme_MAE": 8.069758816498462,
+     "REG1_MAE": 24.982606709894657,
+     "REG2_MAE": 5.816101295386108,
+     "KM3_MAE": 7.992224853318328,
+     "n": 32809,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": false,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "FI-Kumpula": {
+     "scheme_MAE": 3.5205132495812097,
+     "REG1_MAE": 43.31183014997791,
+     "REG2_MAE": 5.732683882095701,
+     "KM3_MAE": 7.710231182307386,
+     "n": 16934,
+     "beats_REG1": true,
+     "beats_REG2": true,
+     "beats_KM3": true,
+     "beats_all_three": true,
+     "beats_meaningful_two_REG2_KM3": true
+    },
+    "FI-Torni": {
+     "scheme_MAE": 4.03627429964694,
+     "REG1_MAE": 37.97497140365135,
+     "REG2_MAE": 3.922440572967422,
+     "KM3_MAE": 6.506826630951396,
+     "n": 22565,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": true,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "FR-Capitole": {
+     "scheme_MAE": 11.192425145743469,
+     "REG1_MAE": 26.97324190995501,
+     "REG2_MAE": 3.9477330933374692,
+     "KM3_MAE": 6.777833831627781,
+     "n": 4086,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": false,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "GR-HECKOR": {
+     "scheme_MAE": 7.750731691140595,
+     "REG1_MAE": 26.468508032043175,
+     "REG2_MAE": 12.97256694843548,
+     "KM3_MAE": 11.040987794408728,
+     "n": 4051,
+     "beats_REG1": true,
+     "beats_REG2": true,
+     "beats_KM3": true,
+     "beats_all_three": true,
+     "beats_meaningful_two_REG2_KM3": true
+    },
+    "JP-Yoyogi": {
+     "scheme_MAE": 5.00878326488948,
+     "REG1_MAE": 41.493224837174424,
+     "REG2_MAE": 5.244782298927492,
+     "KM3_MAE": 8.8024620166875,
+     "n": 29709,
+     "beats_REG1": true,
+     "beats_REG2": true,
+     "beats_KM3": true,
+     "beats_all_three": true,
+     "beats_meaningful_two_REG2_KM3": true
+    },
+    "KR-Jungnang": {
+     "scheme_MAE": 10.49010572453806,
+     "REG1_MAE": 49.00725415777888,
+     "REG2_MAE": 5.512309764455419,
+     "KM3_MAE": 9.9268056706992,
+     "n": 15008,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": false,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "KR-Ochang": {
+     "scheme_MAE": 10.850061961603696,
+     "REG1_MAE": 48.817776961495,
+     "REG2_MAE": 13.626120172940256,
+     "KM3_MAE": 14.70998209648075,
+     "n": 12995,
+     "beats_REG1": true,
+     "beats_REG2": true,
+     "beats_KM3": true,
+     "beats_all_three": true,
+     "beats_meaningful_two_REG2_KM3": true
+    },
+    "NL-Amsterdam": {
+     "scheme_MAE": 9.210650130301568,
+     "REG1_MAE": 25.02962754073349,
+     "REG2_MAE": 4.583684144547832,
+     "KM3_MAE": 7.411012014395489,
+     "n": 6110,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": false,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "PL-Lipowa": {
+     "scheme_MAE": 26.4271382886763,
+     "REG1_MAE": 41.37956493323273,
+     "REG2_MAE": 32.94794249182405,
+     "KM3_MAE": 29.610141568693624,
+     "n": 34463,
+     "beats_REG1": true,
+     "beats_REG2": true,
+     "beats_KM3": true,
+     "beats_all_three": true,
+     "beats_meaningful_two_REG2_KM3": true
+    },
+    "PL-Narutowicza": {
+     "scheme_MAE": 11.031790265467126,
+     "REG1_MAE": 37.44035287646541,
+     "REG2_MAE": 14.168011867797414,
+     "KM3_MAE": 16.292408104394745,
+     "n": 36533,
+     "beats_REG1": true,
+     "beats_REG2": true,
+     "beats_KM3": true,
+     "beats_all_three": true,
+     "beats_meaningful_two_REG2_KM3": true
+    },
+    "SG-TelokKurau06": {
+     "scheme_MAE": 10.58735933881214,
+     "REG1_MAE": 92.52627966582752,
+     "REG2_MAE": 5.758367373265794,
+     "KM3_MAE": 9.093889853326399,
+     "n": 1916,
+     "beats_REG1": true,
+     "beats_REG2": false,
+     "beats_KM3": false,
+     "beats_all_three": false,
+     "beats_meaningful_two_REG2_KM3": false
+    },
+    "UK-KingsCollege": {
+     "scheme_MAE": 5.422596882614114,
+     "REG1_MAE": 21.458163361362285,
+     "REG2_MAE": 5.6364973395782005,
+     "KM3_MAE": 6.315151714512361,
+     "n": 10485,
+     "beats_REG1": true,
+     "beats_REG2": true,
+     "beats_KM3": true,
+     "beats_all_three": true,
+     "beats_meaningful_two_REG2_KM3": true
+    },
+    "UK-Swindon": {
+     "scheme_MAE": 1.9630933937459982,
+     "REG1_MAE": 23.043056926404493,
+     "REG2_MAE": 7.256438318486358,
+     "KM3_MAE": 8.553207110835547,
+     "n": 12787,
+     "beats_REG1": true,
+     "beats_REG2": true,
+     "beats_KM3": true,
+     "beats_all_three": true,
+     "beats_meaningful_two_REG2_KM3": true
+    },
+    "US-Baltimore": {
+     "scheme_MAE": 4.980476215708599,
+     "REG1_MAE": 43.13188402048099,
+     "REG2_MAE": 5.024871343049999,
+     "KM3_MAE": 7.69940513423872,
+     "n": 33699,
+     "beats_REG1": true,
+     "beats_REG2": true,
+     "beats_KM3": true,
+     "beats_all_three": true,
+     "beats_meaningful_two_REG2_KM3": true
+    },
+    "US-Minneapolis1": {
+     "scheme_MAE": 13.426521957715433,
+     "REG1_MAE": 64.04574039123949,
+     "REG2_MAE": 18.514076905959108,
+     "KM3_MAE": 22.459347130013732,
+     "n": 19723,
+     "beats_REG1": true,
+     "beats_REG2": true,
+     "beats_KM3": true,
+     "beats_all_three": true,
+     "beats_meaningful_two_REG2_KM3": true
+    },
+    "US-Minneapolis2": {
+     "scheme_MAE": 15.208719167761089,
+     "REG1_MAE": 64.04574039123949,
+     "REG2_MAE": 18.514076905959108,
+     "KM3_MAE": 22.459347130013732,
+     "n": 19723,
+     "beats_REG1": true,
+     "beats_REG2": true,
+     "beats_KM3": true,
+     "beats_all_three": true,
+     "beats_meaningful_two_REG2_KM3": true
+    },
+    "US-WestPhoenix": {
+     "scheme_MAE": 5.022553327666321,
+     "REG1_MAE": 81.87613130557101,
+     "REG2_MAE": 12.920170423015955,
+     "KM3_MAE": 35.77582254633622,
+     "n": 4701,
+     "beats_REG1": true,
+     "beats_REG2": true,
+     "beats_KM3": true,
+     "beats_all_three": true,
+     "beats_meaningful_two_REG2_KM3": true
+    }
+   }
+  },
+  "fold_meta": {
+   "TEB": {
+    "AU-Preston": {
+     "n_train_records": 18,
+     "train_records": [
+      "CA-Sunset",
+      "FI-Kumpula",
+      "FI-Torni",
+      "FR-Capitole",
+      "GR-HECKOR",
+      "JP-Yoyogi",
+      "KR-Jungnang",
+      "KR-Ochang",
+      "NL-Amsterdam",
+      "PL-Lipowa",
+      "PL-Narutowicza",
+      "SG-TelokKurau06",
+      "UK-KingsCollege",
+      "UK-Swindon",
+      "US-Baltimore",
+      "US-Minneapolis1",
+      "US-Minneapolis2",
+      "US-WestPhoenix"
+     ],
+     "n_train_steps": 318299,
+     "kmeans_seconds": 7.01,
+     "n_empty_clusters": 0
+    },
+    "CA-Sunset": {
+     "n_train_records": 18,
+     "train_records": [
+      "AU-Preston",
+      "FI-Kumpula",
+      "FI-Torni",
+      "FR-Capitole",
+      "GR-HECKOR",
+      "JP-Yoyogi",
+      "KR-Jungnang",
+      "KR-Ochang",
+      "NL-Amsterdam",
+      "PL-Lipowa",
+      "PL-Narutowicza",
+      "SG-TelokKurau06",
+      "UK-KingsCollege",
+      "UK-Swindon",
+      "US-Baltimore",
+      "US-Minneapolis1",
+      "US-Minneapolis2",
+      "US-WestPhoenix"
+     ],
+     "n_train_steps": 290778,
+     "kmeans_seconds": 6.74,
+     "n_empty_clusters": 0
+    },
+    "FR-Capitole": {
+     "n_train_records": 18,
+     "train_records": [
+      "AU-Preston",
+      "CA-Sunset",
+      "FI-Kumpula",
+      "FI-Torni",
+      "GR-HECKOR",
+      "JP-Yoyogi",
+      "KR-Jungnang",
+      "KR-Ochang",
+      "NL-Amsterdam",
+      "PL-Lipowa",
+      "PL-Narutowicza",
+      "SG-TelokKurau06",
+      "UK-KingsCollege",
+      "UK-Swindon",
+      "US-Baltimore",
+      "US-Minneapolis1",
+      "US-Minneapolis2",
+      "US-WestPhoenix"
+     ],
+     "n_train_steps": 319501,
+     "kmeans_seconds": 6.97,
+     "n_empty_clusters": 0
+    },
+    "GR-HECKOR": {
+     "n_train_records": 18,
+     "train_records": [
+      "AU-Preston",
+      "CA-Sunset",
+      "FI-Kumpula",
+      "FI-Torni",
+      "FR-Capitole",
+      "JP-Yoyogi",
+      "KR-Jungnang",
+      "KR-Ochang",
+      "NL-Amsterdam",
+      "PL-Lipowa",
+      "PL-Narutowicza",
+      "SG-TelokKurau06",
+      "UK-KingsCollege",
+      "UK-Swindon",
+      "US-Baltimore",
+      "US-Minneapolis1",
+      "US-Minneapolis2",
+      "US-WestPhoenix"
+     ],
+     "n_train_steps": 319535,
+     "kmeans_seconds": 7.05,
+     "n_empty_clusters": 0
+    },
+    "FI-Kumpula,FI-Torni": {
+     "n_train_records": 17,
+     "train_records": [
+      "AU-Preston",
+      "CA-Sunset",
+      "FR-Capitole",
+      "GR-HECKOR",
+      "JP-Yoyogi",
+      "KR-Jungnang",
+      "KR-Ochang",
+      "NL-Amsterdam",
+      "PL-Lipowa",
+      "PL-Narutowicza",
+      "SG-TelokKurau06",
+      "UK-KingsCollege",
+      "UK-Swindon",
+      "US-Baltimore",
+      "US-Minneapolis1",
+      "US-Minneapolis2",
+      "US-WestPhoenix"
+     ],
+     "n_train_steps": 284088,
+     "kmeans_seconds": 6.8,
+     "n_empty_clusters": 0
+    },
+    "JP-Yoyogi": {
+     "n_train_records": 18,
+     "train_records": [
+      "AU-Preston",
+      "CA-Sunset",
+      "FI-Kumpula",
+      "FI-Torni",
+      "FR-Capitole",
+      "GR-HECKOR",
+      "KR-Jungnang",
+      "KR-Ochang",
+      "NL-Amsterdam",
+      "PL-Lipowa",
+      "PL-Narutowicza",
+      "SG-TelokKurau06",
+      "UK-KingsCollege",
+      "UK-Swindon",
+      "US-Baltimore",
+      "US-Minneapolis1",
+      "US-Minneapolis2",
+      "US-WestPhoenix"
+     ],
+     "n_train_steps": 293878,
+     "kmeans_seconds": 7.19,
+     "n_empty_clusters": 0
+    },
+    "KR-Jungnang": {
+     "n_train_records": 18,
+     "train_records": [
+      "AU-Preston",
+      "CA-Sunset",
+      "FI-Kumpula",
+      "FI-Torni",
+      "FR-Capitole",
+      "GR-HECKOR",
+      "JP-Yoyogi",
+      "KR-Ochang",
+      "NL-Amsterdam",
+      "PL-Lipowa",
+      "PL-Narutowicza",
+      "SG-TelokKurau06",
+      "UK-KingsCollege",
+      "UK-Swindon",
+      "US-Baltimore",
+      "US-Minneapolis1",
+      "US-Minneapolis2",
+      "US-WestPhoenix"
+     ],
+     "n_train_steps": 308579,
+     "kmeans_seconds": 6.96,
+     "n_empty_clusters": 0
+    },
+    "KR-Ochang": {
+     "n_train_records": 18,
+     "train_records": [
+      "AU-Preston",
+      "CA-Sunset",
+      "FI-Kumpula",
+      "FI-Torni",
+      "FR-Capitole",
+      "GR-HECKOR",
+      "JP-Yoyogi",
+      "KR-Jungnang",
+      "NL-Amsterdam",
+      "PL-Lipowa",
+      "PL-Narutowicza",
+      "SG-TelokKurau06",
+      "UK-KingsCollege",
+      "UK-Swindon",
+      "US-Baltimore",
+      "US-Minneapolis1",
+      "US-Minneapolis2",
+      "US-WestPhoenix"
+     ],
+     "n_train_steps": 310592,
+     "kmeans_seconds": 7.21,
+     "n_empty_clusters": 0
+    },
+    "PL-Lipowa,PL-Narutowicza": {
+     "n_train_records": 17,
+     "train_records": [
+      "AU-Preston",
+      "CA-Sunset",
+      "FI-Kumpula",
+      "FI-Torni",
+      "FR-Capitole",
+      "GR-HECKOR",
+      "JP-Yoyogi",
+      "KR-Jungnang",
+      "KR-Ochang",
+      "NL-Amsterdam",
+      "SG-TelokKurau06",
+      "UK-KingsCollege",
+      "UK-Swindon",
+      "US-Baltimore",
+      "US-Minneapolis1",
+      "US-Minneapolis2",
+      "US-WestPhoenix"
+     ],
+     "n_train_steps": 252591,
+     "kmeans_seconds": 6.34,
+     "n_empty_clusters": 0
+    },
+    "US-Minneapolis1,US-Minneapolis2": {
+     "n_train_records": 17,
+     "train_records": [
+      "AU-Preston",
+      "CA-Sunset",
+      "FI-Kumpula",
+      "FI-Torni",
+      "FR-Capitole",
+      "GR-HECKOR",
+      "JP-Yoyogi",
+      "KR-Jungnang",
+      "KR-Ochang",
+      "NL-Amsterdam",
+      "PL-Lipowa",
+      "PL-Narutowicza",
+      "SG-TelokKurau06",
+      "UK-KingsCollege",
+      "UK-Swindon",
+      "US-Baltimore",
+      "US-WestPhoenix"
+     ],
+     "n_train_steps": 284141,
+     "kmeans_seconds": 6.75,
+     "n_empty_clusters": 0
+    },
+    "NL-Amsterdam": {
+     "n_train_records": 18,
+     "train_records": [
+      "AU-Preston",
+      "CA-Sunset",
+      "FI-Kumpula",
+      "FI-Torni",
+      "FR-Capitole",
+      "GR-HECKOR",
+      "JP-Yoyogi",
+      "KR-Jungnang",
+      "KR-Ochang",
+      "PL-Lipowa",
+      "PL-Narutowicza",
+      "SG-TelokKurau06",
+      "UK-KingsCollege",
+      "UK-Swindon",
+      "US-Baltimore",
+      "US-Minneapolis1",
+      "US-Minneapolis2",
+      "US-WestPhoenix"
+     ],
+     "n_train_steps": 317477,
+     "kmeans_seconds": 7.08,
+     "n_empty_clusters": 0
+    },
+    "SG-TelokKurau06": {
+     "n_train_records": 18,
+     "train_records": [
+      "AU-Preston",
+      "CA-Sunset",
+      "FI-Kumpula",
+      "FI-Torni",
+      "FR-Capitole",
+      "GR-HECKOR",
+      "JP-Yoyogi",
+      "KR-Jungnang",
+      "KR-Ochang",
+      "NL-Amsterdam",
+      "PL-Lipowa",
+      "PL-Narutowicza",
+      "UK-KingsCollege",
+      "UK-Swindon",
+      "US-Baltimore",
+      "US-Minneapolis1",
+      "US-Minneapolis2",
+      "US-WestPhoenix"
+     ],
+     "n_train_steps": 321671,
+     "kmeans_seconds": 7.59,
+     "n_empty_clusters": 0
+    },
+    "UK-KingsCollege": {
+     "n_train_records": 18,
+     "train_records": [
+      "AU-Preston",
+      "CA-Sunset",
+      "FI-Kumpula",
+      "FI-Torni",
+      "FR-Capitole",
+      "GR-HECKOR",
+      "JP-Yoyogi",
+      "KR-Jungnang",
+      "KR-Ochang",
+      "NL-Amsterdam",
+      "PL-Lipowa",
+      "PL-Narutowicza",
+      "SG-TelokKurau06",
+      "UK-Swindon",
+      "US-Baltimore",
+      "US-Minneapolis1",
+      "US-Minneapolis2",
+      "US-WestPhoenix"
+     ],
+     "n_train_steps": 313101,
+     "kmeans_seconds": 7.92,
+     "n_empty_clusters": 0
+    },
+    "UK-Swindon": {
+     "n_train_records": 18,
+     "train_records": [
+      "AU-Preston",
+      "CA-Sunset",
+      "FI-Kumpula",
+      "FI-Torni",
+      "FR-Capitole",
+      "GR-HECKOR",
+      "JP-Yoyogi",
+      "KR-Jungnang",
+      "KR-Ochang",
+      "NL-Amsterdam",
+      "PL-Lipowa",
+      "PL-Narutowicza",
+      "SG-TelokKurau06",
+      "UK-KingsCollege",
+      "US-Baltimore",
+      "US-Minneapolis1",
+      "US-Minneapolis2",
+      "US-WestPhoenix"
+     ],
+     "n_train_steps": 310800,
+     "kmeans_seconds": 7.19,
+     "n_empty_clusters": 0
+    },
+    "US-Baltimore": {
+     "n_train_records": 18,
+     "train_records": [
+      "AU-Preston",
+      "CA-Sunset",
+      "FI-Kumpula",
+      "FI-Torni",
+      "FR-Capitole",
+      "GR-HECKOR",
+      "JP-Yoyogi",
+      "KR-Jungnang",
+      "KR-Ochang",
+      "NL-Amsterdam",
+      "PL-Lipowa",
+      "PL-Narutowicza",
+      "SG-TelokKurau06",
+      "UK-KingsCollege",
+      "UK-Swindon",
+      "US-Minneapolis1",
+      "US-Minneapolis2",
+      "US-WestPhoenix"
+     ],
+     "n_train_steps": 289888,
+     "kmeans_seconds": 6.76,
+     "n_empty_clusters": 0
+    },
+    "US-WestPhoenix": {
+     "n_train_records": 18,
+     "train_records": [
+      "AU-Preston",
+      "CA-Sunset",
+      "FI-Kumpula",
+      "FI-Torni",
+      "FR-Capitole",
+      "GR-HECKOR",
+      "JP-Yoyogi",
+      "KR-Jungnang",
+      "KR-Ochang",
+      "NL-Amsterdam",
+      "PL-Lipowa",
+      "PL-Narutowicza",
+      "SG-TelokKurau06",
+      "UK-KingsCollege",
+      "UK-Swindon",
+      "US-Baltimore",
+      "US-Minneapolis1",
+      "US-Minneapolis2"
+     ],
+     "n_train_steps": 318886,
+     "kmeans_seconds": 7.3,
+     "n_empty_clusters": 0
+    }
+   },
+   "CLMU5": {
+    "AU-Preston": {
+     "n_train_records": 18,
+     "train_records": [
+      "CA-Sunset",
+      "FI-Kumpula",
+      "FI-Torni",
+      "FR-Capitole",
+      "GR-HECKOR",
+      "JP-Yoyogi",
+      "KR-Jungnang",
+      "KR-Ochang",
+      "NL-Amsterdam",
+      "PL-Lipowa",
+      "PL-Narutowicza",
+      "SG-TelokKurau06",
+      "UK-KingsCollege",
+      "UK-Swindon",
+      "US-Baltimore",
+      "US-Minneapolis1",
+      "US-Minneapolis2",
+      "US-WestPhoenix"
+     ],
+     "n_train_steps": 318297,
+     "kmeans_seconds": 7.0,
+     "n_empty_clusters": 0
+    },
+    "CA-Sunset": {
+     "n_train_records": 18,
+     "train_records": [
+      "AU-Preston",
+      "FI-Kumpula",
+      "FI-Torni",
+      "FR-Capitole",
+      "GR-HECKOR",
+      "JP-Yoyogi",
+      "KR-Jungnang",
+      "KR-Ochang",
+      "NL-Amsterdam",
+      "PL-Lipowa",
+      "PL-Narutowicza",
+      "SG-TelokKurau06",
+      "UK-KingsCollege",
+      "UK-Swindon",
+      "US-Baltimore",
+      "US-Minneapolis1",
+      "US-Minneapolis2",
+      "US-WestPhoenix"
+     ],
+     "n_train_steps": 290776,
+     "kmeans_seconds": 6.29,
+     "n_empty_clusters": 0
+    },
+    "FR-Capitole": {
+     "n_train_records": 18,
+     "train_records": [
+      "AU-Preston",
+      "CA-Sunset",
+      "FI-Kumpula",
+      "FI-Torni",
+      "GR-HECKOR",
+      "JP-Yoyogi",
+      "KR-Jungnang",
+      "KR-Ochang",
+      "NL-Amsterdam",
+      "PL-Lipowa",
+      "PL-Narutowicza",
+      "SG-TelokKurau06",
+      "UK-KingsCollege",
+      "UK-Swindon",
+      "US-Baltimore",
+      "US-Minneapolis1",
+      "US-Minneapolis2",
+      "US-WestPhoenix"
+     ],
+     "n_train_steps": 319499,
+     "kmeans_seconds": 7.5,
+     "n_empty_clusters": 0
+    },
+    "GR-HECKOR": {
+     "n_train_records": 18,
+     "train_records": [
+      "AU-Preston",
+      "CA-Sunset",
+      "FI-Kumpula",
+      "FI-Torni",
+      "FR-Capitole",
+      "JP-Yoyogi",
+      "KR-Jungnang",
+      "KR-Ochang",
+      "NL-Amsterdam",
+      "PL-Lipowa",
+      "PL-Narutowicza",
+      "SG-TelokKurau06",
+      "UK-KingsCollege",
+      "UK-Swindon",
+      "US-Baltimore",
+      "US-Minneapolis1",
+      "US-Minneapolis2",
+      "US-WestPhoenix"
+     ],
+     "n_train_steps": 319534,
+     "kmeans_seconds": 7.95,
+     "n_empty_clusters": 0
+    },
+    "FI-Kumpula,FI-Torni": {
+     "n_train_records": 17,
+     "train_records": [
+      "AU-Preston",
+      "CA-Sunset",
+      "FR-Capitole",
+      "GR-HECKOR",
+      "JP-Yoyogi",
+      "KR-Jungnang",
+      "KR-Ochang",
+      "NL-Amsterdam",
+      "PL-Lipowa",
+      "PL-Narutowicza",
+      "SG-TelokKurau06",
+      "UK-KingsCollege",
+      "UK-Swindon",
+      "US-Baltimore",
+      "US-Minneapolis1",
+      "US-Minneapolis2",
+      "US-WestPhoenix"
+     ],
+     "n_train_steps": 284086,
+     "kmeans_seconds": 6.52,
+     "n_empty_clusters": 0
+    },
+    "JP-Yoyogi": {
+     "n_train_records": 18,
+     "train_records": [
+      "AU-Preston",
+      "CA-Sunset",
+      "FI-Kumpula",
+      "FI-Torni",
+      "FR-Capitole",
+      "GR-HECKOR",
+      "KR-Jungnang",
+      "KR-Ochang",
+      "NL-Amsterdam",
+      "PL-Lipowa",
+      "PL-Narutowicza",
+      "SG-TelokKurau06",
+      "UK-KingsCollege",
+      "UK-Swindon",
+      "US-Baltimore",
+      "US-Minneapolis1",
+      "US-Minneapolis2",
+      "US-WestPhoenix"
+     ],
+     "n_train_steps": 293876,
+     "kmeans_seconds": 7.39,
+     "n_empty_clusters": 0
+    },
+    "KR-Jungnang": {
+     "n_train_records": 18,
+     "train_records": [
+      "AU-Preston",
+      "CA-Sunset",
+      "FI-Kumpula",
+      "FI-Torni",
+      "FR-Capitole",
+      "GR-HECKOR",
+      "JP-Yoyogi",
+      "KR-Ochang",
+      "NL-Amsterdam",
+      "PL-Lipowa",
+      "PL-Narutowicza",
+      "SG-TelokKurau06",
+      "UK-KingsCollege",
+      "UK-Swindon",
+      "US-Baltimore",
+      "US-Minneapolis1",
+      "US-Minneapolis2",
+      "US-WestPhoenix"
+     ],
+     "n_train_steps": 308577,
+     "kmeans_seconds": 6.67,
+     "n_empty_clusters": 0
+    },
+    "KR-Ochang": {
+     "n_train_records": 18,
+     "train_records": [
+      "AU-Preston",
+      "CA-Sunset",
+      "FI-Kumpula",
+      "FI-Torni",
+      "FR-Capitole",
+      "GR-HECKOR",
+      "JP-Yoyogi",
+      "KR-Jungnang",
+      "NL-Amsterdam",
+      "PL-Lipowa",
+      "PL-Narutowicza",
+      "SG-TelokKurau06",
+      "UK-KingsCollege",
+      "UK-Swindon",
+      "US-Baltimore",
+      "US-Minneapolis1",
+      "US-Minneapolis2",
+      "US-WestPhoenix"
+     ],
+     "n_train_steps": 310590,
+     "kmeans_seconds": 7.32,
+     "n_empty_clusters": 0
+    },
+    "PL-Lipowa,PL-Narutowicza": {
+     "n_train_records": 17,
+     "train_records": [
+      "AU-Preston",
+      "CA-Sunset",
+      "FI-Kumpula",
+      "FI-Torni",
+      "FR-Capitole",
+      "GR-HECKOR",
+      "JP-Yoyogi",
+      "KR-Jungnang",
+      "KR-Ochang",
+      "NL-Amsterdam",
+      "SG-TelokKurau06",
+      "UK-KingsCollege",
+      "UK-Swindon",
+      "US-Baltimore",
+      "US-Minneapolis1",
+      "US-Minneapolis2",
+      "US-WestPhoenix"
+     ],
+     "n_train_steps": 252589,
+     "kmeans_seconds": 5.87,
+     "n_empty_clusters": 0
+    },
+    "US-Minneapolis1,US-Minneapolis2": {
+     "n_train_records": 17,
+     "train_records": [
+      "AU-Preston",
+      "CA-Sunset",
+      "FI-Kumpula",
+      "FI-Torni",
+      "FR-Capitole",
+      "GR-HECKOR",
+      "JP-Yoyogi",
+      "KR-Jungnang",
+      "KR-Ochang",
+      "NL-Amsterdam",
+      "PL-Lipowa",
+      "PL-Narutowicza",
+      "SG-TelokKurau06",
+      "UK-KingsCollege",
+      "UK-Swindon",
+      "US-Baltimore",
+      "US-WestPhoenix"
+     ],
+     "n_train_steps": 284139,
+     "kmeans_seconds": 6.28,
+     "n_empty_clusters": 0
+    },
+    "NL-Amsterdam": {
+     "n_train_records": 18,
+     "train_records": [
+      "AU-Preston",
+      "CA-Sunset",
+      "FI-Kumpula",
+      "FI-Torni",
+      "FR-Capitole",
+      "GR-HECKOR",
+      "JP-Yoyogi",
+      "KR-Jungnang",
+      "KR-Ochang",
+      "PL-Lipowa",
+      "PL-Narutowicza",
+      "SG-TelokKurau06",
+      "UK-KingsCollege",
+      "UK-Swindon",
+      "US-Baltimore",
+      "US-Minneapolis1",
+      "US-Minneapolis2",
+      "US-WestPhoenix"
+     ],
+     "n_train_steps": 317475,
+     "kmeans_seconds": 6.98,
+     "n_empty_clusters": 0
+    },
+    "SG-TelokKurau06": {
+     "n_train_records": 18,
+     "train_records": [
+      "AU-Preston",
+      "CA-Sunset",
+      "FI-Kumpula",
+      "FI-Torni",
+      "FR-Capitole",
+      "GR-HECKOR",
+      "JP-Yoyogi",
+      "KR-Jungnang",
+      "KR-Ochang",
+      "NL-Amsterdam",
+      "PL-Lipowa",
+      "PL-Narutowicza",
+      "UK-KingsCollege",
+      "UK-Swindon",
+      "US-Baltimore",
+      "US-Minneapolis1",
+      "US-Minneapolis2",
+      "US-WestPhoenix"
+     ],
+     "n_train_steps": 321669,
+     "kmeans_seconds": 7.23,
+     "n_empty_clusters": 0
+    },
+    "UK-KingsCollege": {
+     "n_train_records": 18,
+     "train_records": [
+      "AU-Preston",
+      "CA-Sunset",
+      "FI-Kumpula",
+      "FI-Torni",
+      "FR-Capitole",
+      "GR-HECKOR",
+      "JP-Yoyogi",
+      "KR-Jungnang",
+      "KR-Ochang",
+      "NL-Amsterdam",
+      "PL-Lipowa",
+      "PL-Narutowicza",
+      "SG-TelokKurau06",
+      "UK-Swindon",
+      "US-Baltimore",
+      "US-Minneapolis1",
+      "US-Minneapolis2",
+      "US-WestPhoenix"
+     ],
+     "n_train_steps": 313100,
+     "kmeans_seconds": 7.81,
+     "n_empty_clusters": 0
+    },
+    "UK-Swindon": {
+     "n_train_records": 18,
+     "train_records": [
+      "AU-Preston",
+      "CA-Sunset",
+      "FI-Kumpula",
+      "FI-Torni",
+      "FR-Capitole",
+      "GR-HECKOR",
+      "JP-Yoyogi",
+      "KR-Jungnang",
+      "KR-Ochang",
+      "NL-Amsterdam",
+      "PL-Lipowa",
+      "PL-Narutowicza",
+      "SG-TelokKurau06",
+      "UK-KingsCollege",
+      "US-Baltimore",
+      "US-Minneapolis1",
+      "US-Minneapolis2",
+      "US-WestPhoenix"
+     ],
+     "n_train_steps": 310798,
+     "kmeans_seconds": 6.96,
+     "n_empty_clusters": 0
+    },
+    "US-Baltimore": {
+     "n_train_records": 18,
+     "train_records": [
+      "AU-Preston",
+      "CA-Sunset",
+      "FI-Kumpula",
+      "FI-Torni",
+      "FR-Capitole",
+      "GR-HECKOR",
+      "JP-Yoyogi",
+      "KR-Jungnang",
+      "KR-Ochang",
+      "NL-Amsterdam",
+      "PL-Lipowa",
+      "PL-Narutowicza",
+      "SG-TelokKurau06",
+      "UK-KingsCollege",
+      "UK-Swindon",
+      "US-Minneapolis1",
+      "US-Minneapolis2",
+      "US-WestPhoenix"
+     ],
+     "n_train_steps": 289886,
+     "kmeans_seconds": 6.51,
+     "n_empty_clusters": 0
+    },
+    "US-WestPhoenix": {
+     "n_train_records": 18,
+     "train_records": [
+      "AU-Preston",
+      "CA-Sunset",
+      "FI-Kumpula",
+      "FI-Torni",
+      "FR-Capitole",
+      "GR-HECKOR",
+      "JP-Yoyogi",
+      "KR-Jungnang",
+      "KR-Ochang",
+      "NL-Amsterdam",
+      "PL-Lipowa",
+      "PL-Narutowicza",
+      "SG-TelokKurau06",
+      "UK-KingsCollege",
+      "UK-Swindon",
+      "US-Baltimore",
+      "US-Minneapolis1",
+      "US-Minneapolis2"
+     ],
+     "n_train_steps": 318884,
+     "kmeans_seconds": 8.32,
+     "n_empty_clusters": 0
+    }
+   }
+  },
+  "win_counts_eval_only": {
+   "TEB": {
+    "all19": {
+     "beats_REG1": 19,
+     "beats_REG2": 4,
+     "beats_KM3": 10,
+     "beats_all_three": 3,
+     "beats_meaningful_two_REG2_KM3": 3,
+     "n": 19,
+     "median_scheme_MAE_Wm2": 12.078210533787642,
+     "median_REG2_MAE_Wm2": 5.816122800448311,
+     "median_KM3_MAE_Wm2": 9.442099233189985
+    },
+    "excl_mpls17": {
+     "beats_REG1": 17,
+     "beats_REG2": 4,
+     "beats_KM3": 8,
+     "beats_all_three": 3,
+     "beats_meaningful_two_REG2_KM3": 3,
+     "n": 17,
+     "median_scheme_MAE_Wm2": 12.018172899502009,
+     "median_REG2_MAE_Wm2": 5.758474322064483,
+     "median_KM3_MAE_Wm2": 8.906804015113238
+    },
+    "core16": {
+     "beats_REG1": 16,
+     "beats_REG2": 3,
+     "beats_KM3": 7,
+     "beats_all_three": 2,
+     "beats_meaningful_two_REG2_KM3": 2,
+     "n": 16,
+     "median_scheme_MAE_Wm2": 9.982750509662093,
+     "median_REG2_MAE_Wm2": 5.745565985848471,
+     "median_KM3_MAE_Wm2": 8.737629945687157
+    },
+    "core15": {
+     "beats_REG1": 15,
+     "beats_REG2": 2,
+     "beats_KM3": 6,
+     "beats_all_three": 1,
+     "beats_meaningful_two_REG2_KM3": 1,
+     "n": 15,
+     "median_scheme_MAE_Wm2": 7.947328119822177,
+     "median_REG2_MAE_Wm2": 5.7326576496324595,
+     "median_KM3_MAE_Wm2": 8.568455876261076
+    }
+   },
+   "CLMU5": {
+    "all19": {
+     "beats_REG1": 19,
+     "beats_REG2": 13,
+     "beats_KM3": 14,
+     "beats_all_three": 13,
+     "beats_meaningful_two_REG2_KM3": 13,
+     "n": 19,
+     "median_scheme_MAE_Wm2": 8.069758816498462,
+     "median_REG2_MAE_Wm2": 5.816101295386108,
+     "median_KM3_MAE_Wm2": 9.093889853326399
+    },
+    "excl_mpls17": {
+     "beats_REG1": 17,
+     "beats_REG2": 11,
+     "beats_KM3": 12,
+     "beats_all_three": 11,
+     "beats_meaningful_two_REG2_KM3": 11,
+     "n": 17,
+     "median_scheme_MAE_Wm2": 7.750731691140595,
+     "median_REG2_MAE_Wm2": 5.758367373265794,
+     "median_KM3_MAE_Wm2": 8.8024620166875
+    },
+    "core16": {
+     "beats_REG1": 16,
+     "beats_REG2": 10,
+     "beats_KM3": 11,
+     "beats_all_three": 10,
+     "beats_meaningful_two_REG2_KM3": 10,
+     "n": 16,
+     "median_scheme_MAE_Wm2": 6.586664286877355,
+     "median_REG2_MAE_Wm2": 5.745525627680747,
+     "median_KM3_MAE_Wm2": 8.677834563761524
+    },
+    "core15": {
+     "beats_REG1": 15,
+     "beats_REG2": 9,
+     "beats_KM3": 10,
+     "beats_all_three": 9,
+     "beats_meaningful_two_REG2_KM3": 9,
+     "n": 15,
+     "median_scheme_MAE_Wm2": 5.422596882614114,
+     "median_REG2_MAE_Wm2": 5.732683882095701,
+     "median_KM3_MAE_Wm2": 8.553207110835547
+    }
+   }
+  },
+  "win_counts_refit_within_variant": {
+   "TEB": {
+    "all19": {
+     "beats_REG1": 19,
+     "beats_REG2": 4,
+     "beats_KM3": 10,
+     "beats_all_three": 3,
+     "beats_meaningful_two_REG2_KM3": 3,
+     "n": 19,
+     "median_scheme_MAE_Wm2": 12.078210533787642,
+     "median_REG2_MAE_Wm2": 5.816122800448311,
+     "median_KM3_MAE_Wm2": 9.442099233189985,
+     "identical_to_eval_only": true
+    },
+    "excl_mpls17": {
+     "beats_REG1": 17,
+     "beats_REG2": 9,
+     "beats_KM3": 9,
+     "beats_all_three": 6,
+     "beats_meaningful_two_REG2_KM3": 6,
+     "n": 17,
+     "median_scheme_MAE_Wm2": 12.018172899502009,
+     "median_REG2_MAE_Wm2": 7.234755674305344,
+     "median_KM3_MAE_Wm2": 9.278091825988032,
+     "n_folds": 15,
+     "identical_to_eval_only": false
+    },
+    "core16": {
+     "beats_REG1": 16,
+     "beats_REG2": 2,
+     "beats_KM3": 6,
+     "beats_all_three": 2,
+     "beats_meaningful_two_REG2_KM3": 2,
+     "n": 16,
+     "median_scheme_MAE_Wm2": 9.982750509662093,
+     "median_REG2_MAE_Wm2": 5.471582493573337,
+     "median_KM3_MAE_Wm2": 7.473879224181996,
+     "n_folds": 15,
+     "identical_to_eval_only": false
+    },
+    "core15": {
+     "beats_REG1": 15,
+     "beats_REG2": 2,
+     "beats_KM3": 5,
+     "beats_all_three": 2,
+     "beats_meaningful_two_REG2_KM3": 2,
+     "n": 15,
+     "median_scheme_MAE_Wm2": 7.947328119822177,
+     "median_REG2_MAE_Wm2": 5.531295199760545,
+     "median_KM3_MAE_Wm2": 7.461939195412982,
+     "n_folds": 14,
+     "identical_to_eval_only": false
+    }
+   },
+   "CLMU5": {
+    "all19": {
+     "beats_REG1": 19,
+     "beats_REG2": 13,
+     "beats_KM3": 14,
+     "beats_all_three": 13,
+     "beats_meaningful_two_REG2_KM3": 13,
+     "n": 19,
+     "median_scheme_MAE_Wm2": 8.069758816498462,
+     "median_REG2_MAE_Wm2": 5.816101295386108,
+     "median_KM3_MAE_Wm2": 9.093889853326399,
+     "identical_to_eval_only": true
+    },
+    "excl_mpls17": {
+     "beats_REG1": 17,
+     "beats_REG2": 12,
+     "beats_KM3": 12,
+     "beats_all_three": 12,
+     "beats_meaningful_two_REG2_KM3": 12,
+     "n": 17,
+     "median_scheme_MAE_Wm2": 7.750731691140595,
+     "median_REG2_MAE_Wm2": 7.234796378602188,
+     "median_KM3_MAE_Wm2": 9.075979016577472,
+     "n_folds": 15,
+     "identical_to_eval_only": false
+    },
+    "core16": {
+     "beats_REG1": 16,
+     "beats_REG2": 8,
+     "beats_KM3": 11,
+     "beats_all_three": 8,
+     "beats_meaningful_two_REG2_KM3": 8,
+     "n": 16,
+     "median_scheme_MAE_Wm2": 6.586664286877355,
+     "median_REG2_MAE_Wm2": 5.471585940504429,
+     "median_KM3_MAE_Wm2": 7.615152465815726,
+     "n_folds": 15,
+     "identical_to_eval_only": false
+    },
+    "core15": {
+     "beats_REG1": 15,
+     "beats_REG2": 7,
+     "beats_KM3": 11,
+     "beats_all_three": 7,
+     "beats_meaningful_two_REG2_KM3": 7,
+     "n": 15,
+     "median_scheme_MAE_Wm2": 5.422596882614114,
+     "median_REG2_MAE_Wm2": 5.5311360729563885,
+     "median_KM3_MAE_Wm2": 8.011444172868606,
+     "n_folds": 14,
+     "identical_to_eval_only": false
+    }
+   }
+  },
+  "delta_vs_published_record_loo": {
+   "all19": {
+    "TEB": {
+     "published_record_loo": {
+      "beats_REG1": 19,
+      "beats_REG2": 4,
+      "beats_KM3": 8,
+      "beats_all_three": 3,
+      "beats_meaningful_two_REG2_KM3": 3
+     },
+     "city_holdout": {
+      "beats_REG1": 19,
+      "beats_REG2": 4,
+      "beats_KM3": 10,
+      "beats_all_three": 3,
+      "beats_meaningful_two_REG2_KM3": 3
+     },
+     "delta": {
+      "beats_REG1": 0,
+      "beats_REG2": 0,
+      "beats_KM3": 2,
+      "beats_all_three": 0,
+      "beats_meaningful_two_REG2_KM3": 0
+     }
+    },
+    "CLMU5": {
+     "published_record_loo": {
+      "beats_REG1": 19,
+      "beats_REG2": 13,
+      "beats_KM3": 14,
+      "beats_all_three": 13,
+      "beats_meaningful_two_REG2_KM3": 13
+     },
+     "city_holdout": {
+      "beats_REG1": 19,
+      "beats_REG2": 13,
+      "beats_KM3": 14,
+      "beats_all_three": 13,
+      "beats_meaningful_two_REG2_KM3": 13
+     },
+     "delta": {
+      "beats_REG1": 0,
+      "beats_REG2": 0,
+      "beats_KM3": 0,
+      "beats_all_three": 0,
+      "beats_meaningful_two_REG2_KM3": 0
+     }
+    }
+   },
+   "excl_mpls17": {
+    "TEB": {
+     "published_record_loo": {
+      "beats_REG1": 17,
+      "beats_REG2": 4,
+      "beats_KM3": 8,
+      "beats_all_three": 3,
+      "beats_meaningful_two_REG2_KM3": 3
+     },
+     "city_holdout": {
+      "beats_REG1": 17,
+      "beats_REG2": 4,
+      "beats_KM3": 8,
+      "beats_all_three": 3,
+      "beats_meaningful_two_REG2_KM3": 3
+     },
+     "delta": {
+      "beats_REG1": 0,
+      "beats_REG2": 0,
+      "beats_KM3": 0,
+      "beats_all_three": 0,
+      "beats_meaningful_two_REG2_KM3": 0
+     }
+    },
+    "CLMU5": {
+     "published_record_loo": {
+      "beats_REG1": 17,
+      "beats_REG2": 11,
+      "beats_KM3": 12,
+      "beats_all_three": 11,
+      "beats_meaningful_two_REG2_KM3": 11
+     },
+     "city_holdout": {
+      "beats_REG1": 17,
+      "beats_REG2": 11,
+      "beats_KM3": 12,
+      "beats_all_three": 11,
+      "beats_meaningful_two_REG2_KM3": 11
+     },
+     "delta": {
+      "beats_REG1": 0,
+      "beats_REG2": 0,
+      "beats_KM3": 0,
+      "beats_all_three": 0,
+      "beats_meaningful_two_REG2_KM3": 0
+     }
+    }
+   },
+   "core16": {
+    "TEB": {
+     "published_record_loo": {
+      "beats_REG1": 16,
+      "beats_REG2": 3,
+      "beats_KM3": 7,
+      "beats_all_three": 2,
+      "beats_meaningful_two_REG2_KM3": 2
+     },
+     "city_holdout": {
+      "beats_REG1": 16,
+      "beats_REG2": 3,
+      "beats_KM3": 7,
+      "beats_all_three": 2,
+      "beats_meaningful_two_REG2_KM3": 2
+     },
+     "delta": {
+      "beats_REG1": 0,
+      "beats_REG2": 0,
+      "beats_KM3": 0,
+      "beats_all_three": 0,
+      "beats_meaningful_two_REG2_KM3": 0
+     }
+    },
+    "CLMU5": {
+     "published_record_loo": {
+      "beats_REG1": 16,
+      "beats_REG2": 10,
+      "beats_KM3": 11,
+      "beats_all_three": 10,
+      "beats_meaningful_two_REG2_KM3": 10
+     },
+     "city_holdout": {
+      "beats_REG1": 16,
+      "beats_REG2": 10,
+      "beats_KM3": 11,
+      "beats_all_three": 10,
+      "beats_meaningful_two_REG2_KM3": 10
+     },
+     "delta": {
+      "beats_REG1": 0,
+      "beats_REG2": 0,
+      "beats_KM3": 0,
+      "beats_all_three": 0,
+      "beats_meaningful_two_REG2_KM3": 0
+     }
+    }
+   },
+   "core15": {
+    "TEB": {
+     "published_record_loo": {
+      "beats_REG1": 15,
+      "beats_REG2": 2,
+      "beats_KM3": 6,
+      "beats_all_three": 1,
+      "beats_meaningful_two_REG2_KM3": 1
+     },
+     "city_holdout": {
+      "beats_REG1": 15,
+      "beats_REG2": 2,
+      "beats_KM3": 6,
+      "beats_all_three": 1,
+      "beats_meaningful_two_REG2_KM3": 1
+     },
+     "delta": {
+      "beats_REG1": 0,
+      "beats_REG2": 0,
+      "beats_KM3": 0,
+      "beats_all_three": 0,
+      "beats_meaningful_two_REG2_KM3": 0
+     }
+    },
+    "CLMU5": {
+     "published_record_loo": {
+      "beats_REG1": 15,
+      "beats_REG2": 9,
+      "beats_KM3": 10,
+      "beats_all_three": 9,
+      "beats_meaningful_two_REG2_KM3": 9
+     },
+     "city_holdout": {
+      "beats_REG1": 15,
+      "beats_REG2": 9,
+      "beats_KM3": 10,
+      "beats_all_three": 9,
+      "beats_meaningful_two_REG2_KM3": 9
+     },
+     "delta": {
+      "beats_REG1": 0,
+      "beats_REG2": 0,
+      "beats_KM3": 0,
+      "beats_all_three": 0,
+      "beats_meaningful_two_REG2_KM3": 0
+     }
+    }
+   }
+  },
+  "protocol_sensitivity": {
+   "ols_affine_invariance_check": {
+    "statement": "standardizing the REG1/REG2 design matrix inside the training fold leaves the predictions, and hence the MAEs and win counts, unchanged to floating-point tolerance; standardization is therefore only a KM3 question",
+    "per_scheme": {
+     "TEB": {
+      "max_abs_REG1_MAE_change_Wm2": 4.263256414560601e-14,
+      "max_abs_REG2_MAE_change_Wm2": 1.3740120152760937e-12
+     },
+     "CLMU5": {
+      "max_abs_REG1_MAE_change_Wm2": 7.105427357601002e-14,
+      "max_abs_REG2_MAE_change_Wm2": 1.623590151211829e-12
+     }
+    }
+   },
+   "km3_pooled_vs_in_fold_standardizer": {
+    "statement": "the KM3 standardizer is fitted inside the fold in both the published run and here; refitting it on the pooled corpus (a mild leak) is reported only to show the choice is not doing any work",
+    "per_scheme": {
+     "TEB": {
+      "win_counts_all19": {
+       "beats_REG1": 19,
+       "beats_REG2": 4,
+       "beats_KM3": 10,
+       "beats_all_three": 3,
+       "beats_meaningful_two_REG2_KM3": 3
+      },
+      "win_counts_all19_in_fold_scaler": {
+       "beats_REG1": 19,
+       "beats_REG2": 4,
+       "beats_KM3": 10,
+       "beats_all_three": 3,
+       "beats_meaningful_two_REG2_KM3": 3
+      },
+      "max_abs_KM3_MAE_change_Wm2": 0.6493007534288839,
+      "counts_identical": true
+     },
+     "CLMU5": {
+      "win_counts_all19": {
+       "beats_REG1": 19,
+       "beats_REG2": 13,
+       "beats_KM3": 14,
+       "beats_all_three": 13,
+       "beats_meaningful_two_REG2_KM3": 13
+      },
+      "win_counts_all19_in_fold_scaler": {
+       "beats_REG1": 19,
+       "beats_REG2": 13,
+       "beats_KM3": 14,
+       "beats_all_three": 13,
+       "beats_meaningful_two_REG2_KM3": 13
+      },
+      "max_abs_KM3_MAE_change_Wm2": 1.107523938871771,
+      "counts_identical": true
+     }
+    }
+   }
+  }
+ },
+ "bias_structure_decomposition": {
+  "note": "bias share of MSE is a property of the model runs and is unchanged by the fold definition; the debiased-proxy win counts are recomputed against the CITY-HOLDOUT benchmark MAEs. Two proxies are reported: mean|e-MBE| (the proxy used in nocturnal_benchmark_skill.bias_decomposition) and cRMSE (the proxy used in benchmark_error_decomposition).",
+  "per_record": {
+   "TEB": {
+    "AU-Preston": {
+     "MBE": 14.386012053640613,
+     "MAE": 14.389306668552116,
+     "RMSE": 14.903645797995459,
+     "cRMSE": 3.893753364636068,
+     "debiased_MAE": 2.9959968053221915,
+     "abs_MBE_over_MAE": 0.9997710372718163,
+     "bias_share_of_MSE": 0.9317422705674154,
+     "REG2_MAE": 15.298321228033787,
+     "KM3_MAE": 12.740723647231624,
+     "raw_beats_REG2": true,
+     "raw_beats_KM3": false,
+     "raw_beats_both": false,
+     "demae_beats_REG2": true,
+     "demae_beats_KM3": true,
+     "demae_beats_both": true,
+     "crmse_beats_REG2": true,
+     "crmse_beats_KM3": true,
+     "crmse_beats_both": true
+    },
+    "CA-Sunset": {
+     "MBE": 4.595953942416941,
+     "MAE": 7.324749148694061,
+     "RMSE": 11.457078154288242,
+     "cRMSE": 10.494848602655068,
+     "debiased_MAE": 7.48602139031986,
+     "abs_MBE_over_MAE": 0.6274554730978547,
+     "bias_share_of_MSE": 0.16091761397140628,
+     "REG2_MAE": 5.816122800448311,
+     "KM3_MAE": 7.911040686507672,
+     "raw_beats_REG2": false,
+     "raw_beats_KM3": true,
+     "raw_beats_both": false,
+     "demae_beats_REG2": false,
+     "demae_beats_KM3": true,
+     "demae_beats_both": false,
+     "crmse_beats_REG2": false,
+     "crmse_beats_KM3": false,
+     "crmse_beats_both": false
+    },
+    "FI-Kumpula": {
+     "MBE": 4.821678347963758,
+     "MAE": 5.247479049589033,
+     "RMSE": 7.347471114435101,
+     "cRMSE": 5.544073383915086,
+     "debiased_MAE": 4.379502082028708,
+     "abs_MBE_over_MAE": 0.9188561407103432,
+     "bias_share_of_MSE": 0.4306462760488222,
+     "REG2_MAE": 5.7326576496324595,
+     "KM3_MAE": 7.6289875813844175,
+     "raw_beats_REG2": true,
+     "raw_beats_KM3": true,
+     "raw_beats_both": true,
+     "demae_beats_REG2": true,
+     "demae_beats_KM3": true,
+     "demae_beats_both": true,
+     "crmse_beats_REG2": true,
+     "crmse_beats_KM3": true,
+     "crmse_beats_both": true
+    },
+    "FI-Torni": {
+     "MBE": 5.9266826099852725,
+     "MAE": 6.74739229460991,
+     "RMSE": 9.279117564678423,
+     "cRMSE": 7.139779829912248,
+     "debiased_MAE": 5.669928288727057,
+     "abs_MBE_over_MAE": 0.878366389741374,
+     "bias_share_of_MSE": 0.4079528636581396,
+     "REG2_MAE": 3.9224223853795293,
+     "KM3_MAE": 6.357954423912504,
+     "raw_beats_REG2": false,
+     "raw_beats_KM3": false,
+     "raw_beats_both": false,
+     "demae_beats_REG2": false,
+     "demae_beats_KM3": true,
+     "demae_beats_both": false,
+     "crmse_beats_REG2": false,
+     "crmse_beats_KM3": false,
+     "crmse_beats_both": false
+    },
+    "FR-Capitole": {
+     "MBE": 2.632416083564692,
+     "MAE": 4.7216932275378385,
+     "RMSE": 5.9583002810738215,
+     "cRMSE": 5.345252828672776,
+     "debiased_MAE": 4.446654391780579,
+     "abs_MBE_over_MAE": 0.5575152718969387,
+     "bias_share_of_MSE": 0.1951930265135385,
+     "REG2_MAE": 3.9477167186403475,
+     "KM3_MAE": 6.813527550363118,
+     "raw_beats_REG2": false,
+     "raw_beats_KM3": true,
+     "raw_beats_both": false,
+     "demae_beats_REG2": false,
+     "demae_beats_KM3": true,
+     "demae_beats_both": false,
+     "crmse_beats_REG2": false,
+     "crmse_beats_KM3": true,
+     "crmse_beats_both": false
+    },
+    "GR-HECKOR": {
+     "MBE": 13.358872840982222,
+     "MAE": 13.359235320186839,
+     "RMSE": 14.278493727711812,
+     "cRMSE": 5.041418406636483,
+     "debiased_MAE": 3.961362541519774,
+     "abs_MBE_over_MAE": 0.9999728667699963,
+     "bias_share_of_MSE": 0.8753361040441091,
+     "REG2_MAE": 12.970913057121315,
+     "KM3_MAE": 11.464261413131977,
+     "raw_beats_REG2": false,
+     "raw_beats_KM3": false,
+     "raw_beats_both": false,
+     "demae_beats_REG2": true,
+     "demae_beats_KM3": true,
+     "demae_beats_both": true,
+     "crmse_beats_REG2": true,
+     "crmse_beats_KM3": true,
+     "crmse_beats_both": true
+    },
+    "JP-Yoyogi": {
+     "MBE": 12.266671806419287,
+     "MAE": 12.320553489210162,
+     "RMSE": 14.11763667525945,
+     "cRMSE": 6.988306525062337,
+     "debiased_MAE": 5.530922768519467,
+     "abs_MBE_over_MAE": 0.9956266832623987,
+     "bias_share_of_MSE": 0.7549696444638224,
+     "REG2_MAE": 5.244799309983706,
+     "KM3_MAE": 8.906804015113238,
+     "raw_beats_REG2": false,
+     "raw_beats_KM3": false,
+     "raw_beats_both": false,
+     "demae_beats_REG2": false,
+     "demae_beats_KM3": true,
+     "demae_beats_both": false,
+     "crmse_beats_REG2": false,
+     "crmse_beats_KM3": true,
+     "crmse_beats_both": false
+    },
+    "KR-Jungnang": {
+     "MBE": 11.786706705700684,
+     "MAE": 12.018172899502009,
+     "RMSE": 13.933590168164326,
+     "cRMSE": 7.4309138070735345,
+     "debiased_MAE": 5.937336110724058,
+     "abs_MBE_over_MAE": 0.9807403175393727,
+     "bias_share_of_MSE": 0.7155811455217875,
+     "REG2_MAE": 5.5123286095668345,
+     "KM3_MAE": 9.955850902492987,
+     "raw_beats_REG2": false,
+     "raw_beats_KM3": false,
+     "raw_beats_both": false,
+     "demae_beats_REG2": false,
+     "demae_beats_KM3": true,
+     "demae_beats_both": false,
+     "crmse_beats_REG2": false,
+     "crmse_beats_KM3": true,
+     "crmse_beats_both": false
+    },
+    "KR-Ochang": {
+     "MBE": 21.481985481926962,
+     "MAE": 21.48260486239267,
+     "RMSE": 23.7143779440987,
+     "cRMSE": 10.044701141887407,
+     "debiased_MAE": 8.135183730162579,
+     "abs_MBE_over_MAE": 0.999971168279188,
+     "bias_share_of_MSE": 0.8205883809360386,
+     "REG2_MAE": 13.626079072183003,
+     "KM3_MAE": 14.866484457415408,
+     "raw_beats_REG2": false,
+     "raw_beats_KM3": false,
+     "raw_beats_both": false,
+     "demae_beats_REG2": true,
+     "demae_beats_KM3": true,
+     "demae_beats_both": true,
+     "crmse_beats_REG2": true,
+     "crmse_beats_KM3": true,
+     "crmse_beats_both": true
+    },
+    "NL-Amsterdam": {
+     "MBE": 7.747437421139964,
+     "MAE": 7.947328119822177,
+     "RMSE": 9.838918827404994,
+     "cRMSE": 6.064778404672722,
+     "debiased_MAE": 4.780608340697164,
+     "abs_MBE_over_MAE": 0.9748480626861692,
+     "bias_share_of_MSE": 0.6200424144823216,
+     "REG2_MAE": 4.583683914774441,
+     "KM3_MAE": 7.370771296669058,
+     "raw_beats_REG2": false,
+     "raw_beats_KM3": false,
+     "raw_beats_both": false,
+     "demae_beats_REG2": false,
+     "demae_beats_KM3": true,
+     "demae_beats_both": false,
+     "crmse_beats_REG2": false,
+     "crmse_beats_KM3": true,
+     "crmse_beats_both": false
+    },
+    "PL-Lipowa": {
+     "MBE": -14.512326096003902,
+     "MAE": 14.594355875040806,
+     "RMSE": 15.445176542597926,
+     "cRMSE": 5.28638531657137,
+     "debiased_MAE": 3.989743278792969,
+     "abs_MBE_over_MAE": 0.9943793491306326,
+     "bias_share_of_MSE": 0.8828528097810765,
+     "REG2_MAE": 32.947960945181066,
+     "KM3_MAE": 29.557627289720983,
+     "raw_beats_REG2": true,
+     "raw_beats_KM3": true,
+     "raw_beats_both": true,
+     "demae_beats_REG2": true,
+     "demae_beats_KM3": true,
+     "demae_beats_both": true,
+     "crmse_beats_REG2": true,
+     "crmse_beats_KM3": true,
+     "crmse_beats_both": true
+    },
+    "PL-Narutowicza": {
+     "MBE": 3.6822529833318036,
+     "MAE": 12.078210533787642,
+     "RMSE": 13.55593876245991,
+     "cRMSE": 13.046244237262583,
+     "debiased_MAE": 11.404812583960673,
+     "abs_MBE_over_MAE": 0.30486742825280716,
+     "bias_share_of_MSE": 0.07378499442981032,
+     "REG2_MAE": 14.168010237735071,
+     "KM3_MAE": 16.170362406631433,
+     "raw_beats_REG2": true,
+     "raw_beats_KM3": true,
+     "raw_beats_both": true,
+     "demae_beats_REG2": true,
+     "demae_beats_KM3": true,
+     "demae_beats_both": true,
+     "crmse_beats_REG2": true,
+     "crmse_beats_KM3": true,
+     "crmse_beats_both": true
+    },
+    "SG-TelokKurau06": {
+     "MBE": 12.307767195662189,
+     "MAE": 12.307767195662189,
+     "RMSE": 13.451739430735163,
+     "cRMSE": 5.428458378745926,
+     "debiased_MAE": 4.280560633778198,
+     "abs_MBE_over_MAE": 1.0,
+     "bias_share_of_MSE": 0.8371468616140928,
+     "REG2_MAE": 5.758474322064483,
+     "KM3_MAE": 9.442099233189985,
+     "raw_beats_REG2": false,
+     "raw_beats_KM3": false,
+     "raw_beats_both": false,
+     "demae_beats_REG2": true,
+     "demae_beats_KM3": true,
+     "demae_beats_both": true,
+     "crmse_beats_REG2": true,
+     "crmse_beats_KM3": true,
+     "crmse_beats_both": true
+    },
+    "UK-KingsCollege": {
+     "MBE": 6.549069373114565,
+     "MAE": 7.099271055630192,
+     "RMSE": 9.373296721647312,
+     "cRMSE": 6.705846835275694,
+     "debiased_MAE": 5.306981322661948,
+     "abs_MBE_over_MAE": 0.9224988483741186,
+     "bias_share_of_MSE": 0.4881737817258685,
+     "REG2_MAE": 5.636674035042038,
+     "KM3_MAE": 6.355693887746797,
+     "raw_beats_REG2": false,
+     "raw_beats_KM3": false,
+     "raw_beats_both": false,
+     "demae_beats_REG2": true,
+     "demae_beats_KM3": true,
+     "demae_beats_both": true,
+     "crmse_beats_REG2": false,
+     "crmse_beats_KM3": false,
+     "crmse_beats_both": false
+    },
+    "UK-Swindon": {
+     "MBE": 7.826312186042306,
+     "MAE": 7.8347950774311235,
+     "RMSE": 9.197392737999817,
+     "cRMSE": 4.831239048486161,
+     "debiased_MAE": 3.757638570832598,
+     "abs_MBE_over_MAE": 0.9989172797367408,
+     "bias_share_of_MSE": 0.7240771989156959,
+     "REG2_MAE": 7.256399633631987,
+     "KM3_MAE": 8.568455876261076,
+     "raw_beats_REG2": false,
+     "raw_beats_KM3": true,
+     "raw_beats_both": false,
+     "demae_beats_REG2": true,
+     "demae_beats_KM3": true,
+     "demae_beats_both": true,
+     "crmse_beats_REG2": true,
+     "crmse_beats_KM3": true,
+     "crmse_beats_both": true
+    },
+    "US-Baltimore": {
+     "MBE": 4.929212948387481,
+     "MAE": 5.284964980235524,
+     "RMSE": 6.612941357363791,
+     "cRMSE": 4.40838440989232,
+     "debiased_MAE": 3.442838380830337,
+     "abs_MBE_over_MAE": 0.9326860190789402,
+     "bias_share_of_MSE": 0.5556045816423358,
+     "REG2_MAE": 5.024879630216773,
+     "KM3_MAE": 7.649210249816038,
+     "raw_beats_REG2": false,
+     "raw_beats_KM3": true,
+     "raw_beats_both": false,
+     "demae_beats_REG2": true,
+     "demae_beats_KM3": true,
+     "demae_beats_both": true,
+     "crmse_beats_REG2": true,
+     "crmse_beats_KM3": true,
+     "crmse_beats_both": true
+    },
+    "US-Minneapolis1": {
+     "MBE": 18.741523875118666,
+     "MAE": 18.84566044597407,
+     "RMSE": 22.853013116650903,
+     "cRMSE": 13.077289143709226,
+     "debiased_MAE": 10.232966884062197,
+     "abs_MBE_over_MAE": 0.9944742413695749,
+     "bias_share_of_MSE": 0.6725473460133231,
+     "REG2_MAE": 18.514030559734415,
+     "KM3_MAE": 22.516272513330435,
+     "raw_beats_REG2": false,
+     "raw_beats_KM3": true,
+     "raw_beats_both": false,
+     "demae_beats_REG2": true,
+     "demae_beats_KM3": true,
+     "demae_beats_both": true,
+     "crmse_beats_REG2": true,
+     "crmse_beats_KM3": true,
+     "crmse_beats_both": true
+    },
+    "US-Minneapolis2": {
+     "MBE": 18.77569884863641,
+     "MAE": 18.911267573913506,
+     "RMSE": 23.01506255897397,
+     "cRMSE": 13.310380811186391,
+     "debiased_MAE": 10.437062639884156,
+     "abs_MBE_over_MAE": 0.992831325306607,
+     "bias_share_of_MSE": 0.6655304065648247,
+     "REG2_MAE": 18.514030559734415,
+     "KM3_MAE": 22.516272513330435,
+     "raw_beats_REG2": false,
+     "raw_beats_KM3": true,
+     "raw_beats_both": false,
+     "demae_beats_REG2": true,
+     "demae_beats_KM3": true,
+     "demae_beats_both": true,
+     "crmse_beats_REG2": true,
+     "crmse_beats_KM3": true,
+     "crmse_beats_both": true
+    },
+    "US-WestPhoenix": {
+     "MBE": 18.263431394658344,
+     "MAE": 18.263431394658344,
+     "RMSE": 18.836213774104337,
+     "cRMSE": 4.609774727290475,
+     "debiased_MAE": 3.646416907979375,
+     "abs_MBE_over_MAE": 1.0,
+     "bias_share_of_MSE": 0.940107535532977,
+     "REG2_MAE": 12.920176377251277,
+     "KM3_MAE": 36.19155741940085,
+     "raw_beats_REG2": false,
+     "raw_beats_KM3": true,
+     "raw_beats_both": false,
+     "demae_beats_REG2": true,
+     "demae_beats_KM3": true,
+     "demae_beats_both": true,
+     "crmse_beats_REG2": true,
+     "crmse_beats_KM3": true,
+     "crmse_beats_both": true
+    }
+   },
+   "CLMU5": {
+    "AU-Preston": {
+     "MBE": 1.4700549842730593,
+     "MAE": 4.158473016274318,
+     "RMSE": 5.184838462643551,
+     "cRMSE": 4.972070818775802,
+     "debiased_MAE": 3.9338538140771786,
+     "abs_MBE_over_MAE": 0.3535083619684321,
+     "bias_share_of_MSE": 0.08038901317526306,
+     "REG2_MAE": 15.298378242543109,
+     "KM3_MAE": 12.828379039861508,
+     "raw_beats_REG2": true,
+     "raw_beats_KM3": true,
+     "raw_beats_both": true,
+     "demae_beats_REG2": true,
+     "demae_beats_KM3": true,
+     "demae_beats_both": true,
+     "crmse_beats_REG2": true,
+     "crmse_beats_KM3": true,
+     "crmse_beats_both": true
+    },
+    "CA-Sunset": {
+     "MBE": -6.233517286672781,
+     "MAE": 8.069758816498462,
+     "RMSE": 9.347423195929462,
+     "cRMSE": 6.965456384225787,
+     "debiased_MAE": 4.383561609777413,
+     "abs_MBE_over_MAE": 0.7724539764346461,
+     "bias_share_of_MSE": 0.4447157652691556,
+     "REG2_MAE": 5.816101295386108,
+     "KM3_MAE": 7.992224853318328,
+     "raw_beats_REG2": false,
+     "raw_beats_KM3": false,
+     "raw_beats_both": false,
+     "demae_beats_REG2": true,
+     "demae_beats_KM3": true,
+     "demae_beats_both": true,
+     "crmse_beats_REG2": false,
+     "crmse_beats_KM3": true,
+     "crmse_beats_both": false
+    },
+    "FI-Kumpula": {
+     "MBE": -0.5108240915327521,
+     "MAE": 3.5205132495812097,
+     "RMSE": 4.923613251917478,
+     "cRMSE": 4.897042597524258,
+     "debiased_MAE": 3.423330870689648,
+     "abs_MBE_over_MAE": 0.14509932368341982,
+     "bias_share_of_MSE": 0.010764029486487985,
+     "REG2_MAE": 5.732683882095701,
+     "KM3_MAE": 7.710231182307386,
+     "raw_beats_REG2": true,
+     "raw_beats_KM3": true,
+     "raw_beats_both": true,
+     "demae_beats_REG2": true,
+     "demae_beats_KM3": true,
+     "demae_beats_both": true,
+     "crmse_beats_REG2": true,
+     "crmse_beats_KM3": true,
+     "crmse_beats_both": true
+    },
+    "FI-Torni": {
+     "MBE": -3.901660428088387,
+     "MAE": 4.03627429964694,
+     "RMSE": 4.774116506923895,
+     "cRMSE": 2.7512241503687695,
+     "debiased_MAE": 2.185416821883032,
+     "abs_MBE_over_MAE": 0.9666489783485905,
+     "bias_share_of_MSE": 0.6679022573202575,
+     "REG2_MAE": 3.922440572967422,
+     "KM3_MAE": 6.506826630951396,
+     "raw_beats_REG2": false,
+     "raw_beats_KM3": true,
+     "raw_beats_both": false,
+     "demae_beats_REG2": true,
+     "demae_beats_KM3": true,
+     "demae_beats_both": true,
+     "crmse_beats_REG2": true,
+     "crmse_beats_KM3": true,
+     "crmse_beats_both": true
+    },
+    "FR-Capitole": {
+     "MBE": -11.17329679350029,
+     "MAE": 11.192425145743469,
+     "RMSE": 12.501078402835848,
+     "cRMSE": 5.606638921689627,
+     "debiased_MAE": 4.690136815302804,
+     "abs_MBE_over_MAE": 0.9982909555351859,
+     "bias_share_of_MSE": 0.7988545480407225,
+     "REG2_MAE": 3.9477330933374692,
+     "KM3_MAE": 6.777833831627781,
+     "raw_beats_REG2": false,
+     "raw_beats_KM3": false,
+     "raw_beats_both": false,
+     "demae_beats_REG2": false,
+     "demae_beats_KM3": true,
+     "demae_beats_both": false,
+     "crmse_beats_REG2": false,
+     "crmse_beats_KM3": true,
+     "crmse_beats_both": false
+    },
+    "GR-HECKOR": {
+     "MBE": -5.564200012161831,
+     "MAE": 7.750731691140595,
+     "RMSE": 9.322608662235448,
+     "cRMSE": 7.480020754907414,
+     "debiased_MAE": 6.151733733266857,
+     "abs_MBE_over_MAE": 0.7178935143016163,
+     "bias_share_of_MSE": 0.356230054654616,
+     "REG2_MAE": 12.97256694843548,
+     "KM3_MAE": 11.040987794408728,
+     "raw_beats_REG2": true,
+     "raw_beats_KM3": true,
+     "raw_beats_both": true,
+     "demae_beats_REG2": true,
+     "demae_beats_KM3": true,
+     "demae_beats_both": true,
+     "crmse_beats_REG2": true,
+     "crmse_beats_KM3": true,
+     "crmse_beats_both": true
+    },
+    "JP-Yoyogi": {
+     "MBE": -4.500076574889054,
+     "MAE": 5.00878326488948,
+     "RMSE": 6.122876640205018,
+     "cRMSE": 4.151978946394488,
+     "debiased_MAE": 3.468927637595348,
+     "abs_MBE_over_MAE": 0.898437072818392,
+     "bias_share_of_MSE": 0.5401679203606545,
+     "REG2_MAE": 5.244782298927492,
+     "KM3_MAE": 8.8024620166875,
+     "raw_beats_REG2": true,
+     "raw_beats_KM3": true,
+     "raw_beats_both": true,
+     "demae_beats_REG2": true,
+     "demae_beats_KM3": true,
+     "demae_beats_both": true,
+     "crmse_beats_REG2": true,
+     "crmse_beats_KM3": true,
+     "crmse_beats_both": true
+    },
+    "KR-Jungnang": {
+     "MBE": -10.394323243261146,
+     "MAE": 10.49010572453806,
+     "RMSE": 11.399623755745559,
+     "cRMSE": 4.680754862963833,
+     "debiased_MAE": 3.7432549441383354,
+     "abs_MBE_over_MAE": 0.9908692549158143,
+     "bias_share_of_MSE": 0.8314026442472818,
+     "REG2_MAE": 5.512309764455419,
+     "KM3_MAE": 9.9268056706992,
+     "raw_beats_REG2": false,
+     "raw_beats_KM3": false,
+     "raw_beats_both": false,
+     "demae_beats_REG2": true,
+     "demae_beats_KM3": true,
+     "demae_beats_both": true,
+     "crmse_beats_REG2": true,
+     "crmse_beats_KM3": true,
+     "crmse_beats_both": true
+    },
+    "KR-Ochang": {
+     "MBE": 10.790987163454169,
+     "MAE": 10.850061961603696,
+     "RMSE": 12.592487601644077,
+     "cRMSE": 6.490403688194374,
+     "debiased_MAE": 5.168036550119274,
+     "abs_MBE_over_MAE": 0.994555349235923,
+     "bias_share_of_MSE": 0.734343555603325,
+     "REG2_MAE": 13.626120172940256,
+     "KM3_MAE": 14.70998209648075,
+     "raw_beats_REG2": true,
+     "raw_beats_KM3": true,
+     "raw_beats_both": true,
+     "demae_beats_REG2": true,
+     "demae_beats_KM3": true,
+     "demae_beats_both": true,
+     "crmse_beats_REG2": true,
+     "crmse_beats_KM3": true,
+     "crmse_beats_both": true
+    },
+    "NL-Amsterdam": {
+     "MBE": -8.242006567222981,
+     "MAE": 9.210650130301568,
+     "RMSE": 10.040730208450025,
+     "cRMSE": 5.734595963512524,
+     "debiased_MAE": 4.326722123394829,
+     "abs_MBE_over_MAE": 0.8948343982916142,
+     "bias_share_of_MSE": 0.6738066870624239,
+     "REG2_MAE": 4.583684144547832,
+     "KM3_MAE": 7.411012014395489,
+     "raw_beats_REG2": false,
+     "raw_beats_KM3": false,
+     "raw_beats_both": false,
+     "demae_beats_REG2": true,
+     "demae_beats_KM3": true,
+     "demae_beats_both": true,
+     "crmse_beats_REG2": false,
+     "crmse_beats_KM3": true,
+     "crmse_beats_both": false
+    },
+    "PL-Lipowa": {
+     "MBE": -26.4271382886763,
+     "MAE": 26.4271382886763,
+     "RMSE": 27.532675304953756,
+     "cRMSE": 7.723637182001073,
+     "debiased_MAE": 6.310848732373925,
+     "abs_MBE_over_MAE": 1.0,
+     "bias_share_of_MSE": 0.9213050429040281,
+     "REG2_MAE": 32.94794249182405,
+     "KM3_MAE": 29.610141568693624,
+     "raw_beats_REG2": true,
+     "raw_beats_KM3": true,
+     "raw_beats_both": true,
+     "demae_beats_REG2": true,
+     "demae_beats_KM3": true,
+     "demae_beats_both": true,
+     "crmse_beats_REG2": true,
+     "crmse_beats_KM3": true,
+     "crmse_beats_both": true
+    },
+    "PL-Narutowicza": {
+     "MBE": -5.622635260675868,
+     "MAE": 11.031790265467126,
+     "RMSE": 13.46984319496992,
+     "cRMSE": 12.240206224671294,
+     "debiased_MAE": 11.763807515104466,
+     "abs_MBE_over_MAE": 0.5096756850315071,
+     "bias_share_of_MSE": 0.17424276074908718,
+     "REG2_MAE": 14.168011867797414,
+     "KM3_MAE": 16.292408104394745,
+     "raw_beats_REG2": true,
+     "raw_beats_KM3": true,
+     "raw_beats_both": true,
+     "demae_beats_REG2": true,
+     "demae_beats_KM3": true,
+     "demae_beats_both": true,
+     "crmse_beats_REG2": true,
+     "crmse_beats_KM3": true,
+     "crmse_beats_both": true
+    },
+    "SG-TelokKurau06": {
+     "MBE": -10.57046938838441,
+     "MAE": 10.58735933881214,
+     "RMSE": 11.239580823182392,
+     "cRMSE": 3.8201248657704228,
+     "debiased_MAE": 3.1385863190486667,
+     "abs_MBE_over_MAE": 0.9984047060379057,
+     "bias_share_of_MSE": 0.8844806097317638,
+     "REG2_MAE": 5.758367373265794,
+     "KM3_MAE": 9.093889853326399,
+     "raw_beats_REG2": false,
+     "raw_beats_KM3": false,
+     "raw_beats_both": false,
+     "demae_beats_REG2": true,
+     "demae_beats_KM3": true,
+     "demae_beats_both": true,
+     "crmse_beats_REG2": true,
+     "crmse_beats_KM3": true,
+     "crmse_beats_both": true
+    },
+    "UK-KingsCollege": {
+     "MBE": -5.319030793735284,
+     "MAE": 5.422596882614114,
+     "RMSE": 6.390808205736394,
+     "cRMSE": 3.5426460361999785,
+     "debiased_MAE": 2.8834198296203017,
+     "abs_MBE_over_MAE": 0.980901016409521,
+     "bias_share_of_MSE": 0.6927131641155891,
+     "REG2_MAE": 5.6364973395782005,
+     "KM3_MAE": 6.315151714512361,
+     "raw_beats_REG2": true,
+     "raw_beats_KM3": true,
+     "raw_beats_both": true,
+     "demae_beats_REG2": true,
+     "demae_beats_KM3": true,
+     "demae_beats_both": true,
+     "crmse_beats_REG2": true,
+     "crmse_beats_KM3": true,
+     "crmse_beats_both": true
+    },
+    "UK-Swindon": {
+     "MBE": 0.162804162426775,
+     "MAE": 1.9630933937459982,
+     "RMSE": 2.601110367982262,
+     "cRMSE": 2.5960103911813093,
+     "debiased_MAE": 1.9641138466919783,
+     "abs_MBE_over_MAE": 0.08293245901872766,
+     "bias_share_of_MSE": 0.003917540079275271,
+     "REG2_MAE": 7.256438318486358,
+     "KM3_MAE": 8.553207110835547,
+     "raw_beats_REG2": true,
+     "raw_beats_KM3": true,
+     "raw_beats_both": true,
+     "demae_beats_REG2": true,
+     "demae_beats_KM3": true,
+     "demae_beats_both": true,
+     "crmse_beats_REG2": true,
+     "crmse_beats_KM3": true,
+     "crmse_beats_both": true
+    },
+    "US-Baltimore": {
+     "MBE": -2.2677613210280487,
+     "MAE": 4.980476215708599,
+     "RMSE": 6.454800391444599,
+     "cRMSE": 6.043319177756746,
+     "debiased_MAE": 4.64122668983432,
+     "abs_MBE_over_MAE": 0.4553302179971162,
+     "bias_share_of_MSE": 0.12343236606958331,
+     "REG2_MAE": 5.024871343049999,
+     "KM3_MAE": 7.69940513423872,
+     "raw_beats_REG2": true,
+     "raw_beats_KM3": true,
+     "raw_beats_both": true,
+     "demae_beats_REG2": true,
+     "demae_beats_KM3": true,
+     "demae_beats_both": true,
+     "crmse_beats_REG2": false,
+     "crmse_beats_KM3": true,
+     "crmse_beats_both": false
+    },
+    "US-Minneapolis1": {
+     "MBE": 13.12209206457186,
+     "MAE": 13.426521957715433,
+     "RMSE": 16.788162459816903,
+     "cRMSE": 10.471537548330987,
+     "debiased_MAE": 8.232083116166645,
+     "abs_MBE_over_MAE": 0.9773262283335681,
+     "bias_share_of_MSE": 0.6109417919310792,
+     "REG2_MAE": 18.514076905959108,
+     "KM3_MAE": 22.459347130013732,
+     "raw_beats_REG2": true,
+     "raw_beats_KM3": true,
+     "raw_beats_both": true,
+     "demae_beats_REG2": true,
+     "demae_beats_KM3": true,
+     "demae_beats_both": true,
+     "crmse_beats_REG2": true,
+     "crmse_beats_KM3": true,
+     "crmse_beats_both": true
+    },
+    "US-Minneapolis2": {
+     "MBE": 14.96006612048057,
+     "MAE": 15.208719167761089,
+     "RMSE": 18.710224874674246,
+     "cRMSE": 11.23694516012819,
+     "debiased_MAE": 8.899882711443883,
+     "abs_MBE_over_MAE": 0.9836506253723454,
+     "bias_share_of_MSE": 0.639306340339491,
+     "REG2_MAE": 18.514076905959108,
+     "KM3_MAE": 22.459347130013732,
+     "raw_beats_REG2": true,
+     "raw_beats_KM3": true,
+     "raw_beats_both": true,
+     "demae_beats_REG2": true,
+     "demae_beats_KM3": true,
+     "demae_beats_both": true,
+     "crmse_beats_REG2": true,
+     "crmse_beats_KM3": true,
+     "crmse_beats_both": true
+    },
+    "US-WestPhoenix": {
+     "MBE": 4.806051124843783,
+     "MAE": 5.022553327666321,
+     "RMSE": 6.162946173050801,
+     "cRMSE": 3.8579499889590734,
+     "debiased_MAE": 3.1723610995347755,
+     "abs_MBE_over_MAE": 0.9568939962011049,
+     "bias_share_of_MSE": 0.6081350340677248,
+     "REG2_MAE": 12.920170423015955,
+     "KM3_MAE": 35.77582254633622,
+     "raw_beats_REG2": true,
+     "raw_beats_KM3": true,
+     "raw_beats_both": true,
+     "demae_beats_REG2": true,
+     "demae_beats_KM3": true,
+     "demae_beats_both": true,
+     "crmse_beats_REG2": true,
+     "crmse_beats_KM3": true,
+     "crmse_beats_both": true
+    }
+   }
+  },
+  "by_recordset": {
+   "TEB": {
+    "all19": {
+     "raw_beats_REG2": 4,
+     "raw_beats_KM3": 10,
+     "raw_beats_both": 3,
+     "demae_beats_REG2": 13,
+     "demae_beats_KM3": 19,
+     "demae_beats_both": 13,
+     "crmse_beats_REG2": 12,
+     "crmse_beats_KM3": 16,
+     "crmse_beats_both": 12,
+     "n": 19,
+     "median_bias_share_of_MSE": 0.6725473460133231,
+     "median_absMBE_over_MAE": 0.992831325306607,
+     "median_abs_MBE_Wm2": 11.786706705700684,
+     "median_cRMSE_Wm2": 6.064778404672722,
+     "median_debiased_MAE_Wm2": 4.780608340697164,
+     "corr_MAE_with_absMBE": 0.9438630759823514,
+     "corr_MAE_with_cRMSE": 0.4221396793232829,
+     "n_records_bias_dominated": 13
+    },
+    "excl_mpls17": {
+     "raw_beats_REG2": 4,
+     "raw_beats_KM3": 8,
+     "raw_beats_both": 3,
+     "demae_beats_REG2": 11,
+     "demae_beats_KM3": 17,
+     "demae_beats_both": 11,
+     "crmse_beats_REG2": 10,
+     "crmse_beats_KM3": 14,
+     "crmse_beats_both": 10,
+     "n": 17,
+     "median_bias_share_of_MSE": 0.7155811455217875,
+     "median_absMBE_over_MAE": 0.9807403175393727,
+     "median_abs_MBE_Wm2": 7.826312186042306,
+     "median_cRMSE_Wm2": 5.544073383915086,
+     "median_debiased_MAE_Wm2": 4.446654391780579,
+     "corr_MAE_with_absMBE": 0.9266630599252389,
+     "corr_MAE_with_cRMSE": 0.14545922634270333,
+     "n_records_bias_dominated": 11
+    },
+    "core16": {
+     "raw_beats_REG2": 3,
+     "raw_beats_KM3": 7,
+     "raw_beats_both": 2,
+     "demae_beats_REG2": 10,
+     "demae_beats_KM3": 16,
+     "demae_beats_both": 10,
+     "crmse_beats_REG2": 9,
+     "crmse_beats_KM3": 13,
+     "crmse_beats_both": 9,
+     "n": 16,
+     "median_bias_share_of_MSE": 0.6678117800020545,
+     "median_absMBE_over_MAE": 0.9777941901127709,
+     "median_abs_MBE_Wm2": 7.786874803591135,
+     "median_cRMSE_Wm2": 5.804425894293904,
+     "median_debiased_MAE_Wm2": 4.613631366238872,
+     "corr_MAE_with_absMBE": 0.9232949471525176,
+     "corr_MAE_with_cRMSE": 0.179282970465864,
+     "n_records_bias_dominated": 10
+    },
+    "core15": {
+     "raw_beats_REG2": 2,
+     "raw_beats_KM3": 6,
+     "raw_beats_both": 1,
+     "demae_beats_REG2": 9,
+     "demae_beats_KM3": 15,
+     "demae_beats_both": 9,
+     "crmse_beats_REG2": 8,
+     "crmse_beats_KM3": 12,
+     "crmse_beats_both": 8,
+     "n": 15,
+     "median_bias_share_of_MSE": 0.7155811455217875,
+     "median_absMBE_over_MAE": 0.9807403175393727,
+     "median_abs_MBE_Wm2": 7.826312186042306,
+     "median_cRMSE_Wm2": 5.544073383915086,
+     "median_debiased_MAE_Wm2": 4.446654391780579,
+     "corr_MAE_with_absMBE": 0.9915666427187443,
+     "corr_MAE_with_cRMSE": 0.16527288132234175,
+     "n_records_bias_dominated": 10
+    }
+   },
+   "CLMU5": {
+    "all19": {
+     "raw_beats_REG2": 13,
+     "raw_beats_KM3": 14,
+     "raw_beats_both": 13,
+     "demae_beats_REG2": 18,
+     "demae_beats_KM3": 19,
+     "demae_beats_both": 18,
+     "crmse_beats_REG2": 15,
+     "crmse_beats_KM3": 19,
+     "crmse_beats_both": 15,
+     "n": 19,
+     "median_bias_share_of_MSE": 0.6109417919310792,
+     "median_absMBE_over_MAE": 0.9568939962011049,
+     "median_abs_MBE_Wm2": 5.622635260675868,
+     "median_cRMSE_Wm2": 5.606638921689627,
+     "median_debiased_MAE_Wm2": 4.326722123394829,
+     "corr_MAE_with_absMBE": 0.9737288884659937,
+     "corr_MAE_with_cRMSE": 0.5806239315935235,
+     "n_records_bias_dominated": 12
+    },
+    "excl_mpls17": {
+     "raw_beats_REG2": 11,
+     "raw_beats_KM3": 12,
+     "raw_beats_both": 11,
+     "demae_beats_REG2": 16,
+     "demae_beats_KM3": 17,
+     "demae_beats_both": 16,
+     "crmse_beats_REG2": 13,
+     "crmse_beats_KM3": 17,
+     "crmse_beats_both": 13,
+     "n": 17,
+     "median_bias_share_of_MSE": 0.6081350340677248,
+     "median_absMBE_over_MAE": 0.898437072818392,
+     "median_abs_MBE_Wm2": 5.564200012161831,
+     "median_cRMSE_Wm2": 4.972070818775802,
+     "median_debiased_MAE_Wm2": 3.9338538140771786,
+     "corr_MAE_with_absMBE": 0.9701647503278288,
+     "corr_MAE_with_cRMSE": 0.49800810363646963,
+     "n_records_bias_dominated": 10
+    },
+    "core16": {
+     "raw_beats_REG2": 10,
+     "raw_beats_KM3": 11,
+     "raw_beats_both": 10,
+     "demae_beats_REG2": 15,
+     "demae_beats_KM3": 16,
+     "demae_beats_both": 15,
+     "crmse_beats_REG2": 12,
+     "crmse_beats_KM3": 16,
+     "crmse_beats_both": 12,
+     "n": 16,
+     "median_bias_share_of_MSE": 0.5741514772141897,
+     "median_absMBE_over_MAE": 0.8966357355550031,
+     "median_abs_MBE_Wm2": 5.441615402948558,
+     "median_cRMSE_Wm2": 4.93455670815003,
+     "median_debiased_MAE_Wm2": 3.838554379107757,
+     "corr_MAE_with_absMBE": 0.9074667034407156,
+     "corr_MAE_with_cRMSE": 0.5515377324803913,
+     "n_records_bias_dominated": 9
+    },
+    "core15": {
+     "raw_beats_REG2": 9,
+     "raw_beats_KM3": 10,
+     "raw_beats_both": 9,
+     "demae_beats_REG2": 14,
+     "demae_beats_KM3": 15,
+     "demae_beats_both": 14,
+     "crmse_beats_REG2": 11,
+     "crmse_beats_KM3": 15,
+     "crmse_beats_both": 11,
+     "n": 15,
+     "median_bias_share_of_MSE": 0.6081350340677248,
+     "median_absMBE_over_MAE": 0.898437072818392,
+     "median_abs_MBE_Wm2": 5.319030793735284,
+     "median_cRMSE_Wm2": 4.897042597524258,
+     "median_debiased_MAE_Wm2": 3.7432549441383354,
+     "corr_MAE_with_absMBE": 0.9654212430918436,
+     "corr_MAE_with_cRMSE": 0.4969508118004279,
+     "n_records_bias_dominated": 9
+    }
+   }
+  },
+  "bias_share_unchanged_check": {
+   "TEB": {
+    "published_median_absMBE_over_MAE": 0.992831325306607,
+    "recomputed_median_absMBE_over_MAE": 0.992831325306607,
+    "published_raw_beats_both": 3,
+    "published_debiased_beats_both": 13
+   },
+   "CLMU5": {
+    "published_median_absMBE_over_MAE": 0.9568939962011049,
+    "recomputed_median_absMBE_over_MAE": 0.9568939962011049,
+    "published_raw_beats_both": 13,
+    "published_debiased_beats_both": 18
+   }
+  }
+ }
+}

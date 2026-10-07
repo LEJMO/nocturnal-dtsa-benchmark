@@ -1,0 +1,26 @@
+{
+  "site": "US-Minneapolis1",
+  "lwup_bias": 13.12209206457186,
+  "n_night": 19723,
+  "qh_bias": 25.10831146720779,
+  "n_qh": 5464,
+  "dTsa_model": -0.14509249589021733,
+  "n_dtsa": 20778,
+  "align_delta": 1,
+  "align_rmse": 0.0,
+  "align_start": 17521,
+  "model_steps": 69985,
+  "lwup_bias_noDJF": 14.96003770964453,
+  "k_equiv_bias": 2.5479790416644383,
+  "provenance": {
+    "LWup_minus_(FIRA+FLDS)_night_mean": -8.440847322685431e-07,
+    "LWup_night_mean": 330.8881126335512,
+    "FIRA+FLDS_night_mean": 330.88811347763595,
+    "LWup_minus_FIRE_night_mean": 0.0,
+    "FIRE_night_mean": 330.8881126335512,
+    "Ts_minus_Tair_night_mean_K": -0.14509249589021733,
+    "TSKIN_minus_Tair_night_mean_K": -0.05556787514161049,
+    "TG_minus_Tair_night_mean_K": -0.05556228656788994,
+    "Tair_echo_vs_forcing_RMSE": 0.0
+  }
+}

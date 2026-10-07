@@ -1,0 +1,26 @@
+{
+  "site": "FR-Capitole",
+  "lwup_bias": -11.17329679350029,
+  "n_night": 4086,
+  "qh_bias": -39.343753541827795,
+  "n_qh": 3937,
+  "dTsa_model": -1.8294773590619928,
+  "n_dtsa": 4940,
+  "align_delta": 1,
+  "align_rmse": 0.0,
+  "align_start": 17521,
+  "model_steps": 35521,
+  "lwup_bias_noDJF": -10.02934998862996,
+  "k_equiv_bias": -2.1695721929126774,
+  "provenance": {
+    "LWup_minus_(FIRA+FLDS)_night_mean": -2.417183492468436e-05,
+    "LWup_night_mean": 350.6976051670337,
+    "FIRA+FLDS_night_mean": 350.69762933886864,
+    "LWup_minus_FIRE_night_mean": 0.0,
+    "FIRE_night_mean": 350.6976051670337,
+    "Ts_minus_Tair_night_mean_K": -1.8294773590619928,
+    "TSKIN_minus_Tair_night_mean_K": -1.4671042438460749,
+    "TG_minus_Tair_night_mean_K": -1.4671042438460749,
+    "Tair_echo_vs_forcing_RMSE": 0.0
+  }
+}

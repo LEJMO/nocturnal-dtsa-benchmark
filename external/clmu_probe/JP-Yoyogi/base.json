@@ -1,0 +1,23 @@
+{
+  "site": "JP-Yoyogi",
+  "config": "base",
+  "lwup_bias": -4.500076574889054,
+  "n_night": 29709,
+  "qh_bias": -5.866566621009413,
+  "n_qh": 15495,
+  "dTsa_model": -0.5016865396102501,
+  "lwup_bias_noDJF": -3.2557180107476618,
+  "align_delta": 1,
+  "align_rmse": 0.0,
+  "LWup_eq_FIRE": 0.0,
+  "minutes": 13.04,
+  "modified_fields": {
+    "(none)": "base"
+  },
+  "surf_verify_readback": {
+    "TK_ROOF": 1.2000000476837158,
+    "CV_ROOF": 1700000.0,
+    "EM_ROOF": 0.8999999761581421,
+    "ALB_ROOF_DIR": 0.23000000417232513
+  }
+}

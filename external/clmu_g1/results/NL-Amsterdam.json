@@ -1,0 +1,26 @@
+{
+  "site": "NL-Amsterdam",
+  "lwup_bias": -8.242006567222981,
+  "n_night": 6110,
+  "qh_bias": -23.1144259259308,
+  "n_qh": 5531,
+  "dTsa_model": -1.189992984469757,
+  "n_dtsa": 10354,
+  "align_delta": 1,
+  "align_rmse": 0.0,
+  "align_start": 17521,
+  "model_steps": 48817,
+  "lwup_bias_noDJF": -8.502947196156924,
+  "k_equiv_bias": -1.6003896247034914,
+  "provenance": {
+    "LWup_minus_(FIRA+FLDS)_night_mean": -9.92902265928192e-06,
+    "LWup_night_mean": 361.7021419384407,
+    "FIRA+FLDS_night_mean": 361.7021518674634,
+    "LWup_minus_FIRE_night_mean": 0.0,
+    "FIRE_night_mean": 361.7021419384407,
+    "Ts_minus_Tair_night_mean_K": -1.189992984469757,
+    "TSKIN_minus_Tair_night_mean_K": -0.9301924017467208,
+    "TG_minus_Tair_night_mean_K": -0.9301924017467208,
+    "Tair_echo_vs_forcing_RMSE": 0.0
+  }
+}
