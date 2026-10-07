@@ -6,7 +6,14 @@ version: 1.0.0
 date-released: 2026-10-07
 license: MIT
 repository-code: "https://github.com/LEJMO/nocturnal-dtsa-benchmark"
-# doi: 10.5281/zenodo.XXXXXXX   <- fill in after the first GitHub release is archived by Zenodo
+doi: 10.5281/zenodo.23205916
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.23205916
+    description: "Zenodo archive of release v1.0.0"
+  - type: doi
+    value: 10.5281/zenodo.23205915
+    description: "Zenodo concept DOI (resolves to the latest archived release)"
 authors:
   - family-names: Lee
     given-names: Junmo

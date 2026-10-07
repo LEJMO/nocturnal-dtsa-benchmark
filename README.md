@@ -17,8 +17,9 @@ manuscript and its Supplementary Material is produced by the code in this
 repository from `results/paper_stats_v1.json`, which the code also regenerates
 from the observations and the archived model output.
 
-Archived release: DOI to be added after the first GitHub release is archived
-on Zenodo. Software citation: `CITATION.cff`.
+Archived release v1.0.0: <https://doi.org/10.5281/zenodo.23205916>
+(concept DOI for all versions: <https://doi.org/10.5281/zenodo.23205915>).
+Software citation: `CITATION.cff`.
 
 ## Contents
 
