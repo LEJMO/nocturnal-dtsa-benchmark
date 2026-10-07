@@ -103,64 +103,91 @@ raw collection and therefore needs step 1 of Level 2.
 1. Obtain the Urban-PLUMBER collection and build the corpus (`data/README.md`).
 2. Run the generator chain **in this order** from the repository root. The
    first script rewrites `results/paper_stats_v1.json` wholesale; the others
-   append sections or write companion packages that the final merge folds in.
+   append sections in place or write companion packages under `results/`
+   that `review5_merge.py` folds in. The merge runs three times because the
+   round-6 audits, `review7_debiased_mae.py` and `review8_core16_and_b1.py`
+   read blocks that only exist after a merge; `review5_merge.py` is
+   idempotent, so repeated runs are safe.
 
 ```
 S=analysis/revalidation_2026-08/scripts
+# statistics package
 python $S/paper_stats.py                      # observational gradient, TEB/CLM-Urban dTsa, elimination numbers
 python $S/attribution_covariates.py           # morphology covariates and partial correlations
 python $S/review2_additions.py
 python $S/review3_additions.py
 python $S/review3b_additions.py
 python $S/review4_additions.py
-python $S/v10_tables.py                       # three-variant model comparison, z/H metadata
+python $S/v10_tables.py                       # obs metadata, level-vs-gradient (run exactly once, here)
 python $S/review5_adderley_propagation.py     # observation-uncertainty propagation (obs side)
-python $S/review5_benchmark_skill.py          # per-record skill scores and benchmarks
-python $S/review5_benchmark_cityholdout.py    # leave-one-city-cluster-out benchmark refit
-python $S/review5_benchmark_decomposition.py  # mean-bias vs temporal-structure error budget
-python $S/review5_core15.py                   # PL-Narutowicza sensitivity
-python $S/review5_model_spread_propagation.py # night-block propagation into spread ratios
-python $S/review5_obs_error_into_model.py     # observation-error scenarios on the model side (Table 5 / S2)
-python $S/review5_obs_error_into_model_ordering.py
+python $S/review5_temporal_seasonal.py        # temporal and seasonal sampling
 python $S/review5_permutation_rebuild.py      # city-block permutation inference
 python $S/review5_scheme_ordering_paired.py   # paired TEB-minus-CLM-Urban bootstrap
-python $S/review5_temporal_seasonal.py        # temporal and seasonal sampling
-SCR=./scratch python $S/review6_benchmark_holdout_verify.py      # adversarial re-verification of the benchmark
-SCR=./scratch python $S/review6_benchmark_seed_fragility.py
-SCR=./scratch python $S/review6_benchmark_dedup_pool.py
-SCR=./scratch python $S/review6_benchmark_dedup_control.py
-SCR=./scratch python $S/review6_minneapolis_duplication_audit.py
-SCR=./scratch python $S/review6_benchmark_verification_merge.py
+python $S/review5_benchmark_skill.py          # per-record skill scores and benchmarks
+python $S/review5_core15.py                   # PL-Narutowicza sensitivity
+python $S/review5_obs_error_into_model.py     # observation-error scenarios on the model side (Table 5 / S2)
+python $S/review5_obs_error_into_model_ordering.py   # same scenarios carried into the ordering claim
+python $S/review5_benchmark_cityholdout.py    # leave-one-city-cluster-out benchmark refit
+python $S/review5_run_provenance.py           # needs raw model output (Level 3); its result is shipped
+python $S/review5_constrained_experiments.py  # needs raw model output (Level 3); its result is shipped
+python $S/review5_merge.py                    # merge pass 1
+python $S/review5_benchmark_decomposition.py  # mean-bias vs temporal-structure error budget
+python $S/review5_merge.py
+# audits that read merged blocks
+python $S/review6_text_number_audit.py
 python $S/review6_adversarial_mc_bounds.py
+export SCR=./scratch; mkdir -p $SCR
+python $S/review6_benchmark_holdout_verify.py 2>&1 | tee $SCR/adv.log   # the merge below parses this log
+python $S/review6_benchmark_seed_fragility.py
+python $S/review6_benchmark_dedup_pool.py
+python $S/review6_benchmark_dedup_control.py
+python $S/review6_minneapolis_duplication_audit.py
+python $S/review6_benchmark_verification_merge.py
+python $S/review5_merge.py                    # merge pass 2
 python $S/review7_debiased_mae.py             # own-mean-bias-removed benchmark counts
+python $S/review5_merge.py
 python $S/review8_core16_and_b1.py            # core-16 metric families, albedo + sky emissivity, material perturbations in K
-python $S/review5_merge.py                    # single serialized merge into paper_stats_v1.json
+python $S/review5_merge.py                    # merge pass 3 (final)
 ```
+
+Then run the table generators of Level 1 (`review5_table_modelvar.py`
+overwrites the `table2_model_variants.tex` that `v10_tables.py` writes) and
+the figure generators. Do not re-run `v10_tables.py` after a merge: it would
+resurrect numbers the merge has superseded (its docstring says so).
 
 Inputs that these scripts read besides the corpus are all shipped:
 `external/teb_runs/<SITE>/output/LWU_base.txt` (TEB baseline upward longwave,
 19 evaluable records plus MX-Escandon), `external/clmu_g1/g2_results.json`
 (CLM-Urban per-record results after the alignment correction, with the
-pre-correction file kept for audit), the campaign summaries
-`external/teb_campaign_results.json` and `external/clmu_campaign_results.json`,
-the probe summaries under `external/clmu_probe/`, `external/dslucm_surgery/`
-and `analysis/revalidation_2026-08/evidence/`, and the auxiliary SUEWS facet
+pre-correction file kept for audit; aggregated from the per-record
+`external/clmu_g1/results/<SITE>.json`), the probe summaries under
+`external/clmu_probe/`, `external/dslucm_surgery/` and
+`analysis/revalidation_2026-08/evidence/`, and the auxiliary SUEWS facet
 values under `external/suews_g1/` (read by `paper_stats.py`; not used in the
 paper). The resampling packages (`review5_*`, `review6_*`) are the slow part
 of the chain.
 
-Three results files are shipped but regenerated only from raw model output
-that is not redistributed (see Level 3): `results/clmu_v11_rebuild.json`
-(`clmu_post_v11.py`), `results/review5_constrained.json`
-(`review5_constrained_experiments.py`) and `results/review5_run_provenance.json`
-(`review5_run_provenance.py`).
+Shipped as archived artifacts because no committed script writes them:
+`results/clmu_v11_rebuild.json` (the 19-record aggregation of
+`clmu_post_v11.py`, which is a per-record tool), `results/geometry_v11.json`
+(documented radiometer heights and z/H), `results/teb_persite_warming.json`
+(per-record warming of the albedo campaign, used only as a cross-check), and
+`evidence/probe_rows.csv` (TEB material-perturbation envelope, produced from
+the runs described in `evidence/probe_invocation_notes.md` whose namelists are
+under `external/teb_probe/`). Two further results files are regenerated only
+from raw model output that is not redistributed (Level 3):
+`results/review5_constrained.json` and `results/review5_run_provenance.json`.
+`results/review5_obs_error_ordering.json` is written by
+`review5_obs_error_into_model_ordering.py` and is quoted in the Supplement
+directly; it is not folded into `paper_stats_v1.json`.
 
-Smaller inputs in `evidence/` are produced by `conditioning_analysis.py`
-(`conditioning_table.csv`), `sign_audit.py` (`sign_audit_table.csv`) and, for
-`probe_rows.csv`, by the TEB material-perturbation runs described in
-`evidence/probe_invocation_notes.md` whose namelists are under
-`external/teb_probe/`. `flux_direction_check.py` is the script from which the
-masking and alignment convention was copied verbatim into the others.
+`evidence/sign_audit_table.csv` is produced by `sign_audit.py`;
+`evidence/conditioning_table.csv` by `conditioning_analysis.py` (exploratory;
+not read by the chain). `flux_direction_check.py` is the script from which
+the masking and alignment convention was copied verbatim into the others.
+`external/teb_campaign_results.json` and `external/clmu_campaign_results.json`
+are the outputs of the two campaign evaluators and are kept for reference;
+the chain takes the campaign numbers from `review5_constrained_experiments.py`.
 
 The differentiable single-layer probe of Supplementary Sect. S1 is
 `src/models/dslucm_forward.py` with the structural variants in

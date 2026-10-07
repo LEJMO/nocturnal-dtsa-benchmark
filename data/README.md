@@ -33,6 +33,12 @@ writes one NetCDF per site to `data/urban-plumber/corpus/<SITE>.nc` (20 files,
 about 100 MB in total) plus `data/urban-plumber/corpus_index.json`. Every
 analysis script reads the corpus through `src/training/corpus_loader.py`.
 
+`data/CORPUS_CHECKSUMS.txt` lists the SHA-256 of the 20 corpus files the
+published numbers were computed from (`sha256sum -c data/CORPUS_CHECKSUMS.txt`
+from `data/urban-plumber/corpus/`). A mismatch with a different xarray or
+netCDF4 version does not by itself mean different data; compare the variables
+in that case.
+
 Conventions baked into the corpus (see the script docstring): native
 observation window per site, hourly sites forward-filled to the 1800 s
 cadence, `night_mask` = SWdown < 1 W m-2, `pre_spinup_flag` = first six
@@ -40,7 +46,17 @@ months. AU-SurreyHills (0.4 yr) is excluded by the builder; MX-Escandon has no
 upward-longwave observations, which leaves the 19 evaluable records used in
 the paper.
 
-## 3. What else is read from the raw collection
+## 3. UTC offsets for the TEB input builder (Level 3 only)
+
+`scripts/teb_make_inputs.py` converts the local-standard-time axis of the
+corpus to UTC for TEB's solar geometry using the `station_utc_offset`
+variable of the collection's single-file observation product
+`UP_all_clean_observations_localstandardtime_v1.nc` (distributed on the same
+Zenodo record, in the observations-only archive). Place it at
+`data/urban-plumber/obs_in_one/UP_all_clean_observations_localstandardtime_v1.nc`.
+It is not needed for Levels 1 and 2.
+
+## 4. What else is read from the raw collection
 
 `<SITE>_sitedata_v1.csv` (site metadata: albedo, geometry, cover fractions,
 measurement heights) is read directly from `FullCollection/` by

@@ -1,6 +1,6 @@
 {
- "generated_utc": "2026-10-07T05:55:34Z",
- "source_commit": "0f42d5199f6155bc0d988409e15d263bbab3f5bc",
+ "generated_utc": "2026-10-07T06:09:44Z",
+ "source_commit": "cfa2b1cc594fe93055429cb1a082caa24c473051",
  "files": [
   {
    "path": "src/__init__.py",
@@ -1564,6 +1564,34 @@
    "source": "external/clmu_campaign_results.json"
   },
   {
+   "path": "external/teb_albedo19/native_albedo.json",
+   "role": "model-output",
+   "bytes": 510,
+   "sha256": "a81ce014c54adcceb524f95740d977d973c11e12f37497308e383f6fbfaea263",
+   "source": "external/teb_albedo19/native_albedo.json"
+  },
+  {
+   "path": "external/teb_albedo19/summary.json",
+   "role": "model-output",
+   "bytes": 4082,
+   "sha256": "a1c861f1000eb7d04db550f3b5d259d7e9ced4d2146fffca154c940ef838aad6",
+   "source": "external/teb_albedo19/summary.json"
+  },
+  {
+   "path": "external/teb_spinup10/_build_meta.json",
+   "role": "model-output",
+   "bytes": 1337,
+   "sha256": "79b096ab77ee0910b7d7e7a80d354b3d5f3b0f68349a789eb12afab74d18b73c",
+   "source": "external/teb_spinup10/_build_meta.json"
+  },
+  {
+   "path": "external/teb_spinup10/summary.json",
+   "role": "model-output",
+   "bytes": 4370,
+   "sha256": "a1d77018a007a9167f3afc66b7890c04dc7c29d65bc0335b0a09e6a5910dde43",
+   "source": "external/teb_spinup10/summary.json"
+  },
+  {
    "path": "external/clmu_g1/g2_results.json",
    "role": "model-output",
    "bytes": 19567,
@@ -2639,6 +2667,6 @@
    ]
   }
  ],
- "total_bytes": 32918634,
- "n_files": 351
+ "total_bytes": 32928933,
+ "n_files": 355
 }

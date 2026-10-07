@@ -1,0 +1,169 @@
+{
+ "_meta": {
+  "campaign": "B_spinup",
+  "status": "BLOCKED_NO_RUNTIME",
+  "reason": "TEB driver not executed: no WSL distro registered (WSL_E_DISTRO_NOT_FOUND; distro that held build/driver ELF & worked 2026-08-29 is gone, no ext4.vhdx to re-import); external/teb/build/driver is a Linux x86-64 ELF (unrunnable on host); no Fortran compiler/cmake on host; Docker/podman absent; shell non-elevated (cannot choco install). No run performed; no bias/dtsa fabricated.",
+  "forcing_recipe": "build full metforcing span with scripts/teb_make_inputs.py transforms; record period==metforcing TAIL (validated AU-Preston max|dTa|=4.9e-6); INB_STEP_ATM=metforcing_len-1; evaluate only record-period tail (last record_rows)",
+  "n_sites_ok": 0
+ },
+ "AU-Preston": {
+  "bias_spin_Wm2": null,
+  "dtsa_spin_K": null,
+  "n_prepend_steps": 186007,
+  "metforcing_len": 208779,
+  "record_rows": 22772,
+  "status": "BLOCKED"
+ },
+ "CA-Sunset": {
+  "bias_spin_Wm2": null,
+  "dtsa_spin_K": null,
+  "n_prepend_steps": 175296,
+  "metforcing_len": 262992,
+  "record_rows": 87696,
+  "status": "BLOCKED"
+ },
+ "FI-Kumpula": {
+  "bias_spin_Wm2": null,
+  "dtsa_spin_K": null,
+  "n_prepend_steps": 192861,
+  "metforcing_len": 245469,
+  "record_rows": 52608,
+  "status": "BLOCKED"
+ },
+ "FI-Torni": {
+  "bias_spin_Wm2": null,
+  "dtsa_spin_K": null,
+  "n_prepend_steps": 192861,
+  "metforcing_len": 245469,
+  "record_rows": 52608,
+  "status": "BLOCKED"
+ },
+ "FR-Capitole": {
+  "bias_spin_Wm2": null,
+  "dtsa_spin_K": null,
+  "n_prepend_steps": 177697,
+  "metforcing_len": 195697,
+  "record_rows": 18000,
+  "status": "BLOCKED"
+ },
+ "GR-HECKOR": {
+  "bias_spin_Wm2": null,
+  "dtsa_spin_K": null,
+  "n_prepend_steps": 183980,
+  "metforcing_len": 201549,
+  "record_rows": 17569,
+  "status": "BLOCKED"
+ },
+ "JP-Yoyogi": {
+  "bias_spin_Wm2": null,
+  "dtsa_spin_K": null,
+  "n_prepend_steps": 54760,
+  "metforcing_len": 124887,
+  "record_rows": 70127,
+  "status": "BLOCKED"
+ },
+ "KR-Jungnang": {
+  "bias_spin_Wm2": null,
+  "dtsa_spin_K": null,
+  "n_prepend_steps": 176480,
+  "metforcing_len": 216062,
+  "record_rows": 39582,
+  "status": "BLOCKED"
+ },
+ "KR-Ochang": {
+  "bias_spin_Wm2": null,
+  "dtsa_spin_K": null,
+  "n_prepend_steps": 182862,
+  "metforcing_len": 220273,
+  "record_rows": 37411,
+  "status": "BLOCKED"
+ },
+ "MX-Escandon": {
+  "bias_spin_Wm2": null,
+  "dtsa_spin_K": null,
+  "n_prepend_steps": 182578,
+  "metforcing_len": 205133,
+  "record_rows": 22555,
+  "status": "BLOCKED"
+ },
+ "NL-Amsterdam": {
+  "bias_spin_Wm2": null,
+  "dtsa_spin_K": null,
+  "n_prepend_steps": 175296,
+  "metforcing_len": 206565,
+  "record_rows": 31269,
+  "status": "BLOCKED"
+ },
+ "PL-Lipowa": {
+  "bias_spin_Wm2": null,
+  "dtsa_spin_K": null,
+  "n_prepend_steps": 43801,
+  "metforcing_len": 131496,
+  "record_rows": 87695,
+  "status": "BLOCKED"
+ },
+ "PL-Narutowicza": {
+  "bias_spin_Wm2": null,
+  "dtsa_spin_K": null,
+  "n_prepend_steps": 43801,
+  "metforcing_len": 131496,
+  "record_rows": 87695,
+  "status": "BLOCKED"
+ },
+ "SG-TelokKurau06": {
+  "bias_spin_Wm2": null,
+  "dtsa_spin_K": null,
+  "n_prepend_steps": 181089,
+  "metforcing_len": 197169,
+  "record_rows": 16080,
+  "status": "BLOCKED"
+ },
+ "UK-KingsCollege": {
+  "bias_spin_Wm2": null,
+  "dtsa_spin_K": null,
+  "n_prepend_steps": 179808,
+  "metforcing_len": 210385,
+  "record_rows": 30577,
+  "status": "BLOCKED"
+ },
+ "UK-Swindon": {
+  "bias_spin_Wm2": null,
+  "dtsa_spin_K": null,
+  "n_prepend_steps": 181574,
+  "metforcing_len": 215879,
+  "record_rows": 34305,
+  "status": "BLOCKED"
+ },
+ "US-Baltimore": {
+  "bias_spin_Wm2": null,
+  "dtsa_spin_K": null,
+  "n_prepend_steps": 43854,
+  "metforcing_len": 131501,
+  "record_rows": 87647,
+  "status": "BLOCKED"
+ },
+ "US-Minneapolis1": {
+  "bias_spin_Wm2": null,
+  "dtsa_spin_K": null,
+  "n_prepend_steps": 182628,
+  "metforcing_len": 235083,
+  "record_rows": 52455,
+  "status": "BLOCKED"
+ },
+ "US-Minneapolis2": {
+  "bias_spin_Wm2": null,
+  "dtsa_spin_K": null,
+  "n_prepend_steps": 182628,
+  "metforcing_len": 235083,
+  "record_rows": 52455,
+  "status": "BLOCKED"
+ },
+ "US-WestPhoenix": {
+  "bias_spin_Wm2": null,
+  "dtsa_spin_K": null,
+  "n_prepend_steps": 192085,
+  "metforcing_len": 210398,
+  "record_rows": 18313,
+  "status": "BLOCKED"
+ }
+}

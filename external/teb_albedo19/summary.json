@@ -1,0 +1,167 @@
+{
+ "_meta": {
+  "campaign": "A_albedo19",
+  "status": "BLOCKED_NO_RUNTIME",
+  "reason": "TEB driver not executed: no WSL distro registered (WSL_E_DISTRO_NOT_FOUND; distro that held build/driver ELF & worked 2026-08-29 is gone, no ext4.vhdx to re-import); external/teb/build/driver is a Linux x86-64 ELF (unrunnable on host); no Fortran compiler/cmake on host; Docker/podman absent; shell non-elevated (cannot choco install). No run performed; no bias/dtsa fabricated.",
+  "albedo_params_to_set": [
+   "ZALB_ROOF",
+   "ZALB_ROAD",
+   "ZALB_WALL"
+  ],
+  "recipe": "clone external/teb_runs/<SITE>; set ZALB_ROOF/ZALB_ROAD/ZALB_WALL = albedo_to_set; all else identical; run build/driver; save output/LWU.txt->external/teb_albedo19/<SITE>/LWU_alb.txt",
+  "n_sites_ok": 0,
+  "n_sites_blocked": 19
+ },
+ "AU-Preston": {
+  "bias_alb_Wm2": null,
+  "dtsa_alb_K": null,
+  "status": "BLOCKED",
+  "albedo_to_set": 0.151,
+  "model_native_albedo": 0.2616,
+  "log": null
+ },
+ "CA-Sunset": {
+  "bias_alb_Wm2": null,
+  "dtsa_alb_K": null,
+  "status": "BLOCKED",
+  "albedo_to_set": 0.107,
+  "model_native_albedo": 0.2026,
+  "log": null
+ },
+ "FI-Kumpula": {
+  "bias_alb_Wm2": null,
+  "dtsa_alb_K": null,
+  "status": "BLOCKED",
+  "albedo_to_set": 0.142,
+  "model_native_albedo": 0.1899,
+  "log": null
+ },
+ "FI-Torni": {
+  "bias_alb_Wm2": null,
+  "dtsa_alb_K": null,
+  "status": "BLOCKED",
+  "albedo_to_set": 0.11,
+  "model_native_albedo": 0.2086,
+  "log": null
+ },
+ "FR-Capitole": {
+  "bias_alb_Wm2": null,
+  "dtsa_alb_K": null,
+  "status": "BLOCKED",
+  "albedo_to_set": 0.127,
+  "model_native_albedo": 0.2794,
+  "log": null
+ },
+ "GR-HECKOR": {
+  "bias_alb_Wm2": null,
+  "dtsa_alb_K": null,
+  "status": "BLOCKED",
+  "albedo_to_set": 0.202,
+  "model_native_albedo": 0.2563,
+  "log": null
+ },
+ "JP-Yoyogi": {
+  "bias_alb_Wm2": null,
+  "dtsa_alb_K": null,
+  "status": "BLOCKED",
+  "albedo_to_set": 0.133,
+  "model_native_albedo": 0.2171,
+  "log": null
+ },
+ "KR-Jungnang": {
+  "bias_alb_Wm2": null,
+  "dtsa_alb_K": null,
+  "status": "BLOCKED",
+  "albedo_to_set": 0.12,
+  "model_native_albedo": 0.2707,
+  "log": null
+ },
+ "KR-Ochang": {
+  "bias_alb_Wm2": null,
+  "dtsa_alb_K": null,
+  "status": "BLOCKED",
+  "albedo_to_set": 0.166,
+  "model_native_albedo": 0.1821,
+  "log": null
+ },
+ "NL-Amsterdam": {
+  "bias_alb_Wm2": null,
+  "dtsa_alb_K": null,
+  "status": "BLOCKED",
+  "albedo_to_set": 0.096,
+  "model_native_albedo": 0.2361,
+  "log": null
+ },
+ "PL-Lipowa": {
+  "bias_alb_Wm2": null,
+  "dtsa_alb_K": null,
+  "status": "BLOCKED",
+  "albedo_to_set": 0.085,
+  "model_native_albedo": 0.2069,
+  "log": null
+ },
+ "PL-Narutowicza": {
+  "bias_alb_Wm2": null,
+  "dtsa_alb_K": null,
+  "status": "BLOCKED",
+  "albedo_to_set": 0.087,
+  "model_native_albedo": 0.195,
+  "log": null
+ },
+ "SG-TelokKurau06": {
+  "bias_alb_Wm2": null,
+  "dtsa_alb_K": null,
+  "status": "BLOCKED",
+  "albedo_to_set": 0.168,
+  "model_native_albedo": 0.2224,
+  "log": null
+ },
+ "UK-KingsCollege": {
+  "bias_alb_Wm2": null,
+  "dtsa_alb_K": null,
+  "status": "BLOCKED",
+  "albedo_to_set": 0.109,
+  "model_native_albedo": 0.2145,
+  "log": null
+ },
+ "UK-Swindon": {
+  "bias_alb_Wm2": null,
+  "dtsa_alb_K": null,
+  "status": "BLOCKED",
+  "albedo_to_set": 0.139,
+  "model_native_albedo": 0.1937,
+  "log": null
+ },
+ "US-Baltimore": {
+  "bias_alb_Wm2": null,
+  "dtsa_alb_K": null,
+  "status": "BLOCKED",
+  "albedo_to_set": 0.122,
+  "model_native_albedo": 0.2293,
+  "log": null
+ },
+ "US-Minneapolis1": {
+  "bias_alb_Wm2": null,
+  "dtsa_alb_K": null,
+  "status": "BLOCKED",
+  "albedo_to_set": 0.213,
+  "model_native_albedo": 0.2395,
+  "log": null
+ },
+ "US-Minneapolis2": {
+  "bias_alb_Wm2": null,
+  "dtsa_alb_K": null,
+  "status": "BLOCKED",
+  "albedo_to_set": 0.213,
+  "model_native_albedo": 0.2347,
+  "log": null
+ },
+ "US-WestPhoenix": {
+  "bias_alb_Wm2": null,
+  "dtsa_alb_K": null,
+  "status": "BLOCKED",
+  "albedo_to_set": 0.172,
+  "model_native_albedo": 0.2145,
+  "log": null
+ }
+}

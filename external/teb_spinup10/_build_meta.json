@@ -1,0 +1,78 @@
+{
+ "AU-Preston": {
+  "full_len": 208779,
+  "n_prepend": 186007
+ },
+ "CA-Sunset": {
+  "full_len": 262992,
+  "n_prepend": 175296
+ },
+ "FI-Kumpula": {
+  "full_len": 245469,
+  "n_prepend": 192861
+ },
+ "FI-Torni": {
+  "full_len": 245469,
+  "n_prepend": 192861
+ },
+ "FR-Capitole": {
+  "full_len": 195697,
+  "n_prepend": 177697
+ },
+ "GR-HECKOR": {
+  "full_len": 201549,
+  "n_prepend": 183980
+ },
+ "JP-Yoyogi": {
+  "full_len": 124887,
+  "n_prepend": 54760
+ },
+ "KR-Jungnang": {
+  "full_len": 216062,
+  "n_prepend": 176480
+ },
+ "KR-Ochang": {
+  "full_len": 220273,
+  "n_prepend": 182862
+ },
+ "NL-Amsterdam": {
+  "full_len": 206565,
+  "n_prepend": 175296
+ },
+ "PL-Lipowa": {
+  "full_len": 131496,
+  "n_prepend": 43801
+ },
+ "PL-Narutowicza": {
+  "full_len": 131496,
+  "n_prepend": 43801
+ },
+ "SG-TelokKurau06": {
+  "full_len": 197169,
+  "n_prepend": 181089
+ },
+ "UK-KingsCollege": {
+  "full_len": 210385,
+  "n_prepend": 179808
+ },
+ "UK-Swindon": {
+  "full_len": 215879,
+  "n_prepend": 181574
+ },
+ "US-Baltimore": {
+  "full_len": 131501,
+  "n_prepend": 43854
+ },
+ "US-Minneapolis1": {
+  "full_len": 235083,
+  "n_prepend": 182628
+ },
+ "US-Minneapolis2": {
+  "full_len": 235083,
+  "n_prepend": 182628
+ },
+ "US-WestPhoenix": {
+  "full_len": 210398,
+  "n_prepend": 192085
+ }
+}
